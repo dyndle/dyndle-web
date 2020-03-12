@@ -1,0 +1,56 @@
+﻿@using Trivident.Modules.Feedback.Html
+@model ContactFormViewModel
+
+<div class="contact-form">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="row">
+                        @Html.ValidationSummary()
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+
+                            @Html.TextBoxFor(m => m.Name, new {placeholder = Html.GetLabel(FeedbackConstants.Labels.Name)})
+                            <label for="@Html.IdFor(m => m.Name)">@Html.GetLabel(FeedbackConstants.Labels.Name)*</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            @Html.TextBoxFor(m => m.Email, new {placeholder = Html.GetLabel(FeedbackConstants.Labels.Email)})
+                            <label for="@Html.IdFor(m => m.Email)">@Html.GetLabel(FeedbackConstants.Labels.Email)*</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12">
+                            @Html.DropDownListFor(m => m.Subject, Html.CreateSelectList(Model.Subjects, Html.GetLabel(FeedbackConstants.Labels.Reason)))
+                            <label for="@Html.IdFor(m => m.Subject)">@Html.GetLabel(FeedbackConstants.Labels.Subject)*</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            @Html.TextAreaFor(m => m.Message, new { rows = "6", placeholder = @Html.GetLabel(FeedbackConstants.Labels.Message) })
+                        </div>
+                    </div>
+                    <div class="row checkbox-input">
+                        <div class="col-xs-12">
+                            <input id="@Html.IdFor(m => m.AcceptTermsConditions)" name="@Html.NameFor(m => m.AcceptTermsConditions)" type="checkbox" value="true" @(Model.AcceptTermsConditions ? "checked" : "")>
+                            <label for="@Html.IdFor(m => m.AcceptTermsConditions)">@Html.Raw(Html.GetLabel(FeedbackConstants.Labels.TermsConditions))*</label>
+                            <input name="@Html.NameFor(m => m.AcceptTermsConditions)" type="hidden" value="false">
+
+                            @*<input id="@Html.IdFor(m => m.NewsletterOptIn)" name="@Html.NameFor(m => m.NewsletterOptIn)" type="checkbox" value="true" @(Model.NewsletterOptIn ? "checked" : "")>
+                            <label for="@Html.IdFor(m => m.NewsletterOptIn)">@Html.GetLabel(FeedbackConstants.Labels.SignedUpNewsletter)</label>
+                            <input name="@Html.NameFor(m => m.NewsletterOptIn)" type="hidden" value="false">*@
+                        </div>
+                    </div>
+                    <div class="contact-form__actions">
+                        <button type="submit" class="btn btn-pink-outline">@Html.GetLabel(FeedbackConstants.Labels.Send)</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

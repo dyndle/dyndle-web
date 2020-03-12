@@ -1,0 +1,29 @@
+﻿@model CacheItem
+
+<h1>Cached item</h1>
+<table class="pure-table pure-table-horizontal">
+    <tr>
+        <th>Property</th>
+        <th>Value</th>
+    </tr>
+    <tr>
+        <td>Cache Key</td>
+        <td>@Model.Key</td>
+    </tr>
+    <tr>
+        <td>Type</td>
+        <td>@Model.Value.GetType().FullName</td>
+    </tr>
+    @if (Model.Value.GetType().IsGenericType)
+    {
+        Type type = Model.Value.GetType().GetGenericArguments()[0];
+        var templateName = "ListOf" + type.Name;
+        @Html.DisplayFor(m => m.Value, templateName, new { isDependencyList = Model.Key.StartsWith("Dependencies:") })
+    }
+    else
+    {
+        @Html.DisplayFor(m => m.Value)
+    }
+</table>
+<br/><br/>
+Click <a href="/admin/cache">here</a> to return to the cache list.

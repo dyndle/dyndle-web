@@ -1,0 +1,120 @@
+<xsd:schema elementFormDefault="qualified" targetNamespace="uuid:c18dc7f4-04f3-42fe-a371-f3f6e6877e5c" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="uuid:c18dc7f4-04f3-42fe-a371-f3f6e6877e5c" xmlns:tcmi="http://www.tridion.com/ContentManager/5.0/Instance">
+  <xsd:import namespace="http://www.tridion.com/ContentManager/5.0/Instance" schemaLocation="cm_xml_inst.xsd"></xsd:import>
+  <xsd:annotation>
+    <xsd:appinfo>
+      <tcm:Labels xmlns:tcm="http://www.tridion.com/ContentManager/5.0">
+        <tcm:Label ElementName="area" Metadata="true">Area Name (if different to default: Core)</tcm:Label>
+        <tcm:Label ElementName="controller" Metadata="true">Controller Name (If different to default: Entity)</tcm:Label>
+        <tcm:Label ElementName="action" Metadata="true">Controller Action Name (If different to default: Entity)</tcm:Label>
+        <tcm:Label ElementName="view" Metadata="true">Entity View Name - in the format ModuleName:ViewName - for Core views the prefix can be omitted</tcm:Label>
+        <tcm:Label ElementName="entityGridSize" Metadata="true">Grid size of entity (default size is 12)</tcm:Label>
+        <tcm:Label ElementName="routeValues" Metadata="true">Route Values (comma separated list of name:value pairs)</tcm:Label>
+        <tcm:Label ElementName="regionName" Metadata="true">Region Name</tcm:Label>
+        <tcm:Label ElementName="regionViewName" Metadata="true">Region View Name (If different to default: Region)</tcm:Label>
+        <tcm:Label ElementName="regionGridSize" Metadata="true">Grid size for the region (default max size is 12)</tcm:Label>
+        <tcm:Label ElementName="regionRouteValues" Metadata="true">Region RouteValues (comma separated list of name:value pairs)</tcm:Label>
+        <tcm:Label ElementName="viewModelKey" Metadata="true">ViewModelKeys (only used for Templates that are defined in a Module)</tcm:Label>
+        <tcm:Label ElementName="NoIndex" Metadata="true">Suppress Content From Search Index</tcm:Label>
+      </tcm:Labels>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:element name="Metadata">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="area" minOccurs="0" maxOccurs="1" type="xsd:normalizedString">
+          <xsd:annotation>
+            <xsd:appinfo>
+              <ExtensionXml xmlns="http://www.tridion.com/ContentManager/5.0"></ExtensionXml>
+            </xsd:appinfo>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="controller" minOccurs="0" maxOccurs="1" type="xsd:normalizedString">
+          <xsd:annotation>
+            <xsd:appinfo>
+              <ExtensionXml xmlns="http://www.tridion.com/ContentManager/5.0"></ExtensionXml>
+            </xsd:appinfo>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="action" minOccurs="0" maxOccurs="1" type="xsd:normalizedString">
+          <xsd:annotation>
+            <xsd:appinfo>
+              <ExtensionXml xmlns="http://www.tridion.com/ContentManager/5.0"></ExtensionXml>
+            </xsd:appinfo>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="view" minOccurs="1" maxOccurs="1" type="xsd:normalizedString">
+          <xsd:annotation>
+            <xsd:appinfo>
+              <ExtensionXml xmlns="http://www.tridion.com/ContentManager/5.0"></ExtensionXml>
+            </xsd:appinfo>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="entityGridSize" minOccurs="1" maxOccurs="1" type="xsd:decimal">
+          <xsd:annotation>
+            <xsd:appinfo>
+              <ExtensionXml xmlns="http://www.tridion.com/ContentManager/5.0"></ExtensionXml>
+              <tcm:DefaultNumericValue xmlns:tcm="http://www.tridion.com/ContentManager/5.0">12</tcm:DefaultNumericValue>
+            </xsd:appinfo>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="routeValues" minOccurs="0" maxOccurs="1" type="xsd:normalizedString">
+          <xsd:annotation>
+            <xsd:appinfo>
+              <ExtensionXml xmlns="http://www.tridion.com/ContentManager/5.0"></ExtensionXml>
+            </xsd:appinfo>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="regionName" minOccurs="0" maxOccurs="1" type="xsd:normalizedString">
+          <xsd:annotation>
+            <xsd:appinfo>
+              <ExtensionXml xmlns="http://www.tridion.com/ContentManager/5.0"></ExtensionXml>
+            </xsd:appinfo>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="regionViewName" minOccurs="0" maxOccurs="1" type="xsd:normalizedString">
+          <xsd:annotation>
+            <xsd:appinfo>
+              <ExtensionXml xmlns="http://www.tridion.com/ContentManager/5.0"></ExtensionXml>
+            </xsd:appinfo>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="regionGridSize" minOccurs="1" maxOccurs="1" type="xsd:decimal">
+          <xsd:annotation>
+            <xsd:appinfo>
+              <ExtensionXml xmlns="http://www.tridion.com/ContentManager/5.0"></ExtensionXml>
+              <tcm:DefaultNumericValue xmlns:tcm="http://www.tridion.com/ContentManager/5.0">12</tcm:DefaultNumericValue>
+            </xsd:appinfo>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="regionRouteValues" minOccurs="0" maxOccurs="1" type="xsd:normalizedString">
+          <xsd:annotation>
+            <xsd:appinfo>
+              <ExtensionXml xmlns="http://www.tridion.com/ContentManager/5.0"></ExtensionXml>
+            </xsd:appinfo>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="viewModelKey" minOccurs="0" maxOccurs="1" type="xsd:normalizedString">
+          <xsd:annotation>
+            <xsd:appinfo>
+              <ExtensionXml xmlns="http://www.tridion.com/ContentManager/5.0"></ExtensionXml>
+            </xsd:appinfo>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="NoIndex" minOccurs="0" maxOccurs="unbounded">
+          <xsd:annotation>
+            <xsd:appinfo>
+              <ExtensionXml xmlns="http://www.tridion.com/ContentManager/5.0"></ExtensionXml>
+              <tcm:Size xmlns:tcm="http://www.tridion.com/ContentManager/5.0">1</tcm:Size>
+              <tcm:listtype xmlns:tcm="http://www.tridion.com/ContentManager/5.0">checkbox</tcm:listtype>
+            </xsd:appinfo>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:normalizedString">
+              <xsd:enumeration value="Yes"></xsd:enumeration>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget Packages", "Nuget Packages", "{195BAA27-D88D-48E3-97B5-5BD78CF432E6}"
+	ProjectSection(SolutionItems) = preProject
+		_NuGet\Nuget.Proj = _NuGet\Nuget.Proj
+		_tools\NuGet.targets = _tools\NuGet.targets
+		_NuGet\Trivident.Modules.ComplexTables\Trivident.Modules.ComplexTables.nuspec = _NuGet\Trivident.Modules.ComplexTables\Trivident.Modules.ComplexTables.nuspec
+		_NuGet\Trivident.Modules.Core\Trivident.Modules.Core.nuspec = _NuGet\Trivident.Modules.Core\Trivident.Modules.Core.nuspec
+		_NuGet\Trivident.Modules.Email\Trivident.Modules.Email.nuspec = _NuGet\Trivident.Modules.Email\Trivident.Modules.Email.nuspec
+		_NuGet\Trivident.Modules.Feedback\Trivident.Modules.Feedback.nuspec = _NuGet\Trivident.Modules.Feedback\Trivident.Modules.Feedback.nuspec
+		_NuGet\Trivident.Modules.Logging.Enterprise\Trivident.Modules.Logging.Enterprise.nuspec = _NuGet\Trivident.Modules.Logging.Enterprise\Trivident.Modules.Logging.Enterprise.nuspec
+		_NuGet\Trivident.Modules.Logging\Trivident.Modules.Logging.nuspec = _NuGet\Trivident.Modules.Logging\Trivident.Modules.Logging.nuspec
+		_NuGet\Trivident.Modules.Navigation\Trivident.Modules.Navigation.nuspec = _NuGet\Trivident.Modules.Navigation\Trivident.Modules.Navigation.nuspec
+		_NuGet\Trivident.Modules.Personalization\Trivident.Modules.Personalization.nuspec = _NuGet\Trivident.Modules.Personalization\Trivident.Modules.Personalization.nuspec
+		_NuGet\Trivident.Modules.Search\Trivident.Modules.Search.nuspec = _NuGet\Trivident.Modules.Search\Trivident.Modules.Search.nuspec
+		_NuGet\Trivident.DI.SimpleInjector\Trivident.DI.SimpleInjector.nuspec = _NuGet\Trivident.DI.SimpleInjector\Trivident.DI.SimpleInjector.nuspec
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trivident.Modules.ImageEnhancement", "Trivident.Modules.ImageEnhancement\Trivident.Modules.ImageEnhancement.csproj", "{87E45C2B-1942-46EF-871D-C96CCEDDC052}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trivident.Modules.Core", "Trivident.Modules.Core\Trivident.Modules.Core.csproj", "{FEDD3081-1BA3-45B6-9AD3-9F19F90EEA15}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87E45C2B-1942-46EF-871D-C96CCEDDC052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87E45C2B-1942-46EF-871D-C96CCEDDC052}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87E45C2B-1942-46EF-871D-C96CCEDDC052}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87E45C2B-1942-46EF-871D-C96CCEDDC052}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3D50A23-64C2-42C6-9EA6-A6B48D20C2F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3D50A23-64C2-42C6-9EA6-A6B48D20C2F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3D50A23-64C2-42C6-9EA6-A6B48D20C2F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3D50A23-64C2-42C6-9EA6-A6B48D20C2F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60D14929-E5A7-4E04-88E7-A84A9CC3B48F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60D14929-E5A7-4E04-88E7-A84A9CC3B48F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60D14929-E5A7-4E04-88E7-A84A9CC3B48F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60D14929-E5A7-4E04-88E7-A84A9CC3B48F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEDD3081-1BA3-45B6-9AD3-9F19F90EEA15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEDD3081-1BA3-45B6-9AD3-9F19F90EEA15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEDD3081-1BA3-45B6-9AD3-9F19F90EEA15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEDD3081-1BA3-45B6-9AD3-9F19F90EEA15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01FA4E6E-158B-4660-B87E-CC374091D0B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01FA4E6E-158B-4660-B87E-CC374091D0B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01FA4E6E-158B-4660-B87E-CC374091D0B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01FA4E6E-158B-4660-B87E-CC374091D0B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13C067E5-0AFF-48FD-B93D-999712BF4E10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13C067E5-0AFF-48FD-B93D-999712BF4E10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13C067E5-0AFF-48FD-B93D-999712BF4E10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13C067E5-0AFF-48FD-B93D-999712BF4E10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C050676D-A2FF-4700-BDFF-F21413C51E5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C050676D-A2FF-4700-BDFF-F21413C51E5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C050676D-A2FF-4700-BDFF-F21413C51E5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C050676D-A2FF-4700-BDFF-F21413C51E5D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.ExceptionHandling.6.0.1304.0\lib\NET45
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Trivident.Modules.SDLWeb85</id>
+    <!-- Version is set by Build.proj -->
+    <version>1.4.8.0-alpha-20191212080633</version>
+    <!-- NOTE: Visual Studio's NuGet UI only shows 'id' and 'description' -->
+    <title>Trivident.Modules.SDLWeb85</title>
+    <authors>Trivident</authors>
+    <iconUrl>http://www.trivident.com/dd4t-modules-logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Trivident.Modules.SDLWeb85</description>
+    <copyright>Copyright 2019 Trivident</copyright>
+    <tags>SDL DD4T Web8 Trivident</tags>
+    <references>
+      <reference file="Trivident.Modules.SDLWeb85.dll" />
+    </references>
+    <dependencies>
+      <dependency id="Trivident.Modules.Core" version="1.4.5"/>
+      <dependency id="Sdl.Web.Delivery" version="8.5.1041" />
+      <dependency id="Microsoft.Extensions.DependencyInjection" version="2.2.0"/>
+      <dependency id="Newtonsoft.Json" version="11.0.2" />
+      <dependency id="WebActivatorEx" version="2.0.3" />
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- NOTE: we're excluding CIL assemblies to prevent licensing issues (CIL has a custom license; not Apache 2.0) -->
+    <file src="..\..\Trivident.Modules.SDLWeb85\bin\Trivident.Modules.SDLWeb85.dll" target="lib\net462" />
+    <file src="..\..\Trivident.Modules.SDLWeb85\bin\Trivident.Modules.SDLWeb85.pdb" target="lib\net462" />
+  </files>
+</package>

@@ -1,0 +1,19 @@
+﻿@model List<string>
+<tr>
+    <td>Value</td>
+    <td>
+        <ul>
+            @foreach (var v in Model)
+            {
+                if ((bool)ViewData["isDependencyList"])
+                {
+                    <li><a href="/admin/cache/item/@v.Base64Encode()">@v</a></li>
+                }
+                else
+                {
+                    <li>@v</li>
+                }
+            }
+        </ul>
+    </td>
+</tr>

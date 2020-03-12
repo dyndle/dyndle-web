@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Import Project="$(MSBuildProjectDirectory)\..\..\build-tools\MSBuild.Extension.Pack.1.9.1\build\net40\MSBuild.Extension.Pack.targets"/>
+  <Import Project="$(MSBuildProjectDirectory)\..\..\build-tools\MSBuildTasks.1.5.0.235\tools\MSBuild.Community.Tasks.Targets"/>
+
+
+  <PropertyGroup>
+    
+    <!-- CHANGE THE NUGET PACKAGE VERSION HERE! -->
+    <Version>1.4.8.0</Version>
+
+    <AssemblyCopyright>Copyright &#169; 2019 Trivident B.V.</AssemblyCopyright>
+
+    <!-- Localbuild is always prerelease -->
+    <IsPreRelease>true</IsPreRelease>
+    <IsLocal>true</IsLocal>
+
+    <!-- Only Master is allowed as final release -->
+    <IsPreRelease Condition="'$(Branch)' == 'master'">false</IsPreRelease>
+    <IsLocal Condition="'$(Branch)' != ''">false</IsLocal>
+
+    <VersionMajor>$(Version.Split('.')[0])</VersionMajor>
+    <VersionMinor>$(Version.Split('.')[1])</VersionMinor>
+    <VersionPatch>$(Version.Split('.')[2])</VersionPatch>
+    <VersionBuild>$(Version.Split('.')[3])</VersionBuild>
+    <PreReleaseLabel Condition="'$(IsPreRelease)' == 'true'">-alpha-$([System.DateTime]::Now.ToString("yyyyMMddHHmmss"))</PreReleaseLabel>
+    <PackageVersion Condition="'$(IsPreRelease)' == 'true'">$(VersionMajor).$(VersionMinor).$(VersionPatch).$(VersionBuild)$(PreReleaseLabel)</PackageVersion>
+    <PackageVersion Condition="'$(IsPreRelease)' == 'false'">$(Version)</PackageVersion>
+
+    
+    <ProjectDirectory>$(MSBuildProjectDirectory)</ProjectDirectory>
+    <NuGetRepositoryUrl>http://trivident-nuget-server.azurewebsites.net/nuget</NuGetRepositoryUrl>
+    <NuGetAPIKey>b2d67bbc-4386-45e7-a362-e9b82b89f08c</NuGetAPIKey>
+    <NuGet>"$(ProjectDirectory)\..\_tools\NuGet.exe"</NuGet>
+    <NuGetPackageDirectory>$(ProjectDirectory)\..\_NuGet</NuGetPackageDirectory>
+    <DxaFrameworkPackageDirectory>$(NuGetPackageDirectory)\$(RootNamespace)</DxaFrameworkPackageDirectory>
+
+    <!--Tools-->
+    <MsBuildExe>C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe</MsBuildExe>
+    <MsTestExe>C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\MSTest.exe</MsTestExe>
+  </PropertyGroup>
+
+  <!-- =============================================================================================================================================  -->
+  <Target Name="BeforeBuild">
+
+    <Message Text="Branch = '$(Branch)'" Importance="high" />
+    <Message Text="Version = '$(Version)'" Importance="high" />
+    <Message Text="VersionMajor = '$(VersionMajor)'" Importance="high" />
+    <Message Text="PreRelease = '$(IsPreRelease)'" Importance="high" />
+    <Message Text="PreReleaseLabel = '$(PreReleaseLabel)'" Importance="high" />
+    <Message Text="Package Version = '$(PackageVersion)'" Importance="high" />
+    <Message Text="IsLocal = '$(IsLocal)'" Importance="high" />
+    <Message Text="MSBuildProjectDirectory = '$(MSBuildProjectDirectory)'" Importance="high" />
+
+    <CallTarget Targets="UpdateAssemblyInfo" />
+    <CallTarget Targets="UpdateNuspec" />
+  </Target>
+
+  <Target Name="UpdateAssemblyInfo">
+    <ItemGroup>
+      <AssemblyInfoFiles Include="$(MSBuildProjectDirectory)\**\*assemblyinfo.cs" />
+    </ItemGroup>
+    <Message Text="Updating AssemblyInfo to Version $(Version)" Importance="high"/>
+    <Message Text="Writing to AssemblyInfo files in $(MSBuildProjectDirectory)" Importance="high"/>
+    <Message Text="AssemblyInfo files: @(AssemblyInfoFiles)" Importance="high"/>
+    <Message Text="AssemblyCopyright: $(AssemblyCopyright)" Importance="high"/>
+    <MSBuild.ExtensionPack.Framework.AssemblyInfo AssemblyInfoFiles="@(AssemblyInfoFiles)"
+    AssemblyCopyright="$(AssemblyCopyright)"
+    AssemblyVersion="$(Version)" />
+  </Target>
+
+  <Target Name="UpdateNuspec" Condition="'$(IsLocal)' == 'false' Or '$(Configuration)' == 'Package'">
+    <Message Text="Package Version: $(PackageVersion)" Importance="high" />
+    <Message Text="RootNamespace: $(RootNamespace)" Importance="high" />
+    <Message Text="DxaFrameworkPackageDirectory: $(DxaFrameworkPackageDirectory)" Importance="high" />
+
+    <FileUpdate Files="$(DxaFrameworkPackageDirectory)\\$(RootNamespace).nuspec"
+            Regex="&lt;version&gt;[^&lt;]+"
+            ReplacementText="&lt;version&gt;$(PackageVersion)" />
+  </Target>
+
+  <Target Name="AfterBuild">
+    <Message Text="About to create packages" Importance="high" />
+    <Message Text="NuGetRepositoryUrl = $(NuGetRepositoryUrl)" Importance="high" />
+    <CallTarget Targets="CreatePackages" Condition="'$(NuGetRepositoryUrl)' != ''" />
+    <!--<CallTarget Targets="PublishPackages" Condition="'$(IsPreRelease)' == 'true'" />-->
+    <CallTarget Targets="CopyLocalFiles" Condition="'$(IsPreRelease)' == 'true'" />
+  </Target>
+
+  <!-- =============================================================================================================================================  -->
+  <!--<Target Name="UpdatePackageRefs">
+        <Message Text="Updating NuGet Package References..." Importance="high" />
+        <Exec Command="&quot;$(MSBuildProjectDirectory)\..\_tools\NuGet.exe&quot; update &quot;$(MSBuildProjectDirectory)\$(RootNamespace).csproj&quot; -Safe" />
+    </Target>-->
+  <!-- =============================================================================================================================================  -->
+  <Target Name="CreatePackages" Condition="'$(Configuration)' == 'Package'">
+    <Message Text="Creating NuGet packages in '$(NuGetPackageDirectory)' ..." Importance="high" />
+    <Exec Command="$(NuGet) pack $(RootNamespace).nuspec -Version $(PackageVersion)" WorkingDirectory="$(DxaFrameworkPackageDirectory)" />
+  </Target>
+  <!-- =============================================================================================================================================  -->
+  <!--<Target Name="PublishPackages">
+        <Message Text="Publishing NuGet packages to '$(NuGetRepositoryUrl)' ..." Importance="high" />
+        <Exec Command="$(NuGet) push $(RootNamespace).$(PackageVersion).nupkg $(NuGetAPIKey) -Source $(NuGetRepositoryUrl)" WorkingDirectory="$(DxaFrameworkPackageDirectory)" />
+    </Target>-->
+
+  <Target Name="CopyLocalFiles" Condition="'$(IsLocal)' == 'true'">
+    <Message Text="About to copy dll's to web project" Importance="high" />
+    <CreateItem Include="$(ProjectDirectory)\bin\$(RootNamespace).*">
+      <Output TaskParameter="Include" ItemName="FilesToCopy"/>
+    </CreateItem>
+  </Target>
+</Project>
