@@ -1,0 +1,108 @@
+﻿@model EmailPage
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+    <style type="text/css">
+        @@media screen and (max-width: 480px) {
+            *[class=smallText] {
+                line-height: 16px !important;
+            }
+
+            td[class=pullcenter] {
+                text-align: center !important;
+            }
+
+            *[class=emailwrapto100pc] {
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+            }
+
+            *[class=emailwrapto94pc] {
+                width: 94% !important;
+                max-width: 560px !important;
+                height: auto !important;
+            }
+
+            *[class=emailwrapto95pc] {
+                width: 95% !important;
+                max-width: 560px !important;
+                height: auto !important;
+            }
+
+            *[class=emailSeparatorto100pc] {
+                width: 100% !important;
+            }
+
+            .applelinks a {
+                color: #09118a !important;
+                text-decoration: none !important;
+            }
+
+            span[class=applelinks] {
+                color: #09118a !important;
+                text-decoration: none !important;
+            }
+
+            .footer-applelinks a {
+                color: #09118a !important;
+                text-decoration: none !important;
+            }
+
+            span[class=footer-applelinks] {
+                color: #09118a !important;
+                text-decoration: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body style="padding:0;margin:0;" bgcolor="#faf5f8">
+    <div style="display:none;font-size:1px;color:#e32894;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">
+        Insert preview text here min 90 char.
+    </div>
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#faf5f8">
+        <tr>
+            <td align="center" valign="top">
+                <table cellpadding="0" cellspacing="0" border="0" align="center" width="600" bgcolor="#faf5f8" style="width:600px;max-width:600px;overflow:hidden;" class="emailwrapto100pc">
+
+                    @Html.RenderEntities(Model.Header)
+
+                    <tr>
+                        <td align="center" valign="top">
+                            <table cellpadding="0" cellspacing="0" border="0" align="center" width="600" style="width:600px;max-width:600px;overflow:hidden;" class="emailwrapto94pc">
+                                <tr>
+                                    <td width="600" align="center" valign="top" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;margin:0; padding:0;">
+                                        @Html.RenderEntities(Model.Detail)
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td width="600" align="center" valign="top" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;margin:0; padding:0;">
+                                        <table cellpadding="0" cellspacing="0" border="0" width="600" class="emailwrapto94pc" style="width:600px;">
+                                            <tr>
+                                                <td width="600" valign="top" align="center">
+                                                    @Html.RenderEntities(Model.Main)
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="600" valign="top" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;margin:0; padding:0;">
+                                        @Html.RenderEntities(Model.Footer)
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

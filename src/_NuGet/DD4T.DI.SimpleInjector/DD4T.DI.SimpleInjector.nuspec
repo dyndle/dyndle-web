@@ -1,0 +1,30 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>DD4T.DI.SimpleInjector</id>
+    <!-- Version is set by Build.proj -->
+    <version>1.4.8.0-alpha-20191212080632</version>
+    <!-- NOTE: Visual Studio's NuGet UI only shows 'id' and 'description' -->
+    <title>DD4T.DI.SimpleInjector</title>
+    <authors>Trivident</authors>
+    <iconUrl>http://www.trivident.com/dd4t-modules-logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>DD4T.DI.SimpleInjector</description>
+    <copyright>Copyright 2018 Trivident</copyright>
+    <tags>SDL DD4T Web8.5 DD4T DI SimpleInjector</tags>
+    <references>
+      <reference file="DD4T.DI.SimpleInjector.dll" />
+    </references>
+    <dependencies>
+      <!-- NOTE: We hardly use package dependencies, because we don't want direct references to transitive dependencies and the explicit reference above don't control those.-->
+      <dependency id="DD4T.Core" version="2.2.7" />
+      <dependency id="DD4T.MVC5" version="2.2.4" />
+      <dependency id="SimpleInjector.Integration.Web.Mvc" version="4.0.12" />
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- NOTE: we're excluding CIL assemblies to prevent licensing issues (CIL has a custom license; not Apache 2.0) -->
+    <file src="..\..\DD4T.DI.SimpleInjector\bin\DD4T.DI.SimpleInjector.dll" target="lib\net462" />
+    <file src="..\..\DD4T.DI.SimpleInjector\bin\DD4T.DI.SimpleInjector.pdb" target="lib\net462" />
+  </files>
+</package>

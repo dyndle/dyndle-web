@@ -1,0 +1,27 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Trivident.Modules.Navigation</id>
+    <!-- Version is set by Build.proj -->
+    <version>1.4.8.0-alpha-20191212080632</version>
+    <!-- NOTE: Visual Studio's NuGet UI only shows 'id' and 'description' -->
+    <title>Trivident.Modules.Navigation</title>
+    <authors>Trivident</authors>
+    <iconUrl>http://www.trivident.com/dd4t-modules-logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Trivident.Modules.Navigation</description>
+    <copyright>Copyright 2018 Trivident</copyright>
+    <tags>SDL DD4T Web8 Trivident</tags>
+    <references>
+      <reference file="Trivident.Modules.Navigation.dll" />
+    </references>
+    <dependencies>
+      <dependency id="Trivident.Modules.Core" version="1.4.0"/>
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- NOTE: we're excluding CIL assemblies to prevent licensing issues (CIL has a custom license; not Apache 2.0) -->
+    <file src="..\..\Trivident.Modules.Navigation\bin\Trivident.Modules.Navigation.dll" target="lib\net462" />
+    <file src="..\..\Trivident.Modules.Navigation\bin\Trivident.Modules.Navigation.pdb" target="lib\net462" />
+  </files>
+</package>
