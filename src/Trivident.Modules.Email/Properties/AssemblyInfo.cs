@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Trivident")]
 [assembly: AssemblyProduct("Trivident.Modules.Email")]
-[assembly: AssemblyCopyright("Copyright © 2019 Trivident B.V.")]
+[assembly: AssemblyCopyright("Copyright © 2020 Trivident B.V.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

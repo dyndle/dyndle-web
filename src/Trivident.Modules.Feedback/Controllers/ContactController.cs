@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Web.Mvc;
 using DD4T.ContentModel.Contracts.Logging;
+using Dyndle.Modules.Core.Controllers.Base;
+using Dyndle.Modules.Core.Extensions;
+using Dyndle.Modules.Core.Models;
+using Dyndle.Modules.Core.Providers.Content;
 using MediatR;
-using Trivident.Modules.Core.Controllers.Base;
-using Trivident.Modules.Core.Models;
-using Trivident.Modules.Core.Providers.Content;
 using Trivident.Modules.Feedback.Contracts;
 using Trivident.Modules.Feedback.Notifications;
 using Trivident.Modules.Feedback.ViewModels;

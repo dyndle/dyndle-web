@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
+using Dyndle.Modules.Core.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Trivident.Modules.Core.Configuration;
 using Trivident.Modules.Navigation.Binders;
 using Trivident.Modules.Navigation.Providers;
 

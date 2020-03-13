@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.705
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget Packages", "Nuget Packages", "{195BAA27-D88D-48E3-97B5-5BD78CF432E6}"
 	ProjectSection(SolutionItems) = preProject
@@ -10,14 +10,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget Packages", "Nuget Pac
 		_NuGet\Nuget.Proj = _NuGet\Nuget.Proj
 		_tools\NuGet.targets = _tools\NuGet.targets
 		_NuGet\Trivident.Modules.ComplexTables\Trivident.Modules.ComplexTables.nuspec = _NuGet\Trivident.Modules.ComplexTables\Trivident.Modules.ComplexTables.nuspec
-		_NuGet\Trivident.Modules.Core\Trivident.Modules.Core.nuspec = _NuGet\Trivident.Modules.Core\Trivident.Modules.Core.nuspec
+		_NuGet\Dyndle.Modules.Core\Dyndle.Modules.Core.nuspec = _NuGet\Dyndle.Modules.Core\Dyndle.Modules.Core.nuspec
 		_NuGet\Trivident.Modules.Email\Trivident.Modules.Email.nuspec = _NuGet\Trivident.Modules.Email\Trivident.Modules.Email.nuspec
 		_NuGet\Trivident.Modules.Feedback\Trivident.Modules.Feedback.nuspec = _NuGet\Trivident.Modules.Feedback\Trivident.Modules.Feedback.nuspec
 		_NuGet\Trivident.Modules.ImageEnhancement\Trivident.Modules.ImageEnhancement.nuspec = _NuGet\Trivident.Modules.ImageEnhancement\Trivident.Modules.ImageEnhancement.nuspec
-		_NuGet\Trivident.Modules.Management\Trivident.Modules.Management.nuspec = _NuGet\Trivident.Modules.Management\Trivident.Modules.Management.nuspec
+		_NuGet\Dyndle.Modules.Management\Dyndle.Modules.Management.nuspec = _NuGet\Dyndle.Modules.Management\Dyndle.Modules.Management.nuspec
 		_NuGet\Trivident.Modules.Navigation\Trivident.Modules.Navigation.nuspec = _NuGet\Trivident.Modules.Navigation\Trivident.Modules.Navigation.nuspec
 		_NuGet\Trivident.Modules.Personalization\Trivident.Modules.Personalization.nuspec = _NuGet\Trivident.Modules.Personalization\Trivident.Modules.Personalization.nuspec
-		_NuGet\Trivident.Modules.SDLWeb8\Trivident.Modules.SDLWeb8.nuspec = _NuGet\Trivident.Modules.SDLWeb8\Trivident.Modules.SDLWeb8.nuspec
+		_NuGet\Dyndle.Modules.SDLWeb8\Dyndle.Modules.SDLWeb8.nuspec = _NuGet\Dyndle.Modules.SDLWeb8\Dyndle.Modules.SDLWeb8.nuspec
 		_NuGet\Trivident.Modules.Search\Trivident.Modules.Search.nuspec = _NuGet\Trivident.Modules.Search\Trivident.Modules.Search.nuspec
 	EndProjectSection
 EndProject
@@ -29,7 +29,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trivident.Modules.Search", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trivident.Modules.Email", "Trivident.Modules.Email\Trivident.Modules.Email.csproj", "{60D14929-E5A7-4E04-88E7-A84A9CC3B48F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trivident.Modules.Core", "Trivident.Modules.Core\Trivident.Modules.Core.csproj", "{FEDD3081-1BA3-45B6-9AD3-9F19F90EEA15}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.Core", "Dyndle.Modules.Core\Dyndle.Modules.Core.csproj", "{FEDD3081-1BA3-45B6-9AD3-9F19F90EEA15}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trivident.Modules.Personalization", "Trivident.Modules.Personalization\Trivident.Modules.Personalization.csproj", "{01FA4E6E-158B-4660-B87E-CC374091D0B5}"
 EndProject
@@ -37,17 +37,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trivident.Modules.Feedback"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trivident.Modules.ComplexTables", "Trivident.Modules.ComplexTables\Trivident.Modules.ComplexTables.csproj", "{C050676D-A2FF-4700-BDFF-F21413C51E5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trivident.Modules.Management", "Trivident.Modules.Management\Trivident.Modules.Management.csproj", "{307263FD-8FE0-438F-89FE-8B3D5A5E64A9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.Management", "Dyndle.Modules.Management\Dyndle.Modules.Management.csproj", "{307263FD-8FE0-438F-89FE-8B3D5A5E64A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trivident.Modules.Tridion9", "Trivident.Modules.Tridion9\Trivident.Modules.Tridion9.csproj", "{99B6571E-65DD-4C76-B4C9-86B34E76FBD8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.Tridion9", "Dyndle.Modules.Tridion9\Dyndle.Modules.Tridion9.csproj", "{99B6571E-65DD-4C76-B4C9-86B34E76FBD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trivident.Modules.SDLWeb85", "Trivident.Modules.SDLWeb85\Trivident.Modules.SDLWeb85.csproj", "{5372DBE2-D735-4936-8AF2-0E38AE889ADF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.SDLWeb85", "Dyndle.Modules.SDLWeb85\Dyndle.Modules.SDLWeb85.csproj", "{5372DBE2-D735-4936-8AF2-0E38AE889ADF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trivident.Modules.SDLWeb8", "Trivident.Modules.SDLWeb8\Trivident.Modules.SDLWeb8.csproj", "{5111AC44-73A2-4D46-8F05-5A0C0A632CED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.SDLWeb8", "Dyndle.Modules.SDLWeb8\Dyndle.Modules.SDLWeb8.csproj", "{5111AC44-73A2-4D46-8F05-5A0C0A632CED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tridion.TestProviders", "Tridion.TestProviders\Tridion.TestProviders.csproj", "{899CC432-25D8-4D65-9D98-95D109300127}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trivident.Modules.Test", "Trivident.Modules.Core.Test\Trivident.Modules.Test.csproj", "{003C6126-7BD3-436D-9C72-3D6325D97019}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.Test", "Dyndle.Modules.Core.Test\Dyndle.Modules.Test.csproj", "{003C6126-7BD3-436D-9C72-3D6325D97019}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

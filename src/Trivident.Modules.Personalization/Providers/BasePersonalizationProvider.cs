@@ -4,8 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Trivident.Modules.Core.Environment;
-using Trivident.Modules.Core.Models;
+using Dyndle.Modules.Core.Environment;
+using Dyndle.Modules.Core.Extensions;
+using Dyndle.Modules.Core.Models;
 using Trivident.Modules.Personalization.Model;
 //using Tridion.ContentDelivery.AmbientData;
 

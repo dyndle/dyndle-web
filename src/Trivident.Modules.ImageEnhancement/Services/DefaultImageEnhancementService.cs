@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dyndle.Modules.Core.Extensions;
 using Trivident.Modules.ImageEnhancement.Models;
 
 namespace Trivident.Modules.ImageEnhancement.Services

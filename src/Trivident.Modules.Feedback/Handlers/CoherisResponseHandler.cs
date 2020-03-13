@@ -2,6 +2,7 @@
 using System.IO;
 using System.Xml.Serialization;
 using DD4T.ContentModel.Contracts.Logging;
+using Dyndle.Modules.Core.Extensions;
 using Trivident.Modules.Feedback.Models;
 
 namespace Trivident.Modules.Feedback.Handlers

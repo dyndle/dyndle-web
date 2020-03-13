@@ -1,9 +1,9 @@
 ﻿using DD4T.ContentModel.Contracts.Logging;
-using Trivident.Modules.Core.Models;
 using Trivident.Modules.Personalization.Contracts;
 using System;
 using System.Linq;
 using System.Web;
+using Dyndle.Modules.Core.Models;
 
 namespace Trivident.Modules.Personalization.Providers
 {

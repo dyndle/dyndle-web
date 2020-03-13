@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
+using Dyndle.Modules.Core.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json.Serialization;
-using Trivident.Modules.Core.Configuration;
 using Trivident.Modules.Search.Binders;
 using Trivident.Modules.Search.Contracts;
 using Trivident.Modules.Search.Providers;

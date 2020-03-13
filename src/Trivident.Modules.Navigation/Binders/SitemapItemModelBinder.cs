@@ -1,7 +1,5 @@
 ﻿using DD4T.ContentModel.Contracts.Caching;
 using DD4T.ContentModel.Contracts.Logging;
-using Trivident.Modules.Core.Providers.Content;
-using Trivident.Modules.Core.Cache;
 using Trivident.Modules.Navigation.Models;
 using Trivident.Modules.Navigation.Providers;
 using System;
@@ -11,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using Dyndle.Modules.Core.Cache;
+using Dyndle.Modules.Core.Extensions;
 
 namespace Trivident.Modules.Navigation.Binders
 {

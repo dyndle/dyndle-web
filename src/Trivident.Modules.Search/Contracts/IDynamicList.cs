@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Trivident.Modules.Core.Models;
+using Dyndle.Modules.Core.Models;
 using Trivident.Modules.Search.Models;
 
 namespace Trivident.Modules.Search.Contracts

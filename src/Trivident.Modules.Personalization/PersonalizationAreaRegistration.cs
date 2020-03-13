@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
+using Dyndle.Modules.Core.Configuration;
+using Dyndle.Modules.Core.Contracts;
 using Microsoft.Extensions.DependencyInjection;
-using Trivident.Modules.Core.Configuration;
-using Trivident.Modules.Core.Contracts;
 using Trivident.Modules.Personalization.Contracts;
 using Trivident.Modules.Personalization.Providers;
 

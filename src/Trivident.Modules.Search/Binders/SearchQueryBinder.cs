@@ -5,7 +5,7 @@ using System.Configuration;
 using System.Globalization;
 using System.Web.Mvc;
 using System.Linq;
-using Trivident.Modules.Core.Models;
+using Dyndle.Modules.Core.Models;
 using Trivident.Modules.Search.Builders;
 using Trivident.Modules.Search.Models;
 

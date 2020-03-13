@@ -1,9 +1,9 @@
-﻿using Trivident.Modules.Feedback.Configuration;
+﻿using Dyndle.Modules.Core.Configuration;
+using Trivident.Modules.Feedback.Configuration;
 using Trivident.Modules.Feedback.Contracts;
 using Trivident.Modules.Feedback.Providers;
 using Trivident.Modules.Feedback.Services;
 using Microsoft.Extensions.DependencyInjection;
-using Trivident.Modules.Core.Configuration;
 
 namespace Trivident.Modules.Feedback
 {

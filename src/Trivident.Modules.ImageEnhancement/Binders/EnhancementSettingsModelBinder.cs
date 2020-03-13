@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
+using Dyndle.Modules.Core.Extensions;
 using Trivident.Modules.ImageEnhancement.Models;
 
 namespace Trivident.Modules.ImageEnhancement.Binders

@@ -1,6 +1,7 @@
 ﻿using System;
 using DD4T.ContentModel.Contracts.Configuration;
 using DD4T.Core.Contracts.Resolvers;
+using Dyndle.Modules.Core.Extensions;
 using Trivident.Modules.Search.Contracts;
 using Trivident.Modules.Search.Extensions;
 

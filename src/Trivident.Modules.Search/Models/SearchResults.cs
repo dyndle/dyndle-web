@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Trivident.Modules.Core.Models;
+using Dyndle.Modules.Core.Models;
 using Trivident.Modules.Search.Contracts;
 
 namespace Trivident.Modules.Search.Models

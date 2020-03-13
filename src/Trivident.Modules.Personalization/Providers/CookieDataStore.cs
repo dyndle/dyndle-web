@@ -4,8 +4,9 @@ using System.Web;
 using Newtonsoft.Json.Serialization;
 using System;
 using DD4T.ContentModel.Contracts.Logging;
-using Trivident.Modules.Core.Contracts;
-using Trivident.Modules.Core.Environment;
+using Dyndle.Modules.Core.Contracts;
+using Dyndle.Modules.Core.Environment;
+using Dyndle.Modules.Core.Extensions;
 
 namespace Trivident.Modules.Personalization.Providers
 {

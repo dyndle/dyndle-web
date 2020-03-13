@@ -1,8 +1,8 @@
 ﻿using DD4T.ContentModel.Contracts.Logging;
-using Trivident.Modules.Core.Controllers.Base;
-using Trivident.Modules.Core.Models;
-using Trivident.Modules.Core.Providers.Content;
 using System.Web.Mvc;
+using Dyndle.Modules.Core.Controllers.Base;
+using Dyndle.Modules.Core.Models;
+using Dyndle.Modules.Core.Providers.Content;
 
 namespace Trivident.Modules.Email.Controllers
 {
@@ -10,7 +10,7 @@ namespace Trivident.Modules.Email.Controllers
     /// Class EmailController.
     /// Used for the rendering of entities in emails
     /// </summary>
-    /// <seealso cref="Trivident.Modules.Core.Controllers.Base.ModuleControllerBase" />
+    /// <seealso cref="ModuleControllerBase" />
     public class EmailController : ModuleControllerBase
     {
         /// <summary>
