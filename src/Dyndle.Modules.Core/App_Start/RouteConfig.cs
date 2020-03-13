@@ -98,7 +98,7 @@ namespace Dyndle.Modules.Core
                new { controller = PageControllerName, action = PageActionName },
                new { page = new RedirectInvalidPageConstraint() }
                //,
-               //new[] { "Trivident.Modules.Core.Controllers" }
+               //new[] { "Dyndle.Modules.Core.Controllers" }
             ).DataTokens.Add("area", "Core");
 
         }

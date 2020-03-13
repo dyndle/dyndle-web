@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Trivident")]
-[assembly: AssemblyProduct("Trivident.Modules.Core")]
+[assembly: AssemblyProduct("Tridion.TestProviders")]
 [assembly: AssemblyCopyright("Copyright © 2019 Trivident B.V.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

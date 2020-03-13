@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Trivident.Modules.ImageEnhancement")]
+[assembly: AssemblyTitle("Dyndle.Modules.ImageEnhancement")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Trivident")]
-[assembly: AssemblyProduct("Trivident.Modules.ImageEnhancement")]
+[assembly: AssemblyProduct("Dyndle.Modules.ImageEnhancement")]
 [assembly: AssemblyCopyright("Copyright © 2020 Trivident B.V.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

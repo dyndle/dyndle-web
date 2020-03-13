@@ -9,7 +9,7 @@ namespace Dyndle.Modules.Management.DebugInfo
     public static class EmbeddedResourceHelper
     {
 
-        internal static readonly string DEBUG_INFO_RESOURCE_BASE_PATH = "Trivident.Modules.Management.DebugInfo.Resources.";
+        internal static readonly string DEBUG_INFO_RESOURCE_BASE_PATH = "Dyndle.Modules.Management.DebugInfo.Resources.";
 
         public static string GetResourceAsString(string resourceFile)
         {
