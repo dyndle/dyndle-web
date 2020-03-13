@@ -1,0 +1,18 @@
+﻿@model Dyndle.Modules.Search.Contracts.ISearchResults
+@if (Model.Total > 0)
+{
+<ul style="list-style-type:none;margin:0;padding:0;">
+    @foreach (var item in Model.Items)
+    {
+        <li>
+            <a href="@item.Url">@item.Title</a> 
+        </li>
+    }
+</ul> 
+}
+else
+{
+<div>
+    @(Model.ErrorMessage != null ? Model.ErrorMessage : "No results found")
+</div>
+}
