@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using DD4T.ContentModel;
+using Dyndle.Modules.Core.Models;
 using Newtonsoft.Json;
-using Trivident.Modules.Core.Models;
 using Trivident.Modules.Search.Contracts;
 using Trivident.Modules.Search.Models;
 

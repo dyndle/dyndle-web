@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
-using Trivident.Modules.Core.Models;
+using Dyndle.Modules.Core.Extensions;
+using Dyndle.Modules.Core.Models;
 
 namespace Trivident.Modules.Navigation.Models
 {

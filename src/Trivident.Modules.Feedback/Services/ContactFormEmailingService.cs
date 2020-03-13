@@ -1,4 +1,5 @@
 ﻿using System;
+using Dyndle.Modules.Core.Extensions;
 using Trivident.Modules.Email.Services;
 using Trivident.Modules.Feedback.Contracts;
 using Trivident.Modules.Feedback.Models;

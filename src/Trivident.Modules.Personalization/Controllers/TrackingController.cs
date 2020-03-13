@@ -1,10 +1,11 @@
-﻿using Trivident.Modules.Core.Controllers.Base;
-using System;
+﻿using System;
 using DD4T.ContentModel.Contracts.Logging;
-using Trivident.Modules.Core.Providers.Content;
 using Trivident.Modules.Personalization.Contracts;
-using Trivident.Modules.Core.Attributes.Filter;
 using System.Web.Mvc;
+using Dyndle.Modules.Core.Attributes.Filter;
+using Dyndle.Modules.Core.Controllers.Base;
+using Dyndle.Modules.Core.Extensions;
+using Dyndle.Modules.Core.Providers.Content;
 
 namespace Trivident.Modules.Personalization.Controllers
 {

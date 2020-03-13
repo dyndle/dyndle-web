@@ -1,10 +1,11 @@
 ﻿using DD4T.Core.Contracts.Resolvers;
-using Trivident.Modules.Core.Contracts;
 using System;
 using System.IO;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Dyndle.Modules.Core.Contracts;
+using Dyndle.Modules.Core.Extensions;
 
 namespace Trivident.Modules.Email.Services
 {

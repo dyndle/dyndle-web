@@ -1,5 +1,6 @@
 ﻿using System;
 using DD4T.ContentModel.Contracts.Logging;
+using Dyndle.Modules.Core.Extensions;
 using Trivident.Modules.Feedback.Coheris;
 using Trivident.Modules.Feedback.Contracts;
 using Trivident.Modules.Feedback.Handlers;

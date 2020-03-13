@@ -1,11 +1,10 @@
 ﻿using DD4T.ViewModels.Attributes;
-using Trivident.Modules.Core.Attributes.ViewModels;
-using Trivident.Modules.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dyndle.Modules.Core.Models;
 
 namespace Trivident.Modules.Navigation.Models
 {
@@ -15,7 +14,7 @@ namespace Trivident.Modules.Navigation.Models
     /// All relevant information to render the navigation component comes from the component template meta data 
     /// This is handled by the <see cref="Trivident.Modules.Navigation.Binders.SitemapItemModelBinder"/> 
     /// </summary>
-    /// <seealso cref="Trivident.Modules.Core.Models.EntityModel" />
+    /// <seealso cref="EntityModel" />
     [ContentModel("navigationPlaceholder", true)]
     public class NavigationPlaceholder : EntityModel
     {

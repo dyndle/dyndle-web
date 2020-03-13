@@ -1,5 +1,6 @@
 ﻿using System;
-using Trivident.Modules.Core.Environment;
+using Dyndle.Modules.Core.Environment;
+using Dyndle.Modules.Core.Extensions;
 using Trivident.Modules.Feedback.Contracts;
 
 namespace Trivident.Modules.Feedback.Configuration

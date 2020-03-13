@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DD4T.ContentModel.Contracts.Caching;
 using DD4T.ContentModel.Contracts.Logging;
+using Dyndle.Modules.Core.Extensions;
 using Trivident.Modules.Feedback.Coheris;
 using Trivident.Modules.Feedback.Contracts;
 

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Dyndle.Modules.Core.Extensions;
 using Trivident.Modules.ImageEnhancement.Models;
 using Trivident.Modules.ImageEnhancement.Services;
 

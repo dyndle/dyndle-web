@@ -205,9 +205,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Trivident.Modules.Core\Trivident.Modules.Core.csproj">
+    <ProjectReference Include="..\Dyndle.Modules.Core\Dyndle.Modules.Core.csproj">
       <Project>{fedd3081-1ba3-45b6-9ad3-9f19f90eea15}</Project>
-      <Name>Trivident.Modules.Core</Name>
+      <Name>Dyndle.Modules.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,9 +1,4 @@
 ﻿using DD4T.ContentModel.Contracts.Logging;
-using Trivident.Modules.Core.Attributes.Filter;
-using Trivident.Modules.Core.Contracts;
-using Trivident.Modules.Core.Controllers.Base;
-using Trivident.Modules.Core.Models;
-using Trivident.Modules.Core.Providers.Content;
 using Trivident.Modules.Navigation.Models;
 using System;
 using System.Configuration;
@@ -11,6 +6,12 @@ using System.Web;
 using System.Web.Mvc;
 using System.Xml;
 using System.Xml.Serialization;
+using Dyndle.Modules.Core.Contracts;
+using Dyndle.Modules.Core.Controllers.Base;
+using Dyndle.Modules.Core.Extensions;
+using Dyndle.Modules.Core.Models;
+using Dyndle.Modules.Core.Providers.Content;
+using Dyndle.Modules.Core.Results;
 
 namespace Trivident.Modules.Navigation.Controllers
 {
@@ -18,7 +19,7 @@ namespace Trivident.Modules.Navigation.Controllers
     /// Class NavigationController.
     /// Used to render different types of navigation views
     /// </summary>
-    /// <seealso cref="Trivident.Modules.Core.Controllers.Base.ModuleControllerBase" />
+    /// <seealso cref="ModuleControllerBase" />
     public class NavigationController : ModuleControllerBase
     {
         /// <summary>

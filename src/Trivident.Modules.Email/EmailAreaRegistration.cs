@@ -1,5 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Trivident.Modules.Core.Configuration;
+﻿using Dyndle.Modules.Core.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Trivident.Modules.Email.Services;
 
 namespace Trivident.Modules.Email

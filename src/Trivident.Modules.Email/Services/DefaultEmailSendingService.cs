@@ -1,9 +1,10 @@
 ﻿using HtmlAgilityPack;
-using Trivident.Modules.Core.Contracts;
 using System;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Text;
+using Dyndle.Modules.Core.Contracts;
+using Dyndle.Modules.Core.Extensions;
 
 namespace Trivident.Modules.Email.Services
 {

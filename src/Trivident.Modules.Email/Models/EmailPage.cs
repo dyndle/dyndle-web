@@ -1,6 +1,6 @@
 ﻿using DD4T.ViewModels.Attributes;
-using Trivident.Modules.Core.Models;
 using System.Collections.Generic;
+using Dyndle.Modules.Core.Models;
 
 namespace Trivident.Modules.Email.Models
 {

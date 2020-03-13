@@ -1,7 +1,6 @@
 ﻿using DD4T.ContentModel.Contracts.Configuration;
 using DD4T.ContentModel.Contracts.Logging;
 using Newtonsoft.Json;
-using Trivident.Modules.Core.Providers.Content;
 using Trivident.Modules.Navigation.Models;
 using System;
 using System.Collections.Generic;
@@ -12,7 +11,9 @@ using System.Threading.Tasks;
 using DD4T.Core.Contracts.ViewModels;
 using DD4T.ContentModel.Contracts.Caching;
 using DD4T.ContentModel.Contracts.Resolvers;
-using Trivident.Modules.Core.Cache;
+using Dyndle.Modules.Core.Cache;
+using Dyndle.Modules.Core.Extensions;
+using Dyndle.Modules.Core.Providers.Content;
 
 namespace Trivident.Modules.Navigation.Providers
 {

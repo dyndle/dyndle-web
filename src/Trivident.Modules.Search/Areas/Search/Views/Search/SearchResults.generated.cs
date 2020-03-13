@@ -26,7 +26,6 @@ namespace ASP
     using System.Web.Security;
     using System.Web.UI;
     using System.Web.WebPages;
-    using Trivident.Modules.Core.Html;
     using Trivident.Modules.Search;
     using Trivident.Modules.Search.Contracts;
     using Trivident.Modules.Search.Extensions;

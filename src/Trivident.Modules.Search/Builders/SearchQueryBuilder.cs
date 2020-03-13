@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web.Mvc;
+using Dyndle.Modules.Core.Extensions;
 using Trivident.Modules.Search.Extensions;
 using Trivident.Modules.Search.Contracts;
 using Trivident.Modules.Search.Models;

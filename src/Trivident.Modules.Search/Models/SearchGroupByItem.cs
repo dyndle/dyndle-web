@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Trivident.Modules.Core.Models;
+using Dyndle.Modules.Core.Models;
 
 namespace Trivident.Modules.Search.Models
 {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using DD4T.ViewModels.Attributes;
-using Trivident.Modules.Core.Models;
+using Dyndle.Modules.Core.Models;
 using Trivident.Modules.Feedback.Contracts;
 
 namespace Trivident.Modules.Feedback.Models.Tridion

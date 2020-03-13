@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using Trivident.Modules.Core.Models;
 using System.Web;
+using Dyndle.Modules.Core.Models;
 
 namespace Trivident.Modules.Personalization.Contracts
 {

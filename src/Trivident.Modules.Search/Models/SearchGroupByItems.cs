@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Trivident.Modules.Core.Models;
+using Dyndle.Modules.Core.Models;
 
 namespace Trivident.Modules.Search.Models
 {

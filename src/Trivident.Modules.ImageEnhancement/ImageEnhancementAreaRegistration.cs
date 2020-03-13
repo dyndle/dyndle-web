@@ -2,8 +2,8 @@
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Dyndle.Modules.Core.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Trivident.Modules.Core.Configuration;
 using Trivident.Modules.ImageEnhancement.Binders;
 using Trivident.Modules.ImageEnhancement.Controllers;
 using Trivident.Modules.ImageEnhancement.Services;
