@@ -34,7 +34,7 @@
     <NuGetAPIKey>b2d67bbc-4386-45e7-a362-e9b82b89f08c</NuGetAPIKey>
     <NuGet>"$(ProjectDirectory)\..\_tools\NuGet.exe"</NuGet>
     <NuGetPackageDirectory>$(ProjectDirectory)\..\_NuGet</NuGetPackageDirectory>
-    <DxaFrameworkPackageDirectory>$(NuGetPackageDirectory)\$(RootNamespace)</DxaFrameworkPackageDirectory>
+    <DyndlePackageDirectory>$(NuGetPackageDirectory)\$(RootNamespace)</DyndlePackageDirectory>
 
     <!--Tools-->
     <MsBuildExe>C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe</MsBuildExe>
@@ -73,9 +73,9 @@
   <Target Name="UpdateNuspec" Condition="'$(IsLocal)' == 'false' Or '$(Configuration)' == 'Package'">
     <Message Text="Package Version: $(PackageVersion)" Importance="high" />
     <Message Text="RootNamespace: $(RootNamespace)" Importance="high" />
-    <Message Text="DxaFrameworkPackageDirectory: $(DxaFrameworkPackageDirectory)" Importance="high" />
+    <Message Text="DyndlePackageDirectory: $(DyndlePackageDirectory)" Importance="high" />
 
-    <FileUpdate Files="$(DxaFrameworkPackageDirectory)\\$(RootNamespace).nuspec"
+    <FileUpdate Files="$(DyndlePackageDirectory)\\$(RootNamespace).nuspec"
             Regex="&lt;version&gt;[^&lt;]+"
             ReplacementText="&lt;version&gt;$(PackageVersion)" />
   </Target>
@@ -96,12 +96,12 @@
   <!-- =============================================================================================================================================  -->
   <Target Name="CreatePackages" Condition="'$(Configuration)' == 'Package'">
     <Message Text="Creating NuGet packages in '$(NuGetPackageDirectory)' ..." Importance="high" />
-    <Exec Command="$(NuGet) pack $(RootNamespace).nuspec -Version $(PackageVersion)" WorkingDirectory="$(DxaFrameworkPackageDirectory)" />
+    <Exec Command="$(NuGet) pack $(RootNamespace).nuspec -Version $(PackageVersion)" WorkingDirectory="$(DyndlePackageDirectory)" />
   </Target>
   <!-- =============================================================================================================================================  -->
   <!--<Target Name="PublishPackages">
         <Message Text="Publishing NuGet packages to '$(NuGetRepositoryUrl)' ..." Importance="high" />
-        <Exec Command="$(NuGet) push $(RootNamespace).$(PackageVersion).nupkg $(NuGetAPIKey) -Source $(NuGetRepositoryUrl)" WorkingDirectory="$(DxaFrameworkPackageDirectory)" />
+        <Exec Command="$(NuGet) push $(RootNamespace).$(PackageVersion).nupkg $(NuGetAPIKey) -Source $(NuGetRepositoryUrl)" WorkingDirectory="$(DyndlePackageDirectory)" />
     </Target>-->
 
   <Target Name="CopyLocalFiles" Condition="'$(IsLocal)' == 'true'">
