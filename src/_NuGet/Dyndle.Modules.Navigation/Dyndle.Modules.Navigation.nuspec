@@ -9,7 +9,7 @@
     <authors>Trivident</authors>
     <iconUrl>http://www.trivident.com/dd4t-modules-logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Trivident.Modules.Navigation</description>
+    <description>Dyndle.Modules.Navigation</description>
     <copyright>Copyright 2020 Trivident</copyright>
     <tags>SDL DD4T Web8 Trivident Dyndle</tags>
     <references>

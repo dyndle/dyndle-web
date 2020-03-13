@@ -1,11 +1,11 @@
 ﻿//using DD4T.ContentModel.Contracts.Resolvers;
 //using DD4T.Utils.Resolver;
 //using Microsoft.Extensions.DependencyInjection;
-//using Trivident.Modules.Core.Contracts;
-//using Trivident.Modules.Core.Interfaces;
-//using Trivident.Modules.Core.Resolvers;
+//using Dyndle.Modules.Core.Contracts;
+//using Dyndle.Modules.Core.Interfaces;
+//using Dyndle.Modules.Core.Resolvers;
 
-//namespace Trivident.Modules.Core.Modules
+//namespace Dyndle.Modules.Core.Modules
 //{
 //    /// <summary>
 //    /// Register types for Resolvers

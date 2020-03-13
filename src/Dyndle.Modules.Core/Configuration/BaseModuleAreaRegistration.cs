@@ -23,8 +23,8 @@ namespace Dyndle.Modules.Core.Configuration
         {
             // By default, class AreaRegistration assumes that the Controllers are in the same namespace as the concrete 
             // AreaRegistration subclass itself (or a sub namespace).
-            // However, the Core controllers are in the Trivident.Modules.Core.Controllers namespace.
-            context.Namespaces.Add("Trivident.Modules.Core.Controllers");
+            // However, the Core controllers are in the Dyndle.Modules.Core.Controllers namespace.
+            context.Namespaces.Add("Dyndle.Modules.Core.Controllers");
 
             context.MapRoute(
                    AreaName + "_Default",

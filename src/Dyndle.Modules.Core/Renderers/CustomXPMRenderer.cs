@@ -9,7 +9,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Web;
 
-namespace Trivident.Modules.Core.Renderers
+namespace Dyndle.Modules.Core.Renderers
 {
     /// <summary>
     /// Renders XPM Markup for View Models
