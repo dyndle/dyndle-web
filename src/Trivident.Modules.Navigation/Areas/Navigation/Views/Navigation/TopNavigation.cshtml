@@ -1,9 +1,0 @@
-﻿@model ISitemapItem
-<ul class="navigation top">
-    @foreach (var item in Model.Items)
-    {
-        <li class="@(Request.Url.LocalPath.StartsWith(item.Url) ? "active" : null)">
-            <a href="@item.Url">@item.Title</a>
-        </li>
-    }
-</ul>
