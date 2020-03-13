@@ -7,36 +7,36 @@ definitions:
     - step: &build-package-push
         name: Build package push
         script:
-          - export PROJECT_NAME=Trivident.Modules.Core
+          - export PROJECT_NAME=Dyndle.Modules.Core
           - apt-get update 
-          - nuget restore $BITBUCKET_CLONE_DIR/src/Trivident.Modules.sln -c $BITBUCKET_CLONE_DIR/src/NuGet.Config
+          - nuget restore $BITBUCKET_CLONE_DIR/src/Dyndle.Modules.sln -c $BITBUCKET_CLONE_DIR/src/NuGet.Config
           - find .
-          - msbuild /p:Configuration="Release" /p:Branch="$BITBUCKET_BRANCH" $BITBUCKET_CLONE_DIR/src/Trivident.Modules.sln 
-          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Trivident.Modules.Core/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
-          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Trivident.Modules.ComplexTables/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
-          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Trivident.Modules.Email/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
-          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Trivident.Modules.Feedback/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
-          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Trivident.Modules.ImageEnhancement/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
-          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Trivident.Modules.Management/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
-          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Trivident.Modules.Navigation/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
-          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Trivident.Modules.Personalization/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
-          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Trivident.Modules.Search/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
-          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Trivident.Modules.SDLWeb8/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages_special
-          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Trivident.Modules.SDLWeb85/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
-          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Trivident.Modules.Tridion9/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+          - msbuild /p:Configuration="Release" /p:Branch="$BITBUCKET_BRANCH" $BITBUCKET_CLONE_DIR/src/Dyndle.Modules.sln 
+          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Core/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.ComplexTables/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Email/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Feedback/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.ImageEnhancement/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Management/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Navigation/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Personalization/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Search/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.SDLWeb8/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages_special
+          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.SDLWeb85/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Tridion9/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
           - nuget sources add -Name privaterepo2 -Source $PRIVATE_NUGET_URL -UserName $PRIVATE_NUGET_USERNAME -Password $PRIVATE_NUGET_PASSWORD
-          - nuget push $BITBUCKET_CLONE_DIR/build/packages/Trivident.Modules.Core*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
-          - nuget push $BITBUCKET_CLONE_DIR/build/packages/Trivident.Modules.ComplexTables*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
-          - nuget push $BITBUCKET_CLONE_DIR/build/packages/Trivident.Modules.Email*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
-          - nuget push $BITBUCKET_CLONE_DIR/build/packages/Trivident.Modules.Feedback*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
-          - nuget push $BITBUCKET_CLONE_DIR/build/packages/Trivident.Modules.ImageEnhancement*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
-          - nuget push $BITBUCKET_CLONE_DIR/build/packages/Trivident.Modules.Management*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
-          - nuget push $BITBUCKET_CLONE_DIR/build/packages/Trivident.Modules.Navigation*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
-          - nuget push $BITBUCKET_CLONE_DIR/build/packages/Trivident.Modules.Personalization*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
-          - nuget push $BITBUCKET_CLONE_DIR/build/packages/Trivident.Modules.Search*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
-          - nuget push $BITBUCKET_CLONE_DIR/build/packages_special/Trivident.Modules.SDLWeb8*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
-          - nuget push $BITBUCKET_CLONE_DIR/build/packages/Trivident.Modules.SDLWeb85*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
-          - nuget push $BITBUCKET_CLONE_DIR/build/packages/Trivident.Modules.Tridion9*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+          - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Core*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+          - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.ComplexTables*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+          - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Email*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+          - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Feedback*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+          - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.ImageEnhancement*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+          - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Management*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+          - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Navigation*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+          - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Personalization*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+          - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Search*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+          - nuget push $BITBUCKET_CLONE_DIR/build/packages_special/Dyndle.Modules.SDLWeb8*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+          - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.SDLWeb85*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+          - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Tridion9*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
 pipelines:
   branches:
     master:
