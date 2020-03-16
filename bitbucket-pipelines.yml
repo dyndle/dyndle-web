@@ -39,7 +39,7 @@ definitions:
           - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Tridion9*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
 pipelines:
   branches:
-    master:
+    release:
         - step: *build-package-push
-    develop:
+    prerelease:
         - step: *build-package-push

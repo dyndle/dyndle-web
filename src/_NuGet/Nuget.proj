@@ -17,7 +17,7 @@
     <IsLocal>true</IsLocal>
 
     <!-- Only Master is allowed as final release -->
-    <IsPreRelease Condition="'$(Branch)' == 'master'">false</IsPreRelease>
+    <IsPreRelease Condition="'$(Branch)' == 'release'">false</IsPreRelease>
     <IsLocal Condition="'$(Branch)' != ''">false</IsLocal>
 
     <VersionMajor>$(Version.Split('.')[0])</VersionMajor>
