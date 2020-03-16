@@ -99,7 +99,6 @@ namespace Dyndle.Modules.Core
             var isStaging = DyndleConfig.IsStagingSite;
 
 			ServiceCollection.RegisterModule(new CacheModule(isCacheEnabled, isStaging));
-            ServiceCollection.RegisterModule(new XpmModule(isStaging));
 
 		}
 
