@@ -1,0 +1,26 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Dyndle.Modules.Management</id>
+    <!-- Version is set by Build.proj -->
+    <version>1.4.8.0-alpha-20191212080633</version>
+    <!-- NOTE: Visual Studio's NuGet UI only shows 'id' and 'description' -->
+    <title>Dyndle.Modules.Management</title>
+    <authors>Trivident</authors>
+    <iconUrl>http://www.trivident.com/dd4t-modules-logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Dyndle.Modules.Management</description>
+    <copyright>Copyright 2020 Trivident</copyright>
+    <tags>SDL DD4T Web8 Trivident Dyndle</tags>
+    <references>
+      <reference file="Dyndle.Modules.Management.dll" />
+    </references>
+    <dependencies>
+      <dependency id="Dyndle.Modules.Core" version="1.4.0"/>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\..\Dyndle.Modules.Management\bin\Dyndle.Modules.Management.dll" target="lib\net462" />
+    <file src="..\..\Dyndle.Modules.Management\bin\Dyndle.Modules.Management.pdb" target="lib\net462" />
+  </files>
+</package>

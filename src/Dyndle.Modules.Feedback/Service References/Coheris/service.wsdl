@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://gp-europe.net/webconsoplus/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://gp-europe.net/webconsoplus/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://gp-europe.net/webconsoplus/">
+      <s:element name="addContact">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="civilite" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nom" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prenom" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="adresse" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ville" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codepostal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pays" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="trancheAge" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="produitConcerne" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="numControle" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="numCodeBArre" nillable="true" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="remarque" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="motifDeContact" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="siteDeProvenance" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="optin" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addContactResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addContactResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addContactPHP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="civilite" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nom" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prenom" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="adresse" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ville" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codepostal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pays" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="trancheAge" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="produitConcerne" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="numControle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numCodeBArre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="remarque" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="motifDeContact" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="siteDeProvenance" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="optin" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addContactPHPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addContactPHPResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCivilite">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCiviliteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCiviliteResult" type="tns:ArrayOfCleValeur" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCleValeur">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CleValeur" nillable="true" type="tns:CleValeur" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CleValeur">
+        <s:attribute name="cle" type="s:int" use="required" />
+        <s:attribute name="valeur" type="s:string" />
+      </s:complexType>
+      <s:element name="GetPays">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPaysResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPaysResult" type="tns:ArrayOfCleValeurStr" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCleValeurStr">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CleValeurStr" nillable="true" type="tns:CleValeurStr" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CleValeurStr">
+        <s:attribute name="cle" type="s:string" />
+        <s:attribute name="valeur" type="s:string" />
+      </s:complexType>
+      <s:element name="GetMotifDeContact">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMotifDeContactResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMotifDeContactResult" type="tns:ArrayOfCleValeur" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTrancheDAge">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTrancheDAgeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTrancheDAgeResult" type="tns:ArrayOfCleValeur" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTrancheDAgeB">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTrancheDAgeBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTrancheDAgeBResult" type="tns:ArrayOfCleValeur" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProduitBySite">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="siteDeProvenance" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProduitBySiteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProduitBySiteResult" type="tns:ArrayOfCleValeur" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfCleValeur" nillable="true" type="tns:ArrayOfCleValeur" />
+      <s:element name="ArrayOfCleValeurStr" nillable="true" type="tns:ArrayOfCleValeurStr" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="addContactSoapIn">
+    <wsdl:part name="parameters" element="tns:addContact" />
+  </wsdl:message>
+  <wsdl:message name="addContactSoapOut">
+    <wsdl:part name="parameters" element="tns:addContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="addContactPHPSoapIn">
+    <wsdl:part name="parameters" element="tns:addContactPHP" />
+  </wsdl:message>
+  <wsdl:message name="addContactPHPSoapOut">
+    <wsdl:part name="parameters" element="tns:addContactPHPResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCiviliteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCivilite" />
+  </wsdl:message>
+  <wsdl:message name="GetCiviliteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCiviliteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPaysSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPays" />
+  </wsdl:message>
+  <wsdl:message name="GetPaysSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPaysResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMotifDeContactSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMotifDeContact" />
+  </wsdl:message>
+  <wsdl:message name="GetMotifDeContactSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMotifDeContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTrancheDAgeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTrancheDAge" />
+  </wsdl:message>
+  <wsdl:message name="GetTrancheDAgeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTrancheDAgeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTrancheDAgeBSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTrancheDAgeB" />
+  </wsdl:message>
+  <wsdl:message name="GetTrancheDAgeBSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTrancheDAgeBResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProduitBySiteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProduitBySite" />
+  </wsdl:message>
+  <wsdl:message name="GetProduitBySiteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProduitBySiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCiviliteHttpGetIn" />
+  <wsdl:message name="GetCiviliteHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCleValeur" />
+  </wsdl:message>
+  <wsdl:message name="GetPaysHttpGetIn" />
+  <wsdl:message name="GetPaysHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCleValeurStr" />
+  </wsdl:message>
+  <wsdl:message name="GetMotifDeContactHttpGetIn" />
+  <wsdl:message name="GetMotifDeContactHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCleValeur" />
+  </wsdl:message>
+  <wsdl:message name="GetTrancheDAgeHttpGetIn" />
+  <wsdl:message name="GetTrancheDAgeHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCleValeur" />
+  </wsdl:message>
+  <wsdl:message name="GetTrancheDAgeBHttpGetIn" />
+  <wsdl:message name="GetTrancheDAgeBHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCleValeur" />
+  </wsdl:message>
+  <wsdl:message name="GetProduitBySiteHttpGetIn">
+    <wsdl:part name="siteDeProvenance" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetProduitBySiteHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCleValeur" />
+  </wsdl:message>
+  <wsdl:message name="GetCiviliteHttpPostIn" />
+  <wsdl:message name="GetCiviliteHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCleValeur" />
+  </wsdl:message>
+  <wsdl:message name="GetPaysHttpPostIn" />
+  <wsdl:message name="GetPaysHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCleValeurStr" />
+  </wsdl:message>
+  <wsdl:message name="GetMotifDeContactHttpPostIn" />
+  <wsdl:message name="GetMotifDeContactHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCleValeur" />
+  </wsdl:message>
+  <wsdl:message name="GetTrancheDAgeHttpPostIn" />
+  <wsdl:message name="GetTrancheDAgeHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCleValeur" />
+  </wsdl:message>
+  <wsdl:message name="GetTrancheDAgeBHttpPostIn" />
+  <wsdl:message name="GetTrancheDAgeBHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCleValeur" />
+  </wsdl:message>
+  <wsdl:message name="GetProduitBySiteHttpPostIn">
+    <wsdl:part name="siteDeProvenance" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetProduitBySiteHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCleValeur" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="addContact">
+      <wsdl:input message="tns:addContactSoapIn" />
+      <wsdl:output message="tns:addContactSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addContactPHP">
+      <wsdl:input message="tns:addContactPHPSoapIn" />
+      <wsdl:output message="tns:addContactPHPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCivilite">
+      <wsdl:input message="tns:GetCiviliteSoapIn" />
+      <wsdl:output message="tns:GetCiviliteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPays">
+      <wsdl:input message="tns:GetPaysSoapIn" />
+      <wsdl:output message="tns:GetPaysSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMotifDeContact">
+      <wsdl:input message="tns:GetMotifDeContactSoapIn" />
+      <wsdl:output message="tns:GetMotifDeContactSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrancheDAge">
+      <wsdl:input message="tns:GetTrancheDAgeSoapIn" />
+      <wsdl:output message="tns:GetTrancheDAgeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrancheDAgeB">
+      <wsdl:input message="tns:GetTrancheDAgeBSoapIn" />
+      <wsdl:output message="tns:GetTrancheDAgeBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProduitBySite">
+      <wsdl:input message="tns:GetProduitBySiteSoapIn" />
+      <wsdl:output message="tns:GetProduitBySiteSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceHttpGet">
+    <wsdl:operation name="GetCivilite">
+      <wsdl:input message="tns:GetCiviliteHttpGetIn" />
+      <wsdl:output message="tns:GetCiviliteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPays">
+      <wsdl:input message="tns:GetPaysHttpGetIn" />
+      <wsdl:output message="tns:GetPaysHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMotifDeContact">
+      <wsdl:input message="tns:GetMotifDeContactHttpGetIn" />
+      <wsdl:output message="tns:GetMotifDeContactHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrancheDAge">
+      <wsdl:input message="tns:GetTrancheDAgeHttpGetIn" />
+      <wsdl:output message="tns:GetTrancheDAgeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrancheDAgeB">
+      <wsdl:input message="tns:GetTrancheDAgeBHttpGetIn" />
+      <wsdl:output message="tns:GetTrancheDAgeBHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProduitBySite">
+      <wsdl:input message="tns:GetProduitBySiteHttpGetIn" />
+      <wsdl:output message="tns:GetProduitBySiteHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceHttpPost">
+    <wsdl:operation name="GetCivilite">
+      <wsdl:input message="tns:GetCiviliteHttpPostIn" />
+      <wsdl:output message="tns:GetCiviliteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPays">
+      <wsdl:input message="tns:GetPaysHttpPostIn" />
+      <wsdl:output message="tns:GetPaysHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMotifDeContact">
+      <wsdl:input message="tns:GetMotifDeContactHttpPostIn" />
+      <wsdl:output message="tns:GetMotifDeContactHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrancheDAge">
+      <wsdl:input message="tns:GetTrancheDAgeHttpPostIn" />
+      <wsdl:output message="tns:GetTrancheDAgeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrancheDAgeB">
+      <wsdl:input message="tns:GetTrancheDAgeBHttpPostIn" />
+      <wsdl:output message="tns:GetTrancheDAgeBHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProduitBySite">
+      <wsdl:input message="tns:GetProduitBySiteHttpPostIn" />
+      <wsdl:output message="tns:GetProduitBySiteHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addContact">
+      <soap:operation soapAction="http://gp-europe.net/webconsoplus/addContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addContactPHP">
+      <soap:operation soapAction="http://gp-europe.net/webconsoplus/addContactPHP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCivilite">
+      <soap:operation soapAction="http://gp-europe.net/webconsoplus/GetCivilite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPays">
+      <soap:operation soapAction="http://gp-europe.net/webconsoplus/GetPays" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMotifDeContact">
+      <soap:operation soapAction="http://gp-europe.net/webconsoplus/GetMotifDeContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrancheDAge">
+      <soap:operation soapAction="http://gp-europe.net/webconsoplus/GetTrancheDAge" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrancheDAgeB">
+      <soap:operation soapAction="http://gp-europe.net/webconsoplus/GetTrancheDAgeB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduitBySite">
+      <soap:operation soapAction="http://gp-europe.net/webconsoplus/GetProduitBySite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addContact">
+      <soap12:operation soapAction="http://gp-europe.net/webconsoplus/addContact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addContactPHP">
+      <soap12:operation soapAction="http://gp-europe.net/webconsoplus/addContactPHP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCivilite">
+      <soap12:operation soapAction="http://gp-europe.net/webconsoplus/GetCivilite" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPays">
+      <soap12:operation soapAction="http://gp-europe.net/webconsoplus/GetPays" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMotifDeContact">
+      <soap12:operation soapAction="http://gp-europe.net/webconsoplus/GetMotifDeContact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrancheDAge">
+      <soap12:operation soapAction="http://gp-europe.net/webconsoplus/GetTrancheDAge" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrancheDAgeB">
+      <soap12:operation soapAction="http://gp-europe.net/webconsoplus/GetTrancheDAgeB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduitBySite">
+      <soap12:operation soapAction="http://gp-europe.net/webconsoplus/GetProduitBySite" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceHttpGet" type="tns:ServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetCivilite">
+      <http:operation location="/GetCivilite" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPays">
+      <http:operation location="/GetPays" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMotifDeContact">
+      <http:operation location="/GetMotifDeContact" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrancheDAge">
+      <http:operation location="/GetTrancheDAge" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrancheDAgeB">
+      <http:operation location="/GetTrancheDAgeB" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduitBySite">
+      <http:operation location="/GetProduitBySite" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceHttpPost" type="tns:ServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetCivilite">
+      <http:operation location="/GetCivilite" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPays">
+      <http:operation location="/GetPays" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMotifDeContact">
+      <http:operation location="/GetMotifDeContact" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrancheDAge">
+      <http:operation location="/GetTrancheDAge" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrancheDAgeB">
+      <http:operation location="/GetTrancheDAgeB" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduitBySite">
+      <http:operation location="/GetProduitBySite" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://webconsoplus.sca.eu/service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://webconsoplus.sca.eu/service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceHttpGet" binding="tns:ServiceHttpGet">
+      <http:address location="http://webconsoplus.sca.eu/service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceHttpPost" binding="tns:ServiceHttpPost">
+      <http:address location="http://webconsoplus.sca.eu/service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
