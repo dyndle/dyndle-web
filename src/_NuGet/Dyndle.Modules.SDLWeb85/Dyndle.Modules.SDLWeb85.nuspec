@@ -16,7 +16,7 @@
       <reference file="Dyndle.Modules.SDLWeb85.dll" />
     </references>
     <dependencies>
-      <dependency id="Dyndle.Modules.Core" version="0.1.0"/>
+      <dependency id="Dyndle.Modules.Core" version="0.0.9"/>
       <dependency id="Sdl.Web.Delivery" version="8.5.1041" />
       <dependency id="Microsoft.Extensions.DependencyInjection" version="2.2.0"/>
       <dependency id="Newtonsoft.Json" version="11.0.2" />
