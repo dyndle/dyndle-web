@@ -23,5 +23,6 @@
     <!-- NOTE: we're excluding CIL assemblies to prevent licensing issues (CIL has a custom license; not Apache 2.0) -->
     <file src="..\..\Dyndle.Modules.Navigation\bin\Dyndle.Modules.Navigation.dll" target="lib\net462" />
     <file src="..\..\Dyndle.Modules.Navigation\bin\Dyndle.Modules.Navigation.pdb" target="lib\net462" />
+    <file src="web.config.install.xdt" target="content" />
   </files>
 </package>
