@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
 	<appSettings xdt:Transform="InsertIfMissing">
+		<!-- Navigation settings -->
 		<add key="Navigation.IncludeAllPagesInSitemap" value="true" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
 		<add key="Navigation.SourceUrl" value="/system/navigation.json" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
 		<add key="Navigation.BaseUrl" value="" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
