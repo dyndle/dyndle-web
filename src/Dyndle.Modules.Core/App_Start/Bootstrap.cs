@@ -36,17 +36,17 @@ namespace Dyndle.Modules.Core
 		{
 			get
 			{
-                var viewModelNamespace = DyndleConfig.ViewModelNamespace;
-                var controllerNamespace = DyndleConfig.ControllerNamespace;
+                var viewModelNamespaces = DyndleConfig.ViewModelNamespaces;
+                var controllerNamespaces = DyndleConfig.ControllerNamespaces;
 
-				if (string.IsNullOrWhiteSpace(viewModelNamespace))
-					throw new Exception($"AppSettings Key/Value is missing [Key: {CoreConstants.Configuration.ViewModelNamespace}]");
+				if (string.IsNullOrWhiteSpace(viewModelNamespaces))
+					throw new Exception($"AppSettings Key/Value is missing [Key: {CoreConstants.Configuration.ViewModelNamespaces}]");
 
-				if (string.IsNullOrWhiteSpace(controllerNamespace))
-                    throw new Exception($"AppSettings Key/Value is missing [Key: {CoreConstants.Configuration.ControllerNamespace}]");
+				if (string.IsNullOrWhiteSpace(controllerNamespaces))
+                    throw new Exception($"AppSettings Key/Value is missing [Key: {CoreConstants.Configuration.ControllerNamespaces}]");
 
-                var namespaces = viewModelNamespace.Split(',').Select(n => n.Trim())
-					.Concat(controllerNamespace.Split(',').Select(n => n.Trim()));
+                var namespaces = viewModelNamespaces.Split(',').Select(n => n.Trim())
+					.Concat(controllerNamespaces.Split(',').Select(n => n.Trim()));
 				return BuildManager.GetReferencedAssemblies().Cast<Assembly>()
 					.Where(a => !a.GlobalAssemblyCache
 					            && !a.IsDynamic
@@ -68,6 +68,7 @@ namespace Dyndle.Modules.Core
 					return;
 				}
 
+                RouteConfig.RegisterRoutes(RouteTable.Routes);
 				SetupDi();
 
 				//Mark as run
@@ -77,10 +78,7 @@ namespace Dyndle.Modules.Core
 
 		private static void SetupDi()
 		{
-			//Initialization code here.
-			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			RegisterModules();
-		}
 
 		/// <summary>
 		/// Register all necessary core/DD4T dependencies
