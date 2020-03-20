@@ -16,7 +16,7 @@
         {
             public const string EnableCache = "Dyndle.EnableCache";
             public const string PublicationId = "DD4T.PublicationId";
-            public const string PublicationBaseUrl = "DD4T.PublicationBaseUrl";
+            public const string PublicationBasePath = "Dyndle.PublicationBasePath";
             public const string RedirectsUrl = "Dyndle.RedirectsUrl";
             public const string ViewModelNamespaces = "Dyndle.ViewModelNamespaces";
             public const string ControllerNamespaces = "Dyndle.ControllerNamespaces";
