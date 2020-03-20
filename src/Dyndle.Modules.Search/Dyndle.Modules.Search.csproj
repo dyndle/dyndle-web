@@ -177,6 +177,7 @@
     <Compile Include="Contracts\ISearchFilterBy.cs" />
     <Compile Include="Models\SearchFilterBy.cs" />
     <Compile Include="Models\SolrSearchFilterByResponse.cs" />
+    <Compile Include="Utils\QueryStringUtil.cs" />
     <Compile Include="Utils\SearchUtil.cs" />
     <Compile Include="Convertors\TConverter.cs" />
     <Compile Include="Extensions\FieldListExtension.cs" />
