@@ -76,11 +76,12 @@ namespace Dyndle.Modules.Core
 			}
 		}
 
-		private static void SetupDi()
-		{
-			RegisterModules();
+        private static void SetupDi()
+        {
+            RegisterModules();
+        }
 
-		/// <summary>
+        /// <summary>
 		/// Register all necessary core/DD4T dependencies
 		/// </summary>
 		/// <param name="builder"></param>
