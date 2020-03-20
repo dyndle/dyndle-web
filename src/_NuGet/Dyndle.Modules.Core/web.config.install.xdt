@@ -41,7 +41,11 @@
 	</appSettings>
 	<system.web xdt:Transform="InsertIfMissing">
 		<caching xdt:Transform="InsertIfMissing">
-			<outputCache enableOutputCache="false" xdt:Transform="InsertIfMissing" xdt:Locator="Match(enableOutputCache)" />
+			<outputCache defaultProvider="dd4t" xdt:Transform="SetAttributes(defaultProvider)">
+				<providers xdt:Transform="InsertIfMissing">
+					<add name="dd4t" type="Dyndle.Modules.Core.Cache.DD4TOutputCacheProvider" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
+				</providers>
+			</outputCache>
 			<outputCacheSettings xdt:Transform="InsertIfMissing">
 				<outputCacheProfiles xdt:Transform="InsertIfMissing">
 					<add name="Default" duration="60" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
