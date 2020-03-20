@@ -5,18 +5,19 @@ VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget Packages", "Nuget Packages", "{195BAA27-D88D-48E3-97B5-5BD78CF432E6}"
 	ProjectSection(SolutionItems) = preProject
-		_NuGet\Dyndle.Modules.Core\Dyndle.Modules.Core.nuspec = _NuGet\Dyndle.Modules.Core\Dyndle.Modules.Core.nuspec
-		_NuGet\Dyndle.Modules.Management\Dyndle.Modules.Management.nuspec = _NuGet\Dyndle.Modules.Management\Dyndle.Modules.Management.nuspec
-		_NuGet\Dyndle.Modules.SDLWeb8\Dyndle.Modules.SDLWeb8.nuspec = _NuGet\Dyndle.Modules.SDLWeb8\Dyndle.Modules.SDLWeb8.nuspec
-		_NuGet\Nuget.Proj = _NuGet\Nuget.Proj
-		_tools\NuGet.targets = _tools\NuGet.targets
 		_NuGet\Dyndle.Modules.ComplexTables\Dyndle.Modules.ComplexTables.nuspec = _NuGet\Dyndle.Modules.ComplexTables\Dyndle.Modules.ComplexTables.nuspec
+		_NuGet\Dyndle.Modules.Core\Dyndle.Modules.Core.nuspec = _NuGet\Dyndle.Modules.Core\Dyndle.Modules.Core.nuspec
 		_NuGet\Dyndle.Modules.Email\Dyndle.Modules.Email.nuspec = _NuGet\Dyndle.Modules.Email\Dyndle.Modules.Email.nuspec
 		_NuGet\Dyndle.Modules.Feedback\Dyndle.Modules.Feedback.nuspec = _NuGet\Dyndle.Modules.Feedback\Dyndle.Modules.Feedback.nuspec
 		_NuGet\Dyndle.Modules.ImageEnhancement\Dyndle.Modules.ImageEnhancement.nuspec = _NuGet\Dyndle.Modules.ImageEnhancement\Dyndle.Modules.ImageEnhancement.nuspec
+		_NuGet\Dyndle.Modules.Management\Dyndle.Modules.Management.nuspec = _NuGet\Dyndle.Modules.Management\Dyndle.Modules.Management.nuspec
 		_NuGet\Dyndle.Modules.Navigation\Dyndle.Modules.Navigation.nuspec = _NuGet\Dyndle.Modules.Navigation\Dyndle.Modules.Navigation.nuspec
 		_NuGet\Dyndle.Modules.Personalization\Dyndle.Modules.Personalization.nuspec = _NuGet\Dyndle.Modules.Personalization\Dyndle.Modules.Personalization.nuspec
+		_NuGet\Dyndle.Modules.SDLWeb8\Dyndle.Modules.SDLWeb8.nuspec = _NuGet\Dyndle.Modules.SDLWeb8\Dyndle.Modules.SDLWeb8.nuspec
 		_NuGet\Dyndle.Modules.Search\Dyndle.Modules.Search.nuspec = _NuGet\Dyndle.Modules.Search\Dyndle.Modules.Search.nuspec
+		_NuGet\Dyndle.Quickstart.Web\Dyndle.Quickstart.Web.nuspec = _NuGet\Dyndle.Quickstart.Web\Dyndle.Quickstart.Web.nuspec
+		_NuGet\Nuget.Proj = _NuGet\Nuget.Proj
+		_tools\NuGet.targets = _tools\NuGet.targets
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.ImageEnhancement", "Dyndle.Modules.ImageEnhancement\Dyndle.Modules.ImageEnhancement.csproj", "{2C44C228-0205-497A-83CA-B76B152A2018}"
@@ -46,6 +47,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tridion.TestProviders", "Tridion.TestProviders\Tridion.TestProviders.csproj", "{899CC432-25D8-4D65-9D98-95D109300127}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.Test", "Dyndle.Modules.Core.Test\Dyndle.Modules.Test.csproj", "{003C6126-7BD3-436D-9C72-3D6325D97019}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Quickstart.Web", "Dyndle.Quickstart.Web\Dyndle.Quickstart.Web.csproj", "{1BB95D95-DC20-4129-95C4-6DF6B2D327AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -138,6 +141,12 @@ Global
 		{003C6126-7BD3-436D-9C72-3D6325D97019}.Package|Any CPU.Build.0 = Release|Any CPU
 		{003C6126-7BD3-436D-9C72-3D6325D97019}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{003C6126-7BD3-436D-9C72-3D6325D97019}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BB95D95-DC20-4129-95C4-6DF6B2D327AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BB95D95-DC20-4129-95C4-6DF6B2D327AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BB95D95-DC20-4129-95C4-6DF6B2D327AF}.Package|Any CPU.ActiveCfg = Package|Any CPU
+		{1BB95D95-DC20-4129-95C4-6DF6B2D327AF}.Package|Any CPU.Build.0 = Package|Any CPU
+		{1BB95D95-DC20-4129-95C4-6DF6B2D327AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BB95D95-DC20-4129-95C4-6DF6B2D327AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
