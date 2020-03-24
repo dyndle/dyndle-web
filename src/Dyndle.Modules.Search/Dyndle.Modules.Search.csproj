@@ -59,8 +59,8 @@
     <Reference Include="Apache.NMS.ActiveMQ, Version=1.7.2.4108, Culture=neutral, PublicKeyToken=82756feee3957618, processorArchitecture=MSIL">
       <HintPath>..\packages\Apache.NMS.ActiveMQ.1.7.2\lib\net40\Apache.NMS.ActiveMQ.dll</HintPath>
     </Reference>
-    <Reference Include="DD4T.Caching.ApacheMQ, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DD4T.Caching.ApacheMQ.2.3.0\lib\net45\DD4T.Caching.ApacheMQ.dll</HintPath>
+    <Reference Include="DD4T.Caching.ApacheMQ, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DD4T.Caching.ApacheMQ.2.5.0\lib\net45\DD4T.Caching.ApacheMQ.dll</HintPath>
     </Reference>
     <Reference Include="DD4T.ContentModel, Version=2.5.0.0, Culture=neutral, PublicKeyToken=4450e3c7f68bf872, processorArchitecture=MSIL">
       <HintPath>..\packages\DD4T.Model.2.5.0\lib\net45\DD4T.ContentModel.dll</HintPath>
@@ -77,8 +77,8 @@
     <Reference Include="DD4T.Factories, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DD4T.Core.2.5.0\lib\net45\DD4T.Factories.dll</HintPath>
     </Reference>
-    <Reference Include="DD4T.MVC, Version=2.2.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DD4T.MVC5.2.2.6\lib\net45\DD4T.MVC.dll</HintPath>
+    <Reference Include="DD4T.MVC, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DD4T.MVC5.2.5.0\lib\net45\DD4T.MVC.dll</HintPath>
     </Reference>
     <Reference Include="DD4T.Serialization, Version=2.5.0.0, Culture=neutral, PublicKeyToken=4450e3c7f68bf872, processorArchitecture=MSIL">
       <HintPath>..\packages\DD4T.Model.2.5.0\lib\net45\DD4T.Serialization.dll</HintPath>
@@ -88,6 +88,9 @@
     </Reference>
     <Reference Include="DD4T.ViewModels, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DD4T.Core.2.5.0\lib\net45\DD4T.ViewModels.dll</HintPath>
+    </Reference>
+    <Reference Include="DD4T.Web, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DD4T.MVC5.2.5.0\lib\net45\DD4T.Web.dll</HintPath>
     </Reference>
     <Reference Include="Menon.Me.ModelToQuerystring, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Menon.Me.ModelToQuerystring.1.0.0\lib\net452\Menon.Me.ModelToQuerystring.dll</HintPath>
@@ -177,6 +180,7 @@
     <Compile Include="Contracts\ISearchFilterBy.cs" />
     <Compile Include="Models\SearchFilterBy.cs" />
     <Compile Include="Models\SolrSearchFilterByResponse.cs" />
+    <Compile Include="Utils\QueryStringUtil.cs" />
     <Compile Include="Utils\SearchUtil.cs" />
     <Compile Include="Convertors\TConverter.cs" />
     <Compile Include="Extensions\FieldListExtension.cs" />

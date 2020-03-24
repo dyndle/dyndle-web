@@ -70,7 +70,7 @@ namespace Dyndle.Modules.Core.Exceptions
             if (model is IComponentPresentation)
             {
                 IComponentPresentation cp = (IComponentPresentation)model;
-                return $"Could not find view model for component with {cp.Component.Title} ({cp.Component.Id}) with schema {cp.Component.Schema.Title} ({cp.Component.Schema.Id})";
+                return $"Could not find view model for component {cp.Component.Title} ({cp.Component.Id}) based on schema {cp.Component.Schema.Title} ({cp.Component.Schema.Id})";
             }
             return $"Could not find view model for item {model}";
         }

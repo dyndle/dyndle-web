@@ -16,10 +16,10 @@
         {
             public const string EnableCache = "Dyndle.EnableCache";
             public const string PublicationId = "DD4T.PublicationId";
-            public const string PublicationBaseUrl = "DD4T.PublicationBaseUrl";
+            public const string PublicationBasePath = "Dyndle.PublicationBasePath";
             public const string RedirectsUrl = "Dyndle.RedirectsUrl";
-            public const string ViewModelNamespace = "Dyndle.ViewModelNamespace";
-            public const string ControllerNamespace = "Dyndle.ControllerNamespace";
+            public const string ViewModelNamespaces = "Dyndle.ViewModelNamespaces";
+            public const string ControllerNamespaces = "Dyndle.ControllerNamespaces";
             public const string StagingSite = "Dyndle.StagingSite";
             public const string SiteConfigUrl = "Dyndle.SiteConfigUrl";
             public const string IncludesUrl = "Dyndle.IncludesUrl";

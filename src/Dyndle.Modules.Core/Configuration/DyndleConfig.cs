@@ -23,7 +23,7 @@ namespace Dyndle.Modules.Core.Configuration
         /// <summary>
         /// Returns configuration appSetting 'PublicationBaseUrl' as string
         /// </summary>
-        public static string PublicationBaseUrl => CoreConstants.Configuration.PublicationBaseUrl.GetConfigurationValue();
+        public static string PublicationBasePath => CoreConstants.Configuration.PublicationBasePath.GetConfigurationValue();
         /// <summary>
         /// Returns configuration appSetting 'BinaryUrlPattern' as string
         /// </summary>
@@ -35,11 +35,11 @@ namespace Dyndle.Modules.Core.Configuration
         /// <summary>
         /// Returns configuration appSetting 'ViewModelNamespace' as string
         /// </summary>
-        public static string ViewModelNamespace => CoreConstants.Configuration.ViewModelNamespace.GetConfigurationValue();
+        public static string ViewModelNamespaces => CoreConstants.Configuration.ViewModelNamespaces.GetConfigurationValue();
         /// <summary>
         /// Returns configuration appSetting 'ControllerNamespace' as string
         /// </summary>
-        public static string ControllerNamespace => CoreConstants.Configuration.ControllerNamespace.GetConfigurationValue();
+        public static string ControllerNamespaces => CoreConstants.Configuration.ControllerNamespaces.GetConfigurationValue();
         /// <summary>
         /// Returns configuration appSetting 'SiteConfigUrl' as string
         /// </summary>

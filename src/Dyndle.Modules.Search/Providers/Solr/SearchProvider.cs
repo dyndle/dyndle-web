@@ -12,7 +12,7 @@ using Dyndle.Modules.Search.Contracts;
 using Dyndle.Modules.Search.Convertors;
 using Dyndle.Modules.Search.Extensions;
 using Dyndle.Modules.Search.Models;
-using Menon.Me.ModelToQuerystring;
+using Dyndle.Modules.Search.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 

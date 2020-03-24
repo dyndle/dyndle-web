@@ -37,7 +37,6 @@ namespace Dyndle.Modules.Core
         {
             OnApplicationStarting();
             Bootstrap.Run();
-            // TODO: when this is moved to DD4T, we should add a Bootstrap method for each DI framework to wire up the modules
 			DependencyResolver.SetResolver(this.GetDependencyResolver(Bootstrap.ServiceCollection));
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             FilterConfig.RegisterFilterProviders(FilterProviders.Providers);
