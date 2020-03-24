@@ -59,7 +59,7 @@ namespace Dyndle.Modules.SDLWeb8.Resolvers
             {
                 Scheme = !mapping.Protocol.IsNullOrEmpty() ? mapping.Protocol : HttpContext.Current.Request.Url.Scheme,
                 Host = !mapping.Domain.IsNullOrEmpty() ? mapping.Domain : HttpContext.Current.Request.Url.Host,
-                Path = !mapping.Path.IsNullOrEmpty() ? mapping.Path : DyndleConfig.PublicationBaseUrl,
+                Path = !mapping.Path.IsNullOrEmpty() ? mapping.Path : DyndleConfig.PublicationBasePath,
                 Port = !mapping.Port.IsNullOrEmpty() ? int.Parse(mapping.Port) : HttpContext.Current.Request.Url.Port
             };
             return uriBuilder.Uri;
