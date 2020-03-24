@@ -52,7 +52,7 @@ namespace Dyndle.Modules.ImageEnhancement.Controllers
             }
             try
             {
-                var bytes = _binaryFactory.FindBinaryContent("/" + url);
+                var bytes = _binaryFactory.FindBinaryContent((string)("/" + url));
 
                 var enhancedBytes = _imageEnhancementService.Enhance(bytes, enhancementSettings);
 
@@ -84,7 +84,14 @@ namespace Dyndle.Modules.ImageEnhancement.Controllers
         {
             var filename = Path.GetFileNameWithoutExtension(url);
             string extension = Path.GetExtension(url);
-            return string.Format("{0}-{1}-{2}-{3}-{4}-{5}-{6}-{7}.{8}", filename, enhancementSettings.Width, enhancementSettings.Height, enhancementSettings.CropX, enhancementSettings.CropY, enhancementSettings.CropXP, enhancementSettings.CropYP, enhancementSettings.CropStyle.ToString(), extension);
+            var enhancementSettingsArray = new string[] { filename, enhancementSettings.Width.ToString(), enhancementSettings.Height.ToString(), enhancementSettings.CropX.ToString(), enhancementSettings.CropY.ToString(), enhancementSettings.CropXP.ToString(), enhancementSettings.CropYP.ToString(), enhancementSettings.CropStyle.ToString()};
+            string enhancedFileName = string.Join("-", enhancementSettingsArray.Where(s => !string.IsNullOrEmpty(s)));
+
+            if (!string.IsNullOrEmpty(extension))
+            {
+                enhancedFileName += $"{extension}";
+            }
+            return enhancedFileName;
         }
 
         private string EnhancedImagesPath => _configuration.LocalPath;
