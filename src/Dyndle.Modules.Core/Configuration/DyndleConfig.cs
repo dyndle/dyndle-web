@@ -23,7 +23,7 @@ namespace Dyndle.Modules.Core.Configuration
         /// <summary>
         /// Returns configuration appSetting 'PublicationBaseUrl' as string
         /// </summary>
-        public static string PublicationBaseUrl => CoreConstants.Configuration.PublicationBaseUrl.GetConfigurationValue();
+        public static string PublicationBasePath => CoreConstants.Configuration.PublicationBasePath.GetConfigurationValue();
         /// <summary>
         /// Returns configuration appSetting 'BinaryUrlPattern' as string
         /// </summary>
