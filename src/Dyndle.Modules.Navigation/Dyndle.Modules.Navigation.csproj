@@ -144,7 +144,6 @@
     <Compile Include="Html\NavigationHelper.cs" />
     <Compile Include="NavigationConstants.cs" />
     <Compile Include="Models\ISitemapItem.cs" />
-    <Compile Include="Models\NavigationPlaceholder.cs" />
     <Compile Include="Models\SitemapItem.cs" />
     <Compile Include="NavigationAreaRegistration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
