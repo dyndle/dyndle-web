@@ -2,6 +2,9 @@ image: mono
 clone:
   depth: full    # SonarCloud scanner needs the full history to assign issues properly  
 definitions:
+  services:
+    docker:
+      memory: 2048
   caches:
     nuget: src/packages
   steps:
