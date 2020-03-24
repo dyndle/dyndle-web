@@ -1,6 +1,5 @@
 ﻿using Dyndle.Modules.Search.Extensions;
 using Dyndle.Modules.Search.Utils;
-using Menon.Me.ModelToQuerystring.Attributes;
 
 namespace Dyndle.Modules.Search.Models
 {
@@ -15,7 +14,6 @@ namespace Dyndle.Modules.Search.Models
         /// <value>
         /// The current page.
         /// </value>
-        [QueryParameter(IsQuerystring = false)]
         public int CurrentPage { get; set; }
         /// <summary>
         /// Number of leading documents to skip and number of documents to return after 'start'. (Integers)
@@ -41,7 +39,6 @@ namespace Dyndle.Modules.Search.Models
         /// <value>
         /// The query.
         /// </value>
-        [QueryParameter(IsQuerystring = false)]
         public string QueryText { get; set; }
 
         [QueryParameter(PropertyName = "q")]
@@ -103,11 +100,8 @@ namespace Dyndle.Modules.Search.Models
         [QueryParameter(PropertyName = "omitHeader")]
         public string OmitHeader { get; set; } = "true";
 
-        [QueryParameter(IsQuerystring = false)]
         public bool IsGrouped { get; set; }
-        [QueryParameter(IsQuerystring = false)]
         public string GroupByField { get; set; }
-        [QueryParameter(IsQuerystring = false)]
         public int GroupingPageSize { get; set; }
     }
 }

@@ -47,7 +47,7 @@ namespace Dyndle.Modules.Tridion9.Resolvers
             UriBuilder uriBuilder = new UriBuilder();
             uriBuilder.Scheme = HttpContext.Current.Request.Url.Scheme;
             uriBuilder.Host = HttpContext.Current.Request.Url.Host;
-            uriBuilder.Path = DyndleConfig.PublicationBaseUrl;
+            uriBuilder.Path = DyndleConfig.PublicationBasePath;
             uriBuilder.Port = HttpContext.Current.Request.Url.Port;
             return uriBuilder.Uri;
         }
