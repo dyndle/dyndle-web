@@ -56,5 +56,8 @@
             /// </summary>
             public readonly static string NavSubtype = "navSubtype";
         }
+
+        public enum NavigationType { Default, Children, Path, Sitemap }
+
     }
 }

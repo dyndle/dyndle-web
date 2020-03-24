@@ -1,6 +1,5 @@
 ﻿using DD4T.ViewModels.Attributes;
 using Dyndle.Modules.Core.Models;
-using Dyndle.Modules.Navigation.Binders;
 
 namespace Dyndle.Modules.Navigation.Models
 {
