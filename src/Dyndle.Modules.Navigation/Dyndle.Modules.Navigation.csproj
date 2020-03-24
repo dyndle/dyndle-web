@@ -141,28 +141,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Areas\Navigation\Views\Navigation\Breadcrumb.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Breadcrumb.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Navigation\Views\Navigation\LeftNavigation.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LeftNavigation.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Navigation\Views\Navigation\MultiLevelTopNavigation.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MultiLevelTopNavigation.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Navigation\Views\Navigation\TopNavigation.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TopNavigation.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Binders\SitemapItemModelBinder.cs" />
-    <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Html\NavigationHelper.cs" />
     <Compile Include="NavigationConstants.cs" />
     <Compile Include="Models\ISitemapItem.cs" />
@@ -177,25 +155,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Areas\Navigation\Views\Navigation\Breadcrumb.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>Breadcrumb.generated.cs</LastGenOutput>
-    </None>
-    <None Include="Areas\Navigation\Views\Navigation\LeftNavigation.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>LeftNavigation.generated.cs</LastGenOutput>
-    </None>
-    <None Include="Areas\Navigation\Views\Navigation\MultiLevelTopNavigation.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>MultiLevelTopNavigation.generated.cs</LastGenOutput>
-    </None>
-    <None Include="Areas\Navigation\Views\Navigation\TopNavigation.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>TopNavigation.generated.cs</LastGenOutput>
-    </None>
-    <None Include="Areas\Navigation\Views\web.config">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="web.config">
       <SubType>Designer</SubType>
     </Content>

@@ -1,7 +1,6 @@
 ﻿using System.Web;
 using Dyndle.Modules.Core.Cache;
 using Dyndle.Modules.Core.Extensions;
-using Dyndle.Modules.Navigation.Binders;
 using Dyndle.Modules.Navigation.Models;
 using Dyndle.Modules.Navigation.Providers;
 

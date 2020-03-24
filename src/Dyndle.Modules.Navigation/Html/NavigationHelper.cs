@@ -50,9 +50,6 @@ namespace Dyndle.Modules.Navigation.Html
         {
             return _navigationService.GetNavigationModel(string.Empty, NavigationConstants.NavigationType.Sitemap);
         }
-
         #endregion
-
     }
-
 }
