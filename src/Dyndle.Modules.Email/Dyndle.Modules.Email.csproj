@@ -66,8 +66,8 @@
     <Reference Include="DD4T.Factories, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DD4T.Core.2.5.0\lib\net45\DD4T.Factories.dll</HintPath>
     </Reference>
-    <Reference Include="DD4T.MVC, Version=2.2.7.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DD4T.MVC5.2.2.7\lib\net45\DD4T.MVC.dll</HintPath>
+    <Reference Include="DD4T.MVC, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DD4T.MVC5.2.5.0\lib\net45\DD4T.MVC.dll</HintPath>
     </Reference>
     <Reference Include="DD4T.Serialization, Version=2.5.0.0, Culture=neutral, PublicKeyToken=4450e3c7f68bf872, processorArchitecture=MSIL">
       <HintPath>..\packages\DD4T.Model.2.5.0\lib\net45\DD4T.Serialization.dll</HintPath>
@@ -78,8 +78,8 @@
     <Reference Include="DD4T.ViewModels, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DD4T.Core.2.5.0\lib\net45\DD4T.ViewModels.dll</HintPath>
     </Reference>
-    <Reference Include="DD4T.Web, Version=2.2.7.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DD4T.MVC5.2.2.7\lib\net45\DD4T.Web.dll</HintPath>
+    <Reference Include="DD4T.Web, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DD4T.MVC5.2.5.0\lib\net45\DD4T.Web.dll</HintPath>
     </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.4.9.5, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <HintPath>..\packages\HtmlAgilityPack.1.4.9.5\lib\Net45\HtmlAgilityPack.dll</HintPath>

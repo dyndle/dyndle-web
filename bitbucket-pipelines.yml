@@ -1,5 +1,6 @@
 image: mono
-
+clone:
+  depth: full    # SonarCloud scanner needs the full history to assign issues properly  
 definitions:
   caches:
     nuget: src/packages
@@ -8,6 +9,8 @@ definitions:
         name: Build package push
         script:
           - export PROJECT_NAME=Dyndle.Modules.Core
+          - pipe: sonarsource/sonarcloud-scan:1.0.1
+          - pipe: sonarsource/sonarcloud-quality-gate:0.1.3
           - apt-get update 
           - nuget restore $BITBUCKET_CLONE_DIR/src/Dyndle.Modules.sln -c $BITBUCKET_CLONE_DIR/src/NuGet.Config
           - find .
