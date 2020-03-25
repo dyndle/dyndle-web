@@ -10,6 +10,7 @@ definitions:
   steps:
     - step: &build-package-push
         name: Build package push
+        size: 2x
         script:
           - export PROJECT_NAME=Dyndle.Modules.Core
           - pipe: sonarsource/sonarcloud-scan:1.0.1
