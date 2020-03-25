@@ -52,7 +52,7 @@ namespace Dyndle.Modules.ImageEnhancement.Controllers
             }
             try
             {
-                var bytes = _binaryFactory.FindBinaryContent(("/" + url));
+                var bytes = _binaryFactory.FindBinaryContent("/" + url);
 
                 var enhancedBytes = _imageEnhancementService.Enhance(bytes, enhancementSettings);
 
