@@ -3,7 +3,7 @@
 	<appSettings xdt:Transform="InsertIfMissing">
 		<!-- Image enhancement settings -->
 		<add key="ImageEnhancement.LocalPath" value="/EnhancedImages" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
-		<add key="ImageEnhancement.BackgroundColor" value="#f00" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
+		<add key="ImageEnhancement.BackgroundColor" value="#fff" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
 		<add key="ImageEnhancement.CacheSeconds" value="20" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
 	</appSettings>
 </configuration>
