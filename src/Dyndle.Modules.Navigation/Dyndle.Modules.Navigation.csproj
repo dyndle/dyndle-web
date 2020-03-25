@@ -103,9 +103,6 @@
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="RazorGenerator.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Trivident.RazorGenerator.Mvc.2.4.9\lib\net40\RazorGenerator.Mvc.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration" />
@@ -144,58 +141,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Areas\Navigation\Views\Navigation\Breadcrumb.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Breadcrumb.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Navigation\Views\Navigation\LeftNavigation.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LeftNavigation.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Navigation\Views\Navigation\MultiLevelTopNavigation.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MultiLevelTopNavigation.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Areas\Navigation\Views\Navigation\TopNavigation.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TopNavigation.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Binders\SitemapItemModelBinder.cs" />
-    <Compile Include="Controllers\NavigationController.cs" />
+    <Compile Include="Html\NavigationHelper.cs" />
     <Compile Include="NavigationConstants.cs" />
     <Compile Include="Models\ISitemapItem.cs" />
-    <Compile Include="Models\NavigationPlaceholder.cs" />
     <Compile Include="Models\SitemapItem.cs" />
     <Compile Include="NavigationAreaRegistration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\INavigationProvider.cs" />
     <Compile Include="Providers\NavigationProvider.cs" />
+    <Compile Include="Services\INavigationService.cs" />
+    <Compile Include="Services\NavigationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Areas\Navigation\Views\Navigation\Breadcrumb.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>Breadcrumb.generated.cs</LastGenOutput>
-    </None>
-    <None Include="Areas\Navigation\Views\Navigation\LeftNavigation.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>LeftNavigation.generated.cs</LastGenOutput>
-    </None>
-    <None Include="Areas\Navigation\Views\Navigation\MultiLevelTopNavigation.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>MultiLevelTopNavigation.generated.cs</LastGenOutput>
-    </None>
-    <None Include="Areas\Navigation\Views\Navigation\TopNavigation.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>TopNavigation.generated.cs</LastGenOutput>
-    </None>
-    <None Include="Areas\Navigation\Views\web.config">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="web.config">
       <SubType>Designer</SubType>
     </Content>
