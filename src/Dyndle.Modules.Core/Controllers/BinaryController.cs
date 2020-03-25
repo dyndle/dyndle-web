@@ -58,7 +58,6 @@ namespace Dyndle.Modules.Core.Controllers
         /// <exception cref="HttpException">404 - File '/" + url + "' cannot be found</exception>
         public ActionResult Binary(string url)
         {
-            var urlWithExtension = HttpContext.Request.CurrentExecutionFilePathExtension;
             var physicalPath = BinaryCachePath + @"\" + url.Replace("/", @"\");
             var found = _binaryFactory.FindAndStoreBinary("/" + url, physicalPath);
             if (found)
