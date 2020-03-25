@@ -173,7 +173,7 @@ namespace Dyndle.Modules.Core.Factories
                 if (_defaultEntityType == null)
                 {
                     var defaultEntityTypeName = DyndleConfig.DefaultEntityTypeName;
-                    _defaultEntityType = Bootstrap.LoadedAssemblies.SelectMany(a => a.DefinedTypes).FirstOrDefault(t => t.Name.Equals(defaultEntityTypeName, StringComparison.InvariantCultureIgnoreCase));
+                    _defaultEntityType = Bootstrap.ViewModelAssemblies.SelectMany(a => a.DefinedTypes).FirstOrDefault(t => t.Name.Equals(defaultEntityTypeName, StringComparison.InvariantCultureIgnoreCase));
                 }
                 return _defaultEntityType;
             }
