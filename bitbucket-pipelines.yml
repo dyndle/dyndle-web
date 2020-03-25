@@ -33,6 +33,7 @@ definitions:
           - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.SDLWeb8/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages_special
           - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.SDLWeb85/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
           - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Tridion9/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+          - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Quickstart.Web/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
           - nuget sources add -Name privaterepo2 -Source $PRIVATE_NUGET_URL -UserName $PRIVATE_NUGET_USERNAME -Password $PRIVATE_NUGET_PASSWORD
           - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Core*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
           - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.ComplexTables*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
@@ -46,6 +47,7 @@ definitions:
           - nuget push $BITBUCKET_CLONE_DIR/build/packages_special/Dyndle.Modules.SDLWeb8*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
           - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.SDLWeb85*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
           - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Tridion9*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+          - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Quickstart.Web*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
 pipelines:
   branches:
     release:
