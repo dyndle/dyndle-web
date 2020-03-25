@@ -29,24 +29,18 @@ namespace Dyndle.Modules.Core
 
 
 		/// <summary>
-		/// List of referenced assemblies, used to find all MVC controllers to be registered
-		/// and all available DD4T view models 
+		/// List of referenced assemblies, used to find all available DD4T view models 
 		/// </summary>
-		public static IList<Assembly> LoadedAssemblies
+		public static IList<Assembly> ViewModelAssemblies
 		{
 			get
 			{
                 var viewModelNamespaces = DyndleConfig.ViewModelNamespaces;
-                var controllerNamespaces = DyndleConfig.ControllerNamespaces;
 
 				if (string.IsNullOrWhiteSpace(viewModelNamespaces))
 					throw new Exception($"AppSettings Key/Value is missing [Key: {CoreConstants.Configuration.ViewModelNamespaces}]");
 
-				if (string.IsNullOrWhiteSpace(controllerNamespaces))
-                    throw new Exception($"AppSettings Key/Value is missing [Key: {CoreConstants.Configuration.ControllerNamespaces}]");
-
-                var namespaces = viewModelNamespaces.Split(',').Select(n => n.Trim())
-					.Concat(controllerNamespaces.Split(',').Select(n => n.Trim()));
+                var namespaces = viewModelNamespaces.Split(',').Select(n => n.Trim());
 				return BuildManager.GetReferencedAssemblies().Cast<Assembly>()
 					.Where(a => !a.GlobalAssemblyCache
 					            && !a.IsDynamic
@@ -55,10 +49,34 @@ namespace Dyndle.Modules.Core
 			}
 		}
 
-		/// <summary>
-		/// Main method for DI container setup, will only run the container setup code once
-		/// </summary>
-		public static void Run()
+        /// <summary>
+        /// List of referenced assemblies, used to find all MVC controllers to be registered
+        /// </summary>
+        public static IList<Assembly> ControllerAssemblies
+        {
+            get
+            {
+                var controllerNamespaces = DyndleConfig.ControllerNamespaces;
+
+
+                if (string.IsNullOrWhiteSpace(controllerNamespaces))
+                    throw new Exception($"AppSettings Key/Value is missing [Key: {CoreConstants.Configuration.ControllerNamespaces}]");
+
+                var namespaces = controllerNamespaces.Split(',').Select(n => n.Trim());
+                return BuildManager.GetReferencedAssemblies().Cast<Assembly>()
+                    .Where(a => !a.GlobalAssemblyCache
+                                && !a.IsDynamic
+                                && !a.ReflectionOnly
+                                && namespaces.Any(n => a.FullName.StartsWith(n))).ToList();
+            }
+        }
+
+
+
+        /// <summary>
+        /// Main method for DI container setup, will only run the container setup code once
+        /// </summary>
+        public static void Run()
 		{
 			lock (_locker)
 			{

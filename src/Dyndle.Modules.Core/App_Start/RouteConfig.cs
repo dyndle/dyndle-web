@@ -30,7 +30,7 @@ namespace Dyndle.Modules.Core
             routes.MapMvcAttributeRoutes();
 
             //Register area's before catch all route for pagecontroller
-            AreaRegistration.RegisterAllAreas();
+            // AreaRegistration.RegisterAllAreas(); // note: this should be done from the global.asax by the customer's web app
 
             // XPM blank page
             routes.MapRoute(
@@ -53,25 +53,25 @@ namespace Dyndle.Modules.Core
                new { itemId = @"^(.*)?$" }
             ).DataTokens.Add("area", "Core");
 
-            // Routes for retrieving content via ajax - note you will need to also set the [AjaxEnabled] attribute on the required controller actions
-            routes.MapRoute(
-                "AJAX",
-                "ajax/{area}/{controller}/{action}"
-             );
-            routes.MapRoute(
-               "AJAX_short",
-               "ajax/{controller}",
-               new { action = "Index" }
-            );
-            routes.MapRoute(
-               "AJAX_Loc",
-               "{localization}/ajax/{area}/{controller}/{action}"
-            );
-            routes.MapRoute(
-               "AJAX_Short_Loc",
-               "{localization}/ajax/{controller}",
-               new { action = "Index" }
-            );
+            //// Routes for retrieving content via ajax - note you will need to also set the [AjaxEnabled] attribute on the required controller actions
+            //routes.MapRoute(
+            //    "AJAX",
+            //    "ajax/{area}/{controller}/{action}"
+            // );
+            //routes.MapRoute(
+            //   "AJAX_short",
+            //   "ajax/{controller}",
+            //   new { action = "Index" }
+            //);
+            //routes.MapRoute(
+            //   "AJAX_Loc",
+            //   "{localization}/ajax/{area}/{controller}/{action}"
+            //);
+            //routes.MapRoute(
+            //   "AJAX_Short_Loc",
+            //   "{localization}/ajax/{controller}",
+            //   new { action = "Index" }
+            //);
 
             routes.MapRoute(
                 "CME_Preview_publication",
