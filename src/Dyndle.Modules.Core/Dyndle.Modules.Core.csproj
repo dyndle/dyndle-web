@@ -275,7 +275,6 @@
     <Compile Include="Resolver\EclCdnUrlResolver.cs" />
     <Compile Include="Resolver\LinkResolver.cs" />
     <Compile Include="Resolver\RichTextFieldResolver.cs" />
-    <Compile Include="Results\XmlResult.cs" />
     <Compile Include="Services\Preview\IPreviewContentService.cs" />
     <Compile Include="Services\Preview\PreviewContentService.cs" />
     <Compile Include="Services\Redirection\IRedirectionService.cs" />
