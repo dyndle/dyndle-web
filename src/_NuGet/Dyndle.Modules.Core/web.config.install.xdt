@@ -2,42 +2,32 @@
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
 	<appSettings xdt:Transform="InsertIfMissing">
 		<!-- Dyndle Modules settings -->
-		<add key="Dyndle.ViewModelNamespace" value="your-project-namespace" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
-		<add key="Dyndle.ControllerNamespace" value="Dyndle.Modules, your-project-namespace" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+		<add key="Dyndle.ViewModelNamespaces" value="$rootnamespace$" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+		<add key="Dyndle.ControllerNamespaces" value="Dyndle.Modules, $rootnamespace$" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
 		<add key="Dyndle.EnableCache" value="true" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
 		<add key="Dyndle.RedirectsUrl" value="/system/redirects.html" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
 		<add key="Dyndle.SiteConfigUrl" value="/system/site-config.html" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
-		<add key="Dyndle.StagingSite" value="true" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
-		<add key="Dyndle.IncludesUrl" value="/system/includes.html" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
 		<add key="Dyndle.BinaryCacheFolder" value="/binarydata" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
 		<!-- DD4T settings -->
-		<add key="CacheSettings_CallBackInterval" value="30" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
 		<add key="DD4T.CacheSettings.Default" value="30" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
 		<add key="DD4T.CacheSettings.Link" value="300" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
 		<add key="DD4T.CacheSettings.Page" value="30" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
 		<add key="DD4T.CacheSettings.Component" value="30" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
 		<add key="DD4T.CacheSettings.ComponentPresentation" value="30" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
 		<add key="DD4T.CacheSettings.Binary" value="30" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
-		<add key="DD4T.CacheSettings.ContentQuery" value="300" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
-		<add key="DD4T.CacheSettings.Navigation" value="300" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
-		<add key="DD4T.CacheSettings.Model" value="300" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
-		<add key="DD4T.CacheSettings.Configuration" value="300" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+		<add key="DD4T.CacheSettings.ContentQuery" value="30" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+		<add key="DD4T.CacheSettings.Navigation" value="30" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+		<add key="DD4T.CacheSettings.Model" value="30" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+		<add key="DD4T.CacheSettings.Configuration" value="30" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+		<!-- set DD4T.CacheSettings.Output to a positive value (in seconds) to enable smart output caching (item is decached when the page is published) -->
+		<add key="DD4T.CacheSettings.Output" value="0" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
 		<add key="DD4T.WelcomeFile" value="index.html" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
-		<add key="DD4T.PublicationId" value="10" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
 		<!-- SDL CIL settings -->
 		<add key="discovery-service-uri" value="http://your-host:your-port/discovery.svc" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
-		<!-- Add host entry server-ip your-host -->
+		<!-- if the discovery service does not require authentication, set oauth-enabled to false and remove the client-id and client-secret -->
 		<add key="oauth-enabled" value="true" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
-		<add key="oauth-client-id" value="cduser" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
-		<add key="oauth-client-secret" value="CDUserP@ssw0rd" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
-		<add key="webpages:Version" value="3.0.0.0" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
-		<add key="webpages:Enabled" value="false" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
-		<add key="ClientValidationEnabled" value="true" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
-		<add key="UnobtrusiveJavaScriptEnabled" value="true" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
-		<!-- serilog -->
-		<add key="serilog:using:RollingFile" value="Serilog.Sinks.RollingFile" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
-		<add key="serilog:write-to:RollingFile.pathFormat" value="your_log_path" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
-		<add key="serilog:minimum-level" value="Verbose" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+		<add key="oauth-client-id" value="your-cduser" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+		<add key="oauth-client-secret" value="your-client-secret" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
 	</appSettings>
 	<system.web xdt:Transform="InsertIfMissing">
 		<caching xdt:Transform="InsertIfMissing">
