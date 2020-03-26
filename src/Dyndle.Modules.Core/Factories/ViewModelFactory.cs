@@ -3,6 +3,7 @@ using System.Linq;
 using DD4T.ContentModel;
 using DD4T.ContentModel.Contracts.Configuration;
 using DD4T.ContentModel.Contracts.Logging;
+using DD4T.ContentModel.Exceptions;
 using DD4T.Core.Contracts.Resolvers;
 using DD4T.Core.Contracts.ViewModels;
 using DD4T.ViewModels.Defaults;
@@ -102,8 +103,15 @@ namespace Dyndle.Modules.Core.Factories
             if (type == null) return null;
 
             _logger.Debug("Building ViewModel based on type " + type.FullName);
-            result = BuildViewModel(type, modelData, contextModel);
-            return result;
+            try
+            {
+                result = BuildViewModel(type, modelData, contextModel);
+                return result;
+            }
+            catch (Exception e)
+            {
+                throw new ViewModelBuildException(modelData, type, e);
+            }
         }
 
         /// <summary>

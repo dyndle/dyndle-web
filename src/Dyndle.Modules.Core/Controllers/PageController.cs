@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
+using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using DD4T.ContentModel;
 using DD4T.ContentModel.Contracts.Configuration;
 using DD4T.ContentModel.Contracts.Logging;
@@ -25,21 +28,9 @@ namespace Dyndle.Modules.Core.Controllers
     /// <seealso cref="ModuleControllerBase" />
     public class PageController : ModuleControllerBase
     {
-        /// <summary>
-        /// The enrichment providers
-        /// </summary>
         private readonly IList<IWebPageEnrichmentProvider> _enrichmentProviders;
-        /// <summary>
-        /// The redirection service
-        /// </summary>
         private readonly IRedirectionService _redirectionService;
-        /// <summary>
-        /// The configuration
-        /// </summary>
         private readonly IDD4TConfiguration _configuration;
-        /// <summary>
-        /// The preview Cotnent  Service
-        /// </summary>
         private readonly IPreviewContentService _previewContentService;
         private const string DEFAULT_INCLUDES_VIEW = "Includes";
 
@@ -157,6 +148,44 @@ namespace Dyndle.Modules.Core.Controllers
         {
             return new EmptyResult();
         }
+
+        protected override void OnException(ExceptionContext filterContext)
+        {
+
+            //Log the error!!
+            Logger.Error("caught exception of type " + filterContext.Exception.GetType());
+
+            if (!HttpContext.IsCustomErrorEnabled) return;
+
+            var routeData = new RouteData();
+
+            routeData.Values.Add("controller", "Page");
+            routeData.Values.Add("area", "Core");
+            routeData.Values.Add("action", "HttpException");
+
+            IController controller = DependencyResolver.Current.GetService<PageController>();
+
+            controller.Execute(new RequestContext(HttpContext, routeData));
+            filterContext.ExceptionHandled = true;
+
+        }
+
+        ///// <summary>
+        ///// Shows a custom error page by invoking the <see cref="PageController"/>.
+        ///// </summary>
+        ///// <param name="exception">The exception.</param>
+        //private void ShowCustomErrorPage(Exception exception)
+        //{
+        //    var routeData = new RouteData();
+
+        //    routeData.Values.Add("controller", "Page");
+        //    routeData.Values.Add("area", "Core");
+        //    routeData.Values.Add("action", "HttpException");
+
+        //    IController controller = DependencyResolver.Current.GetService<PageController>();
+
+        //    controller.Execute(new RequestContext(new HttpContextWrapper(Context), routeData));
+        //}
 
         /// <summary>
         /// Enriches the web page using the providers.
