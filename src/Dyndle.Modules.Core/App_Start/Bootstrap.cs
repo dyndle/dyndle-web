@@ -63,11 +63,12 @@ namespace Dyndle.Modules.Core
                     throw new Exception($"AppSettings Key/Value is missing [Key: {CoreConstants.Configuration.ControllerNamespaces}]");
 
                 var namespaces = controllerNamespaces.Split(',').Select(n => n.Trim());
-                return BuildManager.GetReferencedAssemblies().Cast<Assembly>()
+               
+                return AppDomain.CurrentDomain.GetAssemblies().Cast<Assembly>()
                     .Where(a => !a.GlobalAssemblyCache
                                 && !a.IsDynamic
                                 && !a.ReflectionOnly
-                                && namespaces.Any(n => a.FullName.StartsWith(n))).ToList();
+                                && namespaces.Any(n => a.GetTypes().Any(t => t.FullName.StartsWith(n)))).ToList();
             }
         }
 
@@ -86,26 +87,21 @@ namespace Dyndle.Modules.Core
 					return;
 				}
 
-                RouteConfig.RegisterRoutes(RouteTable.Routes);
-				SetupDi();
+				RegisterModules();
 
 				//Mark as run
 				_intialized = true;
 			}
 		}
 
-        private static void SetupDi()
-        {
-            RegisterModules();
-        }
 
         /// <summary>
-		/// Register all necessary core/DD4T dependencies
-		/// </summary>
-		/// <param name="builder"></param>
-		public static void RegisterModules()
-		{
-			//Todo: register all Types
+        /// Register all necessary core/DD4T dependencies
+        /// </summary>
+        /// <param name="builder"></param>
+        private static void RegisterModules()
+        {
+          
 			ServiceCollection.RegisterModule<DefaultsModule>();
 			ServiceCollection.RegisterModule<PreviewModule>();
 			ServiceCollection.RegisterModule<RedirectionModule>();
