@@ -119,6 +119,10 @@ namespace Dyndle.Modules.Tridion9.Resolvers
         {
             var url = fullUri.GetLeftPart(UriPartial.Authority);
             var segments = RemoveExtensions(fullUri.AbsolutePath.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries));
+            if (segments.FirstOrDefault() == BinaryCacheFolder)
+            {
+                segments = segments.Skip(1).ToArray();
+            }
             if (DirectorySegmentsUsedForPublicationMapping < 1)
             {
                 return new Uri(url);
@@ -175,5 +179,6 @@ namespace Dyndle.Modules.Tridion9.Resolvers
                 return _directorySegmentsUsedForPublicationMapping;
             }
         }
+        private string BinaryCacheFolder => CoreConstants.Configuration.BinaryCacheFolder.GetConfigurationValue("BinaryData").Replace("/", "").Replace("~", "");
     }
 }
