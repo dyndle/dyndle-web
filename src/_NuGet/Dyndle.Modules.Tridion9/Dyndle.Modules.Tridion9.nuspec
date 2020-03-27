@@ -17,7 +17,7 @@
     </references>
     <dependencies>
       <dependency id="Dyndle.Modules.Core" version="0.0.9"/>
-      <dependency id="Sdl.Web.Delivery" version="11.0.0" />
+      <dependency id="DD4T.Providers.Tridion9.CIL" version="2.5.0"/>
       <dependency id="Microsoft.Extensions.DependencyInjection" version="2.2.0"/>
       <dependency id="Newtonsoft.Json" version="11.0.2" />
       <dependency id="WebActivatorEx" version="2.0.3" />
