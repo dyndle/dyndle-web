@@ -41,8 +41,7 @@ namespace Dyndle.Modules.SDLWeb85.Resolvers
             }
             return new PublicationMapping()
             {
-                Domain = result.Domain,
-                NamespaceId = result.NamespaceId,
+                Domain = result.Domain,              
                 PublicationId = result.PublicationId,
                 Protocol = result.Protocol,
                 Port = result.Port,
@@ -51,5 +50,4 @@ namespace Dyndle.Modules.SDLWeb85.Resolvers
             };
         }
     }
-}
 }

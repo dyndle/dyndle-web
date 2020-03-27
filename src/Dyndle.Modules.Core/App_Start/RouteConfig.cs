@@ -109,7 +109,7 @@ namespace Dyndle.Modules.Core
             routes.MapRoute(
                 "Core_HttpException",
                 url: "{controller}/{action}/{id}",
-                new { controller = "Page", action = "HttpException" }
+                defaults: new { controller = "Page", action = "HttpException" }
             ).DataTokens.Add("area", "Core");
 
             // look for a Default route like VS creates for new projects
