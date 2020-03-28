@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Autofac.Integration.Mvc;
 using DD4T.DI.Autofac;
-using Dyndle.Modules.Core;
-using Dyndle.Modules.Management.Controllers;
 using Bootstrap = Dyndle.Modules.Core.Bootstrap;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof($rootnamespace$.StartDyndle), "PreStart")]

@@ -69,6 +69,10 @@ namespace Dyndle.Modules.Core.Configuration
         /// </summary>
         public static string DefaultEntityTypeName => CoreConstants.Configuration.DefaultEntityTypeName.GetConfigurationValue();
         /// <summary>
+        /// Returns configuration appSetting 'DefaultWebPageTypeName' as string
+        /// </summary>
+        public static string DefaultWebPageTypeName => CoreConstants.Configuration.DefaultWebPageTypeName.GetConfigurationValue();
+        /// <summary>
         /// Returns configuration appSetting 'EnableRedirects' as boolean
         /// </summary>
         public static bool EnableRedirects => CoreConstants.Configuration.EnableRedirects.GetConfigurationValueAsBoolean();
