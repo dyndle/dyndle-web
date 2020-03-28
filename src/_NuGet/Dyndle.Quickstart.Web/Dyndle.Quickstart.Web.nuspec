@@ -26,8 +26,8 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="..\..\Dyndle.Quickstart.Web\ApplicationBase.cs.pp" target="content" />
     <file src="..\..\Dyndle.Quickstart.Web\CoreAreaRegistration.cs.pp" target="content" />
     <file src="..\..\Dyndle.Quickstart.Web\App_Start\StartDyndle.cs.pp" target="content/App_Start" />
+    <file src="..\..\Dyndle.Quickstart.Web\Areas\Core\Views\Web.config.pp" target="content/Areas/Core/Views" />
   </files>
 </package>
