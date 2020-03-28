@@ -10,6 +10,7 @@ using DD4T.ViewModels.Defaults;
 using Dyndle.Modules.Core.Configuration;
 using Dyndle.Modules.Core.Exceptions;
 using Dyndle.Modules.Core.Extensions;
+using Dyndle.Modules.Core.Models.Defaults;
 using Dyndle.Modules.Core.Models.System;
 
 namespace Dyndle.Modules.Core.Factories
@@ -158,8 +159,8 @@ namespace Dyndle.Modules.Core.Factories
                 if (data is IPage)
                 {
                     // TODO: make default page model configurable
-                    _logger.Debug("no viewmodel found, using default page viewmodel " + typeof(DefaultPage).FullName);
-                    return typeof(DefaultPage);
+                    _logger.Debug("no viewmodel found, using default webpage viewmodel");
+                    return DefaultWebPageType;
                 }
                 if (data is IComponentPresentation)
                 {                   
@@ -174,14 +175,71 @@ namespace Dyndle.Modules.Core.Factories
         }
 
         private static Type _defaultEntityType;
-        private static Type DefaultEntityType
+        private static Type _defaultWebPageType;
+        private static object locker = new object();
+        private Type DefaultEntityType
         {
             get
             {
                 if (_defaultEntityType == null)
                 {
-                    var defaultEntityTypeName = DyndleConfig.DefaultEntityTypeName;
-                    _defaultEntityType = Bootstrap.ViewModelAssemblies.SelectMany(a => a.DefinedTypes).FirstOrDefault(t => t.Name.Equals(defaultEntityTypeName, StringComparison.InvariantCultureIgnoreCase));
+                    lock (locker)
+                    {
+                        if (_defaultEntityType == null)
+                        {
+                            var defaultEntityTypeName = DyndleConfig.DefaultEntityTypeName;
+                            if (string.IsNullOrEmpty(defaultEntityTypeName))
+                            {
+                                // no default entity type configured, return the built-in Dyndle default
+                                _logger.Debug($"using the built-in Dyndle default model. If you want to create your own default, you can configure it in the Web.config using the appSetting key {CoreConstants.Configuration.DefaultEntityTypeName}");
+                                _defaultEntityType = typeof(DefaultEntity);
+                            }
+                            else
+                            {
+                                _defaultEntityType = Bootstrap.ViewModelAssemblies.SelectMany(a => a.DefinedTypes).FirstOrDefault(t => t.Name.Equals(defaultEntityTypeName, StringComparison.InvariantCultureIgnoreCase));
+                                if (_defaultEntityType == null)
+                                {
+                                    _logger.Warning($"the configured default entity type {defaultEntityTypeName} cannot be found, using the Dyndle default instead");
+                                    // no default entity type configured, return the built-in Dyndle default
+                                    _defaultEntityType = typeof(DefaultEntity);
+                                }
+                            }
+                        }
+                    }
+                }
+                return _defaultEntityType;
+            }
+        }
+
+        private Type DefaultWebPageType
+        {
+            get
+            {
+                if (_defaultWebPageType == null)
+                {
+                    lock (locker)
+                    {
+                        if (_defaultWebPageType == null)
+                        {
+                            var defaultWebPageTypeName = DyndleConfig.DefaultWebPageTypeName;
+                            if (string.IsNullOrEmpty(defaultWebPageTypeName))
+                            {
+                                // no default entity type configured, return the built-in Dyndle default
+                                _logger.Debug($"using the built-in Dyndle default webpage model. If you want to create your own default, you can configure it in the Web.config using the appSetting key {CoreConstants.Configuration.DefaultEntityTypeName}");
+                                _defaultWebPageType = typeof(DefaultWebPage);
+                            }
+                            else
+                            {
+                                _defaultWebPageType = Bootstrap.ViewModelAssemblies.SelectMany(a => a.DefinedTypes).FirstOrDefault(t => t.Name.Equals(defaultWebPageTypeName, StringComparison.InvariantCultureIgnoreCase));
+                                if (_defaultWebPageType == null)
+                                {
+                                    _logger.Warning($"the configured default webpage type {defaultWebPageTypeName} cannot be found, using the Dyndle default instead");
+                                    // no default entity type configured, return the built-in Dyndle default
+                                    _defaultWebPageType = typeof(DefaultWebPage);
+                                }
+                            }
+                        }
+                    }
                 }
                 return _defaultEntityType;
             }
