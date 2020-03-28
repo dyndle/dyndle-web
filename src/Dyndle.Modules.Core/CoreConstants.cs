@@ -29,6 +29,7 @@
             public const string ContentManagerUrl = "Dyndle.ContentManagerUrl";
             public const string DirectorySegmentsUsedForPublicationMapping = "Dyndle.DirectorySegmentsUsedForPublicationMapping";
             public const string DefaultEntityTypeName = "Dyndle.DefaultEntityTypeName";
+            public const string DefaultWebPageTypeName = "Dyndle.DefaultWebPageTypeName";
             public const string EnableRedirects = "Dyndle.EnableRedirects";
             public const string EnableSectionErrors = "Dyndle.EnableSectionErrors";
             public const string ThrowNotFound = "Dyndle.ThrowNotFound";
