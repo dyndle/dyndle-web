@@ -154,7 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App_Start\StartDyndle.cs.pp" />
-    <None Include="Areas\Core\Views\Web.config" />
+    <None Include="Areas\Core\Views\Web.config.pp" />
     <None Include="CoreAreaRegistration.cs.pp" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
