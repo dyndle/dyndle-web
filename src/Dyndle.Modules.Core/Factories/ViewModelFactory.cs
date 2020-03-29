@@ -241,7 +241,7 @@ namespace Dyndle.Modules.Core.Factories
                         }
                     }
                 }
-                return _defaultEntityType;
+                return _defaultWebPageType;
             }
         }
     }
