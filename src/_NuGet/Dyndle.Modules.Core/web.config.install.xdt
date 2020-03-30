@@ -43,4 +43,7 @@
 			</outputCacheSettings>
 		</caching>
 	</system.web>
+	<system.webServer xdt:Transform="InsertIfMissing">
+		<modules runAllManagedModulesForAllRequests="true" xdt:Transform="InsertIfMissing"/>
+	</system.webServer>
 </configuration>

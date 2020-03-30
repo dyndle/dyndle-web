@@ -3,7 +3,7 @@
   <metadata>
     <id>Dyndle.Modules.Navigation</id>
     <!-- Version is set by Build.proj -->
-    <version>1.4.8.0-alpha-20191212080632</version>
+    <version>0.1.0.0-alpha-20200325163729</version>
     <!-- NOTE: Visual Studio's NuGet UI only shows 'id' and 'description' -->
     <title>Dyndle.Modules.Navigation</title>
     <authors>Trivident</authors>

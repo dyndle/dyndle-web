@@ -3,7 +3,7 @@
   <metadata>
     <id>Dyndle.Modules.Core</id>
     <!-- Version is set by Build.proj -->
-    <version>1.4.8.0-alpha-20200110171448</version>
+    <version>0.1.0.0-alpha-20200326123039</version>
     <!-- NOTE: Visual Studio's NuGet UI only shows 'id' and 'description' -->
     <title>Dyndle.Modules.Core</title>
     <authors>Trivident</authors>
