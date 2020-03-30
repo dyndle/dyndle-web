@@ -2,8 +2,9 @@
 using DD4T.ViewModels.Attributes;
 using Dyndle.Modules.Core.Attributes.ViewModels;
 using Dyndle.Modules.Core.Contracts.Entities;
+using Dyndle.Modules.Core.Models;
 
-namespace Dyndle.Modules.Core.Models.Entities
+namespace Dyndle.Modules.Email.Models
 {
     [ContentModelBySchemaTitle("Link", true)]
     public class Link : EntityModel, ILink
