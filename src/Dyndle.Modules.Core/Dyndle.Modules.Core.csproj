@@ -206,6 +206,7 @@
     <Compile Include="Interfaces\IServiceCollectionModule.cs" />
     <Compile Include="Models\Defaults\DefaultEntity.cs" />
     <Compile Include="Models\Defaults\DefaultWebPage.cs" />
+    <Compile Include="Models\MultimediaEntityModel.cs" />
     <Compile Include="Models\QueryCriteria.cs" />
     <Compile Include="Models\SegmentFilter.cs" />
     <Compile Include="Modules\ActionFilterModule.cs" />
