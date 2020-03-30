@@ -237,7 +237,10 @@ namespace Dyndle.Modules.Core.Providers.Content
 
             viewModel = _viewModelFactory.BuildViewModel(model);
 
-            _cacheAgent.Store(cacheKey, _cacheRegion, viewModel, dependencies);
+            if (viewModel != null)
+            {
+                _cacheAgent.Store(cacheKey, _cacheRegion, viewModel, dependencies);
+            }
 
             return viewModel;
 

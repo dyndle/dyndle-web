@@ -3,7 +3,7 @@
   <metadata>
     <id>Dyndle.Modules.Tridion9</id>
     <!-- Version is set by Build.proj -->
-    <version>1.4.8.0-alpha-20191212080633</version>
+    <version>0.1.0.0-alpha-20200325163729</version>
     <!-- NOTE: Visual Studio's NuGet UI only shows 'id' and 'description' -->
     <title>Dyndle.Modules.Tridion9</title>
     <authors>Trivident</authors>
@@ -17,7 +17,7 @@
     </references>
     <dependencies>
       <dependency id="Dyndle.Modules.Core" version="0.0.9"/>
-      <dependency id="Sdl.Web.Delivery" version="11.0.0" />
+      <dependency id="DD4T.Providers.Tridion9.CIL" version="2.5.0"/>
       <dependency id="Microsoft.Extensions.DependencyInjection" version="2.2.0"/>
       <dependency id="Newtonsoft.Json" version="11.0.2" />
       <dependency id="WebActivatorEx" version="2.0.3" />

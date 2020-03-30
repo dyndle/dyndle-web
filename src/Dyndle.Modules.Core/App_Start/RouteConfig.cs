@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -30,7 +32,7 @@ namespace Dyndle.Modules.Core
             routes.MapMvcAttributeRoutes();
 
             //Register area's before catch all route for pagecontroller
-            AreaRegistration.RegisterAllAreas();
+            // AreaRegistration.RegisterAllAreas(); // note: this should be done from the global.asax by the customer's web app
 
             // XPM blank page
             routes.MapRoute(
@@ -53,25 +55,25 @@ namespace Dyndle.Modules.Core
                new { itemId = @"^(.*)?$" }
             ).DataTokens.Add("area", "Core");
 
-            // Routes for retrieving content via ajax - note you will need to also set the [AjaxEnabled] attribute on the required controller actions
-            routes.MapRoute(
-                "AJAX",
-                "ajax/{area}/{controller}/{action}"
-             );
-            routes.MapRoute(
-               "AJAX_short",
-               "ajax/{controller}",
-               new { action = "Index" }
-            );
-            routes.MapRoute(
-               "AJAX_Loc",
-               "{localization}/ajax/{area}/{controller}/{action}"
-            );
-            routes.MapRoute(
-               "AJAX_Short_Loc",
-               "{localization}/ajax/{controller}",
-               new { action = "Index" }
-            );
+            //// Routes for retrieving content via ajax - note you will need to also set the [AjaxEnabled] attribute on the required controller actions
+            //routes.MapRoute(
+            //    "AJAX",
+            //    "ajax/{area}/{controller}/{action}"
+            // );
+            //routes.MapRoute(
+            //   "AJAX_short",
+            //   "ajax/{controller}",
+            //   new { action = "Index" }
+            //);
+            //routes.MapRoute(
+            //   "AJAX_Loc",
+            //   "{localization}/ajax/{area}/{controller}/{action}"
+            //);
+            //routes.MapRoute(
+            //   "AJAX_Short_Loc",
+            //   "{localization}/ajax/{controller}",
+            //   new { action = "Index" }
+            //);
 
             routes.MapRoute(
                 "CME_Preview_publication",
@@ -85,11 +87,15 @@ namespace Dyndle.Modules.Core
                 new { controller = "Page", action = "Preview" }
             ).DataTokens.Add("area", "Core");
 
+        
+
+            // route for binaries, based on a configurable pattern (see Dyndle.BinaryUrlPattern in Web.config)
             routes.MapRoute(
                 "Core_Binaries",
                 "{*url}",
                 new { controller = "Binary", action = "Binary" },
                 new { url = String.IsNullOrEmpty(DyndleConfig.BinaryUrlPattern) ? DEFAULT_BINARY_URL_PATTERN : DyndleConfig.BinaryUrlPattern });
+            // TODO: find out why this route does not explicitly refer to the Core area
 
             // Tridion Page Route
             routes.MapRoute(
@@ -97,9 +103,42 @@ namespace Dyndle.Modules.Core
                "{*page}",
                new { controller = PageControllerName, action = PageActionName },
                new { page = new RedirectInvalidPageConstraint() }
-               //,
-               //new[] { "Dyndle.Modules.Core.Controllers" }
             ).DataTokens.Add("area", "Core");
+
+            //// special route for http exception handling
+            routes.MapRoute(
+                "Core_HttpException",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Page", action = "HttpException" }
+            ).DataTokens.Add("area", "Core");
+
+            // look for a Default route like VS creates for new projects
+            // we must move that to the bottom, otherwise the page and binary controllers won't be hit
+
+            Route defaultRoute = null;
+            var allRoutes = RouteTable.Routes.OfType<Route>().ToList();
+            for (int i = 0; i < allRoutes.Count(); i++)
+            {
+                var route = allRoutes[i];
+                if (route.Url == "{controller}/{action}/{id}")
+                {
+                    defaultRoute = route;
+                    RouteTable.Routes.Remove(route);
+                }
+            }
+
+            if (defaultRoute != null)
+            {
+                RouteTable.Routes.Add(defaultRoute);
+            }
+            else
+            {
+                routes.MapRoute(
+                    name: "Default",
+                    url: "{controller}/{action}/{id}",
+                    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                );
+            }
 
         }
 
@@ -150,6 +189,13 @@ namespace Dyndle.Modules.Core
             {
                 return false;
             }
+
+            var lastError = HttpContext.Current.Server.GetLastError();
+            if (lastError != null)
+            {
+                return false;
+            }
+
             var incomingPageUri = httpContext.Request.Url;
             var incomingPageLink = incomingPageUri.AbsolutePath;
 
