@@ -206,7 +206,6 @@
     <Compile Include="Interfaces\IServiceCollectionModule.cs" />
     <Compile Include="Models\Defaults\DefaultEntity.cs" />
     <Compile Include="Models\Defaults\DefaultWebPage.cs" />
-    <Compile Include="Models\MultimediaEntityModel.cs" />
     <Compile Include="Models\QueryCriteria.cs" />
     <Compile Include="Models\SegmentFilter.cs" />
     <Compile Include="Modules\ActionFilterModule.cs" />
@@ -248,7 +247,6 @@
     <Compile Include="Models\System\MvcData.cs" />
     <Compile Include="Models\System\Redirects.cs" />
     <Compile Include="Models\System\SystemSettings.cs" />
-    <Compile Include="Models\TypeDescription.cs" />
     <Compile Include="Models\WebPage.cs" />
     <Compile Include="CoreConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
