@@ -2,7 +2,7 @@
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
 	<appSettings xdt:Transform="InsertIfMissing">
 		<!-- Dyndle Modules settings -->
-		<add key="Dyndle.ViewModelNamespaces" value="$rootnamespace$" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+		<add key="Dyndle.ViewModelNamespaces" value="Dyndle.Modules, $rootnamespace$" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
 		<add key="Dyndle.ControllerNamespaces" value="Dyndle.Modules, $rootnamespace$" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
 		<add key="Dyndle.EnableCache" value="true" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
 		<add key="Dyndle.RedirectsUrl" value="/system/redirects.html" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
