@@ -249,7 +249,7 @@ namespace Dyndle.Modules.Navigation.Providers
             }
 
             var result = _viewModelFactory.BuildViewModel(page.ComponentPresentations.FirstOrDefault());
-            if (result == null || result is ExceptionEntity)
+            if (result == null || result is ExceptionEntity || result is DefaultEntity)
             {
                 result = _viewModelFactory.BuildViewModel<SitemapItem>(page.ComponentPresentations.FirstOrDefault());
             }
