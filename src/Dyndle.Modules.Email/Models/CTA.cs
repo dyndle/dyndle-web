@@ -1,6 +1,5 @@
 ﻿using DD4T.ViewModels.Attributes;
 using Dyndle.Modules.Core.Models;
-using Dyndle.Modules.Core.Models.Entities;
 
 namespace Dyndle.Modules.Email.Models
 {

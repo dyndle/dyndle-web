@@ -166,6 +166,8 @@
     <Compile Include="Models\BasicContent.cs" />
     <Compile Include="EmailAreaRegistration.cs" />
     <Compile Include="Models\EmailPage.cs" />
+    <Compile Include="Models\Link.cs" />
+    <Compile Include="Models\LinkTitle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DefaultEmailRenderingService.cs" />
     <Compile Include="Services\DefaultEmailSendingService.cs" />

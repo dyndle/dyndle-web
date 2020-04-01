@@ -1,8 +1,9 @@
 ﻿using DD4T.ViewModels.Attributes;
 using Dyndle.Modules.Core.Attributes.ViewModels;
 using Dyndle.Modules.Core.Contracts.Entities;
+using Dyndle.Modules.Core.Models;
 
-namespace Dyndle.Modules.Core.Models.Entities
+namespace Dyndle.Modules.Email.Models
 {
     [ContentModelBySchemaTitle("LinkTitle", false)]
     public class LinkTitle : EntityModel, ILinkTitle
