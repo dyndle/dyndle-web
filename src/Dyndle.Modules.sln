@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget Packages", "Nuget Pac
 		_NuGet\Dyndle.Modules.Management\Dyndle.Modules.Management.nuspec = _NuGet\Dyndle.Modules.Management\Dyndle.Modules.Management.nuspec
 		_NuGet\Dyndle.Modules.Navigation\Dyndle.Modules.Navigation.nuspec = _NuGet\Dyndle.Modules.Navigation\Dyndle.Modules.Navigation.nuspec
 		_NuGet\Dyndle.Modules.Personalization\Dyndle.Modules.Personalization.nuspec = _NuGet\Dyndle.Modules.Personalization\Dyndle.Modules.Personalization.nuspec
-		_NuGet\Dyndle.Modules.SDLWeb8\Dyndle.Modules.SDLWeb8.nuspec = _NuGet\Dyndle.Modules.SDLWeb8\Dyndle.Modules.SDLWeb8.nuspec
+		_NuGet\Dyndle.Providers.SDLWeb8\Dyndle.Providers.SDLWeb8.nuspec = _NuGet\Dyndle.Providers.SDLWeb8\Dyndle.Providers.SDLWeb8.nuspec
 		_NuGet\Dyndle.Modules.Search\Dyndle.Modules.Search.nuspec = _NuGet\Dyndle.Modules.Search\Dyndle.Modules.Search.nuspec
 		_NuGet\Dyndle.Quickstart.Web\Dyndle.Quickstart.Web.nuspec = _NuGet\Dyndle.Quickstart.Web\Dyndle.Quickstart.Web.nuspec
 		_NuGet\Nuget.Proj = _NuGet\Nuget.Proj
@@ -38,11 +38,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.ComplexTable
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.Management", "Dyndle.Modules.Management\Dyndle.Modules.Management.csproj", "{307263FD-8FE0-438F-89FE-8B3D5A5E64A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.Tridion9", "Dyndle.Modules.Tridion9\Dyndle.Modules.Tridion9.csproj", "{99B6571E-65DD-4C76-B4C9-86B34E76FBD8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Providers.Tridion9", "Dyndle.Providers.Tridion9\Dyndle.Providers.Tridion9.csproj", "{99B6571E-65DD-4C76-B4C9-86B34E76FBD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.SDLWeb85", "Dyndle.Modules.SDLWeb85\Dyndle.Modules.SDLWeb85.csproj", "{5372DBE2-D735-4936-8AF2-0E38AE889ADF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Providers.SDLWeb85", "Dyndle.Providers.SDLWeb85\Dyndle.Providers.SDLWeb85.csproj", "{5372DBE2-D735-4936-8AF2-0E38AE889ADF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.SDLWeb8", "Dyndle.Modules.SDLWeb8\Dyndle.Modules.SDLWeb8.csproj", "{5111AC44-73A2-4D46-8F05-5A0C0A632CED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Providers.SDLWeb8", "Dyndle.Providers.SDLWeb8\Dyndle.Providers.SDLWeb8.csproj", "{5111AC44-73A2-4D46-8F05-5A0C0A632CED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tridion.TestProviders", "Tridion.TestProviders\Tridion.TestProviders.csproj", "{899CC432-25D8-4D65-9D98-95D109300127}"
 EndProject
