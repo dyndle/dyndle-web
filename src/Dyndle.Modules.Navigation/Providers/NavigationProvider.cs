@@ -8,6 +8,7 @@ using DD4T.ContentModel.Contracts.Resolvers;
 using DD4T.Core.Contracts.ViewModels;
 using Dyndle.Modules.Core.Cache;
 using Dyndle.Modules.Core.Extensions;
+using Dyndle.Modules.Core.Models.Defaults;
 using Dyndle.Modules.Core.Models.System;
 using Dyndle.Modules.Core.Providers.Content;
 using Dyndle.Modules.Navigation.Models;
