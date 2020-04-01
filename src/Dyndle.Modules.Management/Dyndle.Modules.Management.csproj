@@ -314,9 +314,7 @@
       <Name>Dyndle.Modules.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildProjectDirectory)\..\_NuGet\Nuget.proj" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(MSBuildAssemblyVersion)\WebApplications\Microsoft.WebApplication.targets" />

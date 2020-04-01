@@ -35,16 +35,7 @@ namespace Dyndle.Modules.Management.Html
             {
                 sb.Append(debugInfoProvider.ShowButton(i++).ToString());
             }
-
-            string js;
-            if (File.Exists(HttpContext.Current.Server.MapPath("/" + DEBUG_INFO_RESOURCE_FILE_NAME_JS)))
-            {
-                js = File.ReadAllText(HttpContext.Current.Server.MapPath("/" + DEBUG_INFO_RESOURCE_FILE_NAME_JS));
-            }
-            else
-            {
-                js = EmbeddedResourceHelper.GetResourceAsString(DEBUG_INFO_RESOURCE_FILE_NAME_JS);
-            }
+            
             return new MvcHtmlString($"{sb.ToString()}<script type=\"text/javascript\" src=\"/admin/debug.js\"></script>");
 
         }
