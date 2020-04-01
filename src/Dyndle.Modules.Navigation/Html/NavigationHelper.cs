@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
 using Dyndle.Modules.Navigation.Models;
@@ -91,9 +92,9 @@ namespace Dyndle.Modules.Navigation.Html
         /// <param name="htmlHelper">The current HtmlHelper</param>
         /// <param name="requestUrlPath">The request path to use when fetching the navigation</param>
         /// <returns></returns>
-        public static ISitemapItem NavigationPath(this HtmlHelper htmlHelper, string requestUrlPath="")
+        public static List<ISitemapItem> NavigationPath(this HtmlHelper htmlHelper, string requestUrlPath="")
         {
-            return NavigationService.GetNavigationModel(requestUrlPath, NavigationConstants.NavigationType.Path);
+            return FlattenSitemapItem(NavigationService.GetNavigationModel(requestUrlPath, NavigationConstants.NavigationType.Path));
         }
 
         /// <summary>
@@ -106,5 +107,27 @@ namespace Dyndle.Modules.Navigation.Html
             return NavigationService.GetNavigationModel(string.Empty, NavigationConstants.NavigationType.Sitemap);
         }
         #endregion
+
+        /// <summary>
+        /// Flattens SitemapItems into a list
+        /// </summary>
+        /// <param name="sitemapItem"></param>
+        /// <returns></returns>
+        private static List<ISitemapItem> FlattenSitemapItem(ISitemapItem sitemapItem)
+        {
+            var list = new List<ISitemapItem>();
+            if (sitemapItem != null)
+            {
+                list.Add(sitemapItem);
+                if (sitemapItem.Items != null)
+                {
+                    foreach (var item in sitemapItem.Items)
+                    {
+                        list.AddRange(FlattenSitemapItem(item));
+                    }
+                }
+            }
+            return list;
+        }
     }
 }
