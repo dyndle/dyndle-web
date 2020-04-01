@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using Dyndle.Modules.Core.Configuration;
+using Dyndle.Modules.Core.Providers.Filter;
 using Dyndle.Modules.Management.Contracts;
 using Dyndle.Modules.Management.Providers;
 using Microsoft.Extensions.DependencyInjection;
@@ -46,6 +47,12 @@ namespace Dyndle.Modules.Management
                new { controller = "Cache", action = "RemoveAll" });
 
             base.RegisterRoutes(context);
+        }
+
+        public override void RegisterArea(AreaRegistrationContext context)
+        {
+            base.RegisterArea(context);
+            FilterProviders.Providers.Add(new DebugInfoFilterProvider());
         }
     }
 }
