@@ -231,18 +231,7 @@
     <Compile Include="Html\UrlHelperExtensions.cs" />
     <Compile Include="Html\ViewContextHelpers.cs" />
     <Compile Include="Json\CustomJsonResult.cs" />
-    <Compile Include="Models\Entities\ColumnMarker.cs" />
     <Compile Include="Contracts\Entities\IColumnMarker.cs" />
-    <Compile Include="Models\Entities\EclMedia.cs" />
-    <Compile Include="Models\Entities\Image.cs" />
-    <Compile Include="Models\Entities\Paragraph.cs" />
-    <Compile Include="Models\Entities\Link.cs" />
-    <Compile Include="Models\Entities\LinkImage.cs" />
-    <Compile Include="Models\Entities\LinkImageTitle.cs" />
-    <Compile Include="Models\Entities\LinkTitle.cs" />
-    <Compile Include="Models\Entities\ListOfLinks.cs" />
-    <Compile Include="Models\Entities\MediaAltText.cs" />
-    <Compile Include="Models\Entities\Video.cs" />
     <Compile Include="Models\EntityModel.cs" />
     <Compile Include="Models\IEntityModel.cs" />
     <Compile Include="Models\IFilter.cs" />
@@ -259,7 +248,6 @@
     <Compile Include="Models\System\MvcData.cs" />
     <Compile Include="Models\System\Redirects.cs" />
     <Compile Include="Models\System\SystemSettings.cs" />
-    <Compile Include="Models\TypeDescription.cs" />
     <Compile Include="Models\WebPage.cs" />
     <Compile Include="CoreConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -298,6 +286,7 @@
       <DependentUpon>web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
