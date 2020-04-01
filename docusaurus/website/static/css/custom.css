@@ -21,3 +21,9 @@
 
 @media only screen and (min-width: 1500px) {
 }
+
+/* Some margins to line out the title with the logo. */
+.fixedHeaderContainer header .headerTitleWithLogo {
+    margin-bottom: 5px;
+    margin-left: 5px;
+}

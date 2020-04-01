@@ -1,8 +1,13 @@
 {
   "docs": {
-    "Getting Started": ["doc1"]
-  },
-  "docs-other": {
-    "First Category": ["doc4", "doc5"]
+    "Getting Started": [
+      "introduction",
+       "getting-started",
+       "functionality-overview"
+      ],
+    "Guides": [
+      "configuring-dyndle", 
+      "implementing-dyndle"
+    ]
   }
 }
