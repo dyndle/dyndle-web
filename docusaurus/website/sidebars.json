@@ -1,0 +1,13 @@
+{
+  "docs": {
+    "Getting Started": [
+      "introduction",
+       "getting-started",
+       "functionality-overview"
+      ],
+    "Guides": [
+      "configuring-dyndle", 
+      "implementing-dyndle"
+    ]
+  }
+}
