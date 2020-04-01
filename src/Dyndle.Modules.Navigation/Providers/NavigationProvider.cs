@@ -25,7 +25,7 @@ namespace Dyndle.Modules.Navigation.Providers
         private const string _cacheKeyFormat = "NavigationComplete({0})";
         private const string _cacheKeySpecificFormat = "NavigationSpecific({0},{1},{2},{3},{4},{5})";
         private const string _cacheRegion = "Navigation";
-        private const string URL = "navigation.json";
+        private const string URL = "/system/navigation.json";
         private readonly ICacheAgent _cacheAgent;
         private readonly ISerializedCacheAgent _serializedCacheAgent;
         private readonly IDD4TConfiguration _configuration;
@@ -249,7 +249,7 @@ namespace Dyndle.Modules.Navigation.Providers
             }
 
             var result = _viewModelFactory.BuildViewModel(page.ComponentPresentations.FirstOrDefault());
-            if (result == null || result is ExceptionEntity)
+            if (result == null || result is ExceptionEntity || result is DefaultEntity)
             {
                 result = _viewModelFactory.BuildViewModel<SitemapItem>(page.ComponentPresentations.FirstOrDefault());
             }
