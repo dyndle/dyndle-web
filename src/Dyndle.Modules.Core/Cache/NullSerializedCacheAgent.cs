@@ -36,6 +36,7 @@ namespace Dyndle.Modules.Core.Cache
         /// <param name="key">The key.</param>
         public void Remove(string key)
         {
+            // nothing to do, this cache agent doesn't really store anything so it doesn't have to remove anything either
         }
 
         /// <summary>
@@ -45,6 +46,7 @@ namespace Dyndle.Modules.Core.Cache
         /// <param name="item">The item.</param>
         public void Store(string key, object item)
         {
+            // nothing to do, this cache agent doesn't really store anything 
         }
 
         /// <summary>
@@ -55,6 +57,7 @@ namespace Dyndle.Modules.Core.Cache
         /// <param name="item">The item.</param>
         public void Store(string key, string region, object item)
         {
+            // nothing to do, this cache agent doesn't really store anything 
         }
 
         /// <summary>
@@ -65,6 +68,7 @@ namespace Dyndle.Modules.Core.Cache
         /// <param name="dependOnTcmUris">The depend on TCM uris.</param>
         public void Store(string key, object item, List<string> dependOnTcmUris)
         {
+            // nothing to do, this cache agent doesn't really store anything
         }
 
         /// <summary>
@@ -76,6 +80,7 @@ namespace Dyndle.Modules.Core.Cache
         /// <param name="dependOnTcmUris">The depend on TCM uris.</param>
         public void Store(string key, string region, object item, List<string> dependOnTcmUris)
         {
+            // nothing to do, this cache agent doesn't really store anything
         }
     }
 }

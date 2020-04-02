@@ -31,8 +31,8 @@ namespace Dyndle.Modules.Core.Cache
         /// <summary>
         /// Loads the specified key.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="key">The key.</param>
+        /// <typeparam name="T">Type to deserialize into</typeparam>
+        /// <param name="key">Key of the cached item</param>
         /// <returns></returns>
         public T Load<T>(string key)
         {
@@ -112,7 +112,7 @@ namespace Dyndle.Modules.Core.Cache
             var settings = new JsonSerializerSettings()
             {
                 TypeNameHandling = TypeNameHandling.All,
-                TypeNameAssemblyFormat = FormatterAssemblyStyle.Full,
+                TypeNameAssemblyFormatHandling = TypeNameAssemblyFormatHandling.Full,
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
                 PreserveReferencesHandling = PreserveReferencesHandling.Objects
             };
