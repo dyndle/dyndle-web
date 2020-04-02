@@ -1,13 +1,12 @@
 {
   "docs": {
-    "Getting Started": [
-      "introduction",
-       "getting-started",
-       "functionality-overview"
-      ],
-    "Guides": [
-      "configuring-dyndle", 
-      "implementing-dyndle"
-    ]
+    "Essentials": ["introduction", "getting-started", "functionality-overview"],
+    "In-depth setup": [
+      "installation",
+      "configuration",
+      "existing-implementation",
+      "cli"
+    ],
+    "Implementing Dyndle": ["customizing-models", "caching", "labels"]
   }
 }
