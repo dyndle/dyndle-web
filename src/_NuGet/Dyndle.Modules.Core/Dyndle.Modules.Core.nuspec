@@ -19,7 +19,6 @@
       <!-- NOTE: We hardly use package dependencies, because we don't want direct references to transitive dependencies and the explicit reference above don't control those.-->
       <dependency id="DD4T.Core" version="2.5.0" />
       <dependency id="DD4T.MVC5" version="2.5.0" />
-      <dependency id="Trivident.RazorGenerator.Mvc" version="2.4.9" />
       <dependency id="Microsoft.Extensions.DependencyInjection" version="2.2.0"/>
       <dependency id="Newtonsoft.Json" version="11.0.2" />
       <dependency id="WebActivatorEx" version="2.0.3" />
