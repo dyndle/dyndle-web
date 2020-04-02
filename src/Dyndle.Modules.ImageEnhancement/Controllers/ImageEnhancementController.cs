@@ -15,10 +15,10 @@ namespace Dyndle.Modules.ImageEnhancement.Controllers
 {
     public class ImageEnhancementController : Controller, IImageEnhancementController
     {
-        private IBinaryFactory _binaryFactory;
-        private IImageEnhancementService _imageEnhancementService;
-        private ILogger _logger;
-        private IConfiguration _configuration;
+        private readonly IBinaryFactory _binaryFactory;
+        private readonly IImageEnhancementService _imageEnhancementService;
+        private readonly ILogger _logger;
+        private readonly IConfiguration _configuration;
 
         public ImageEnhancementController(IBinaryFactory binaryFactory, IImageEnhancementService imageEnhancementService, ILogger logger, IConfiguration configuration)
         {
@@ -95,7 +95,6 @@ namespace Dyndle.Modules.ImageEnhancement.Controllers
         }
 
         private string EnhancedImagesPath => _configuration.LocalPath;
-        private string BackgroundColor => _configuration.BackgroundColor;
         private int CacheSeconds => _configuration.CacheSeconds;
 
         private bool WriteBinaryToFile(byte[] bytes, String physicalPath)

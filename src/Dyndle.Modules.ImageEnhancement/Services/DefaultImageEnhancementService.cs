@@ -1,18 +1,16 @@
-﻿using System;
-using System.Drawing;
-using System.IO;
-using Dyndle.Modules.Core.Extensions;
+﻿using Dyndle.Modules.Core.Extensions;
 using Dyndle.Modules.ImageEnhancement.Models;
 using ImageProcessor;
 using ImageProcessor.Imaging;
-using ImageProcessor.Imaging.Formats;
+using System;
+using System.Drawing;
+using System.IO;
 
 namespace Dyndle.Modules.ImageEnhancement.Services
 {
     public class DefaultImageEnhancementService : IImageEnhancementService
     {
-
-        private IConfiguration _configuration;
+        private readonly IConfiguration _configuration;
 
         public DefaultImageEnhancementService(IConfiguration configuration)
         {
@@ -28,9 +26,6 @@ namespace Dyndle.Modules.ImageEnhancement.Services
 
         public byte[] Enhance(byte[] imageIn, IEnhancementSettings enhancementSettings)
         {
-            ISupportedImageFormat format = new JpegFormat { Quality = 70 };
-
-            Size size = new Size(150, 0);
             using (MemoryStream inStream = new MemoryStream(imageIn))
             {
                 using (MemoryStream outStream = new MemoryStream())
@@ -47,9 +42,6 @@ namespace Dyndle.Modules.ImageEnhancement.Services
                     return outStream.ToArray();
                 }
             }
-
-            
-
         }
 
         public byte[] Resize(byte[] imageIn, int width = 0, int height = 0)
@@ -58,6 +50,7 @@ namespace Dyndle.Modules.ImageEnhancement.Services
             return imageIn;
         }
     }
+
     public static class ImageFactoryEnhancements
     {
         public static ImageFactory Enhance(this ImageFactory factory, IEnhancementSettings enhancementSettings, Size originalSize)
@@ -65,22 +58,22 @@ namespace Dyndle.Modules.ImageEnhancement.Services
             if (enhancementSettings.RequiresCropping)
             {
                 // first, calculate the top/left/bottom/right coordinates from the percentual center point
-                int centerX = enhancementSettings.RequiresPercentageCropping ? 
+                int centerX = enhancementSettings.RequiresPercentageCropping ?
                     (originalSize.Width * enhancementSettings.CropXP.Value) / 100 :
                     enhancementSettings.CropX.Value;
                 int centerY = enhancementSettings.RequiresPercentageCropping ?
-                    (originalSize.Height * enhancementSettings.CropYP.Value) / 100:
+                    (originalSize.Height * enhancementSettings.CropYP.Value) / 100 :
                     enhancementSettings.CropY.Value;
 
                 int cropWidth; int cropHeight;
+
                 if (enhancementSettings.CropStyle == CropStyle.Greedy)
                 {
-
                     // next, calculate the coordinates of the box that must be cropped
                     // we will take the largest possible box based on the desired aspect ratio, and then resize to the final size
                     float cropRatio = (float)enhancementSettings.Width / (float)enhancementSettings.Height;
                     float origRatio = (float)originalSize.Width / (float)originalSize.Height;
-                    
+
                     if (cropRatio > origRatio)
                     {
                         cropWidth = originalSize.Width;
@@ -106,9 +99,9 @@ namespace Dyndle.Modules.ImageEnhancement.Services
                 left = left < 0 ? 0 : left;
                 top = top < 0 ? 0 : top;
                 right = left + right > originalSize.Width ? originalSize.Width - left : right;
-                bottom = top + bottom > originalSize.Height? originalSize.Height - top : bottom;
+                bottom = top + bottom > originalSize.Height ? originalSize.Height - top : bottom;
 
-                if (left < 0 || left + right > originalSize.Width || 
+                if (left < 0 || left + right > originalSize.Width ||
                     top < 0 || top + bottom > originalSize.Height)
                 {
                     // TODO: log
@@ -117,9 +110,8 @@ namespace Dyndle.Modules.ImageEnhancement.Services
                     return factory;
                 }
 
-                Size size = new Size(enhancementSettings.Width == null ? 0 : enhancementSettings.Width.Value, enhancementSettings.Height == null ? 0 : enhancementSettings.Height.Value);
                 CropLayer cropLayer = new CropLayer(left, top, right, bottom, CropMode.Pixels);
-                factory =  factory.Crop(cropLayer);
+                factory = factory.Crop(cropLayer);
 
                 if (enhancementSettings.CropStyle == CropStyle.NonGreedy)
                 {
@@ -128,7 +120,6 @@ namespace Dyndle.Modules.ImageEnhancement.Services
 
                 // in greedy mode we have grabbed the biggest possible area to crop to
                 // we still need to resize that to the desired size
-
             }
 
             if (enhancementSettings.RequiresResizing)
