@@ -1,5 +1,4 @@
-﻿using System;
-using DD4T.ContentModel.Contracts.Logging;
+﻿using DD4T.ContentModel.Contracts.Logging;
 using Dyndle.Modules.Core.Extensions;
 using Dyndle.Modules.Feedback.Coheris;
 using Dyndle.Modules.Feedback.Contracts;

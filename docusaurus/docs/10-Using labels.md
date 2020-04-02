@@ -1,24 +1,22 @@
 ---
-id: implementing-dyndle
-title: Implementing Dyndle
-sidebar_label: Implementing Dyndle
+id: labels
+title: Using labels
+sidebar_label: Using labels
 ---
 
-## Using labels in a dyndle application
-
-### What are labels?
+## What are labels?
 
 Labels provide developers with a way to easily insert short descriptive pieces of text into their website, they can be reused where ever desired through the use of a HTML helper provided by Dyndle. Labels can also be translated using blueprinting in Tridion.
 
-### Configuring labels
+## Configuring labels
 
-To be able to use labels in your web application, they need to be configured in Tridion. As part of the Dyndle quickstart, the necessary templates and schemas will have already been created. They are stored in the "Building Blocks/Templates/Dyndle" folder. 
+To be able to use labels in your web application, they need to be configured in Tridion. As part of the Dyndle quickstart, the necessary templates and schemas will have already been created. They are stored in the "Building Blocks/Templates/Dyndle" folder.
 
 To create a label, simply create a component based on the "Label" schema. Provide a Title, which will be used as a key to retrieve the label with the HTML helper, and a Label Text, the text the label will display. These components are typically stored in a "system" folder. Localize the component in a child publication to provide a translated value for the label for that publication's website.
 
 The created label components need to be published to be able to access them in the web application. This is done behind the scenes through the "Dyndle Site Configuration" page template. A page using this page template will also have been created with the Dyndle quickinstall. It is also named "Dyndle Site Configuration" and can be found in the "system" structure group. When you publish this page, the components using the label schema will automatically be published with it.
 
-### Implementing labels
+## Implementing labels
 
 The labels can now be used in your views in the following fashion:
 
@@ -33,11 +31,11 @@ These additional functionalities can be added directly to the Dyndle Site Config
 Using labels from a controller or a model can be done by injecting ISiteContext, which is part of Dyndle Core, through dependency injection. In a controller sitecontext can be injected in the constructor and can then be used to call the GetLabel method as follows:
 
 ```c#
-public class LabelsController : Controller
+public class YourController : Controller
 {
     private readonly ISiteContext _siteContext;
 
-    public LabelsController(ISiteContext siteContext)
+    public YourController(ISiteContext siteContext)
     {
         _siteContext = siteContext;
     }
