@@ -69,7 +69,7 @@ namespace Dyndle.Modules.Core
         private void LoadViewModels()
         {
             var viewModelFactory = DependencyResolver.Current.GetService<IViewModelFactory>();
-            viewModelFactory?.LoadViewModels(Bootstrap.ViewModelAssemblies);
+            viewModelFactory?.LoadViewModels(Bootstrap.GetViewModelAssemblies());
         }
 
         /// <summary>

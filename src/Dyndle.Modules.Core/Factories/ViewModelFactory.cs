@@ -196,7 +196,7 @@ namespace Dyndle.Modules.Core.Factories
                             }
                             else
                             {
-                                _defaultEntityType = Bootstrap.ViewModelAssemblies.SelectMany(a => a.DefinedTypes).FirstOrDefault(t => t.Name.Equals(defaultEntityTypeName, StringComparison.InvariantCultureIgnoreCase));
+                                _defaultEntityType = Bootstrap.GetViewModelAssemblies().SelectMany(a => a.DefinedTypes).FirstOrDefault(t => t.Name.Equals(defaultEntityTypeName, StringComparison.InvariantCultureIgnoreCase));
                                 if (_defaultEntityType == null)
                                 {
                                     _logger.Warning($"the configured default entity type {defaultEntityTypeName} cannot be found, using the Dyndle default instead");
@@ -230,7 +230,7 @@ namespace Dyndle.Modules.Core.Factories
                             }
                             else
                             {
-                                _defaultWebPageType = Bootstrap.ViewModelAssemblies.SelectMany(a => a.DefinedTypes).FirstOrDefault(t => t.Name.Equals(defaultWebPageTypeName, StringComparison.InvariantCultureIgnoreCase));
+                                _defaultWebPageType = Bootstrap.GetViewModelAssemblies().SelectMany(a => a.DefinedTypes).FirstOrDefault(t => t.Name.Equals(defaultWebPageTypeName, StringComparison.InvariantCultureIgnoreCase));
                                 if (_defaultWebPageType == null)
                                 {
                                     _logger.Warning($"the configured default webpage type {defaultWebPageTypeName} cannot be found, using the Dyndle default instead");
