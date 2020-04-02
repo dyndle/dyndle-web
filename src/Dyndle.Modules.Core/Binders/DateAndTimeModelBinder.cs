@@ -11,6 +11,10 @@ namespace Dyndle.Modules.Core.Binders
     /// <seealso cref="System.Web.Mvc.IModelBinder" />
     public class DateAndTimeModelBinder : IModelBinder
     {
+        /// <summary>
+        /// Empty constructor to instantiate this class
+        /// </summary>
+        /// <seealso cref="System.Web.Mvc.IModelBinder" />
         public DateAndTimeModelBinder() { }
 
         /// <summary>
@@ -27,13 +31,6 @@ namespace Dyndle.Modules.Core.Binders
                 throw new ArgumentNullException(nameof(bindingContext));
             }
 
-            ////Maybe we're lucky and its available directly
-            //DateTime? passedDateTimeAttempt = GetA<DateTime>(bindingContext);
-            //if (passedDateTimeAttempt != null)
-            //{
-            //    return passedDateTimeAttempt.Value;
-            //}
-
             //Maybe we're lucky and they just want a DateTime the regular way.
             DateTime? dateTimeAttempt = GetA<DateTime>(bindingContext, "DateTime");
             if (dateTimeAttempt != null)
@@ -42,13 +39,13 @@ namespace Dyndle.Modules.Core.Binders
             }
 
             //If they haven't set Month,Day,Year OR Date, set "date" and get ready for an attempt
-            if (this.MonthDayYearSet == false && this.DateSet == false)
+            if (!this.MonthDayYearSet && !this.DateSet)
             {
                 this.Date = "Date";
             }
 
             //If they haven't set Hour, Minute, Second OR Time, set "time" and get ready for an attempt
-            if (this.HourMinuteSecondSet == false && this.TimeSet == false)
+            if (!this.HourMinuteSecondSet && !this.TimeSet)
             {
                 this.Time = "Time";
             }
