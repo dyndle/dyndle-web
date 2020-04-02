@@ -1,6 +1,5 @@
 ﻿using DD4T.ContentModel.Contracts.Logging;
 using Dyndle.Modules.Personalization.Contracts;
-using System;
 using System.Linq;
 using System.Web;
 using Dyndle.Modules.Core.Models;
