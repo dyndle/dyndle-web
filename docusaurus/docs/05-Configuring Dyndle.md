@@ -17,6 +17,16 @@ Below you can find an overview of all configuration values that are used by each
 ## Navigation
 
 ...
+The following table describes the configuration values in the appsettings section of the web config that are used in the Dyndle Image Enhancement module.
+
+| Config key| Example Value| Description|
+| :---------------------------------- | :----------------- | :----------------------------------------------------------- |
+| Navigation.SourceUrl| `/system/navigation.json` | Setting that determines the url of the navigation source page |
+| Navigation.BaseUrl| `http:///www.dyndle.com` | Setting that determines the navigation base url with which the URLs of the pages are prefixed in the sitemap.xml |
+| Navigation.SubNavDefaultsToMainNav  | `false` | If true, the subnavigation is read from the root for pages whose level falls below the start level |
+| Navigation.IncludeAllPagesInSitemap | `true` | Setting that determines whether to include all pages in sitemap |
+
+
 
 ## Search
 
