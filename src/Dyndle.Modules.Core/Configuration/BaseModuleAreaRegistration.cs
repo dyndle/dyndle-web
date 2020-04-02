@@ -14,6 +14,7 @@ namespace Dyndle.Modules.Core.Configuration
     /// <seealso cref="System.Web.Mvc.AreaRegistration" />
     public abstract class BaseModuleAreaRegistration : AreaRegistration
     {
+
         /// <summary>
         /// Registers an area in an ASP.NET MVC application using the specified area's context information.
         /// Makes sure the core namespace is added so it can be used from all modules
@@ -27,13 +28,14 @@ namespace Dyndle.Modules.Core.Configuration
             context.Namespaces.Add("Dyndle.Modules.Core.Controllers");
 
             context.MapRoute(
-                   AreaName + "_Default",
-                   Guid.NewGuid().ToString(),  // Make sure the route is unique, but can never match a url
-                   new { },                    // No defaults. The route should never match a url and is only used for child actions
-                    namespaces: context.Namespaces.ToArray());
+                AreaName + "_Default",
+                Guid.NewGuid().ToString(), // Make sure the route is unique, but can never match a url
+                new { }, // No defaults. The route should never match a url and is only used for child actions
+                namespaces: context.Namespaces.ToArray());
 
             RegisterRoutes(context);
-			RegisterTypes(Bootstrap.ServiceCollection);
+
+            RegisterTypes(Bootstrap.ServiceCollection);
         }
 
         /// <summary>
@@ -45,14 +47,14 @@ namespace Dyndle.Modules.Core.Configuration
 
         }
 
-		/// <summary>
-		/// Specifies the collection of service descriptors.
-		/// </summary>
-		/// <param name="serviceCollection"></param>
-		public virtual void RegisterTypes(IServiceCollection serviceCollection)
-	    {
-		    
-	    }
+        /// <summary>
+        /// Specifies the collection of service descriptors.
+        /// </summary>
+        /// <param name="serviceCollection"></param>
+        public virtual void RegisterTypes(IServiceCollection serviceCollection)
+        {
+
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseModuleAreaRegistration"/> class.
