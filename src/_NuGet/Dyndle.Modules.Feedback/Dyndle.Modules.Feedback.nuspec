@@ -18,7 +18,6 @@
     <dependencies>
       <dependency id="Dyndle.Modules.Core" version="0.0.9"/>
       <dependency id="MediatR" version="3.0.1"/>
-      <dependency id="RazorGenerator.Mvc" version="2.4.9"/>
     </dependencies>
   </metadata>
   <files>
