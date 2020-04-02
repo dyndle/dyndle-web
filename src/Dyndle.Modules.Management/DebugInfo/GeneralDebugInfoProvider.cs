@@ -72,19 +72,21 @@ namespace Dyndle.Modules.Management.DebugInfo
                 return;
             }
             filterContext.HttpContext.Response.Write("<div id=\"debuginfo-general\" style=\"background-color: lightgrey\">");
-            filterContext.HttpContext.Response.Write("<table>");
-            filterContext.HttpContext.Response.Write($"<tr><td>Page</td><td>Component presentations</td></tr>");
+            filterContext.HttpContext.Response.Write("<style>td { vertical-align: top; }</style>");
+            filterContext.HttpContext.Response.Write("<table style=\"width: 100%\">");
+            filterContext.HttpContext.Response.Write($"<tr><th style=\"background-color:#aaa\">Page</th><th style=\"background-color:#aaa\">Component presentations</th></tr>");
             filterContext.HttpContext.Response.Write($"<tr><td><table>");
+            filterContext.HttpContext.Response.Write($"<tr><th>Property</th><th>Value</th></tr>");
             filterContext.HttpContext.Response.Write($"<tr><td>Page ID</td><td>{page.Id}</td></tr>");
             filterContext.HttpContext.Response.Write($"<tr><td>Title</td><td>{page.Title}</td></tr>");
             filterContext.HttpContext.Response.Write($"<tr><td>Last published on</td><td>{page.LastPublishedDate}</td></tr>");
             filterContext.HttpContext.Response.Write($"<tr><td>Page Template ID</td><td>{page.PageTemplate.Id}</td></tr>");
             filterContext.HttpContext.Response.Write($"<tr><td>Page Template Title</td><td>{page.PageTemplate.Title}</td></tr>");
             filterContext.HttpContext.Response.Write($"<tr><td>Page uses ViewModel class</td><td>{viewModel.GetType()}</td></tr>");
-            filterContext.HttpContext.Response.Write($"</table></td><td><table><tr><td>Component</td><td>Template</td></tr>");
+            filterContext.HttpContext.Response.Write($"</table></td><td><table><tr><th>Component</th><th>Schema</th><th>Template</th></tr>");
             foreach (var cp in page.ComponentPresentations)
             {
-                filterContext.HttpContext.Response.Write($"<tr><td>{cp.Component.Title}</td><td>{cp.ComponentTemplate.Title}</td></tr>");
+                filterContext.HttpContext.Response.Write($"<tr><td>{cp.Component.Title}</td><td>{cp.Component.Schema.Title}</td><td>{cp.ComponentTemplate.Title}</td></tr>");
             }
             filterContext.HttpContext.Response.Write("</table></td></tr></table>");
             filterContext.HttpContext.Response.Write("</div>");

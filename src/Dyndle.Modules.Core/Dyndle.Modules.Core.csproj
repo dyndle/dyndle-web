@@ -191,6 +191,7 @@
     <Compile Include="CoreApplicationBase.cs" />
     <Compile Include="DebugInfo\DebugInfoProviderFactory.cs" />
     <Compile Include="DebugInfo\IDebugInfoProvider.cs" />
+    <Compile Include="Exceptions\ViewModelBuildException.cs" />
     <Compile Include="Exceptions\ViewModelNotFoundException.cs" />
     <Compile Include="Extensions\CacheExtensions.cs" />
     <Compile Include="Extensions\ListExtensions.cs" />
@@ -203,6 +204,9 @@
     <Compile Include="Html\XpmHelperExtensions.cs" />
     <Compile Include="Interfaces\ICoreDependencyMapper.cs" />
     <Compile Include="Interfaces\IServiceCollectionModule.cs" />
+    <Compile Include="Models\Defaults\DefaultEntity.cs" />
+    <Compile Include="Models\Defaults\DefaultWebPage.cs" />
+    <Compile Include="Models\MultimediaEntityModel.cs" />
     <Compile Include="Models\QueryCriteria.cs" />
     <Compile Include="Models\SegmentFilter.cs" />
     <Compile Include="Modules\ActionFilterModule.cs" />
@@ -227,18 +231,7 @@
     <Compile Include="Html\UrlHelperExtensions.cs" />
     <Compile Include="Html\ViewContextHelpers.cs" />
     <Compile Include="Json\CustomJsonResult.cs" />
-    <Compile Include="Models\Entities\ColumnMarker.cs" />
     <Compile Include="Contracts\Entities\IColumnMarker.cs" />
-    <Compile Include="Models\Entities\EclMedia.cs" />
-    <Compile Include="Models\Entities\Image.cs" />
-    <Compile Include="Models\Entities\Paragraph.cs" />
-    <Compile Include="Models\Entities\Link.cs" />
-    <Compile Include="Models\Entities\LinkImage.cs" />
-    <Compile Include="Models\Entities\LinkImageTitle.cs" />
-    <Compile Include="Models\Entities\LinkTitle.cs" />
-    <Compile Include="Models\Entities\ListOfLinks.cs" />
-    <Compile Include="Models\Entities\MediaAltText.cs" />
-    <Compile Include="Models\Entities\Video.cs" />
     <Compile Include="Models\EntityModel.cs" />
     <Compile Include="Models\IEntityModel.cs" />
     <Compile Include="Models\IFilter.cs" />
@@ -255,7 +248,6 @@
     <Compile Include="Models\System\MvcData.cs" />
     <Compile Include="Models\System\Redirects.cs" />
     <Compile Include="Models\System\SystemSettings.cs" />
-    <Compile Include="Models\TypeDescription.cs" />
     <Compile Include="Models\WebPage.cs" />
     <Compile Include="CoreConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -274,8 +266,8 @@
     <Compile Include="Providers\Redirection\IRedirectionDefinitionProvider.cs" />
     <Compile Include="Resolver\EclCdnUrlResolver.cs" />
     <Compile Include="Resolver\LinkResolver.cs" />
+    <Compile Include="Resolver\PublicationResolverBase.cs" />
     <Compile Include="Resolver\RichTextFieldResolver.cs" />
-    <Compile Include="Results\XmlResult.cs" />
     <Compile Include="Services\Preview\IPreviewContentService.cs" />
     <Compile Include="Services\Preview\PreviewContentService.cs" />
     <Compile Include="Services\Redirection\IRedirectionService.cs" />
@@ -294,6 +286,7 @@
       <DependentUpon>web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
