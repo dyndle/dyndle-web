@@ -128,8 +128,6 @@ namespace Dyndle.Modules.Core.Resolvers
             {
                 return new Uri(url);
             }
-            var segments = RemoveExtensions(fullUri.AbsolutePath.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries));
-
             return new Uri(MakeTridionSafe(url + "/" + String.Join("/", segments.Take(DirectorySegmentsUsedForPublicationMapping))));
         }
 
