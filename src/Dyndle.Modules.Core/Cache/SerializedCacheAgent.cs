@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization.Formatters;
 using System.Web;
 using System.Web.Mvc;
 using DD4T.ContentModel.Contracts.Caching;

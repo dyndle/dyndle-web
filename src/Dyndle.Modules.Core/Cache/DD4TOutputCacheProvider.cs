@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Security;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Caching;
@@ -190,7 +189,7 @@ namespace Dyndle.Modules.Core.Cache
                         }
                         catch (Exception e)
                         {
-                            _logger?.Error("Caught exception while trying to read outputCache configuration from the Web.config", e);
+                            Logger.Error("Caught exception while trying to read outputCache configuration from the Web.config", e);
                         }
                     }
                     return _currentOutputCachingProfile;
@@ -198,18 +197,7 @@ namespace Dyndle.Modules.Core.Cache
             }
 
             private static ILogger _logger;
-            private static ILogger Logger
-            {
-                get
-                {
-                    if (_logger == null)
-                    {
-                        _logger = DependencyResolver.Current.GetService<ILogger>();
-                    }
-
-                    return _logger;
-                }
-            }
+            private static ILogger Logger => _logger ?? (_logger = DependencyResolver.Current.GetService<ILogger>());
         }
     }
 }

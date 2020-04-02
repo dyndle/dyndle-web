@@ -62,7 +62,6 @@ namespace Dyndle.Modules.Core.Cache
         /// <summary>
         /// Loads the specified key.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <param name="key">The key.</param>
         /// <returns></returns>
         public object Load(string key)
