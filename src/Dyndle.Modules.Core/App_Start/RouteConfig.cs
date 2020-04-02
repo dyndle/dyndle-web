@@ -15,7 +15,11 @@ namespace Dyndle.Modules.Core
     /// </summary>
     public static class RouteConfig
     {
+        /// <summary>
+        /// Regex pattern used as a default binary url pattern when it is not set in the web config.
+        /// </summary>
         public const string DEFAULT_BINARY_URL_PATTERN = "^.*\\.(gif|jpg|jpeg|png|bmp|txt|doc|docx|xls|xlsx|ppt|pptx|pdf|mpg|mov|wav|mp3)$";
+        
         /// <summary>
         /// Registers the routes.
         /// </summary>
@@ -54,31 +58,11 @@ namespace Dyndle.Modules.Core
                new { itemId = @"^(.*)?$" }
             ).DataTokens.Add("area", "Core");
 
-            //// Routes for retrieving content via ajax - note you will need to also set the [AjaxEnabled] attribute on the required controller actions
-            //routes.MapRoute(
-            //    "AJAX",
-            //    "ajax/{area}/{controller}/{action}"
-            // );
-            //routes.MapRoute(
-            //   "AJAX_short",
-            //   "ajax/{controller}",
-            //   new { action = "Index" }
-            //);
-            //routes.MapRoute(
-            //   "AJAX_Loc",
-            //   "{localization}/ajax/{area}/{controller}/{action}"
-            //);
-            //routes.MapRoute(
-            //   "AJAX_Short_Loc",
-            //   "{localization}/ajax/{controller}",
-            //   new { action = "Index" }
-            //);
-
             routes.MapRoute(
                 "CME_Preview_publication",
                 "{publication}/cme/preview",
                 new { controller = "Page", action = "Preview" }
-            ).DataTokens.Add("area", "Core"); ;
+            ).DataTokens.Add("area", "Core");
 
             routes.MapRoute(
                 "CME_Preview",
@@ -116,7 +100,7 @@ namespace Dyndle.Modules.Core
 
             Route defaultRoute = null;
             var allRoutes = RouteTable.Routes.OfType<Route>().ToList();
-            for (int i = 0; i < allRoutes.Count(); i++)
+            for (int i = 0; i < allRoutes.Count; i++)
             {
                 var route = allRoutes[i];
                 if (route.Url == "{controller}/{action}/{id}")
@@ -206,7 +190,6 @@ namespace Dyndle.Modules.Core
 
             var pageLink = incomingPageLink.CleanUrl(configuration.WelcomeFile);
 
-            //if (pageLink == string.Concat("/", incommingPageLink))
             if (pageLink.Equals(incomingPageLink, StringComparison.InvariantCultureIgnoreCase))
             {
                 return true;
