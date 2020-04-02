@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
-using System.Web.WebPages;
 using Microsoft.Extensions.DependencyInjection;
-using RazorGenerator.Mvc;
 
 namespace Dyndle.Modules.Core.Configuration
 {
@@ -54,21 +52,6 @@ namespace Dyndle.Modules.Core.Configuration
         public virtual void RegisterTypes(IServiceCollection serviceCollection)
         {
 
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BaseModuleAreaRegistration"/> class.
-        /// </summary>
-        protected BaseModuleAreaRegistration()
-        {
-            //Register embedded views for this module using a PrecompiledMvcEngine
-            var engine = new PrecompiledMvcEngine(GetType().Assembly);
-
-            //Add to the end of the list so local web-app files are used before the embedded
-            ViewEngines.Engines.Add(engine);
-
-            // StartPage lookups are done by WebPages.
-            VirtualPathFactoryManager.RegisterVirtualPathFactory(engine);
         }
     }
 }

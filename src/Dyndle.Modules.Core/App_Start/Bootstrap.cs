@@ -7,6 +7,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Web.Compilation;
+using Dyndle.Modules.Core.Configuration;
+using Dyndle.Modules.Core.Extensions;
+using Dyndle.Modules.Core.Modules;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Dyndle.Modules.Core
 {

@@ -77,7 +77,7 @@ namespace Dyndle.Providers.SDLWeb85.Providers
             if (schemaId.IsNull())
                 schemaId = _context.GetSchemaIdByTitle(meta.SchemaRootElementName);
 
-            schemaId.ThrowIfNull(nameof(schemaId));
+            schemaId.ThrowIfNull(nameof(schemaId), "Could not find the mapping for the schema ID");
 
             return schemaId;
         }
