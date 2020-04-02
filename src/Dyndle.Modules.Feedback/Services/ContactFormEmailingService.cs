@@ -1,5 +1,4 @@
-﻿using System;
-using Dyndle.Modules.Core.Extensions;
+﻿using Dyndle.Modules.Core.Extensions;
 using Dyndle.Modules.Email.Services;
 using Dyndle.Modules.Feedback.Contracts;
 using Dyndle.Modules.Feedback.Models;
