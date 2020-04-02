@@ -13,10 +13,13 @@ using Dyndle.Modules.Core.Configuration;
 
 namespace Dyndle.Modules.Core.Cache
 {
+    /// <summary>
+    /// Overrides Microsoft's built-in OutputCacheProvider to decache the output as soon as the corresponding Tridion page is republished or unpublished
+    /// </summary>
     public class DD4TOutputCacheProvider : OutputCacheProvider
     {       
         private ILogger Logger { get; set; }
-        public int MaximumCacheTime { get; set; }
+        private int MaximumCacheTime { get; set; }
         private static bool MustCacheOutput 
         { 
             get 
@@ -37,13 +40,23 @@ namespace Dyndle.Modules.Core.Cache
         private static Regex reDisableOutputCachingForUrls = new Regex(DyndleConfig.DisableOutputCachingForUrls, RegexOptions.Compiled);
 
         private ICacheAgent _cacheAgent;
-        public static string CACHE_KEY_FORMAT = "Output_{0}";
-        public static string CACHE_REGION = "Output";
+        /// <summary>
+        /// Format of the cache key as used by the DD4T cache agent
+        /// </summary>
+        public const string CACHE_KEY_FORMAT = "Output_{0}";
+        /// <summary>
+        /// Region used by the DD4T cache agent to store output in the cache. You can configure the duration
+        /// using the appSetting DD4T.CacheSettings.Output. Since the output is automatically decached, you
+        /// can use a high value (3600 seconds or more).
+        /// </summary>
+        public const string CACHE_REGION = "Output";
 
-
+        /// <summary>
+        /// Constructor for the DD4TOutputCacheProvider
+        /// </summary>
         public DD4TOutputCacheProvider()
         {
-            MaximumCacheTime = 10; // DynConfig.ItemAsInt("Caching/Default");
+            MaximumCacheTime = 10; 
 
             if (CacheSettingsManagerConfiguration.CurrentOutputCachingProfile != null)
             {
@@ -88,7 +101,11 @@ namespace Dyndle.Modules.Core.Cache
             return entry;
         }
 
-
+        /// <summary>
+        /// Get the cached output by key
+        /// </summary>
+        /// <param name="key">key of item to get</param>
+        /// <returns>Returns the cached output or null if the item isn't cached</returns>
         public override object Get(string key)
         {
             Initialize();
@@ -97,7 +114,10 @@ namespace Dyndle.Modules.Core.Cache
             return _cacheAgent.Load(cacheKey);
         }
 
-
+        /// <summary>
+        /// Remove item from cache
+        /// </summary>
+        /// <param name="key">key of item to remove</param>
         public override void Remove(string key)
         {
             Initialize();
@@ -106,6 +126,13 @@ namespace Dyndle.Modules.Core.Cache
             _cacheAgent.Remove(cacheKey);
         }
 
+        /// <summary>
+        /// Add item to the cache
+        /// </summary>
+        /// <param name="key">>key of item to cache</param>
+        /// <param name="entry">item to cache</param>
+        /// <param name="utcExpiry">expiration date/time. Note that this value is passed in by ASP.NET but we will ignore it.
+        /// Instead, we are using the value which is configured in the Web.config using the key DD4T.CacheSettings.Output (in seconds)</param>
         public override void Set(string key, object entry, DateTime utcExpiry)
         {
             if (! MustCacheOutput)
@@ -140,7 +167,9 @@ namespace Dyndle.Modules.Core.Cache
         }
 
 
-
+        /// <summary>
+        /// Class to encapsulate the configuration
+        /// </summary>
         public static class CacheSettingsManagerConfiguration
         {
             private static OutputCacheProfile _currentOutputCachingProfile;
@@ -159,20 +188,28 @@ namespace Dyndle.Modules.Core.Cache
                                 _currentOutputCachingProfile = outputCacheSettingsSection.OutputCacheProfiles["default"];
                             }
                         }
-                        catch (SecurityException)
+                        catch (Exception e)
                         {
-                            //Logger.Error("CustomCacheAgent SecurityException: ", ex);
-                        }
-                        catch (Exception)
-                        {
-                            //Logger.Error("CustomCacheAgent Exception: ", ex);
+                            _logger?.Error("Caught exception while trying to read outputCache configuration from the Web.config", e);
                         }
                     }
                     return _currentOutputCachingProfile;
                 }
             }
 
+            private static ILogger _logger;
+            private static ILogger Logger
+            {
+                get
+                {
+                    if (_logger == null)
+                    {
+                        _logger = DependencyResolver.Current.GetService<ILogger>();
+                    }
 
+                    return _logger;
+                }
+            }
         }
     }
 }
