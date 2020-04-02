@@ -1,7 +1,6 @@
 ﻿using Dyndle.Modules.Personalization.Contracts;
 using System.Web.Mvc;
 using System.Web;
-using System;
 using Dyndle.Modules.Core.Extensions;
 using Dyndle.Modules.Core.Models;
 

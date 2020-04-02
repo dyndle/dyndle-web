@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Xml.Serialization;
 using DD4T.ContentModel.Contracts.Providers;
-using System.IO;
 using System.Collections.Generic;
 using DD4T.ContentModel;
-using System.Text;
 using DD4T.ContentModel.Contracts.Serializing;
 
 namespace Tridion.TestProviders

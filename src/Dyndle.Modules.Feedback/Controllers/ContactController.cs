@@ -1,5 +1,4 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using DD4T.ContentModel.Contracts.Logging;
 using Dyndle.Modules.Core.Controllers.Base;
 using Dyndle.Modules.Core.Extensions;

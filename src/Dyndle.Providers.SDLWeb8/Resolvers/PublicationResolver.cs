@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Linq;
-using System.Web;
-using DD4T.ContentModel.Contracts.Logging;
-using Dyndle.Modules.Core;
-using Dyndle.Modules.Core.Configuration;
+﻿using DD4T.ContentModel.Contracts.Logging;
 using Dyndle.Modules.Core.Contracts;
-using Dyndle.Modules.Core.Extensions;
 using Dyndle.Modules.Core.Resolvers;
 using Tridion.ContentDelivery.DynamicContent;
 
