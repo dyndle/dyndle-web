@@ -24,7 +24,6 @@ namespace Dyndle.Modules.Search.Controllers
         private readonly ISearchLinkResolver _searchLinkResolver;
         private readonly ISearchProvider _searchProvider;
         private readonly IContentProvider _contentProvider;
-        private readonly ILogger _logger;
 
         /// <summary>
         /// Initialize the controller with appropriate providers
@@ -40,7 +39,6 @@ namespace Dyndle.Modules.Search.Controllers
             _searchProvider = searchProvider;
             _searchLinkResolver = searchLinkResolver;
             _contentProvider = contentProvider;
-            _logger = logger;
         }
 
         /// <summary>

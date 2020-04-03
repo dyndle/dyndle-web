@@ -24,16 +24,6 @@ namespace Dyndle.Modules.Management.Controllers
         /// </summary>
         private readonly ICacheProvider _cacheProvider;
 
-        /// <summary>
-        /// The configuration
-        /// </summary>
-        private readonly IDD4TConfiguration _configuration;
-
-        /// <summary>
-        /// The logger
-        /// </summary>
-        private readonly ILogger _logger;
-
         private readonly int PAGESIZE = 20;
 
 
@@ -49,8 +39,6 @@ namespace Dyndle.Modules.Management.Controllers
             configuration.ThrowIfNull(nameof(configuration));
 
             _cacheProvider = cacheProvider;
-            _logger = logger;
-            _configuration = configuration;
         }
 
         /// <summary>

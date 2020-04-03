@@ -19,7 +19,6 @@ namespace Dyndle.Providers.SDLWeb8.Resolvers
     public class DevPublicationResolver : DefaultPublicationResolver, IExtendedPublicationResolver
     {
         private readonly DynamicMappingsRetriever _mappingsRetriever;
-        private readonly ILogger _logger;
 
         /// <summary>
         /// holds a list of Resolved IPublicationMappings
@@ -34,8 +33,6 @@ namespace Dyndle.Providers.SDLWeb8.Resolvers
         public DevPublicationResolver(ILogger logger, IDD4TConfiguration configuration) : base(configuration)
         {
             logger.ThrowIfNull(nameof(logger));
-
-            _logger = logger;
         }
 
         /// <summary>
