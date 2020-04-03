@@ -119,9 +119,9 @@ namespace Dyndle.Modules.Core.Binders
                 _logger.Debug($"ModelBinder found page with key {cacheKey} in the cache");
             }
 
-            if (model is IRenderable && !controllerContext.IsChildAction)
+            if (model is IRenderable renderable && !controllerContext.IsChildAction)
             {
-                controllerContext.RouteData.DataTokens["area"] = ((IRenderable)model).MvcData.Area;
+                controllerContext.RouteData.DataTokens["area"] = renderable.MvcData.Area;
             }
 
             return model;
