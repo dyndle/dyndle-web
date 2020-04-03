@@ -79,7 +79,7 @@ namespace Dyndle.Modules.Core.Extensions
                         {
                             if ((mi.MemberType & MemberTypes.Constructor) != 0) { /*ignore constructor*/}
                             else if (object.ReferenceEquals(mi.DeclaringType, typeof(object))) { /*ignore inherited*/}
-                            else if (!al.Contains(mi.Name) & (mi.MemberType & MemberTypes.Property) != 0)
+                            else if (!al.Contains(mi.Name) && (mi.MemberType & MemberTypes.Property) != 0)
                             {
                                 al.Add(mi.Name);
                                 pi = (System.Reflection.PropertyInfo)mi;
@@ -101,7 +101,7 @@ namespace Dyndle.Modules.Core.Extensions
                                     pi.GetValue(myObject, null).Layout(displaySubObject, includeTypeName, string.Format("{0}.{1}", prefix, pi.Name), writer);
                                 }
                             }
-                            else if (!al.Contains(mi.Name) & (mi.MemberType & MemberTypes.Field) != 0)
+                            else if (!al.Contains(mi.Name) && (mi.MemberType & MemberTypes.Field) != 0)
                             {
                                 al.Add(mi.Name);
                                 fi = (System.Reflection.FieldInfo)mi;
