@@ -33,9 +33,9 @@ namespace Dyndle.Modules.Navigation.Html
         /// <param name="navLevels">The number of levels of the navigation to fetch</param>
         /// <param name="navStartLevel">The starting level of the navigation</param>
         /// <param name="navSubtype">Subtype of the navigation that is being requested (default is "none")</param>
-        public static void RenderNavigationChildren(this HtmlHelper htmlHelper, string viewName, int navLevels = 0, int navStartLevel = -1, string navSubtype = "none")
+        public static void RenderNavigationSideNav(this HtmlHelper htmlHelper, string viewName, int navLevels = 0, int navStartLevel = -1, string navSubtype = "none")
         {
-            htmlHelper.RenderPartial(viewName, htmlHelper.NavigationChildren(navLevels, navStartLevel, navSubtype));
+            htmlHelper.RenderPartial(viewName, htmlHelper.NavigationSideNav(navLevels, navStartLevel, navSubtype));
         }
         /// <summary>
         /// 
@@ -43,9 +43,9 @@ namespace Dyndle.Modules.Navigation.Html
         /// <param name="htmlHelper">The current HtmlHelper</param>
         /// <param name="viewName">The view to render</param>
         /// <param name="requestUrlPath">The request path to use when rendering the navigation</param>
-        public static void RenderNavigationPath(this HtmlHelper htmlHelper, string viewName, string requestUrlPath = "")
+        public static void RenderNavigationBreadcrumbs(this HtmlHelper htmlHelper, string viewName, string requestUrlPath = "")
         {
-            htmlHelper.RenderPartial(viewName, htmlHelper.NavigationPath(requestUrlPath));
+            htmlHelper.RenderPartial(viewName, htmlHelper.NavigationBreadcrumbs(requestUrlPath));
         }
         /// <summary>
         /// 
@@ -73,25 +73,25 @@ namespace Dyndle.Modules.Navigation.Html
         }
 
         /// <summary>
-        /// Get Navigation Children Model
+        /// Get Navigation SideNav Model
         /// </summary>
         /// <param name="htmlHelper">The current HtmlHelper</param>
         /// <param name="navLevels">The number of levels of the navigation to fetch</param>
         /// <param name="navStartLevel">The starting level of the navigation</param>
         /// <param name="navSubtype">Subtype of the navigation that is being requested (default is "none")</param>
         /// <returns></returns>
-        public static ISitemapItem NavigationChildren(this HtmlHelper htmlHelper, int navLevels=0, int navStartLevel=-1, string navSubtype = "none")
+        public static ISitemapItem NavigationSideNav(this HtmlHelper htmlHelper, int navLevels=0, int navStartLevel=-1, string navSubtype = "none")
         {
             return NavigationService.GetNavigationModel(string.Empty,NavigationConstants.NavigationType.Children, navSubtype, navLevels,navStartLevel);
         }
 
         /// <summary>
-        /// Get Navigation Path Model
+        /// Get Navigation Breadcrumbs
         /// </summary>
         /// <param name="htmlHelper">The current HtmlHelper</param>
         /// <param name="requestUrlPath">The request path to use when fetching the navigation</param>
         /// <returns></returns>
-        public static List<ISitemapItem> NavigationPath(this HtmlHelper htmlHelper, string requestUrlPath="")
+        public static List<ISitemapItem> NavigationBreadcrumbs(this HtmlHelper htmlHelper, string requestUrlPath="")
         {
             return FlattenSitemapItem(NavigationService.GetNavigationModel(requestUrlPath, NavigationConstants.NavigationType.Path));
         }
