@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Web;
 using DD4T.ContentModel.Contracts.Configuration;
 using DD4T.ContentModel.Contracts.Logging;
@@ -7,7 +6,6 @@ using DD4T.Utils.Resolver;
 using Dyndle.Modules.Core.Configuration;
 using Dyndle.Modules.Core.Contracts;
 using Dyndle.Modules.Core.Extensions;
-using Tridion.ContentDelivery.DynamicContent;
 
 namespace Dyndle.Providers.SDLWeb8.Resolvers
 {
@@ -18,13 +16,6 @@ namespace Dyndle.Providers.SDLWeb8.Resolvers
     /// <seealso cref="IExtendedPublicationResolver" />
     public class DevPublicationResolver : DefaultPublicationResolver, IExtendedPublicationResolver
     {
-        private readonly DynamicMappingsRetriever _mappingsRetriever;
-
-        /// <summary>
-        /// holds a list of Resolved IPublicationMappings
-        /// </summary>
-        private ConcurrentDictionary<string, IPublicationMapping> _publicationMappings;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="PublicationResolver" /> class.
         /// </summary>
