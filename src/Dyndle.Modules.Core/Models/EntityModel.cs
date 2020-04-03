@@ -70,7 +70,7 @@ namespace Dyndle.Modules.Core.Models
                 return _url;
             }
         }
-        private string _url = null;
+        private readonly string _url = null;
 
         #region Overrides
 

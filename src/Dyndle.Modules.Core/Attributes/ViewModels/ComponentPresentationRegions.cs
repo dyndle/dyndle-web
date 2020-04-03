@@ -75,7 +75,7 @@ namespace Dyndle.Modules.Core.Attributes.ViewModels
                     resetMarker = false;
                 }
 
-                if (entity is IColumnMarker)
+                if (entity is IColumnMarker columnMarker)
                 {
                     if (marker != null && marker.Entities.Any())
                     {
@@ -83,7 +83,7 @@ namespace Dyndle.Modules.Core.Attributes.ViewModels
                         yield return marker;
                     } 
 
-                    marker = (IColumnMarker)entity;
+                    marker = columnMarker;
                 }
                 else
                 {

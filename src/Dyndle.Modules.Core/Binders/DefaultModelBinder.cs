@@ -40,7 +40,7 @@ namespace Dyndle.Modules.Core.Binders
             }
         }
 
-        PropertyBinderAttribute TryFindPropertyBinderAttribute(PropertyDescriptor propertyDescriptor)
+        private PropertyBinderAttribute TryFindPropertyBinderAttribute(PropertyDescriptor propertyDescriptor)
         {
             return propertyDescriptor.Attributes
               .OfType<PropertyBinderAttribute>()

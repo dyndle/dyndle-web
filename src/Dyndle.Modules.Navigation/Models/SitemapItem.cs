@@ -16,9 +16,9 @@ namespace Dyndle.Modules.Navigation.Models
     /// <seealso cref="ISitemapItem" />
     public class SitemapItem : EntityModel, ISitemapItem
     {
-        private static Regex ReHasSubtype = new Regex("^\\[[a-zA-Z]\\] (?=\\w)");
+        private static readonly Regex ReHasSubtype = new Regex("^\\[[a-zA-Z]\\] (?=\\w)");
 
-        private XNamespace xmlns = "http://www.sitemaps.org/schemas/sitemap/0.9";
+        private readonly XNamespace xmlns = "http://www.sitemaps.org/schemas/sitemap/0.9";
 
         /// <summary>
         /// Gets or sets the change frequency.

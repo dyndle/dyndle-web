@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Web.Mvc;
 using Dyndle.Modules.Core.DebugInfo;
@@ -12,23 +11,7 @@ namespace Dyndle.Modules.Core.Attributes.Filter
     /// <seealso cref="System.Web.Mvc.ActionFilterAttribute" />
     public class DebugInfoAttribute : ActionFilterAttribute
     {
-        /// <summary>
-        /// The action execution time
-        /// </summary>
-        private long actionExecutionTime;
-        /// <summary>
-        /// The result execution time
-        /// </summary>
-        private long resultExecutionTime;
-
-        /// <summary>
-        /// The stop watch
-        /// </summary>
-        private Stopwatch stopWatch;
-
-        private object model;
-
-        private List<IDebugInfoProvider> debugInfoProviders;
+        private readonly List<IDebugInfoProvider> debugInfoProviders;
 
         public DebugInfoAttribute(IEnumerable<string> debugInfoNames) : base()
         {
