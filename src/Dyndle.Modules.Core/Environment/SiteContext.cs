@@ -24,11 +24,6 @@ namespace Dyndle.Modules.Core.Environment
         /// </summary>
         private readonly ILogger _logger;
 
-        /// <summary>
-        /// The configuration
-        /// </summary>
-        private readonly Lazy<IDictionary<string, string>> _configuration;
-
         private const string LABELPREFIX = "Label.{0}";
         private const string SCHEMATITLEPREFIX = "SchemaTitle.{0}";
         private const string TEMPLATETITLEPREFIX = "View.{0}";
