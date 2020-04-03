@@ -90,9 +90,9 @@ namespace Tridion.TestProviders
         /// <summary>
         /// Gets the raw string (xml) from the broker db by URI
         /// </summary>
-        /// <param name="Url">TCM URI of the page</param>
+        /// <param name="uri">TCM URI of the page</param>
         /// <returns>String with page xml or empty string if no page was found</returns>
-        public string GetContentByUri(string TcmUri)
+        public string GetContentByUri(string uri)
         {
             throw new NotImplementedException();
         }
