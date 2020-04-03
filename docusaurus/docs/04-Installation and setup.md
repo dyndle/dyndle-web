@@ -45,14 +45,14 @@ The following table describes the functionalities of the navigation module and c
 
 The helper methods are divided into two types, one's that begin ***Render*** and the other that begin with ***Navigation***. The difference between the two is that in the ***Render*** methods take a *viewName* as a parameter and render the view directly whereas the ***Navigation*** methods return an **object** that can be used by the user, modified and later on rendered.
 
-| Command                  | Description                                                  | Example                                      |
-| :----------------------- | :----------------------------------------------------------- | -------------------------------------------- |
-| NavigationChildren       | This method is used for Rendering Sidebar navigation items (siblings of the current page) | `@Html.NavigationChildren();`                |
-| NavigationPath           | This method is used for Rendering breadcrumbs for the current page. | `@Html.NavigationPath();`                    |
-| NavigationSitemap        | This is used to generate a sitemap for the entire site.      | `@Html.NavigationSitemap();`                 |
-| RenderNavigationChildren | Renders the result of NavigationChildren into a view         | `@Html.RenderNavigationChildren("Sidebar");` |
-| RenderNavigationPath     | Renders the result of NavigationPath into a view             | `@Html.RenerNavigationPath("Breadcrumbs");`  |
-| RenderNavigationSitemap  | Renders the result of NavigationSitemap into a view          | `@Html.RenderNavigationSitemap("Sitemap");`  |
+| Command                     | Description                                                  | Example                                             |
+| :-------------------------- | :----------------------------------------------------------- | --------------------------------------------------- |
+| NavigationSideNav           | This method is used for Rendering Sidebar navigation items (siblings of the current page) | `@Html.NavigationSideNav();`                        |
+| NavigationBreadcrumbs       | This method is used for Rendering breadcrumbs for the current page. | `@Html.NavigationBreadcrumbs();`                    |
+| NavigationSitemap           | This is used to generate a sitemap for the entire site.      | `@Html.NavigationSitemap();`                        |
+| RenderNavigationSideNav     | Renders the result of NavigationSideNav into a view          | `@Html.RenderNavigationSideNav("Sidebar");`         |
+| RenderNavigationBreadcrumbs | Renders the result of NavigationBreadcrumbs into a view      | `@Html.RenderNavigationBreadcrumbs("Breadcrumbs");` |
+| RenderNavigationSitemap     | Renders the result of NavigationSitemap into a view          | `@Html.RenderNavigationSitemap("Sitemap");`         |
 
 ## Dyndle Search
 
