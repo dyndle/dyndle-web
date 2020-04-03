@@ -17,9 +17,9 @@ namespace Dyndle.Modules.Core.Services.Taxonomy
     public class TaxonomyService : ITaxonomyService
     {
         private readonly ISiteContext _siteContext;
-        private ICacheAgent _cacheAgent;
-        private IExtendedPublicationResolver _extendedPublicationResolver;
-        private ITaxonomyProvider _taxonomyProvider;
+        private readonly ICacheAgent _cacheAgent;
+        private readonly IExtendedPublicationResolver _extendedPublicationResolver;
+        private readonly ITaxonomyProvider _taxonomyProvider;
         private const string CacheKeyFormat = "Keywords_{0}_{1}";
         private const string CacheRegion = "Keywords";
 

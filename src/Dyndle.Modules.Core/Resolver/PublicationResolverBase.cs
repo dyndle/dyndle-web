@@ -19,7 +19,7 @@ namespace Dyndle.Modules.Core.Resolvers
         /// <summary>
         /// holds a list of Resolved IPublicationMappings
         /// </summary>
-        private ConcurrentDictionary<string, PublicationMapping> _publicationMappings;
+        private readonly ConcurrentDictionary<string, PublicationMapping> _publicationMappings;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PublicationResolver" /> class.

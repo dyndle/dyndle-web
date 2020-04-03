@@ -138,7 +138,7 @@ namespace Dyndle.Modules.Core.Providers.Content
             }
             ((Field)page.PageTemplate.MetadataFields["PreferredModelType"]).Values = new List<string>() { preferredModelType.FullName };
         }
-        private static object locker = new object();
+        private static readonly object locker = new object();
 
         /// <summary>
         /// Gets the page.
