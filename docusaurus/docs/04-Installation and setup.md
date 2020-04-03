@@ -50,9 +50,9 @@ The helper methods are divided into two types, one's that begin ***Render*** and
 | NavigationSideNav           | This method is used for Rendering Sidebar navigation items (siblings of the current page) | `@Html.NavigationSideNav();`                        |
 | NavigationBreadcrumbs       | This method is used for Rendering breadcrumbs for the current page. | `@Html.NavigationBreadcrumbs();`                    |
 | NavigationSitemap           | This is used to generate a sitemap for the entire site.      | `@Html.NavigationSitemap();`                        |
-| RenderNavigationSideNav     | Renders the result of NavigationSideNav into a view          | `@Html.RenderNavigationSideNav("Sidebar");`         |
-| RenderNavigationBreadcrumbs | Renders the result of NavigationBreadcrumbs into a view      | `@Html.RenderNavigationBreadcrumbs("Breadcrumbs");` |
-| RenderNavigationSitemap     | Renders the result of NavigationSitemap into a view          | `@Html.RenderNavigationSitemap("Sitemap");`         |
+| RenderNavigationSideNav     | Renders the result of NavigationSideNav using the specified view | `@Html.RenderNavigationSideNav("Sidebar");`         |
+| RenderNavigationBreadcrumbs | Renders the result of NavigationBreadcrumbs using the specified view | `@Html.RenderNavigationBreadcrumbs("Breadcrumbs");` |
+| RenderNavigationSitemap     | Renders the result of NavigationSitemap using the specified view | `@Html.RenderNavigationSitemap("Sitemap");`         |
 
 ## Dyndle Search
 
