@@ -27,7 +27,7 @@ namespace Dyndle.Modules.Core.Providers.Configuration
         /// <summary>
         /// The URL
         /// </summary>
-        private string URL = DyndleConfig.SiteConfigUrl;
+        private readonly string URL = DyndleConfig.SiteConfigUrl;
         private readonly ICacheAgent _cacheAgent;
 
         /// <summary>

@@ -14,9 +14,9 @@ namespace Dyndle.Modules.Core.Attributes.ViewModels
         //TODO: De-couple this from the Schema name specifically? What would make sense?
         //TOOD: Possibly change this to use purely ViewModelKey and make that an object, leave it to the key provider to assign objects with logical equals overrides
 
-        private string schemaRootElementName;
+        private readonly string schemaRootElementName;
         private bool inlineEditable = false;
-        private bool isDefault = false;
+        private readonly bool isDefault = false;
         private string[] viewModelKeys;
 
         /// <summary>

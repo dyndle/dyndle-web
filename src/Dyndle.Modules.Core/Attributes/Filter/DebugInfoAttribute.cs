@@ -28,7 +28,7 @@ namespace Dyndle.Modules.Core.Attributes.Filter
 
         private object model;
 
-        private List<IDebugInfoProvider> debugInfoProviders;
+        private readonly List<IDebugInfoProvider> debugInfoProviders;
 
         public DebugInfoAttribute(IEnumerable<string> debugInfoNames) : base()
         {
