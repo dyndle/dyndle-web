@@ -20,13 +20,13 @@ namespace Dyndle.Modules.Core.Extensions
         /// <returns>ID of the page or ID of the component in the component presentation</returns>
         public static string GetId(this IModel model)
         {
-            if (model is IPage)
+            if (model is IPage page)
             {
-                return ((IPage)model).Id;
+                return page.Id;
             }
-            if (model is IComponentPresentation)
+            if (model is IComponentPresentation componentPresentation)
             {
-                return ((IComponentPresentation)model).Component.Id;
+                return componentPresentation.Component.Id;
             }
             return string.Empty;
         }

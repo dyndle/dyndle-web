@@ -95,9 +95,8 @@ namespace Dyndle.Modules.Core.Attributes.ViewModels
         /// </returns>
         public override bool Equals(object obj)
         {
-            if (obj != null && obj is ContentModelAttribute)
+            if (obj is ContentModelAttribute key)
             {
-                ContentModelAttribute key = (ContentModelAttribute)obj;
                 if (this.ViewModelKeys != null && key.ViewModelKeys != null)
                 {
                     //if both have a ViewModelKey set, use both ViewModelKey and schema
@@ -140,21 +139,18 @@ namespace Dyndle.Modules.Core.Attributes.ViewModels
             if (data != null)
             {
                 //Ideally we'd have a common interface for these 2 that have a Schema property
-                if (data is IComponentPresentation)
+                if (data is IComponentPresentation definedData2)
                 {
-                    var definedData = data as IComponentPresentation;
                     //schemaRootElementName = definedData.Component.Multimedia == null ? definedData.Component.Schema.RootElementName : definedData.Component.Schema.Title;
-                    schemaTitle = definedData.Component.Schema.Title;
+                    schemaTitle = definedData2.Component.Schema.Title;
                 }
-                else if (data is IComponent)
+                else if (data is IComponent definedData1)
                 {
-                    var definedData = data as IComponent;
                     //schemaRootElementName = definedData.Multimedia == null ? definedData.Schema.RootElementName : definedData.Schema.Title;
-                    schemaTitle = definedData.Schema.Title;
+                    schemaTitle = definedData1.Schema.Title;
                 }
-                else if (data is IEmbeddedFields)
+                else if (data is IEmbeddedFields definedData)
                 {
-                    var definedData = data as IEmbeddedFields;
                     schemaTitle = definedData.EmbeddedSchema.Title;
                     //schemaRootElementName = definedData.EmbeddedSchema.RootElementName;
                 }
