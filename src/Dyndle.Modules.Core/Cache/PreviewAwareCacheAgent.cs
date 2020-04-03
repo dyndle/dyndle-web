@@ -17,12 +17,11 @@ namespace Dyndle.Modules.Core.Cache
     public class PreviewAwareCacheAgent : ICacheAgent
     {
         private readonly ICacheAgent _wrappedCacheAgent;
-        private ILogger _logger;
+        private readonly ILogger _logger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NonSerializedCacheAgent"/> class.
         /// </summary>
-        /// <param name="cacheAgent">The DD4T cache agent.</param>
         /// <param name="logger">The logger.</param>
         /// <param name="configuration">The DD4T configuration.</param>
         public PreviewAwareCacheAgent(IDD4TConfiguration configuration, ILogger logger)
@@ -33,23 +32,24 @@ namespace Dyndle.Modules.Core.Cache
 
             // note: we cannot use DI for this, because the signature of the PreviewAwareCacheAgent is the same as for the DefaultCacheAgent
             _wrappedCacheAgent = new DefaultCacheAgent(configuration, logger);
-
-
         }
 
+        /// <summary>
+        /// Set a MessageProvider that will listen to incoming messages (e.g. from JMS)
+        /// </summary>
         public virtual IObservable<ICacheEvent> MessageProvider
         {
             set
             {
-                if (_wrappedCacheAgent is DefaultCacheAgent)
+                if (_wrappedCacheAgent is DefaultCacheAgent defaultCacheAgent) 
                 {
-                    ((DefaultCacheAgent)_wrappedCacheAgent).Subscribe(value);
+                    defaultCacheAgent.Subscribe(value);
                 }
             }
         }
 
         /// <summary>
-        /// Loads the specified key.
+        /// Loads the specified key of generic type.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="key">The key.</param>
@@ -59,6 +59,11 @@ namespace Dyndle.Modules.Core.Cache
             return (T)Load(key);
         }
 
+        /// <summary>
+        /// Loads the specified key.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <returns></returns>
         public object Load(string key)
         {
             if (key.SkipKeyWhilePreviewing() && IsPreviewActive)
@@ -69,11 +74,20 @@ namespace Dyndle.Modules.Core.Cache
             return _wrappedCacheAgent.Load(key);
         }
 
+        /// <summary>
+        /// Remove item from cache
+        /// </summary>
+        /// <param name="key">Key of the cached item</param>
         public void Remove(string key)
         {
             _wrappedCacheAgent.Remove(key);
         }
 
+        /// <summary>
+        /// Store item in cache
+        /// </summary>
+        /// <param name="key">Key of the cached item</param>
+        /// <param name="item">Item to store</param>
         public void Store(string key, object item)
         {
             if (key.SkipKeyWhilePreviewing() && IsPreviewActive)
@@ -83,6 +97,12 @@ namespace Dyndle.Modules.Core.Cache
             _wrappedCacheAgent.Store(key, item);
         }
 
+        /// <summary>
+        /// Store item in cache with dependency on Tridion items
+        /// </summary>
+        /// <param name="key">Key of the cached item</param>
+        /// <param name="item">Item to store</param>
+        /// <param name="dependOnTcmUris">List of TCM URIs of Tridion items</param>
         public void Store(string key, object item, List<string> dependOnTcmUris)
         {
             if (key.SkipKeyWhilePreviewing() && IsPreviewActive)
@@ -92,6 +112,12 @@ namespace Dyndle.Modules.Core.Cache
             _wrappedCacheAgent.Store(key, item, dependOnTcmUris);
         }
 
+        /// <summary>
+        /// Store item in cache using a specific region
+        /// </summary>
+        /// <param name="key">Key of the cached item</param>
+        /// <param name="region">Region to use (this corresponds with an appSetting 'DD4T.CacheSettings.[region]' in the Web.config</param>
+        /// <param name="item">Item to store</param>
         public void Store(string key, string region, object item)
         {
             if (key.SkipKeyWhilePreviewing() && IsPreviewActive)
@@ -101,6 +127,13 @@ namespace Dyndle.Modules.Core.Cache
             _wrappedCacheAgent.Store(key, region, item);
         }
 
+        /// <summary>
+        /// Store item in cache using a specific region
+        /// </summary>
+        /// <param name="key">Key of the cached item</param>
+        /// <param name="region">Region to use (this corresponds with an appSetting 'DD4T.CacheSettings.[region]' in the Web.config</param>
+        /// <param name="item">Item to store</param>
+        /// <param name="dependOnTcmUris">List of TCM URIs of Tridion items</param>
         public void Store(string key, string region, object item, List<string> dependOnTcmUris)
         {
             if (key.SkipKeyWhilePreviewing() && IsPreviewActive)

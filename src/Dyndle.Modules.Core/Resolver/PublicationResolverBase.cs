@@ -3,7 +3,6 @@ using System.Collections.Concurrent;
 using System.Linq;
 using System.Web;
 using DD4T.ContentModel.Contracts.Logging;
-using Dyndle.Modules.Core;
 using Dyndle.Modules.Core.Contracts;
 using Dyndle.Modules.Core.Extensions;
 
@@ -119,12 +118,15 @@ namespace Dyndle.Modules.Core.Resolvers
         private Uri GetUriToResolve(Uri fullUri)
         {
             var url = fullUri.GetLeftPart(UriPartial.Authority);
+            var segments = RemoveExtensions(fullUri.AbsolutePath.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries));
+            if (segments.FirstOrDefault() == BinaryCacheFolder)
+            {
+                segments = segments.Skip(1).ToArray();
+            }
             if (string.IsNullOrEmpty(fullUri.AbsolutePath) || fullUri.AbsolutePath == "/" || DirectorySegmentsUsedForPublicationMapping < 1)
             {
                 return new Uri(url);
             }
-            var segments = RemoveExtensions(fullUri.AbsolutePath.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries));
-
             return new Uri(MakeTridionSafe(url + "/" + String.Join("/", segments.Take(DirectorySegmentsUsedForPublicationMapping))));
         }
 
@@ -177,6 +179,7 @@ namespace Dyndle.Modules.Core.Resolvers
                 return _directorySegmentsUsedForPublicationMapping;
             }
         }
+        private string BinaryCacheFolder => CoreConstants.Configuration.BinaryCacheFolder.GetConfigurationValue("BinaryData").Replace("/", "").Replace("~", "");
 
         public class PublicationMapping
         {

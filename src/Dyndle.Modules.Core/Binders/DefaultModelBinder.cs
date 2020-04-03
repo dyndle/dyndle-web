@@ -6,14 +6,6 @@ namespace Dyndle.Modules.Core.Binders
 {
     public class DefaultModelBinder : System.Web.Mvc.DefaultModelBinder
     {
-        public override object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
-        {
-            return base.BindModel(controllerContext, bindingContext);
-        }
-        protected override object GetPropertyValue(ControllerContext controllerContext, ModelBindingContext bindingContext, PropertyDescriptor propertyDescriptor, IModelBinder propertyBinder)
-        {
-            return base.GetPropertyValue(controllerContext, bindingContext, propertyDescriptor, propertyBinder);
-        }
         protected override void BindProperty(
             ControllerContext controllerContext,
             ModelBindingContext bindingContext,

@@ -23,7 +23,7 @@ function toggleDebug() {
     var debuginfoLocation = getDataAttributeFromElement(targetElement, 'debuginfoLocation');
     console.log('toggleDebug is called for debug info name ' + debuginfoName + ' and location ' + debuginfoLocation);
     if (debuginfoLocation != null && debuginfoLocation != '') {
-        window.open(debuginfoLocation, 'win_' + debuginfoname);
+        window.open(debuginfoLocation, 'win_' + debuginfoName);
         return;
     }
     var debuginfo = getCookie('debuginfo');

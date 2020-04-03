@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.Serialization;
 using DD4T.ContentModel;
 
 namespace Dyndle.Modules.Core.Exceptions

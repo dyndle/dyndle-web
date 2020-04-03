@@ -69,7 +69,7 @@ namespace Dyndle.Modules.Core
         private void LoadViewModels()
         {
             var viewModelFactory = DependencyResolver.Current.GetService<IViewModelFactory>();
-            viewModelFactory?.LoadViewModels(Bootstrap.ViewModelAssemblies);
+            viewModelFactory?.LoadViewModels(Bootstrap.GetViewModelAssemblies());
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace Dyndle.Modules.Core
             if (!Context.IsCustomErrorEnabled || !_initialized ||
                 DebugInfoFilterProvider.IsDebugMode(new HttpContextWrapper(Context))) return;
 
-            ShowCustomErrorPage(exception);
+            ShowCustomErrorPage();
             Server.ClearError();
         }
 
@@ -95,7 +95,7 @@ namespace Dyndle.Modules.Core
         /// Shows a custom error page by invoking the <see cref="PageController"/>.
         /// </summary>
         /// <param name="exception">The exception.</param>
-        private void ShowCustomErrorPage(Exception exception)
+        private void ShowCustomErrorPage()
         {
             var routeData = new RouteData();
 

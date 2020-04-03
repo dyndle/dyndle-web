@@ -21,36 +21,38 @@
 // ];
 
 const siteConfig = {
-  title: 'Docs', // Title for your website.
-  tagline: 'Dyndle documentation',
-  url: 'https://www.dyndle.com/new-dyndle/', // Your website URL
-  baseUrl: 'https://www.dyndle.com/new-dyndle/', // Base URL for your project */
+  title: "Docs", // Title for your website.
+  tagline: "Dyndle documentation",
+  url: "https://www.dyndle.com/", // Your website URL
+  baseUrl: "/new-dyndle/", // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
 
   // Used for publishing and more
-  projectName: 'Dyndle',
-  organizationName: 'Trivident',
+  projectName: "Dyndle",
+  organizationName: "Trivident",
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
   //   organizationName: 'JoelMarcey'
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [],
-
+  disableHeaderTitle: false,
+  disableTitleTagline: false,
+  docsSideNavCollapsible: false,
   // If you have users set above, you add it here:
   // users,
 
   /* path to images for header/footer */
-  headerIcon: 'img/dyndle-logo.png',
-  footerIcon: 'img/dyndle-icon.png',
-  favicon: 'img/favicon.png',
+  headerIcon: "img/dyndle-logo.png",
+  footerIcon: "img/dyndle-icon.png",
+  favicon: "img/favicon.png",
 
   /* Colors for website */
   colors: {
-    primaryColor: '#008FD5',
-    secondaryColor: '#004289',
+    primaryColor: "#008FD5",
+    secondaryColor: "#004289"
   },
 
   /* Custom fonts for website */
@@ -72,20 +74,23 @@ const siteConfig = {
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
-    theme: 'default',
+    theme: "default"
   },
 
   // Add custom scripts here that would be placed in <script> tags.
-  scripts: ['https://buttons.github.io/buttons.js'],
+  scripts: ["https://buttons.github.io/buttons.js"],
 
   // On page navigation for the current documentation page.
-  onPageNav: 'separate',
+  onPageNav: "separate",
   // No .html extensions for paths.
   cleanUrl: true,
 
+  enableUpdateBy: true,
+  enableUpdateTime: true
+
   // Open Graph and Twitter card images.
-  ogImage: 'img/undraw_online.svg',
-  twitterImage: 'img/undraw_tweetstorm.svg',
+  // ogImage: 'img/undraw_online.svg',
+  // twitterImage: 'img/undraw_tweetstorm.svg',
 
   // For sites with a sizable amount of content, set collapsible to true.
   // Expand/collapse the links and subcategories under categories.

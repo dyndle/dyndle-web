@@ -1,5 +1,4 @@
-﻿using System;
-using Dyndle.Modules.Core.Environment;
+﻿using Dyndle.Modules.Core.Environment;
 using Dyndle.Modules.Core.Extensions;
 using Dyndle.Modules.Feedback.Contracts;
 
