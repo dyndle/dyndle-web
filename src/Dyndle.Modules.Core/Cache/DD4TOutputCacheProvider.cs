@@ -36,7 +36,7 @@ namespace Dyndle.Modules.Core.Cache
         }
 
 
-        private static Regex reDisableOutputCachingForUrls = new Regex(DyndleConfig.DisableOutputCachingForUrls, RegexOptions.Compiled);
+        private static readonly Regex reDisableOutputCachingForUrls = new Regex(DyndleConfig.DisableOutputCachingForUrls, RegexOptions.Compiled);
 
         private ICacheAgent _cacheAgent;
         /// <summary>

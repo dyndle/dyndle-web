@@ -174,7 +174,7 @@ namespace Dyndle.Modules.Core.Factories
 
         private static Type _defaultEntityType;
         private static Type _defaultWebPageType;
-        private static object locker = new object();
+        private static readonly object locker = new object();
         private Type DefaultEntityType
         {
             get
