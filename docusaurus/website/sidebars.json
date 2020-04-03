@@ -1,8 +1,12 @@
 {
   "docs": {
-    "Getting Started": ["doc1"]
-  },
-  "docs-other": {
-    "First Category": ["doc4", "doc5"]
+    "Essentials": ["introduction", "getting-started", "functionality-overview"],
+    "In-depth setup": [
+      "installation",
+      "configuration",
+      "existing-implementation",
+      "cli"
+    ],
+    "Implementing Dyndle": ["customizing-models", "caching", "labels"]
   }
 }
