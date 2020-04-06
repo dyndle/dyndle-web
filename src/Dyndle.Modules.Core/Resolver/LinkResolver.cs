@@ -8,7 +8,7 @@ namespace Dyndle.Modules.Core.Resolver
 {
     /// <summary>
     /// Class LinkResolver.
-    /// Overrides default <see cref="DefaultLinkResolver"/> so we can cleanup the URL's that are being resolved from Tridion
+    /// Overrides default <see cref="DefaultLinkResolver" /> so we can cleanup the URL's that are being resolved from Tridion
     /// </summary>
     /// <seealso cref="DD4T.Utils.Resolver.DefaultLinkResolver" />
     public class LinkResolver : DefaultLinkResolver

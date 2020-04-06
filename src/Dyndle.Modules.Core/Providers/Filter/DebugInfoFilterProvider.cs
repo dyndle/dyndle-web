@@ -73,10 +73,10 @@ namespace Dyndle.Modules.Core.Providers.Filter
         }
 
         /// <summary>
-        /// 
+        /// Determines whether [is debug mode] [the specified context].
         /// </summary>
-        /// <param name="context"></param>
-        /// <returns></returns>
+        /// <param name="context">The context.</param>
+        /// <returns><c>true</c> if [is debug mode] [the specified context]; otherwise, <c>false</c>.</returns>
         public static bool IsDebugMode(HttpContextBase context)
         {
             return GetCookieByName("debuginfo").Length > 0 &&

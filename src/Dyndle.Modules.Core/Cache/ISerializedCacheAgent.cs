@@ -14,7 +14,7 @@ namespace Dyndle.Modules.Core.Cache
         /// </summary>
         /// <typeparam name="T">Type to deserialize into</typeparam>
         /// <param name="key">Key of the cached item</param>
-        /// <returns></returns>
+        /// <returns>T.</returns>
         T Load<T>(string key);
     }
 }

@@ -21,8 +21,8 @@ namespace Dyndle.Modules.Core.Attributes.Filter
         /// <summary>
         /// create a instance of AbsoluteUrlFilter
         /// </summary>
-        /// <param name="shrink"></param>
-        /// <param name="baseUri"></param>
+        /// <param name="shrink">The shrink.</param>
+        /// <param name="baseUri">The base URI.</param>
         public AbsoluteUrlFilter(Stream shrink, Uri baseUri)
         {
             _shrink = new StreamWriter(shrink);

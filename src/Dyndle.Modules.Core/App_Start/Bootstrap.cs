@@ -20,13 +20,16 @@ namespace Dyndle.Modules.Core
         private static bool _intialized;
 
         /// <summary>
-        ///
+        /// Gets the service collection.
         /// </summary>
+        /// <value>The service collection.</value>
         public static IServiceCollection ServiceCollection { get; } = new ServiceCollection();
 
         /// <summary>
         /// List of referenced assemblies, used to find all available DD4T view models
         /// </summary>
+        /// <returns>IList&lt;Assembly&gt;.</returns>
+        /// <exception cref="ArgumentNullException">AppSettings Key/Value is missing [Key: {CoreConstants.Configuration.ViewModelNamespaces}]</exception>
         public static IList<Assembly> GetViewModelAssemblies()
         {
             var viewModelNamespaces = DyndleConfig.ViewModelNamespaces;
@@ -45,6 +48,8 @@ namespace Dyndle.Modules.Core
         /// <summary>
         /// List of referenced assemblies, used to find all MVC controllers to be registered
         /// </summary>
+        /// <returns>IList&lt;Assembly&gt;.</returns>
+        /// <exception cref="ArgumentNullException">AppSettings Key/Value is missing [Key: {CoreConstants.Configuration.ControllerNamespaces}]</exception>
         public static IList<Assembly> GetControllerAssemblies()
         {
             var controllerNamespaces = DyndleConfig.ControllerNamespaces;

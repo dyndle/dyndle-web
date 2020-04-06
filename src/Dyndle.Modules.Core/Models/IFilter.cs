@@ -5,7 +5,15 @@
     /// </summary>
     public interface IFilter
     {
+        /// <summary>
+        /// Gets or sets the identifier.
+        /// </summary>
+        /// <value>The identifier.</value>
         string Id { get; set; }
+        /// <summary>
+        /// Gets or sets the title.
+        /// </summary>
+        /// <value>The title.</value>
         string Title { get; set; }
     }
 }

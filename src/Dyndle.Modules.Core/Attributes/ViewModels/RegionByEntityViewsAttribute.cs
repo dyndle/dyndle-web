@@ -17,6 +17,10 @@ namespace Dyndle.Modules.Core.Attributes.ViewModels
     public class RegionByEntityViewsAttribute : ComponentPresentationsAttributeBase
     {
         private readonly string[] _viewNames;
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RegionByEntityViewsAttribute"/> class.
+        /// </summary>
+        /// <param name="viewNames">The view names.</param>
         public RegionByEntityViewsAttribute(string[] viewNames)
         {
             _viewNames = viewNames;

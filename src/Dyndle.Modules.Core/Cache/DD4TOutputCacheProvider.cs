@@ -172,6 +172,10 @@ namespace Dyndle.Modules.Core.Cache
         public static class CacheSettingsManagerConfiguration
         {
             private static OutputCacheProfile _currentOutputCachingProfile;
+            /// <summary>
+            /// Gets the current output caching profile.
+            /// </summary>
+            /// <value>The current output caching profile.</value>
             public static OutputCacheProfile CurrentOutputCachingProfile
             {
                 get

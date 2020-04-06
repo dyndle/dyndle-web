@@ -37,6 +37,7 @@ namespace Dyndle.Modules.Core.Cache
         /// <summary>
         /// Set a MessageProvider that will listen to incoming messages (e.g. from JMS)
         /// </summary>
+        /// <value>The message provider.</value>
         public virtual IObservable<ICacheEvent> MessageProvider
         {
             set
@@ -53,7 +54,7 @@ namespace Dyndle.Modules.Core.Cache
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="key">The key.</param>
-        /// <returns></returns>
+        /// <returns>T.</returns>
         public T Load<T>(string key)
         {
             return (T)Load(key);
@@ -63,7 +64,7 @@ namespace Dyndle.Modules.Core.Cache
         /// Loads the specified key.
         /// </summary>
         /// <param name="key">The key.</param>
-        /// <returns></returns>
+        /// <returns>System.Object.</returns>
         public object Load(string key)
         {
             if (key.SkipKeyWhilePreviewing() && IsPreviewActive)

@@ -181,14 +181,45 @@ namespace Dyndle.Modules.Core.Resolvers
         }
         private string BinaryCacheFolder => CoreConstants.Configuration.BinaryCacheFolder.GetConfigurationValue("BinaryData").Replace("/", "").Replace("~", "");
 
+        /// <summary>
+        /// Class PublicationMapping.
+        /// </summary>
         public class PublicationMapping
         {
+            /// <summary>
+            /// Gets or sets the namespace identifier.
+            /// </summary>
+            /// <value>The namespace identifier.</value>
             public int NamespaceId { get; set; }
+            /// <summary>
+            /// Gets or sets the publication identifier.
+            /// </summary>
+            /// <value>The publication identifier.</value>
             public int PublicationId { get; set; }
+            /// <summary>
+            /// Gets or sets the protocol.
+            /// </summary>
+            /// <value>The protocol.</value>
             public string Protocol { get; set; }
+            /// <summary>
+            /// Gets or sets the domain.
+            /// </summary>
+            /// <value>The domain.</value>
             public string Domain { get; set; }
+            /// <summary>
+            /// Gets or sets the port.
+            /// </summary>
+            /// <value>The port.</value>
             public string Port { get; set; }
+            /// <summary>
+            /// Gets or sets the path.
+            /// </summary>
+            /// <value>The path.</value>
             public string Path { get; set; }
+            /// <summary>
+            /// Gets or sets the path scan depth.
+            /// </summary>
+            /// <value>The path scan depth.</value>
             public int PathScanDepth { get; set; }
         }
     }

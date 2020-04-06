@@ -19,6 +19,10 @@ namespace Dyndle.Modules.Core.Modules
     public class DefaultsModule : IServiceCollectionModule
     {
 	    public void RegisterTypes(IServiceCollection serviceCollection)
+        /// <summary>
+        /// Registers the types.
+        /// </summary>
+        /// <param name="serviceCollection">The service collection.</param>
 	    {
 			serviceCollection.AddSingleton(typeof(IContentProvider), typeof(DefaultContentProvider));
 		    serviceCollection.AddSingleton(typeof(IViewModelFactory), typeof(ViewModelFactory));

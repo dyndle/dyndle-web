@@ -23,7 +23,7 @@ namespace Dyndle.Modules.Core.Binders
         /// <summary>
         /// Creates the binder.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>IModelBinder.</returns>
         public virtual IModelBinder CreateBinder()
         {
             return (IModelBinder)DependencyResolver.Current.GetService(_binderType);
