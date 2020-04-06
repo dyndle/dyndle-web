@@ -16,6 +16,11 @@ namespace Dyndle.Modules.Navigation.Services
         private const string _cacheRegion = "Navigation";
         private readonly ISerializedCacheAgent _cacheAgent;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NavigationService"/> class.
+        /// </summary>
+        /// <param name="navigationProvider">The navigation provider.</param>
+        /// <param name="cacheAgent">The cache agent.</param>
         public NavigationService(INavigationProvider navigationProvider, ISerializedCacheAgent cacheAgent)
         {
             cacheAgent.ThrowIfNull(nameof(cacheAgent));
@@ -25,7 +30,7 @@ namespace Dyndle.Modules.Navigation.Services
         }
 
         /// <summary>
-        /// 
+        /// Gets the navigation model.
         /// </summary>
         /// <param name="requestUrlPath">The request path to use when fetching the navigation</param>
         /// <param name="navType">Type of navigation that is requested</param>

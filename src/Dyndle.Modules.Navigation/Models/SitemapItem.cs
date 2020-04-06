@@ -23,9 +23,7 @@ namespace Dyndle.Modules.Navigation.Models
         /// <summary>
         /// Gets or sets the change frequency.
         /// </summary>
-        /// <value>
-        /// The change frequency.
-        /// </value>
+        /// <value>The change frequency.</value>
         [TextField]
         public string ChangeFrequency { get; set; }
 
@@ -50,18 +48,14 @@ namespace Dyndle.Modules.Navigation.Models
         /// <summary>
         /// Gets or sets the meta robot value ((no)index, (no)follow).
         /// </summary>
-        /// <value>
-        /// The meta robot.
-        /// </value>
+        /// <value>The meta robot.</value>
         [TextField]
         public string MetaRobot { get; set; }
 
         /// <summary>
         /// Gets or sets the priority.
         /// </summary>
-        /// <value>
-        /// The priority.
-        /// </value>
+        /// <value>The priority.</value>
         [TextField]
         public string Priority { get; set; }
 
@@ -112,14 +106,9 @@ namespace Dyndle.Modules.Navigation.Models
         //                fieldSet.Add(FieldNames.metaRobot.ToString(), CreateField(FieldNames.metaRobot.ToString(), DEFAULT_META_ROBOT));
         //                Log.Debug(string.Format("Added field {0} with value {1}", FieldNames.metaRobot.ToString(), DEFAULT_META_ROBOT));
         /// <summary>
-        /// Gets or sets the date/time when the item was last modified in the CMS.
-        /// </summary>
-        /// <value>The date/time.</value>
-        /// <summary>
         /// Gets or sets a value indicating whether this <see cref="ISitemapItem" /> is visible.
         /// </summary>
         /// <value><c>true</c> if visible; otherwise, <c>false</c>.</value>
-        ///
         [TextField(IsBooleanValue = true)]
         public bool Visible { get; set; }
 

@@ -48,7 +48,7 @@ namespace Dyndle.Modules.Navigation.Models
         string Url { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether this <see cref="ISitemapItem"/> is visible.
+        /// Gets or sets a value indicating whether this <see cref="ISitemapItem" /> is visible.
         /// </summary>
         /// <value><c>true</c> if visible; otherwise, <c>false</c>.</value>
         bool Visible { get; set; }
@@ -62,25 +62,19 @@ namespace Dyndle.Modules.Navigation.Models
         /// <summary>
         /// Gets or sets the change frequency.
         /// </summary>
-        /// <value>
-        /// The change frequency.
-        /// </value>
+        /// <value>The change frequency.</value>
         string ChangeFrequency { get; set; }
 
         /// <summary>
         /// Gets or sets the priority.
         /// </summary>
-        /// <value>
-        /// The priority.
-        /// </value>
+        /// <value>The priority.</value>
         string Priority { get; set; }
 
         /// <summary>
         /// Gets or sets the meta robot value ((no)index, (no)follow).
         /// </summary>
-        /// <value>
-        /// The meta robot.
-        /// </value>
+        /// <value>The meta robot.</value>
         string MetaRobot { get; set; }
 
 
