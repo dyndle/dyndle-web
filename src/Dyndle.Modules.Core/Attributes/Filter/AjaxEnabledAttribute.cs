@@ -34,7 +34,7 @@ namespace Dyndle.Modules.Core.Attributes.Filter
                 }
                 else
                 {
-                    throw new Exception("Cannot determine area from route data, ensure that either an area or controller segment is present in the URL");
+                    throw new ArgumentNullException("Cannot determine area from route data, ensure that either an area or controller segment is present in the URL");
                 }
             }
         }
