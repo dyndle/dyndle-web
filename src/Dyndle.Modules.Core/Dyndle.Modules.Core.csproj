@@ -204,8 +204,11 @@
     <Compile Include="Models\Defaults\DefaultEntity.cs" />
     <Compile Include="Models\Defaults\DefaultWebPage.cs" />
     <Compile Include="Models\MultimediaEntityModel.cs" />
-    <Compile Include="Models\QueryCriteria.cs" />
+    <Compile Include="Models\Query\QueryCriteria.cs" />
+    <Compile Include="Models\Query\SortColumn.cs" />
+    <Compile Include="Models\Query\SortDirection.cs" />
     <Compile Include="Models\SegmentFilter.cs" />
+    <Compile Include="Models\Query\SortParameter.cs" />
     <Compile Include="Modules\ActionFilterModule.cs" />
     <Compile Include="Modules\CacheModule.cs" />
     <Compile Include="Modules\DefaultsModule.cs" />

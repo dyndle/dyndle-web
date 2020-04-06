@@ -170,6 +170,14 @@ namespace Dyndle.Modules.Core.Html
             return RenderIncludesByUrl(htmlHelper, includesUrl, region, view);
         }
 
+        /// <summary>
+        /// Renders the includes by URL.
+        /// </summary>
+        /// <param name="htmlHelper">The HTML helper.</param>
+        /// <param name="includesUrl">The includes URL.</param>
+        /// <param name="region">The region.</param>
+        /// <param name="view">The view.</param>
+        /// <returns>MvcHtmlString.</returns>
         public static MvcHtmlString RenderIncludesByUrl(this HtmlHelper htmlHelper, string includesUrl, string region, string view)
         {
             MvcHtmlString result = htmlHelper.Action("Includes", "Region", new { Page = includesUrl, Region = region, View = view });
