@@ -13,6 +13,9 @@ namespace Dyndle.Modules.Core
     /// <summary>
     /// Class RouteConfig.
     /// </summary>
+    /// <summary>
+    /// Class RouteConfig.
+    /// </summary>
     public static class RouteConfig
     {
         /// <summary>

@@ -4,6 +4,11 @@ using DD4T.ContentModel;
 namespace Dyndle.Modules.Core.Exceptions
 {
     /// <inheritdoc />
+    /// <summary>
+    /// Class ViewModelBuildException.
+    /// Implements the <see cref="System.Exception" />
+    /// </summary>
+    /// <seealso cref="System.Exception" />
     public class ViewModelBuildException : Exception
     {
 
@@ -11,6 +16,8 @@ namespace Dyndle.Modules.Core.Exceptions
         /// ViewModelBuildException
         /// </summary>
         /// <param name="data">the generic (Tridion) object we were trying to convert to a ViewModel</param>
+        /// <param name="modelType">Type of the model.</param>
+        /// <param name="innerException">The inner exception.</param>
         public ViewModelBuildException(IModel data, Type modelType, Exception innerException)
             : base(GetErrorMessageForModel(data, modelType), innerException)
         {
@@ -45,6 +52,7 @@ namespace Dyndle.Modules.Core.Exceptions
         /// <summary>
         /// Identifier
         /// </summary>
+        /// <value>The identifier.</value>
         public string Identifier
         {
             get; set;

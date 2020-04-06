@@ -11,6 +11,10 @@ namespace Dyndle.Modules.Core.Modules
     public class ActionFilterModule : IServiceCollectionModule
     {
 	    public void RegisterTypes(IServiceCollection serviceCollection)
+        /// <summary>
+        /// Registers the types.
+        /// </summary>
+        /// <param name="serviceCollection">The service collection.</param>
 	    {
 			serviceCollection.AddSingleton(typeof(IActionFilter), typeof(AbsoluteUrlAttribute));
 		}

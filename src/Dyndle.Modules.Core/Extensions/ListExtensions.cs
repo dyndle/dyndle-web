@@ -5,7 +5,7 @@ namespace Dyndle.Modules.Core.Extensions
 {
     /// <summary>
     /// Extension methods.
-    /// Extending <seealso cref="List{T}"/>
+    /// Extending <seealso cref="List{T}" />
     /// </summary>
     public static class ListExtensions
     {
@@ -13,9 +13,9 @@ namespace Dyndle.Modules.Core.Extensions
         /// Split a list into specific size
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="items"></param>
-        /// <param name="sliceSize"></param>
-        /// <returns></returns>
+        /// <param name="items">The items.</param>
+        /// <param name="sliceSize">Size of the slice.</param>
+        /// <returns>List&lt;List&lt;T&gt;&gt;.</returns>
         public static List<List<T>> Split<T>(this List<T> items, int sliceSize)
         {
             List<List<T>> list = new List<List<T>>();

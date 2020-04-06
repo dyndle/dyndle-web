@@ -12,9 +12,7 @@ namespace Dyndle.Modules.Core.Contracts.Entities
         /// <summary>
         /// Gets or sets the items.
         /// </summary>
-        /// <value>
-        /// The items.
-        /// </value>
+        /// <value>The items.</value>
         List<EntityModel> Items { get; set; }
     }
 }

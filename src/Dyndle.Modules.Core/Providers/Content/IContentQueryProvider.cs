@@ -38,14 +38,14 @@ namespace Dyndle.Modules.Core.Providers.Content
         /// Gets the keyword name key dictionary.
         /// </summary>
         /// <param name="categoryXmlName">Name of the category XML.</param>
-        /// <returns></returns>
+        /// <returns>Dictionary&lt;System.String, System.String&gt;.</returns>
         Dictionary<string, string> GetKeywordNameKeyDictionary(string categoryXmlName);
 
         /// <summary>
         /// Gets the keyword key name dictionary.
         /// </summary>
         /// <param name="categoryXmlName">Name of the category XML.</param>
-        /// <returns></returns>
+        /// <returns>Dictionary&lt;System.String, System.String&gt;.</returns>
         Dictionary<string, string> GetKeywordKeyNameDictionary(string categoryXmlName);
     }
 }

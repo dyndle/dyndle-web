@@ -13,7 +13,7 @@ namespace Dyndle.Modules.Core.Cache
         /// Loads the specified key.
         /// </summary>
         /// <param name="key">The key.</param>
-        /// <returns></returns>
+        /// <returns>System.Object.</returns>
         public object Load(string key)
         {
             return null;
@@ -22,9 +22,9 @@ namespace Dyndle.Modules.Core.Cache
         /// <summary>
         /// Loads the specified key.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">Type to deserialize into</typeparam>
         /// <param name="key">The key.</param>
-        /// <returns></returns>
+        /// <returns>T.</returns>
         public T Load<T>(string key)
         {
             return default(T);

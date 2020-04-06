@@ -12,6 +12,7 @@ namespace Dyndle.Modules.Core.Attributes.Filter
         /// Adds appropriate area route data so views can be located
         /// </summary>
         /// <param name="filterContext">The filter context</param>
+        /// <exception cref="Exception">Cannot determine area from route data, ensure that either an area or controller segment is present in the URL</exception>
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             if (!filterContext.RouteData.DataTokens.ContainsKey("area"))

@@ -4,18 +4,18 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Dyndle.Modules.Core.Extensions
 {
-	/// <summary>
-	/// Register Modules
-	/// </summary>
-	public static class RegisterModules
+    /// <summary>
+    /// Register Modules
+    /// </summary>
+    public static class RegisterModules
 	{
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="serviceCollection"></param>
-		/// <typeparam name="T"></typeparam>
-		/// <exception cref="ArgumentNullException"></exception>
-		public static void RegisterModule<T>(this IServiceCollection serviceCollection) where T : IServiceCollectionModule, new()
+        /// <summary>
+        /// Registers the module.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="serviceCollection">The service collection.</param>
+        /// <exception cref="ArgumentNullException">serviceCollection</exception>
+        public static void RegisterModule<T>(this IServiceCollection serviceCollection) where T : IServiceCollectionModule, new()
 		{
 			if (serviceCollection == null) throw new ArgumentNullException(nameof(serviceCollection));
 			IServiceCollectionModule module = Activator.CreateInstance<T>();
@@ -23,13 +23,13 @@ namespace Dyndle.Modules.Core.Extensions
 			module.RegisterTypes(serviceCollection);
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="serviceCollection"></param>
-		/// <param name="module"></param>
-		/// <exception cref="ArgumentNullException"></exception>
-		public static void RegisterModule(this IServiceCollection serviceCollection, IServiceCollectionModule module)
+        /// <summary>
+        /// Registers the module.
+        /// </summary>
+        /// <param name="serviceCollection">The service collection.</param>
+        /// <param name="module">The module.</param>
+        /// <exception cref="ArgumentNullException">serviceCollection</exception>
+        public static void RegisterModule(this IServiceCollection serviceCollection, IServiceCollectionModule module)
 		{
 			if (serviceCollection == null) throw new ArgumentNullException(nameof(serviceCollection));
 

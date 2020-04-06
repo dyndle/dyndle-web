@@ -90,6 +90,10 @@ namespace Dyndle.Modules.Core.Configuration
         /// </summary>
         public static string DisableOutputCachingForUrls => CoreConstants.Configuration.DisableOutputCachingForUrls.GetConfigurationValue();
 
+        /// <summary>
+        /// Gets or sets a value indicating whether [disable output caching].
+        /// </summary>
+        /// <value><c>true</c> if [disable output caching]; otherwise, <c>false</c>.</value>
         public static bool DisableOutputCaching
         {
             get; set;
@@ -99,6 +103,8 @@ namespace Dyndle.Modules.Core.Configuration
         /// <summary>
         /// Returns configuration appSetting 'ErrorPage' for specified status code
         /// </summary>
+        /// <param name="statusCode">The status code.</param>
+        /// <returns>System.String.</returns>
         public static string GetErrorPageUrl(int statusCode)
         {
             var configuredUrl =   ConfigurationManager.AppSettings[string.Format(CoreConstants.Configuration.ErrorPageMask, statusCode)];
@@ -109,8 +115,16 @@ namespace Dyndle.Modules.Core.Configuration
             return configuredUrl;
         }
 
+        /// <summary>
+        /// Class Defaults.
+        /// </summary>
         public static class Defaults
         {
+            /// <summary>
+            /// Gets the error page URI.
+            /// </summary>
+            /// <param name="statusCode">The status code.</param>
+            /// <returns>System.String.</returns>
             public static string GetErrorPageUri(int statusCode)
             {
                 return "/system/errors/" + statusCode;
