@@ -1,17 +1,10 @@
 ﻿namespace Dyndle.Modules.Core
 {
+    /// <summary>
+    /// Class which contains the Dyndle constants
+    /// </summary>
     public static class CoreConstants
     {
-        public static class Labels
-        {
-            //public readonly static string Sample = "Sample";
-        }
-
-        public static class Settings
-        {
-            //public readonly static string Sample = "Sample";
-        }
-
         /// <summary>
         /// Class which contains the Dyndle configuration keys
         /// </summary>

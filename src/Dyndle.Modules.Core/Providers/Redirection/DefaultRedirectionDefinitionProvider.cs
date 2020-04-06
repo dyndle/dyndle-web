@@ -28,12 +28,12 @@ namespace Dyndle.Modules.Core.Providers.Redirection
         private string _defaultFileName;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DefaultRedirectionDefinitionProvider"/> class.
+        /// Initializes a new instance of the <see cref="DefaultRedirectionDefinitionProvider" /> class.
         /// TODO: use caching mechanism here?
         /// </summary>
         /// <param name="contentProvider">The content provider.</param>
         /// <param name="publicationResolver">The publication resolver.</param>
-        /// <param name="configuration"></param>
+        /// <param name="configuration">The configuration.</param>
         /// <param name="logger">The logger.</param>
         public DefaultRedirectionDefinitionProvider(IContentProvider contentProvider,
                                                     IExtendedPublicationResolver publicationResolver,

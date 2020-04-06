@@ -11,7 +11,7 @@ namespace Dyndle.Modules.Core.Exceptions
         /// <summary>
         /// ViewModelNotFoundException
         /// </summary>
-        /// <param name="data"></param>
+        /// <param name="data">The data.</param>
         public ViewModelNotFoundException(IComponentPresentation data)
             : base(string.Format("Could not find view model for schema '{0}' and Template '{1}' or default for schema '{0}' in loaded assemblies."
                 , data.Component.Schema.Title, data.ComponentTemplate.Title)) 
@@ -21,7 +21,7 @@ namespace Dyndle.Modules.Core.Exceptions
         /// <summary>
         /// ViewModelNotFoundException
         /// </summary>
-        /// <param name="data"></param>
+        /// <param name="data">The data.</param>
         public ViewModelNotFoundException(ITemplate data)
             : base($"Could not find view model for item with Template '{data.Title}' and ID '{data.Id}'")
         { }
@@ -76,6 +76,7 @@ namespace Dyndle.Modules.Core.Exceptions
         /// <summary>
         /// Identifier
         /// </summary>
+        /// <value>The identifier.</value>
         public string Identifier
         {
             get; set;

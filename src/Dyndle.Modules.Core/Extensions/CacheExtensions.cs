@@ -3,8 +3,16 @@ using DD4T.ContentModel;
 
 namespace Dyndle.Modules.Core.Extensions
 {
+    /// <summary>
+    /// Cache extension methods.
+    /// </summary>
     public static class CacheExtensions
     {
+        /// <summary>
+        /// Skips the key while previewing.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         public static bool SkipKeyWhilePreviewing(this string key)
         {
             return key.StartsWith("model_", StringComparison.InvariantCultureIgnoreCase) ||
@@ -16,7 +24,7 @@ namespace Dyndle.Modules.Core.Extensions
         /// <summary>
         /// Return the Tridion ID (TCM Uri) of this model. Models can be IPage or IComponentPresentation.
         /// </summary>
-        /// <param name="model"></param>
+        /// <param name="model">The model.</param>
         /// <returns>ID of the page or ID of the component in the component presentation</returns>
         public static string GetId(this IModel model)
         {

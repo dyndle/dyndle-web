@@ -5,6 +5,10 @@
     /// </summary>
     public interface IEntityModel : IRenderable
     {
+        /// <summary>
+        /// Gets the URL.
+        /// </summary>
+        /// <value>The URL.</value>
         string Url { get; }
     }
 }

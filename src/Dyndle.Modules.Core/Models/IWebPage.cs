@@ -7,6 +7,10 @@ namespace Dyndle.Modules.Core.Models
     /// </summary>
     public interface IWebPage : IRenderable
     {
+        /// <summary>
+        /// Gets or sets the XPM page tag.
+        /// </summary>
+        /// <value>The XPM page tag.</value>
         IHtmlString XpmPageTag { get; set; }
     }
 }

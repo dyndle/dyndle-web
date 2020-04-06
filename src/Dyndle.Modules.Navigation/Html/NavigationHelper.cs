@@ -9,24 +9,28 @@ namespace Dyndle.Modules.Navigation.Html
     /// <summary>
     /// Adds HtmlHelper methods to handle Navigation
     /// </summary>
+    /// <summary>
+    /// Class NavigationHelper.
+    /// </summary>
     public static class NavigationHelper
     {
         private static readonly INavigationService NavigationService = DependencyResolver.Current.GetService<INavigationService>();
 
         #region Render Navigation
         /// <summary>
-        /// 
+        /// Renders the navigation.
         /// </summary>
         /// <param name="htmlHelper">The current HtmlHelper</param>
         /// <param name="viewName">The view to render</param>
         /// <param name="navLevels">The number of levels of the navigation to fetch</param>
         /// <param name="navSubtype">Subtype of the navigation that is being requested (default is "none")</param>
+        /// <summary>
         public static void RenderNavigation(this HtmlHelper htmlHelper, string viewName, int navLevels = 0, string navSubtype = "none")
         {
             htmlHelper.RenderPartial(viewName, htmlHelper.Navigation(navLevels, navSubtype));
         }
         /// <summary>
-        /// 
+        /// Renders the navigation side nav.
         /// </summary>
         /// <param name="htmlHelper">The current HtmlHelper</param>
         /// <param name="viewName">The view to render</param>
@@ -38,7 +42,7 @@ namespace Dyndle.Modules.Navigation.Html
             htmlHelper.RenderPartial(viewName, htmlHelper.NavigationSideNav(navLevels, navStartLevel, navSubtype));
         }
         /// <summary>
-        /// 
+        /// Renders the navigation breadcrumbs.
         /// </summary>
         /// <param name="htmlHelper">The current HtmlHelper</param>
         /// <param name="viewName">The view to render</param>
@@ -48,7 +52,7 @@ namespace Dyndle.Modules.Navigation.Html
             htmlHelper.RenderPartial(viewName, htmlHelper.NavigationBreadcrumbs(requestUrlPath));
         }
         /// <summary>
-        /// 
+        /// Renders the navigation sitemap.
         /// </summary>
         /// <param name="htmlHelper">The current HtmlHelper</param>
         /// <param name="viewName">The view to render</param>
@@ -66,7 +70,7 @@ namespace Dyndle.Modules.Navigation.Html
         /// <param name="htmlHelper">The current HtmlHelper</param>
         /// <param name="navLevels">The number of levels of the navigation to fetch</param>
         /// <param name="navSubtype">Subtype of the navigation that is being requested (default is "none")</param>
-        /// <returns></returns>
+        /// <returns>ISitemapItem.</returns>
         public static ISitemapItem Navigation(this HtmlHelper htmlHelper, int navLevels=0, string navSubtype = "none")
         {
             return NavigationService.GetNavigationModel("", NavigationConstants.NavigationType.Default, navSubtype, navLevels);
@@ -79,7 +83,7 @@ namespace Dyndle.Modules.Navigation.Html
         /// <param name="navLevels">The number of levels of the navigation to fetch</param>
         /// <param name="navStartLevel">The starting level of the navigation</param>
         /// <param name="navSubtype">Subtype of the navigation that is being requested (default is "none")</param>
-        /// <returns></returns>
+        /// <returns>ISitemapItem.</returns>
         public static ISitemapItem NavigationSideNav(this HtmlHelper htmlHelper, int navLevels=0, int navStartLevel=-1, string navSubtype = "none")
         {
             return NavigationService.GetNavigationModel(string.Empty,NavigationConstants.NavigationType.Children, navSubtype, navLevels,navStartLevel);
@@ -90,7 +94,7 @@ namespace Dyndle.Modules.Navigation.Html
         /// </summary>
         /// <param name="htmlHelper">The current HtmlHelper</param>
         /// <param name="requestUrlPath">The request path to use when fetching the navigation</param>
-        /// <returns></returns>
+        /// <returns>List of ISitemapItems</returns>
         public static List<ISitemapItem> NavigationBreadcrumbs(this HtmlHelper htmlHelper, string requestUrlPath="")
         {
             return FlattenSitemapItem(NavigationService.GetNavigationModel(requestUrlPath, NavigationConstants.NavigationType.Path));
@@ -100,7 +104,7 @@ namespace Dyndle.Modules.Navigation.Html
         /// Get Navigation Sitemap Model
         /// </summary>
         /// <param name="htmlHelper">The current HtmlHelper</param>
-        /// <returns></returns>
+        /// <returns>ISitemapItem.</returns>
         public static ISitemapItem NavigationSitemap(this HtmlHelper htmlHelper)
         {
             return NavigationService.GetNavigationModel(string.Empty, NavigationConstants.NavigationType.Sitemap);
