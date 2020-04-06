@@ -8,6 +8,7 @@ using DD4T.Core.Contracts.ViewModels;
 using Dyndle.Modules.Core.Environment;
 using Dyndle.Modules.Core.Extensions;
 using Dyndle.Modules.Core.Models;
+using Dyndle.Modules.Core.Models.Query;
 using Dyndle.Modules.Core.Providers.Content;
 using Tridion.ContentDelivery.DynamicContent.Query;
 using Tridion.ContentDelivery.Taxonomies;
@@ -264,57 +265,57 @@ namespace Dyndle.Providers.Tridion9.Providers
             return result;
         }
 
-        private void AddSorting(Dyndle.Modules.Core.Models.SortParameter sortParameter, Query query)
+        private void AddSorting(Modules.Core.Models.Query.SortParameter sortParameter, Query query)
         {
             SortColumn sortColumn;
             switch (sortParameter.SortColumn)
             {
-                case Dyndle.Modules.Core.Models.SortColumn.ItemCreationDate:
+                case Modules.Core.Models.Query.SortColumn.ItemCreationDate:
                     sortColumn = SortParameter.ItemCreationDate;
                     break;
-                case Dyndle.Modules.Core.Models.SortColumn.ItemFileName:
+                case Modules.Core.Models.Query.SortColumn.ItemFileName:
                     sortColumn = SortParameter.ItemFileName;
                     break;
-                case Dyndle.Modules.Core.Models.SortColumn.ItemInitialPublicationDate:
+                case Modules.Core.Models.Query.SortColumn.ItemInitialPublicationDate:
                     sortColumn = SortParameter.ItemInitialPublicationDate;
                     break;
-                case Dyndle.Modules.Core.Models.SortColumn.ItemItemType:
+                case Modules.Core.Models.Query.SortColumn.ItemItemType:
                     sortColumn = SortParameter.ItemItemType;
                     break;
-                case Dyndle.Modules.Core.Models.SortColumn.ItemLastPublishedDate:
+                case Modules.Core.Models.Query.SortColumn.ItemLastPublishedDate:
                     sortColumn = SortParameter.ItemLastPublishedDate;
                     break;
-                case Dyndle.Modules.Core.Models.SortColumn.ItemMajorVersion:
+                case Modules.Core.Models.Query.SortColumn.ItemMajorVersion:
                     sortColumn = SortParameter.ItemMajorVersion;
                     break;
-                case Dyndle.Modules.Core.Models.SortColumn.ItemMinorVersion:
+                case Modules.Core.Models.Query.SortColumn.ItemMinorVersion:
                     sortColumn = SortParameter.ItemMinorVersion;
                     break;
-                case Dyndle.Modules.Core.Models.SortColumn.ItemModificationDate:
+                case Modules.Core.Models.Query.SortColumn.ItemModificationDate:
                     sortColumn = SortParameter.ItemModificationDate;
                     break;
-                case Dyndle.Modules.Core.Models.SortColumn.ItemOwningPublicationId:
+                case Modules.Core.Models.Query.SortColumn.ItemOwningPublicationId:
                     sortColumn = SortParameter.ItemOwningPublicationId;
                     break;
-                case Dyndle.Modules.Core.Models.SortColumn.ItemPageTemplateId:
+                case Modules.Core.Models.Query.SortColumn.ItemPageTemplateId:
                     sortColumn = SortParameter.ItemPageTemplateId;
                     break;
-                case Dyndle.Modules.Core.Models.SortColumn.ItemPublicationId:
+                case Modules.Core.Models.Query.SortColumn.ItemPublicationId:
                     sortColumn = SortParameter.ItemPublicationId;
                     break;
-                case Dyndle.Modules.Core.Models.SortColumn.ItemReferenceId:
+                case Modules.Core.Models.Query.SortColumn.ItemReferenceId:
                     sortColumn = SortParameter.ItemReferenceId;
                     break;
-                case Dyndle.Modules.Core.Models.SortColumn.ItemSchemaId:
+                case Modules.Core.Models.Query.SortColumn.ItemSchemaId:
                     sortColumn = SortParameter.ItemSchemaId;
                     break;
-                case Dyndle.Modules.Core.Models.SortColumn.ItemTitle:
+                case Modules.Core.Models.Query.SortColumn.ItemTitle:
                     sortColumn = SortParameter.ItemTitle;
                     break;
-                case Dyndle.Modules.Core.Models.SortColumn.ItemTrustee:
+                case Modules.Core.Models.Query.SortColumn.ItemTrustee:
                     sortColumn = SortParameter.ItemTrustee;
                     break;
-                case Dyndle.Modules.Core.Models.SortColumn.ItemUrl:
+                case Modules.Core.Models.Query.SortColumn.ItemUrl:
                     sortColumn = SortParameter.ItemUrl;
                     break;
                 default:
@@ -324,7 +325,7 @@ namespace Dyndle.Providers.Tridion9.Providers
             SortDirection sortDirection;
             switch (sortParameter.SortDirection)
             {
-                case Dyndle.Modules.Core.Models.SortDirection.Descending:
+                case Modules.Core.Models.Query.SortDirection.Descending:
                     sortDirection = SortParameter.Descending;
                     break;
                 default:
