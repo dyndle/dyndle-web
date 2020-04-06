@@ -24,6 +24,7 @@ namespace Dyndle.Modules.Core.Json
         /// Execute the result
         /// </summary>
         /// <param name="context">The current controller context</param>
+        /// <exception cref="InvalidOperationException">GET request not allowed</exception>
         public override void ExecuteResult(ControllerContext context)
         {
             if (this.JsonRequestBehavior == JsonRequestBehavior.DenyGet &&

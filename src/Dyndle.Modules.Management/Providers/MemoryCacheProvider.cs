@@ -10,7 +10,7 @@ namespace Dyndle.Modules.Management.Providers
 {
     public class MemoryCacheProvider : ICacheProvider
     {
-        MemoryCacheItemConverter converter;
+        private readonly MemoryCacheItemConverter converter;
         public MemoryCacheProvider()
         {
             converter = new MemoryCacheItemConverter();

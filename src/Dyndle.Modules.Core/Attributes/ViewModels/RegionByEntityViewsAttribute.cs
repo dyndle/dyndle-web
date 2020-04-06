@@ -16,7 +16,11 @@ namespace Dyndle.Modules.Core.Attributes.ViewModels
     /// <seealso cref="DD4T.ViewModels.Attributes.ComponentPresentationsAttributeBase" />
     public class RegionByEntityViewsAttribute : ComponentPresentationsAttributeBase
     {
-        private string[] _viewNames;
+        private readonly string[] _viewNames;
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RegionByEntityViewsAttribute"/> class.
+        /// </summary>
+        /// <param name="viewNames">The view names.</param>
         public RegionByEntityViewsAttribute(string[] viewNames)
         {
             _viewNames = viewNames;

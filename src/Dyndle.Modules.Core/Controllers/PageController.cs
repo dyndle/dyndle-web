@@ -111,9 +111,9 @@ namespace Dyndle.Modules.Core.Controllers
         /// <summary>
         /// PreviewPage
         /// </summary>
-        /// <param name="data"></param>
-        /// <param name="url"></param>
-        /// <returns></returns>
+        /// <param name="data">The data.</param>
+        /// <param name="url">The URL.</param>
+        /// <returns>ActionResult.</returns>
         [HttpPost]
         [Preview]
         public ActionResult Preview(string data, string url)
@@ -142,6 +142,10 @@ namespace Dyndle.Modules.Core.Controllers
             return PartialView(view ?? IncludesView, page);
         }
 
+        /// <summary>
+        /// Blanks this instance.
+        /// </summary>
+        /// <returns>ActionResult.</returns>
         public ActionResult Blank()
         {
             return new EmptyResult();

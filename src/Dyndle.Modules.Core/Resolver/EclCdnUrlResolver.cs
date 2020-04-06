@@ -18,7 +18,7 @@ namespace Dyndle.Modules.Core.Resolver
         /// <summary>
         /// Constructor to initialize path mapping
         /// </summary>
-        /// <param name="urlMapping"></param>
+        /// <param name="urlMapping">The URL mapping.</param>
         public EclCdnUrlResolver(Dictionary<string, string> urlMapping)
         {
             _mappingWithFileExtensions = urlMapping ?? new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
@@ -49,9 +49,10 @@ namespace Dyndle.Modules.Core.Resolver
         /// Get the CDN URL for a specific ECL variant type
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="type"></param>
-        /// <param name="preferredFileExtension"></param>
-        /// <returns></returns>
+        /// <param name="type">The type.</param>
+        /// <param name="preferredFileExtension">The preferred file extension.</param>
+        /// <returns>System.String.</returns>
+        /// <exception cref="ArgumentException">Type parameter {nameof(T)} must be an enumerated type</exception>
         public string GetUrlFor<T>(T type, string preferredFileExtension = "") where T : IConvertible
         {
             if (!typeof(T).IsEnum)

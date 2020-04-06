@@ -11,6 +11,13 @@ namespace Dyndle.Modules.Core.Extensions
     /// </summary>
     public static class ObjectExtensions
     {
+        /// <summary>
+        /// Throws if null.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj">The object.</param>
+        /// <param name="parameterName">Name of the parameter.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public static void ThrowIfNull<T>(this T obj, string parameterName)
                where T : class
         {
@@ -21,15 +28,22 @@ namespace Dyndle.Modules.Core.Extensions
         /// Throws an NullArgument exception if obj is null
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="obj"></param>
-        /// <param name="message"></param>
-        /// <param name="parameterName"></param>
+        /// <param name="obj">The object.</param>
+        /// <param name="message">The message.</param>
+        /// <param name="parameterName">Name of the parameter.</param>
+        /// <exception cref="ArgumentNullException"></exception>
         public static void ThrowIfNull<T>(this T obj, string message, string parameterName)
                where T : class
         {
             if (obj == null) throw new ArgumentNullException(message, parameterName);
         }
 
+        /// <summary>
+        /// Determines whether the specified object is null.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj">The object.</param>
+        /// <returns><c>true</c> if the specified object is null; otherwise, <c>false</c>.</returns>
         public static bool IsNull<T>(this T obj)
               where T : class
         {
@@ -39,12 +53,10 @@ namespace Dyndle.Modules.Core.Extensions
         /// <summary>
         /// Uses recursion and reflection to print the bindable layout of this object
         /// </summary>
-        /// <param name="myObject"></param>
+        /// <param name="myObject">My object.</param>
         /// <param name="displaySubObject">Include subobjects?</param>
         /// <param name="includeTypeName">Include typenames?</param>
-        /// <param name="prefix">Used for recursion this can be String.Empty</param>
-        /// <param name="writer">Used for recursion this can be new StringWriter()</param>
-        /// <returns></returns>
+        /// <returns>System.String.</returns>
         public static string Layout(this object myObject, bool displaySubObject, bool includeTypeName)
         {
             return myObject.Layout(displaySubObject, includeTypeName, string.Empty, new StringWriter());
@@ -79,7 +91,7 @@ namespace Dyndle.Modules.Core.Extensions
                         {
                             if ((mi.MemberType & MemberTypes.Constructor) != 0) { /*ignore constructor*/}
                             else if (object.ReferenceEquals(mi.DeclaringType, typeof(object))) { /*ignore inherited*/}
-                            else if (!al.Contains(mi.Name) & (mi.MemberType & MemberTypes.Property) != 0)
+                            else if (!al.Contains(mi.Name) && (mi.MemberType & MemberTypes.Property) != 0)
                             {
                                 al.Add(mi.Name);
                                 pi = (System.Reflection.PropertyInfo)mi;
@@ -101,7 +113,7 @@ namespace Dyndle.Modules.Core.Extensions
                                     pi.GetValue(myObject, null).Layout(displaySubObject, includeTypeName, string.Format("{0}.{1}", prefix, pi.Name), writer);
                                 }
                             }
-                            else if (!al.Contains(mi.Name) & (mi.MemberType & MemberTypes.Field) != 0)
+                            else if (!al.Contains(mi.Name) && (mi.MemberType & MemberTypes.Field) != 0)
                             {
                                 al.Add(mi.Name);
                                 fi = (System.Reflection.FieldInfo)mi;

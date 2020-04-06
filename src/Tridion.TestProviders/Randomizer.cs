@@ -3,11 +3,11 @@ using DD4T.ContentModel;
 
 namespace Tridion.TestProviders
 {
-    static class Randomizer
+    internal static class Randomizer
     {
-        static Random random = new Random(DateTime.Now.Second * DateTime.Now.Minute);
-        static string alphabet = "abcdefghijklmnopqrstuvwxyz0123456789,..     ";
-        static string alphabetSafe = "abcdefghijklmnopqrstuvwxyz0123456789";
+        private static readonly Random random = new Random(DateTime.Now.Second * DateTime.Now.Minute);
+        private const string alphabet = "abcdefghijklmnopqrstuvwxyz0123456789,..     ";
+        private const string alphabetSafe = "abcdefghijklmnopqrstuvwxyz0123456789";
         public static string AnyString(int length)
         {
             string result = "";

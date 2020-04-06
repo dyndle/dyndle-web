@@ -3,7 +3,7 @@ using DD4T.ContentModel.Contracts.Configuration;
 
 namespace Dyndle.Modules.Test
 {
-    class TestConfiguration : IDD4TConfiguration
+    internal class TestConfiguration : IDD4TConfiguration
     {
         public static int OverridePageExpiration { get; set; }
         public static int OverrideComponentPresentationExpiration { get; set; }

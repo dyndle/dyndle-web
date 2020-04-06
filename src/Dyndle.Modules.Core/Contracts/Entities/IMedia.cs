@@ -71,6 +71,7 @@ namespace Dyndle.Modules.Core.Contracts.Entities
         /// <summary>
         /// True if the object is a video
         /// </summary>
+        /// <value><c>true</c> if this instance is video; otherwise, <c>false</c>.</value>
         bool IsVideo { get; }
     }
 }

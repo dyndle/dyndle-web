@@ -4,6 +4,11 @@ using System.Web.Mvc;
 
 namespace Dyndle.Modules.Core.Binders
 {
+    /// <summary>
+    /// Class DefaultModelBinder.
+    /// Implements the <see cref="System.Web.Mvc.DefaultModelBinder" />
+    /// </summary>
+    /// <seealso cref="System.Web.Mvc.DefaultModelBinder" />
     public class DefaultModelBinder : System.Web.Mvc.DefaultModelBinder
     {
         protected override void BindProperty(
@@ -40,7 +45,7 @@ namespace Dyndle.Modules.Core.Binders
             }
         }
 
-        PropertyBinderAttribute TryFindPropertyBinderAttribute(PropertyDescriptor propertyDescriptor)
+        private PropertyBinderAttribute TryFindPropertyBinderAttribute(PropertyDescriptor propertyDescriptor)
         {
             return propertyDescriptor.Attributes
               .OfType<PropertyBinderAttribute>()

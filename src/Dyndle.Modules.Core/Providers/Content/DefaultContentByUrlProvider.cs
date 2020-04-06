@@ -6,18 +6,20 @@ using Dyndle.Modules.Core.Extensions;
 namespace Dyndle.Modules.Core.Providers.Content
 {
     /// <summary>
-    /// default implemenation for IContentByUrlProvider
+    /// Default implementation for IContentByUrlProvider.
+    /// Implements the <see cref="Dyndle.Modules.Core.Providers.Content.IContentByUrlProvider" />
     /// </summary>
+    /// <seealso cref="Dyndle.Modules.Core.Providers.Content.IContentByUrlProvider" />
     public class DefaultContentByUrlProvider : IContentByUrlProvider
     {
         private readonly IContentProvider _contentProvider;
         private readonly ILogger _logger;
 
         /// <summary>
-        /// constructor for DefaultContentProviderByUrl
+        /// Initializes a new instance of the <see cref="DefaultContentByUrlProvider"/> class.
         /// </summary>
-        /// <param name="contentProvider"></param>
-        /// <param name="logger"></param>
+        /// <param name="contentProvider">The content provider.</param>
+        /// <param name="logger">The logger.</param>
         public DefaultContentByUrlProvider(IContentProvider contentProvider, ILogger logger)
         {
             contentProvider.ThrowIfNull(nameof(contentProvider));
@@ -30,8 +32,9 @@ namespace Dyndle.Modules.Core.Providers.Content
         /// <summary>
         /// Load a Viewmodel based on a URL or TcmUri
         /// </summary>
-        /// <param name="urlOrTcmUri"></param>
-        /// <returns></returns>
+        /// <param name="urlOrTcmUri">The URL or TCM URI.</param>
+        /// <param name="preferredModelType">Type of the preferred model.</param>
+        /// <returns>IViewModel.</returns>
         public virtual IViewModel Retrieve(string urlOrTcmUri, Type preferredModelType = null)
         {
             IViewModel model = null;

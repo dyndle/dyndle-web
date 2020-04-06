@@ -5,8 +5,16 @@ using Dyndle.Modules.Core.Configuration;
 
 namespace Dyndle.Modules.Core.Attributes.Caching
 {
+    /// <summary>
+    /// Enables DyndleOutputCache.
+    /// Implements the <see cref="System.Web.Mvc.OutputCacheAttribute" />
+    /// </summary>
+    /// <seealso cref="System.Web.Mvc.OutputCacheAttribute" />
     public class DyndleOutputCacheAttribute : OutputCacheAttribute
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DyndleOutputCacheAttribute"/> class.
+        /// </summary>
         public DyndleOutputCacheAttribute()
         {
             if (DyndleConfig.DisableOutputCaching || DisableOutputCachingForRequest())
