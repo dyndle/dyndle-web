@@ -49,26 +49,12 @@ namespace Dyndle.Modules.Core.Attributes.ViewModels
         /// <summary>
         /// Identifiers for further specifying which View Model to use for different presentations.
         /// </summary>
-        public string[] ViewModelKeys
-        {
-            get { return viewModelKeys; }
-            set { viewModelKeys = value; }
-        }
+        public string[] ViewModelKeys { get; set; }
 
         /// <summary>
         /// Is inline editable. Only for semantic use.
         /// </summary>
-        public bool InlineEditable
-        {
-            get
-            {
-                return inlineEditable;
-            }
-            set
-            {
-                inlineEditable = value;
-            }
-        }
+        public bool InlineEditable { get; set; }
 
         /// <summary>
         /// Is the default View Model for the schema. If set to true, this will be the View Model to use for a given schema if no View Model ID is specified.
@@ -108,7 +94,7 @@ namespace Dyndle.Modules.Core.Attributes.ViewModels
                                 select i;
                     //Schema names match and there is a matching view model ID
                     if (this.SchemaRootElementName.Equals(key.SchemaRootElementName, StringComparison.OrdinalIgnoreCase)
-                        && match.Count() > 0)
+                        && match.Any())
                         return true;
                 }
                 //Note: if the parent of a linked component is using a View Model Key, the View Model
