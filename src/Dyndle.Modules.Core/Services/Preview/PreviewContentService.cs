@@ -13,7 +13,7 @@ namespace Dyndle.Modules.Core.Services.Preview
         private readonly IPageFactory _pageFactory;
         private readonly IContentProvider _contentProvider;
         /// <summary>
-        /// creates a new instance of PreviewContentService
+        /// Initializes a new instance of the <see cref="DyndleOutputCacheAttribute"/> class.
         /// </summary>
         /// <param name="pageFactory"></param>
         /// <param name="contentProvider"></param>

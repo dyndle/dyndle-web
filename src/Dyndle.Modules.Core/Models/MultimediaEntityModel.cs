@@ -11,6 +11,10 @@ namespace Dyndle.Modules.Core.Models
     /// <seealso cref="IEntityModel" />
     public abstract class MultimediaEntityModel : EntityModel
     {
+        /// <summary>
+        /// Gets or sets the multimedia.
+        /// </summary>
+        /// <value>The multimedia.</value>
         [Multimedia]
         public IMultimedia Multimedia { get; set; }
 

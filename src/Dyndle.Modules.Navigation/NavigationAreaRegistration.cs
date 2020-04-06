@@ -10,10 +10,11 @@ namespace Dyndle.Modules.Navigation
     /// </summary>
     public class NavigationAreaRegistration : BaseModuleAreaRegistration
 	{
-		/// <summary>
-		/// 
-		/// </summary>
-		public override string AreaName => "Navigation";
+        /// <summary>
+        /// Gets the name of the area.
+        /// </summary>
+        /// <value>The name of the area.</value>
+        public override string AreaName => "Navigation";
 
 		/// <inheritdoc />
 		public override void RegisterTypes(IServiceCollection serviceCollection)

@@ -4,8 +4,15 @@ using System.Linq;
 
 namespace Dyndle.Modules.Core.DebugInfo
 {
+    /// <summary>
+    /// Class DebugInfoProviderFactory.
+    /// </summary>
     public static class DebugInfoProviderFactory
     {
+        /// <summary>
+        /// Gets the providers.
+        /// </summary>
+        /// <value>The providers.</value>
         public static IEnumerable<IDebugInfoProvider> Providers
         {
             get

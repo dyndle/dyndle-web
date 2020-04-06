@@ -13,6 +13,10 @@ namespace Dyndle.Modules.Core.Attributes.Filter
     {
         private readonly List<IDebugInfoProvider> debugInfoProviders;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DebugInfoAttribute"/> class.
+        /// </summary>
+        /// <param name="debugInfoNames">The debug information names.</param>
         public DebugInfoAttribute(IEnumerable<string> debugInfoNames) : base()
         {
                 debugInfoProviders = DebugInfoProviderFactory.Providers.Where(p => debugInfoNames.Any(n => n == p.Name)).ToList();

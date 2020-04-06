@@ -48,7 +48,7 @@ namespace Dyndle.Modules.Core.Configuration
         /// <summary>
         /// Specifies the collection of service descriptors.
         /// </summary>
-        /// <param name="serviceCollection"></param>
+        /// <param name="serviceCollection">The service collection.</param>
         public virtual void RegisterTypes(IServiceCollection serviceCollection)
         {
 

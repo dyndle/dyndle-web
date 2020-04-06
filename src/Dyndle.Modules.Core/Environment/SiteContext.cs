@@ -36,7 +36,7 @@ namespace Dyndle.Modules.Core.Environment
         private const string StagingTargetSuffix = "_Staging";
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SiteContext"/> class.
+        /// Initializes a new instance of the <see cref="SiteContext" /> class.
         /// </summary>
         /// <param name="siteConfigurationProvider">The site configuration provider.</param>
         /// <param name="logger">The logger.</param>
@@ -61,7 +61,7 @@ namespace Dyndle.Modules.Core.Environment
         /// <param name="key">The key.</param>
         /// <param name="isMandatory">if set to <c>true</c> [is mandatory] Throws an exception when the value is missing.</param>
         /// <returns>System.String.</returns>
-        /// <exception cref="Exception"></exception>
+        /// <exception cref="Exception">Missing Application Setting: {key}</exception>
         public string GetApplicationSetting(string key, bool isMandatory = false)
         {
             var tryTargetSpecific = true;    // could be passed as parameter in future, for now hardcoded so no change to interface method
@@ -91,6 +91,11 @@ namespace Dyndle.Modules.Core.Environment
             return null;
         }
 
+        /// <summary>
+        /// Gets a raw configuration value (including prefix).
+        /// </summary>
+        /// <param name="key">The key to retrieve.</param>
+        /// <returns>Configuration value.</returns>
         public string GetRawConfigurationValue(string key)
         {
             return GetConfigurationValue(key);
