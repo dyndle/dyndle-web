@@ -28,14 +28,14 @@ namespace Dyndle.Modules.Core.Attributes.ViewModels
             var isPage = false;
 
             ITemplate template = null;
-            if (modelData is IComponentPresentation)
+            if (modelData is IComponentPresentation componentPresentation)
             {
-                template = ((IComponentPresentation)modelData).ComponentTemplate;
+                template = componentPresentation.ComponentTemplate;
             }
-            else if (modelData is IPage)
+            else if (modelData is IPage page)
             {
                 isPage = true;
-                template = ((IPage)modelData).PageTemplate;
+                template = page.PageTemplate;
             }
 
             // Run away run away

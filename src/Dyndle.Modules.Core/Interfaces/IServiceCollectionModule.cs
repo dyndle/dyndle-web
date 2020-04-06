@@ -2,11 +2,18 @@
 
 namespace Dyndle.Modules.Core.Interfaces
 {
-	/// <summary>
-	/// 
-	/// </summary>
-	public interface IServiceCollectionModule
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <summary>
+    /// Interface IServiceCollectionModule
+    /// </summary>
+    public interface IServiceCollectionModule
 	{
-		void RegisterTypes(IServiceCollection serviceCollection);
+        /// <summary>
+        /// Registers the types.
+        /// </summary>
+        /// <param name="serviceCollection">The service collection.</param>
+        void RegisterTypes(IServiceCollection serviceCollection);
 	}
 }

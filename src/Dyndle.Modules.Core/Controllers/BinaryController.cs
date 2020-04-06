@@ -54,7 +54,7 @@ namespace Dyndle.Modules.Core.Controllers
         /// Binaries the specified URL.
         /// </summary>
         /// <param name="url">The URL.</param>
-        /// <returns></returns>
+        /// <returns>ActionResult.</returns>
         /// <exception cref="HttpException">404 - File '/" + url + "' cannot be found</exception>
         public ActionResult Binary(string url)
         {

@@ -10,6 +10,10 @@ namespace Dyndle.Modules.Core.Models
     /// </summary>
     public class QueryCriteria
     {
+        /// <summary>
+        /// Gets the unique key.
+        /// </summary>
+        /// <returns>System.String.</returns>
         public string GetUniqueKey()
         {
             var categorySearches = string.Join("|", CategorySearches.Select(c => c.GetUniqueKey()));
@@ -75,11 +79,9 @@ namespace Dyndle.Modules.Core.Models
         /// <value>The sort parameters.</value>
         public List<SortParameter> SortParameters { get; set; }
         /// <summary>
-        /// Gets or sets the name of the schema element.
+        /// Gets or sets the name of the schema root element.
         /// </summary>
-        /// <value>
-        /// The name of the schema element.
-        /// </value>
+        /// <value>The name of the schema root element.</value>
         public string SchemaRootElementName { get; set; }
         /// <summary>
         /// Gets or sets the schema title.

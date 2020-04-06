@@ -11,8 +11,8 @@ namespace Dyndle.Modules.Core.Providers.Redirection
         /// <summary>
         /// Gets the definitions.
         /// </summary>
-        /// <param name="cleanUrl"><c>true</c> if the URL should be cleaned; otherwise, <c>false</c></param>
+        /// <param name="cleanUrls"><c>true</c> if the URLs should be cleaned; otherwise, <c>false</c></param>
         /// <returns>List&lt;IRedirectionDefinition&gt;.</returns>
-        List<IRedirectionDefinition> GetDefinitions(bool cleanUrl);
+        List<IRedirectionDefinition> GetDefinitions(bool cleanUrls);
     }
 }

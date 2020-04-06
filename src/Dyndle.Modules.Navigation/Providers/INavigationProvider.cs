@@ -27,9 +27,7 @@ namespace Dyndle.Modules.Navigation.Providers
         /// <param name="startLevel">The start level. If startLevel -1 is provided the current page level is used
         /// Otherwise starting from an ancestor of the current page at specified level.</param>
         /// <param name="navSubtype">Navigation subtype.</param>
-        /// <returns>
-        /// ISitemapItem.
-        /// </returns>
+        /// <returns>ISitemapItem.</returns>
         ISitemapItem GetChildren(string requestUrlPath, int levels = 0, int startLevel = 0, string navSubtype = null);
 
         /// <summary>

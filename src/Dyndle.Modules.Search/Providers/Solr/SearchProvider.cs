@@ -87,9 +87,9 @@ namespace Dyndle.Modules.Search.Providers.Solr
             catch (Exception ex)
             {
                 //TODO - potentially handle fixable errors (invalid query syntax etc.) differently
-                if (ex is AggregateException)
+                if (ex is AggregateException aggregateException)
                 {
-                    foreach (var e1 in ((AggregateException)ex).InnerExceptions)
+                    foreach (var e1 in aggregateException.InnerExceptions)
                     {
                         _logger.Warning("exception while searching: " + e1.Message + Environment.NewLine + e1.StackTrace);
                     }
@@ -138,9 +138,9 @@ namespace Dyndle.Modules.Search.Providers.Solr
             catch (Exception ex)
             {
                 //TODO - potentially handle fixable errors (invalid query syntax etc.) differently
-                if (ex is AggregateException)
+                if (ex is AggregateException aggregateException)
                 {
-                    foreach (var e1 in ((AggregateException)ex).InnerExceptions)
+                    foreach (var e1 in aggregateException.InnerExceptions)
                     {
                         _logger.Warning("exception while searching: " + e1.Message + Environment.NewLine + e1.StackTrace);
                     }
@@ -187,9 +187,9 @@ namespace Dyndle.Modules.Search.Providers.Solr
             catch (Exception ex)
             {
                 //TODO - potentially handle fixable errors (invalid query syntax etc.) differently
-                if (ex is AggregateException)
+                if (ex is AggregateException aggregateException)
                 {
-                    foreach (var e1 in ((AggregateException)ex).InnerExceptions)
+                    foreach (var e1 in aggregateException.InnerExceptions)
                     {
                         _logger.Warning("exception while searching: " + e1.Message + Environment.NewLine + e1.StackTrace);
                     }

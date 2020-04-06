@@ -12,7 +12,7 @@ namespace Dyndle.Modules.Core.Providers.Redirection
         private readonly string _from;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExactMatchRedirectionDefinition"/> class.
+        /// Initializes a new instance of the <see cref="ExactMatchRedirectionDefinition" /> class.
         /// </summary>
         /// <param name="from">From.</param>
         /// <param name="to">To.</param>

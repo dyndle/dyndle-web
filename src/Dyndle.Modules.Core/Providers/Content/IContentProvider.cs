@@ -50,6 +50,7 @@ namespace Dyndle.Modules.Core.Providers.Content
         /// Builds the view model.
         /// </summary>
         /// <param name="Id">The identifier.</param>
+        /// <param name="preferredModelType">Type of the preferred model.</param>
         /// <returns>IViewModel.</returns>
         IViewModel BuildViewModel(TcmUri Id, Type preferredModelType = null);
 
@@ -64,6 +65,7 @@ namespace Dyndle.Modules.Core.Providers.Content
         /// Builds the view model.
         /// </summary>
         /// <param name="url">The URL.</param>
+        /// <param name="preferredModelType">Type of the preferred model.</param>
         /// <returns>IViewModel.</returns>
         IViewModel BuildViewModel(string url, Type preferredModelType = null);
     }
