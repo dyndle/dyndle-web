@@ -151,6 +151,8 @@ namespace Dyndle.Modules.Core.Controllers
             return new EmptyResult();
         }
 
+        /// <summary>Called when an unhandled exception occurs in the action.</summary>
+        /// <param name="filterContext">Information about the current request and action.</param>
         protected override void OnException(ExceptionContext filterContext)
         {
 
