@@ -86,7 +86,7 @@ namespace Dyndle.Modules.Core.Environment
             // no value could be found, if mandatory throw exception
             if (isMandatory)
             {
-                throw new Exception($"Missing Application Setting: {key}");
+                throw new KeyNotFoundException($"Missing Application Setting: {key}");
             }
             return null;
         }

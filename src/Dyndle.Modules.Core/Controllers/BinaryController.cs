@@ -15,7 +15,6 @@ namespace Dyndle.Modules.Core.Controllers
     public class BinaryController : Controller
     {
         private readonly IBinaryFactory _binaryFactory;
-        private readonly ILogger _logger;
         private readonly IRedirectionService _redirectionService;
         private const string DEFAULT_BINARY_CACHE_PATH = "/BinaryData";
 
@@ -33,7 +32,6 @@ namespace Dyndle.Modules.Core.Controllers
 
             _binaryFactory = binaryFactory;
             _redirectionService = redirectionService;
-            _logger = logger;
         }
 
         private string BinaryCachePath
