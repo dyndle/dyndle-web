@@ -2,7 +2,7 @@
 using System.Linq;
 using Dyndle.Modules.Core.Extensions;
 
-namespace Dyndle.Modules.Core.Models
+namespace Dyndle.Modules.Core.Models.Query
 {
     /// <summary>
     /// Class QueryCriteria.
@@ -235,40 +235,4 @@ namespace Dyndle.Modules.Core.Models
             public bool IncludeKeywordBranches { get; set; }
         }
     }
-
-    public enum SortColumn
-    {
-        ItemReferenceId,
-        ItemUrl,
-        ItemPageTemplateId,
-        ItemSchemaId,
-        ItemFileName,
-        ItemModificationDate,
-        ItemLastPublishedDate,
-        ItemTrustee,
-        ItemCreationDate,
-        ItemTitle,
-        ItemItemType,
-        ItemOwningPublicationId,
-        ItemMinorVersion,
-        ItemMajorVersion,
-        ItemPublicationId,
-        ItemInitialPublicationDate
-    }
-    public enum SortDirection
-    {
-        Descending, Ascending
-    }
-
-    public class SortParameter
-    {
-        public SortParameter(SortColumn sortColumn, SortDirection sortDirection)
-        {
-            SortColumn = sortColumn;
-            SortDirection = sortDirection;
-        }
-        public SortColumn SortColumn { get; set; }
-        public SortDirection SortDirection { get; set; }
-    }
-
 }

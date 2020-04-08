@@ -113,6 +113,9 @@ namespace Dyndle.Modules.Core.Resolvers
             }
         }
 
+        /// <summary>Retrieves the mapping.</summary>
+        /// <param name="url">The URL.</param>
+        /// <returns>PublicationMapping.</returns>
         protected abstract PublicationMapping RetrieveMapping(string url);
 
         private Uri GetUriToResolve(Uri fullUri)
