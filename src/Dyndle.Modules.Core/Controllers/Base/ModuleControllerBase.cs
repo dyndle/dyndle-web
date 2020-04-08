@@ -283,7 +283,6 @@ namespace Dyndle.Modules.Core.Controllers.Base
                         if (System.IO.File.Exists(context.HttpContext.Server.MapPath(errorPageUrl)))
                         {
                             // redirect to error page
-                            string errorQuerystring = "?i=1&aspxerrorpath=" + context.HttpContext.Request.Url.ToString().Split('?')[0];
                             context.HttpContext.Server.ClearError();
                             string baseUrl = $"{context.HttpContext.Request.Url.Scheme}://{context.HttpContext.Request.Url.Host}";
                             if (!context.HttpContext.Request.Url.IsDefaultPort)

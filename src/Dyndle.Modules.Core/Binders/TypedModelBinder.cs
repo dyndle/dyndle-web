@@ -44,6 +44,7 @@ namespace Dyndle.Modules.Core.Binders
         /// <param name="contentByUrlProviders">List of content providers by url.</param>
         /// <param name="cacheAgent">The cache agent.</param>
         /// <param name="publicationResolver">The publication resolver.</param>
+        /// <param name="logger">A logger.</param>
         public TypedModelBinder(IEnumerable<IContentByUrlProvider> contentByUrlProviders,
             ICacheAgent cacheAgent,
             IPublicationResolver publicationResolver, ILogger logger)

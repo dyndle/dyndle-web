@@ -5,6 +5,7 @@ using DD4T.ContentModel;
 namespace Dyndle.Modules.Core.Exceptions
 {
     /// <inheritdoc />
+    [Serializable]
     public class ViewModelNotFoundException : Exception
     {
         /// <inheritdoc />

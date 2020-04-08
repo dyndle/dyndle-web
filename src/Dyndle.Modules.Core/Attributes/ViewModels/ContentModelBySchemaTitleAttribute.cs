@@ -15,9 +15,7 @@ namespace Dyndle.Modules.Core.Attributes.ViewModels
         //TOOD: Possibly change this to use purely ViewModelKey and make that an object, leave it to the key provider to assign objects with logical equals overrides
 
         private readonly string schemaRootElementName;
-        private bool inlineEditable = false;
         private readonly bool isDefault = false;
-        private string[] viewModelKeys;
 
         /// <summary>
         /// View Model

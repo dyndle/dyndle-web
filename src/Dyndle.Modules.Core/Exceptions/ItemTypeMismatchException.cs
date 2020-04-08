@@ -4,6 +4,10 @@ namespace Dyndle.Modules.Core.Exceptions
 {
     public class ItemTypeMismatchException : Exception
     {
+        public ItemTypeMismatchException()
+        {
+        }
+
         public ItemTypeMismatchException(string message) : base(message)
         {
         }
