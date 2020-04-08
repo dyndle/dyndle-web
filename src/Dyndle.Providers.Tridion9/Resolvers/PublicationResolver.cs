@@ -3,7 +3,7 @@ using Dyndle.Modules.Core.Contracts;
 using Dyndle.Modules.Core.Resolvers;
 using Tridion.ContentDelivery.DynamicContent;
 
-namespace Dyndle.Providers.Tridion9.Resolvers
+namespace Dyndle.Providers.Resolvers
 {
     /// <summary>
     /// Resolve publication id by querying Tridion DiscoveryService;
