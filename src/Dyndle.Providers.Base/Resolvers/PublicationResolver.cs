@@ -3,7 +3,7 @@ using Dyndle.Modules.Core.Contracts;
 using Dyndle.Modules.Core.Resolvers;
 using Tridion.ContentDelivery.DynamicContent;
 
-namespace Dyndle.Providers.SDLWeb85.Resolvers
+namespace Dyndle.Providers.Resolvers
 {
     /// <summary>
     /// Resolve publication id by querying Tridion DiscoveryService;
@@ -35,7 +35,7 @@ namespace Dyndle.Providers.SDLWeb85.Resolvers
             }
             return new PublicationMapping()
             {
-                Domain = result.Domain,              
+                Domain = result.Domain,
                 PublicationId = result.PublicationId,
                 Protocol = result.Protocol,
                 Port = result.Port,

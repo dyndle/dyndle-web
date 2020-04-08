@@ -1,7 +1,7 @@
 ﻿using TridionKeyword = Tridion.ContentDelivery.Taxonomies.Keyword;
 using DD4TKeyword = DD4T.ContentModel.Keyword;
 
-namespace Dyndle.Providers.SDLWeb85.Extensions
+namespace Dyndle.Providers.Extensions
 {
     public static class TaxonomyExtensions
     {
