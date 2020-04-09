@@ -66,11 +66,7 @@ namespace Dyndle.Modules.Core.Html
         /// <value>
         /// The script path resolver.
         /// </value>
-        public static Func<string[], IHtmlString> ScriptPathResolver
-        {
-            get { return _scriptPathResolver; }
-            set { _scriptPathResolver = value; }
-        }
+        public static Func<string[], IHtmlString> ScriptPathResolver { get; set; }
 
         /// <summary>
         /// Gets or sets the context.
