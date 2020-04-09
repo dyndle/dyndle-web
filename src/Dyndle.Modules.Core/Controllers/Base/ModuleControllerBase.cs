@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using DD4T.ContentModel.Contracts.Logging;
 using Dyndle.Modules.Core.Configuration;
+using Dyndle.Modules.Core.Exceptions;
 using Dyndle.Modules.Core.Extensions;
 using Dyndle.Modules.Core.Json;
 using Dyndle.Modules.Core.Models;
@@ -299,7 +300,7 @@ namespace Dyndle.Modules.Core.Controllers.Base
 
                         if (page == null)
                         {
-                            throw new Exception(string.Format("Could not find page for error '{0}'", errorPageUrl));
+                            throw new PageNotFoundException(string.Format("Could not find page for error '{0}'", errorPageUrl));
                         }
 
                         context.RouteData.DataTokens.Clear();

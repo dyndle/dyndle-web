@@ -25,6 +25,7 @@ namespace Dyndle.Modules.Core.Html
         /// <summary>
         /// Get the base URL of the current site context (eg /en etc)
         /// </summary>
+        /// <param name="helper">The UrlHelper</param>
         /// <param name="absolute">if set to <c>true</c> [absolute].</param>
         /// <returns>
         /// Site root base URL

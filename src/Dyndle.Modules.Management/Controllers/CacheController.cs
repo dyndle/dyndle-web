@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web.Mvc;
 using DD4T.ContentModel.Contracts.Configuration;
 using DD4T.ContentModel.Contracts.Logging;
-using Dyndle.Modules.Core.Controllers.Base;
 using Dyndle.Modules.Core.Extensions;
 using Dyndle.Modules.Management.Contracts;
 using Dyndle.Modules.Management.Models;
