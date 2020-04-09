@@ -5,22 +5,15 @@ using Dyndle.Modules.Core.Configuration;
 using Dyndle.Modules.Core.Contracts;
 using Dyndle.Modules.Core.Extensions;
 using Dyndle.Modules.Core.Providers.Content;
-using Dyndle.Providers.SDLWeb8.Providers;
-using Dyndle.Providers.SDLWeb8.Resolvers;
+using Dyndle.Providers.Resolvers;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Dyndle.Providers.SDLWeb8
+namespace Dyndle.Providers
 {
 	/// <inheritdoc />
 	public class TridionAreaRegistration : BaseModuleAreaRegistration
     {
-        public override string AreaName
-        {
-            get
-            {
-                return "Tridion";
-            }
-        }
+        public override string AreaName => "Tridion";
         private readonly bool _isDevMode;
 
         public TridionAreaRegistration()
@@ -31,7 +24,7 @@ namespace Dyndle.Providers.SDLWeb8
         /// <inheritdoc />
         public override void RegisterTypes(IServiceCollection serviceCollection)
 	    {
-			serviceCollection.AddSingleton(typeof(ITaxonomyProvider), typeof(DefaultTaxonomyProvider));
+            serviceCollection.AddSingleton(typeof(ITaxonomyProvider), typeof(DefaultTaxonomyProvider));
             serviceCollection.AddSingleton(typeof(IContentQueryProvider), typeof(DefaultContentQueryProvider));
             if (_isDevMode)
             {
