@@ -95,5 +95,26 @@ namespace Dyndle.Modules.Core.Services.Taxonomy
                 Value = (new TcmUri(x.Id)).ItemId.ToString()
             }).ToList();
         }
+
+        public List<string> GetKeywordNames(string categoryXmlName)
+        {
+            var keywords = GetKeywords(categoryXmlName);
+
+            return keywords.Select(k => k.Title).ToList();
+        }
+
+        public Dictionary<string, string> GetKeywordNameKeyDictionary(string categoryXmlName)
+        {
+            var keywords = GetKeywords(categoryXmlName);
+
+            return keywords.ToDictionary(k => k.Title, k => k.Key);
+        }
+
+        public Dictionary<string, string> GetKeywordKeyNameDictionary(string categoryXmlName)
+        {
+            var keywords = GetKeywords(categoryXmlName);
+
+            return keywords.ToDictionary(k => k.Key, k => k.Title);
+        }
     }
 }
