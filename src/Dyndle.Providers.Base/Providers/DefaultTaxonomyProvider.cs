@@ -7,7 +7,7 @@ using TridionKeyword = Tridion.ContentDelivery.Taxonomies.Keyword;
 using DD4TKeyword = DD4T.ContentModel.Keyword;
 
 
-namespace Dyndle.Providers.SDLWeb85.Providers
+namespace Dyndle.Providers
 {
     public class DefaultTaxonomyProvider : ITaxonomyProvider
     {

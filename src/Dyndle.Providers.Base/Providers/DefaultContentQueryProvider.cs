@@ -17,7 +17,7 @@ using SortColumn = Tridion.ContentDelivery.DynamicContent.Query.SortColumn;
 using SortDirection = Tridion.ContentDelivery.DynamicContent.Query.SortDirection;
 using SortParameter = Tridion.ContentDelivery.DynamicContent.Query.SortParameter;
 
-namespace Dyndle.Providers.SDLWeb8.Providers
+namespace Dyndle.Providers
 {
     /// <summary>
     /// Class DefaultContentQueryProvider.
