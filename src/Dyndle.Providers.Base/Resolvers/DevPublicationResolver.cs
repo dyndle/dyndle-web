@@ -7,7 +7,7 @@ using Dyndle.Modules.Core.Configuration;
 using Dyndle.Modules.Core.Contracts;
 using Dyndle.Modules.Core.Extensions;
 
-namespace Dyndle.Providers.SDLWeb8.Resolvers
+namespace Dyndle.Providers.Resolvers
 {
     /// <summary>
     /// Resolve publication id by app key setting in web.config!

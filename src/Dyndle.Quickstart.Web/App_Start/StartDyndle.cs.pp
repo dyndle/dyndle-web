@@ -28,7 +28,7 @@ namespace $rootnamespace$
             // - you can add multiple namespaces, comma-separated
             // - you only need to include a part of the namespace, e.g. if your controllers are in Acme.Web.Controllers, you can also configure them as 'Acme.Web'
             // - don't forget to add your own controllers to this appSetting too
-            foreach (var controllerAssembly in Bootstrap.ControllerAssemblies)
+            foreach (var controllerAssembly in Bootstrap.GetControllerAssemblies())
             {
                 builder.RegisterControllers(controllerAssembly);
             }
@@ -46,6 +46,9 @@ namespace $rootnamespace$
             // set the default routes for Dyndle (e.g. the PageController, BinaryController, etc)
             Dyndle.Modules.Core.RouteConfig.RegisterRoutes(RouteTable.Routes);
 
+            // Register View Models
+            var viewModelFactory = DependencyResolver.Current.GetService<IViewModelFactory>();
+            viewModelFactory?.LoadViewModels(Bootstrap.GetViewModelAssemblies());
         }
     }
 }
