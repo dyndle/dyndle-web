@@ -5,6 +5,7 @@ using DD4T.ContentModel;
 namespace Dyndle.Modules.Core.Exceptions
 {
     /// <inheritdoc />
+    [Serializable]
     public class ViewModelNotFoundException : Exception
     {
         /// <inheritdoc />
@@ -32,7 +33,7 @@ namespace Dyndle.Modules.Core.Exceptions
         /// </summary>
         /// <param name="info">The SerializationInfo.</param>
         /// <param name="context">The StreamingContext.</param>
-        public ViewModelNotFoundException(SerializationInfo info, StreamingContext context) : base(info, context)
+        protected ViewModelNotFoundException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }
 

@@ -6,6 +6,7 @@ using DD4T.ContentModel.Contracts.Logging;
 using DD4T.ContentModel.Contracts.Resolvers;
 using DD4T.Core.Contracts.ViewModels;
 using Dyndle.Modules.Core.Environment;
+using Dyndle.Modules.Core.Exceptions;
 using Dyndle.Modules.Core.Extensions;
 using Dyndle.Modules.Core.Models;
 using Dyndle.Modules.Core.Models.Query;
@@ -107,29 +108,19 @@ namespace Dyndle.Providers
         }
 
         /// <summary>
-        /// Queries the broker for dynamic components or pages.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="skip">The skip.</param>
-        /// <param name="take">The take.</param>
-        /// <returns>IEnumerable&lt;T&gt;.</returns>
-        public IEnumerable<T> Query<T>(int skip, int take) where T : IViewModel
-        {
-            return Query<T>(skip, take, new QueryCriteria());
-        }
-
-        /// <summary>
         /// Determine the template criterium/ID to use based on the viewname
         /// </summary>
         /// <param name="itemType"></param>
         /// <param name="viewName"></param>
+        /// <exception cref="KeyNotFoundException">ViewName {0} not found.".FormatString(viewName)</exception>
+        /// <exception cref="ItemTypeMismatchException">The template ID {templateId} found for viewname {viewName} does not match the itemtype {itemType} criterium.</exception>
         /// <returns></returns>
         private Criteria GetTemplateCriterium(QueryCriteria.ItemType itemType, string viewName)
         {
             var templateId = _context.GetTemplateIdByTitle(viewName);
             if (templateId.IsNull())
             {
-                throw new Exception("ViewName {0} not found.".FormatString(viewName));
+                throw new KeyNotFoundException("ViewName {0} not found.".FormatString(viewName));
             }
 
             switch (itemType)
@@ -147,7 +138,19 @@ namespace Dyndle.Providers
                     }
                     break;
             }
-            throw new Exception($"The template ID {templateId} found for viewname {viewName} does not match the itemtype {itemType} criterium."); 
+            throw new ItemTypeMismatchException($"The template ID {templateId} found for viewname {viewName} does not match the itemtype {itemType} criterium."); 
+        }
+
+        /// <summary>
+        /// Queries the broker for dynamic components or pages.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="skip">The skip.</param>
+        /// <param name="take">The take.</param>
+        /// <returns>IEnumerable&lt;T&gt;.</returns>
+        public IEnumerable<T> Query<T>(int skip, int take) where T : IViewModel
+        {
+            return Query<T>(skip, take, new QueryCriteria());
         }
 
         /// <summary>
@@ -158,7 +161,7 @@ namespace Dyndle.Providers
         /// <param name="take">The take.</param>
         /// <param name="criteria">The criteria.</param>
         /// <returns>IEnumerable&lt;T&gt;.</returns>
-        /// <exception cref="Exception">ViewName {0} not found.".FormatString(criteria.ViewTitle)</exception>
+        /// <exception cref="KeyNotFoundException">ViewName {0} not found.".FormatString(criteria.ViewTitle)</exception>
         /// <exception cref="InvalidCastException"></exception>
         public IEnumerable<T> Query<T>(int skip, int take, QueryCriteria criteria) where T : IViewModel
         {
@@ -196,7 +199,7 @@ namespace Dyndle.Providers
                 {
                     var categoryTitle = FindCategoryTitleByXmlName(categorySearch.XmlName);
                     if (categoryTitle.IsNull())
-                        throw new Exception("Category {0} not found.".FormatString(categorySearch.XmlName));
+                        throw new KeyNotFoundException("Category {0} not found.".FormatString(categorySearch.XmlName));
                     listCriteria.Add(new CategorizationCriteria(publicationId, categoryTitle, categorySearch.Keywords));
                 }
             }
@@ -206,7 +209,7 @@ namespace Dyndle.Providers
                 {
                     var categoryId = FindCategoryIdByXmlName(categorySearch.XmlName);
                     if (categoryId.IsNull())
-                        throw new Exception("Category {0} not found.".FormatString(categorySearch.XmlName));
+                        throw new KeyNotFoundException("Category {0} not found.".FormatString(categorySearch.XmlName));
                     listCriteria.Add(new TaxonomyKeywordNameCriteria(categoryId, categorySearch.Keyword, categorySearch.IncludeKeywordBranches));
                 }
             }
@@ -214,21 +217,21 @@ namespace Dyndle.Providers
             {
                 var schemaId = FindSchemaIdByModelType<T>();
                 if (schemaId.IsNull())
-                    throw new Exception("Schema for {0} not found.".FormatString(typeof(T).Name));
+                    throw new KeyNotFoundException("Schema for {0} not found.".FormatString(typeof(T).Name));
                 listCriteria.Add(new ItemSchemaCriteria(schemaId.ItemId));
             }
             if (!string.IsNullOrWhiteSpace(criteria.SchemaTitle))
             {
                 var schemaId = _context.GetSchemaIdByTitle(criteria.SchemaTitle);
                 if (schemaId.IsNull())
-                    throw new Exception("Schema {0} not found.".FormatString(criteria.SchemaTitle));
+                    throw new KeyNotFoundException("Schema {0} not found.".FormatString(criteria.SchemaTitle));
                 listCriteria.Add(new ItemSchemaCriteria(schemaId.ItemId));
             }
             if (!string.IsNullOrWhiteSpace(criteria.SchemaRootElementName))
             {
                 var schemaId = _context.GetSchemaIdByRootElementName(criteria.SchemaRootElementName);
                 if (schemaId.IsNull())
-                    throw new Exception("Schema {0} not found.".FormatString(criteria.SchemaRootElementName));
+                    throw new KeyNotFoundException("Schema {0} not found.".FormatString(criteria.SchemaRootElementName));
                 listCriteria.Add(new ItemSchemaCriteria(schemaId.ItemId));
             }
 

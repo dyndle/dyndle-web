@@ -48,7 +48,7 @@ namespace Dyndle.Modules.Core.Html
                 {
                     break;
                 }
-            };
+            }
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Dyndle.Modules.Core
     /// <seealso cref="System.Web.HttpApplication" />
     public abstract class CoreApplicationBase : HttpApplication
     {
-        private static bool _initialized;
+        private bool _initialized;
 
 	    /// <summary>
 	    /// Get Dependency Resolver
@@ -94,7 +94,6 @@ namespace Dyndle.Modules.Core
         /// <summary>
         /// Shows a custom error page by invoking the <see cref="PageController"/>.
         /// </summary>
-        /// <param name="exception">The exception.</param>
         private void ShowCustomErrorPage()
         {
             var routeData = new RouteData();

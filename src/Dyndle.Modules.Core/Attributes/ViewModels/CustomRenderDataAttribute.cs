@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections;
-using System.Configuration;
-using System.Text.RegularExpressions;
-using DD4T.ContentModel;
+﻿using DD4T.ContentModel;
 using DD4T.Core.Contracts.ViewModels;
 using DD4T.ViewModels.Attributes;
 using Dyndle.Modules.Core.Models.System;
+using System;
+using System.Collections;
+using System.Configuration;
+using System.Text.RegularExpressions;
 
 namespace Dyndle.Modules.Core.Attributes.ViewModels
 {
     /// <summary>
-    /// Class CustomRenderDataAttribute. Used to add more render data to the entities 
+    /// Class CustomRenderDataAttribute. Used to add more render data to the entities
     /// like grid size and route values for entities and regions
     /// </summary>
     /// <seealso cref="DD4T.ViewModels.Attributes.ModelPropertyAttributeBase" />
@@ -70,81 +70,67 @@ namespace Dyndle.Modules.Core.Attributes.ViewModels
             var regionViewNameFieldName = "regionView";
             var regionRouteValuesFieldName = "regionRouteValues"; // TODO: Add params field on CM side and use that instead
 
-            if (fields.ContainsKey(areaFieldName))
+            if (fields.ContainsKey(areaFieldName) && !string.IsNullOrEmpty(fields[areaFieldName].Value))
             {
-                if (!string.IsNullOrEmpty(fields[areaFieldName].Value))
-                    area = fields[areaFieldName].Value.Trim();
+                area = fields[areaFieldName].Value.Trim();
             }
-            if (fields.ContainsKey(controllerFieldName))
+            if (fields.ContainsKey(controllerFieldName) && !string.IsNullOrEmpty(fields[controllerFieldName].Value))
             {
-                if (!string.IsNullOrEmpty(fields[controllerFieldName].Value))
-                    controller = fields[controllerFieldName].Value.Trim();
+                controller = fields[controllerFieldName].Value.Trim();
             }
-            if (fields.ContainsKey(actionFieldName))
+            if (fields.ContainsKey(actionFieldName) && !string.IsNullOrEmpty(fields[actionFieldName].Value))
             {
-                if (!string.IsNullOrEmpty(fields[actionFieldName].Value))
-                    action = fields[actionFieldName].Value.Trim();
+                action = fields[actionFieldName].Value.Trim();
             }
 
-            if (fields.ContainsKey(viewFieldName))
+            if (fields.ContainsKey(viewFieldName) && !string.IsNullOrEmpty(fields[viewFieldName].Value))
             {
-                if (!string.IsNullOrEmpty(fields[viewFieldName].Value))
-                    view = fields[viewFieldName].Value.Trim();
+                view = fields[viewFieldName].Value.Trim();
             }
 
-            if (fields.ContainsKey(entityGridSizeFieldName))
+            if (fields.ContainsKey(entityGridSizeFieldName) && !string.IsNullOrEmpty(fields[entityGridSizeFieldName].Value))
             {
-                if (!string.IsNullOrEmpty(fields[entityGridSizeFieldName].Value))
-                    entityGridSize = int.Parse(fields[entityGridSizeFieldName].Value.Trim());
+                entityGridSize = int.Parse(fields[entityGridSizeFieldName].Value.Trim());
             }
 
-            if (fields.ContainsKey(regionNameFieldName))
+            if (fields.ContainsKey(regionNameFieldName) && !string.IsNullOrEmpty(fields[regionNameFieldName].Value))
             {
-                if (!string.IsNullOrEmpty(fields[regionNameFieldName].Value))
-                    regionName = fields[regionNameFieldName].Value.Trim();
+                regionName = fields[regionNameFieldName].Value.Trim();
             }
 
-            if (fields.ContainsKey(regionViewNameFieldName))
+            if (fields.ContainsKey(regionViewNameFieldName) && !string.IsNullOrEmpty(fields[regionViewNameFieldName].Value))
             {
-                if (!string.IsNullOrEmpty(fields[regionViewNameFieldName].Value))
-                    regionViewName = fields[regionViewNameFieldName].Value.Trim();
+                regionViewName = fields[regionViewNameFieldName].Value.Trim();
             }
-          
-            if (fields.ContainsKey(regionGridSizeFieldName))
+
+            if (fields.ContainsKey(regionGridSizeFieldName) && !string.IsNullOrEmpty(fields[regionGridSizeFieldName].Value))
             {
-                if (!string.IsNullOrEmpty(fields[regionGridSizeFieldName].Value))
-                    regionGridSize = int.Parse(fields[regionGridSizeFieldName].Value.Trim());
+                regionGridSize = int.Parse(fields[regionGridSizeFieldName].Value.Trim());
             }
 
             var mvcData = new MvcData();
-            if (fields.ContainsKey(routeValuesFieldName))
+            if (fields.ContainsKey(routeValuesFieldName) && !string.IsNullOrEmpty(fields[routeValuesFieldName].Value))
             {
-                if (!string.IsNullOrEmpty(fields[routeValuesFieldName].Value))
+                routeValues = fields[routeValuesFieldName].Value.Split(',');
+                foreach (string routeValue in routeValues)
                 {
-                    routeValues = fields[routeValuesFieldName].Value.Split(',');
-                    foreach (string routeValue in routeValues)
+                    string[] routeValueParts = routeValue.Trim().Split(':');
+                    if (routeValueParts.Length > 1 && !mvcData.RouteValues.ContainsKey(routeValueParts[0]))
                     {
-                        string[] routeValueParts = routeValue.Trim().Split(':');
-                        if (routeValueParts.Length > 1 && !mvcData.RouteValues.ContainsKey(routeValueParts[0]))
-                        {
-                            mvcData.RouteValues.Add(routeValueParts[0], routeValueParts[1]);
-                        }
+                        mvcData.RouteValues.Add(routeValueParts[0], routeValueParts[1]);
                     }
                 }
             }
 
-            if (fields.ContainsKey(regionRouteValuesFieldName))
+            if (fields.ContainsKey(regionRouteValuesFieldName) && !string.IsNullOrEmpty(fields[regionRouteValuesFieldName].Value))
             {
-                if (!string.IsNullOrEmpty(fields[regionRouteValuesFieldName].Value))
+                regionValues = fields[regionRouteValuesFieldName].Value.Split(',');
+                foreach (string routeValue in regionValues)
                 {
-                    regionValues = fields[regionRouteValuesFieldName].Value.Split(',');
-                    foreach (string routeValue in regionValues)
+                    string[] routeValueParts = routeValue.Trim().Split(':');
+                    if (routeValueParts.Length > 1 && !mvcData.RegionRouteValues.ContainsKey(routeValueParts[0]))
                     {
-                        string[] routeValueParts = routeValue.Trim().Split(':');
-                        if (routeValueParts.Length > 1 && !mvcData.RegionRouteValues.ContainsKey(routeValueParts[0]))
-                        {
-                            mvcData.RegionRouteValues.Add(routeValueParts[0], routeValueParts[1]);
-                        }
+                        mvcData.RegionRouteValues.Add(routeValueParts[0], routeValueParts[1]);
                     }
                 }
             }
