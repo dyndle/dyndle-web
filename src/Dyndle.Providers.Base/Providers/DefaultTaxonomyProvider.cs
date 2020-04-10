@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Dyndle.Modules.Core.Extensions;
 using Dyndle.Modules.Core.Providers.Content;
@@ -21,10 +22,8 @@ namespace Dyndle.Providers
             {
                 return Enumerable.Empty<DD4TKeyword>();
             }
-            else
-            {
-                return taxonomy.KeywordChildren.OfType<TridionKeyword>().Select(k => ConvertToDD4T(k));
-            }
+
+            return taxonomy.KeywordChildren.OfType<TridionKeyword>().Select(ConvertToDD4T);
 
         }
         private static DD4TKeyword ConvertToDD4T(TridionKeyword tridionKeyword)
@@ -38,5 +37,6 @@ namespace Dyndle.Providers
                 TaxonomyId = tridionKeyword.TaxonomyUri
             };
         }
+
     }
 }

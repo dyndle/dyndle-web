@@ -40,5 +40,27 @@ namespace Dyndle.Modules.Core.Interfaces
         /// <returns>Returns selected items list with keyword name and keyword id</returns>
         List<SelectListItem> GetKeywordListItems(string categoryXmlName);
 
+
+        /// <summary>
+        /// Gets the keyword names.
+        /// </summary>
+        /// <param name="categoryXmlName">Name of the category XML.</param>
+        /// <returns>IEnumerable&lt;System.String&gt;.</returns>
+        List<string> GetKeywordNames(string categoryXmlName);
+
+        /// <summary>
+        /// Gets the keyword name key dictionary.
+        /// </summary>
+        /// <param name="categoryXmlName">Name of the category XML.</param>
+        /// <returns>Dictionary&lt;System.String, System.String&gt;.</returns>
+        Dictionary<string, string> GetKeywordNameKeyDictionary(string categoryXmlName);
+
+        /// <summary>
+        /// Gets the keyword key name dictionary.
+        /// </summary>
+        /// <param name="categoryXmlName">Name of the category XML.</param>
+        /// <returns>Dictionary&lt;System.String, System.String&gt;.</returns>
+        Dictionary<string, string> GetKeywordKeyNameDictionary(string categoryXmlName);
+
     }
 }
