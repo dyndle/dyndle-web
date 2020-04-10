@@ -1,17 +1,22 @@
 {
   "docs": {
     "Essentials": ["introduction", "getting-started", "functionality-overview"],
-    "In-depth setup": [
-      "installation",
-      "configuration",
-      "existing-implementation",
-      "cli"
-    ],
+    "Installation": ["installation-cm", "installation", "configuration"],
     "Implementing Dyndle": [
-      "customizing-models",
+      "model-binders-and-controlers",
+      "dependencies",
+      "adding-routes",
+      "modelling-regions",
       "caching",
       "labels",
       "dynamic-content"
-    ]
+    ],
+    "Dyndle Modules": [
+      "management",
+      "image-enhancement",
+      "navigation",
+      "search"
+    ],
+    "Dyndle CLI": ["cli", "customizing-models"]
   }
 }
