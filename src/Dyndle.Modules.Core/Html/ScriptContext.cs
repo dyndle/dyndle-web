@@ -14,7 +14,7 @@ namespace Dyndle.Modules.Core.Html
     /// to be rendered to the view at a later point.
     /// </summary>
     /// <seealso cref="System.IDisposable" />
-    public class ScriptContext : IDisposable
+    public sealed class ScriptContext : IDisposable
     {
         internal const string ScriptContextItem = "ScriptContext";
         internal const string ScriptContextItems = "ScriptContexts";
@@ -66,11 +66,7 @@ namespace Dyndle.Modules.Core.Html
         /// <value>
         /// The script path resolver.
         /// </value>
-        public static Func<string[], IHtmlString> ScriptPathResolver
-        {
-            get { return _scriptPathResolver; }
-            set { _scriptPathResolver = value; }
-        }
+        public static Func<string[], IHtmlString> ScriptPathResolver { get; set; }
 
         /// <summary>
         /// Gets or sets the context.

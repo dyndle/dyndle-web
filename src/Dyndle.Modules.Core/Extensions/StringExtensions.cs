@@ -207,14 +207,11 @@ namespace Dyndle.Modules.Core.Extensions
         /// Converts a CMS URL into a Request URL (for example removing default page name, and file extension)
         /// </summary>
         /// <param name="url">The CMS URL</param>
-        /// <param name="defaultFileName"></param>
+        /// <param name="defaultFileName">Default name of the file.</param>
         /// <returns>A Request URL</returns>
         /// <summary>
         /// Cleans the URL.
         /// </summary>
-        /// <param name="url">The URL.</param>
-        /// <param name="defaultFileName">Default name of the file.</param>
-        /// <returns>System.String.</returns>
         public static string CleanUrl(this string url, string defaultFileName)
         {
 
@@ -233,7 +230,6 @@ namespace Dyndle.Modules.Core.Extensions
 
             var name = Path.GetFileName(url);
             var nameNoExt = Path.GetFileNameWithoutExtension(name);
-            var ext = Path.GetExtension(name);
 
             url = url.Replace(name, name == defaultFileName ? string.Empty : nameNoExt);
 
@@ -319,10 +315,10 @@ namespace Dyndle.Modules.Core.Extensions
                         value = DataBinder.Eval(source, propertyGroup.Value);
                         values.Add(value);
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         if (!ignoreMissingProperties)
-                            throw ex;
+                            throw;
 
                         return m.Value;
                     }

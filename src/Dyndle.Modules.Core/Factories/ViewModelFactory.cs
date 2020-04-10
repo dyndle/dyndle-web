@@ -73,12 +73,9 @@ namespace Dyndle.Modules.Core.Factories
             IViewModel result = null;
             Type type = null;
 
-            if (modelData is IPage page && page?.PageTemplate?.MetadataFields != null)
+            if (modelData is IPage page && page?.PageTemplate?.MetadataFields != null && page.PageTemplate.MetadataFields.ContainsKey("PreferredModelType"))
             {
-                if (page.PageTemplate.MetadataFields.ContainsKey("PreferredModelType"))
-                {
-                    type = Type.GetType(page.PageTemplate.MetadataFields["PreferredModelType"].Value, false);
-                }
+                type = Type.GetType(page.PageTemplate.MetadataFields["PreferredModelType"].Value, false);
             }
 
             if (type == null)
@@ -129,7 +126,6 @@ namespace Dyndle.Modules.Core.Factories
             var typesList = typesToSearch.Select(a => new {Attribute = _resolver.GetCustomAttribute<T>(a), Type = a})
                 .Where(a => a.Attribute != null);
             _logger.Debug($"using {typesToSearch.Count()} typesToSearch");
-            // _logger.Debug($"searching for one of: {string.Join(",", typesToSearch.Select(t => t.FullName))}");
 
             typesList = typesList.OrderByDescending(t => t.Attribute.ViewModelKeys?.Count() ?? 0);
 
@@ -172,8 +168,8 @@ namespace Dyndle.Modules.Core.Factories
             throw e;
         }
 
-        private static Type _defaultEntityType;
-        private static Type _defaultWebPageType;
+        private Type _defaultEntityType;
+        private Type _defaultWebPageType;
         private static readonly object locker = new object();
         private Type DefaultEntityType
         {
