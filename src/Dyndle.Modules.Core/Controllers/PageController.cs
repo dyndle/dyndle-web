@@ -28,7 +28,6 @@ namespace Dyndle.Modules.Core.Controllers
     {
         private readonly IList<IWebPageEnrichmentProvider> _enrichmentProviders;
         private readonly IRedirectionService _redirectionService;
-        private readonly IDD4TConfiguration _configuration;
         private readonly IPreviewContentService _previewContentService;
         private const string DEFAULT_INCLUDES_VIEW = "Includes";
 
@@ -54,7 +53,6 @@ namespace Dyndle.Modules.Core.Controllers
 
             _redirectionService = redirectionService;
             _enrichmentProviders = enrichmentProviders;
-            _configuration = configuration;
             _previewContentService = previewContentService;
         }
 

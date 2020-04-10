@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using DD4T.Core.Contracts.ViewModels;
-using Dyndle.Modules.Core.Models;
 using Dyndle.Modules.Core.Models.Query;
 
 namespace Dyndle.Modules.Core.Providers.Content

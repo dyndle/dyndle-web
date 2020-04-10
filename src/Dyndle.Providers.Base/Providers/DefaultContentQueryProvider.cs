@@ -94,18 +94,7 @@ namespace Dyndle.Providers
             return _context.GetCategoryIdByXmlName(xmlName);
         }
 
-        /// <summary>
-        /// Queries the broker for dynamic components or pages.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="skip">The skip.</param>
-        /// <param name="take">The take.</param>
-        /// <returns>IEnumerable&lt;T&gt;.</returns>
-        public string[] Query<T>(int skip, int take) where T : IViewModel
-        {
-            return Query<T>(skip, take, new QueryCriteria());
-        }
-
+  
         /// <summary>
         /// Determine the template criterium/ID to use based on the viewname
         /// </summary>
@@ -123,19 +112,31 @@ namespace Dyndle.Providers
             switch (itemType)
             {
                 case QueryCriteria.ItemType.Component:
-                    if (ComponentTemplateItemId == templateId.ItemTypeId) 
+                    if (ComponentTemplateItemId == templateId.ItemTypeId)
                     {
                         return new ItemTemplateCriteria(templateId.ItemId);
                     }
                     break;
                 case QueryCriteria.ItemType.Page:
-                    if (PageTemplateItemId == templateId.ItemTypeId) 
+                    if (PageTemplateItemId == templateId.ItemTypeId)
                     {
                         return new PageTemplateCriteria(templateId.ItemId);
                     }
                     break;
             }
-            throw new Exception($"The template ID {templateId} found for viewname {viewName} does not match the itemtype {itemType} criterium."); 
+            throw new Exception($"The template ID {templateId} found for viewname {viewName} does not match the itemtype {itemType} criterium.");
+        }
+
+        /// <summary>
+        /// Queries the broker for dynamic components or pages.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="skip">The skip.</param>
+        /// <param name="take">The take.</param>
+        /// <returns>IEnumerable&lt;T&gt;.</returns>
+        public string[] Query<T>(int skip, int take) where T : IViewModel
+        {
+            return Query<T>(skip, take, new QueryCriteria());
         }
 
         /// <summary>
