@@ -46,11 +46,12 @@ namespace Dyndle.Modules.Core.Models.Query
         /// </summary>
         /// <value>The type.</value>
         public ItemType Type { get; set; }
+
         /// <summary>
-        /// Gets or sets a value indicating whether to search by schema from attribute.
+        /// Gets or sets a value indicating whether to search by schema from attribute. Default value is true.
         /// </summary>
         /// <value><c>true</c> if [by schema from attribute]; otherwise, <c>false</c>.</value>
-        public bool BySchemaFromAttribute { get; set; }
+        public bool BySchemaFromAttribute { get; set; } = true;
         /// <summary>
         /// Gets or sets the view title to search for.
         /// </summary>

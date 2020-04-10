@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DD4T.ContentModel.Contracts.Caching;
 using DD4T.ContentModel.Contracts.Logging;
 using DD4T.ContentModel.Contracts.Resolvers;
 using DD4T.Core.Contracts.ViewModels;
 using Dyndle.Modules.Core.Environment;
-using Dyndle.Modules.Core.Exceptions;
 using Dyndle.Modules.Core.Extensions;
 using Dyndle.Modules.Core.Models;
 using Dyndle.Modules.Core.Models.Query;
@@ -30,40 +28,29 @@ namespace Dyndle.Providers
         private const int ComponentTemplateItemId = 32;
         private const int PageTemplateItemId = 128;
 
-        // cache keys
-        private const string _cacheKeyFormat = "ContentQuery_{0}";
-        private const string _cacheRegion = "ContentQuery";
 
         private readonly ISiteContext _context;
         private readonly ILogger _logger;
-        private readonly IContentProvider _contentProvider;
         private readonly IPublicationResolver _publicationResolver;
         private readonly IViewModelResolver _viewModelResolver;
-        private readonly ICacheAgent _cacheAgent;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultContentQueryProvider" /> class.
         /// </summary>
-        /// <param name="contentProvider">The content provider.</param>
         /// <param name="publicationResolver">The publication resolver.</param>
         /// <param name="logger">The logger.</param>
         /// <param name="context">The context.</param>
         /// <param name="viewModelResolver">The view model resolver.</param>
-        /// <param name="cacheAgent">The cache agent.</param>
-        public DefaultContentQueryProvider(IContentProvider contentProvider, IPublicationResolver publicationResolver, ILogger logger, ISiteContext context, IViewModelResolver viewModelResolver, ICacheAgent cacheAgent)
+        public DefaultContentQueryProvider(IPublicationResolver publicationResolver, ILogger logger, ISiteContext context, IViewModelResolver viewModelResolver)
         {
-            cacheAgent.ThrowIfNull(nameof(cacheAgent));
             context.ThrowIfNull(nameof(context));
-            contentProvider.ThrowIfNull(nameof(contentProvider));
             publicationResolver.ThrowIfNull(nameof(publicationResolver));
             logger.ThrowIfNull(nameof(logger));
             viewModelResolver.ThrowIfNull(nameof(viewModelResolver));
 
-            _cacheAgent = cacheAgent;
             _context = context;
             _logger = logger;
             _publicationResolver = publicationResolver;
-            _contentProvider = contentProvider;
             _viewModelResolver = viewModelResolver;
         }
 
@@ -107,38 +94,37 @@ namespace Dyndle.Providers
             return _context.GetCategoryIdByXmlName(xmlName);
         }
 
+  
         /// <summary>
         /// Determine the template criterium/ID to use based on the viewname
         /// </summary>
         /// <param name="itemType"></param>
         /// <param name="viewName"></param>
-        /// <exception cref="KeyNotFoundException">ViewName {0} not found.".FormatString(viewName)</exception>
-        /// <exception cref="ItemTypeMismatchException">The template ID {templateId} found for viewname {viewName} does not match the itemtype {itemType} criterium.</exception>
         /// <returns></returns>
         private Criteria GetTemplateCriterium(QueryCriteria.ItemType itemType, string viewName)
         {
             var templateId = _context.GetTemplateIdByTitle(viewName);
             if (templateId.IsNull())
             {
-                throw new KeyNotFoundException("ViewName {0} not found.".FormatString(viewName));
+                throw new Exception("ViewName {0} not found.".FormatString(viewName));
             }
 
             switch (itemType)
             {
                 case QueryCriteria.ItemType.Component:
-                    if (ComponentTemplateItemId == templateId.ItemTypeId) 
+                    if (ComponentTemplateItemId == templateId.ItemTypeId)
                     {
                         return new ItemTemplateCriteria(templateId.ItemId);
                     }
                     break;
                 case QueryCriteria.ItemType.Page:
-                    if (PageTemplateItemId == templateId.ItemTypeId) 
+                    if (PageTemplateItemId == templateId.ItemTypeId)
                     {
                         return new PageTemplateCriteria(templateId.ItemId);
                     }
                     break;
             }
-            throw new ItemTypeMismatchException($"The template ID {templateId} found for viewname {viewName} does not match the itemtype {itemType} criterium."); 
+            throw new Exception($"The template ID {templateId} found for viewname {viewName} does not match the itemtype {itemType} criterium.");
         }
 
         /// <summary>
@@ -148,7 +134,7 @@ namespace Dyndle.Providers
         /// <param name="skip">The skip.</param>
         /// <param name="take">The take.</param>
         /// <returns>IEnumerable&lt;T&gt;.</returns>
-        public IEnumerable<T> Query<T>(int skip, int take) where T : IViewModel
+        public string[] Query<T>(int skip, int take) where T : IViewModel
         {
             return Query<T>(skip, take, new QueryCriteria());
         }
@@ -161,20 +147,11 @@ namespace Dyndle.Providers
         /// <param name="take">The take.</param>
         /// <param name="criteria">The criteria.</param>
         /// <returns>IEnumerable&lt;T&gt;.</returns>
-        /// <exception cref="KeyNotFoundException">ViewName {0} not found.".FormatString(criteria.ViewTitle)</exception>
+        /// <exception cref="Exception">ViewName {0} not found.".FormatString(criteria.ViewTitle)</exception>
         /// <exception cref="InvalidCastException"></exception>
-        public IEnumerable<T> Query<T>(int skip, int take, QueryCriteria criteria) where T : IViewModel
+        public string[] Query<T>(int skip, int take, QueryCriteria criteria) where T : IViewModel
         {
             var publicationId = _publicationResolver.ResolvePublicationId();
-
-            string cacheKey = string.Format(_cacheKeyFormat, string.Join("|", typeof(T).FullName, skip, take, publicationId, criteria.GetUniqueKey()));
-
-            var result = (List<T>)_cacheAgent.Load(cacheKey);
-
-            if (result != null)
-            {
-                return result;
-            }
 
             var listCriteria = new List<Criteria>();
 
@@ -199,7 +176,7 @@ namespace Dyndle.Providers
                 {
                     var categoryTitle = FindCategoryTitleByXmlName(categorySearch.XmlName);
                     if (categoryTitle.IsNull())
-                        throw new KeyNotFoundException("Category {0} not found.".FormatString(categorySearch.XmlName));
+                        throw new Exception("Category {0} not found.".FormatString(categorySearch.XmlName));
                     listCriteria.Add(new CategorizationCriteria(publicationId, categoryTitle, categorySearch.Keywords));
                 }
             }
@@ -209,7 +186,7 @@ namespace Dyndle.Providers
                 {
                     var categoryId = FindCategoryIdByXmlName(categorySearch.XmlName);
                     if (categoryId.IsNull())
-                        throw new KeyNotFoundException("Category {0} not found.".FormatString(categorySearch.XmlName));
+                        throw new Exception("Category {0} not found.".FormatString(categorySearch.XmlName));
                     listCriteria.Add(new TaxonomyKeywordNameCriteria(categoryId, categorySearch.Keyword, categorySearch.IncludeKeywordBranches));
                 }
             }
@@ -217,26 +194,28 @@ namespace Dyndle.Providers
             {
                 var schemaId = FindSchemaIdByModelType<T>();
                 if (schemaId.IsNull())
-                    throw new KeyNotFoundException("Schema for {0} not found.".FormatString(typeof(T).Name));
+                    throw new Exception("Schema for {0} not found.".FormatString(typeof(T).Name));
                 listCriteria.Add(new ItemSchemaCriteria(schemaId.ItemId));
             }
             if (!string.IsNullOrWhiteSpace(criteria.SchemaTitle))
             {
                 var schemaId = _context.GetSchemaIdByTitle(criteria.SchemaTitle);
                 if (schemaId.IsNull())
-                    throw new KeyNotFoundException("Schema {0} not found.".FormatString(criteria.SchemaTitle));
+                    throw new Exception("Schema {0} not found.".FormatString(criteria.SchemaTitle));
                 listCriteria.Add(new ItemSchemaCriteria(schemaId.ItemId));
             }
             if (!string.IsNullOrWhiteSpace(criteria.SchemaRootElementName))
             {
                 var schemaId = _context.GetSchemaIdByRootElementName(criteria.SchemaRootElementName);
                 if (schemaId.IsNull())
-                    throw new KeyNotFoundException("Schema {0} not found.".FormatString(criteria.SchemaRootElementName));
+                    throw new Exception("Schema {0} not found.".FormatString(criteria.SchemaRootElementName));
                 listCriteria.Add(new ItemSchemaCriteria(schemaId.ItemId));
             }
 
-            var query = new Query();
-            query.Criteria = CriteriaFactory.And(listCriteria.ToArray());
+            var query = new Query
+            {
+                Criteria = CriteriaFactory.And(listCriteria.ToArray())
+            };
 
             if (criteria.SortParameters.Any())
             {
@@ -249,82 +228,31 @@ namespace Dyndle.Providers
             var allComponentUris = query.ExecuteQuery();
             _logger.Information("component found. count: {0}".FormatString(allComponentUris.Count()));
 
-            result = new List<T>();
-
-            foreach (var item in allComponentUris)
-            {
-                var viewModel = _contentProvider.BuildViewModel(new TcmUri(item));
-                if (viewModel == null)
-                    continue;
-
-                if (!(viewModel is T))
-                    throw new InvalidCastException(string.Format("Query for '{1}' returns items of the wrong type '{0}'", viewModel.GetType().FullName, typeof(T).FullName));
-
-                result.Add((T)viewModel);
-            }
-
-            _cacheAgent.Store(cacheKey, _cacheRegion, result);
-
-            return result;
+            return allComponentUris;
         }
 
         private void AddSorting(Modules.Core.Models.Query.SortParameter sortParameter, Query query)
         {
-            SortColumn sortColumn;
-            switch (sortParameter.SortColumn)
+            SortColumn sortColumn = sortParameter.SortColumn switch
             {
-                case Modules.Core.Models.Query.SortColumn.ItemCreationDate:
-                    sortColumn = SortParameter.ItemCreationDate;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemFileName:
-                    sortColumn = SortParameter.ItemFileName;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemInitialPublicationDate:
-                    sortColumn = SortParameter.ItemInitialPublicationDate;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemItemType:
-                    sortColumn = SortParameter.ItemItemType;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemLastPublishedDate:
-                    sortColumn = SortParameter.ItemLastPublishedDate;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemMajorVersion:
-                    sortColumn = SortParameter.ItemMajorVersion;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemMinorVersion:
-                    sortColumn = SortParameter.ItemMinorVersion;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemModificationDate:
-                    sortColumn = SortParameter.ItemModificationDate;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemOwningPublicationId:
-                    sortColumn = SortParameter.ItemOwningPublicationId;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemPageTemplateId:
-                    sortColumn = SortParameter.ItemPageTemplateId;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemPublicationId:
-                    sortColumn = SortParameter.ItemPublicationId;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemReferenceId:
-                    sortColumn = SortParameter.ItemReferenceId;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemSchemaId:
-                    sortColumn = SortParameter.ItemSchemaId;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemTitle:
-                    sortColumn = SortParameter.ItemTitle;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemTrustee:
-                    sortColumn = SortParameter.ItemTrustee;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemUrl:
-                    sortColumn = SortParameter.ItemUrl;
-                    break;
-                default:
-                    sortColumn = SortParameter.ItemTitle;
-                    break;
-            }
+                Modules.Core.Models.Query.SortColumn.ItemReferenceId => SortParameter.ItemReferenceId,
+                Modules.Core.Models.Query.SortColumn.ItemUrl => SortParameter.ItemUrl,
+                Modules.Core.Models.Query.SortColumn.ItemPageTemplateId => SortParameter.ItemPageTemplateId,
+                Modules.Core.Models.Query.SortColumn.ItemSchemaId => SortParameter.ItemSchemaId,
+                Modules.Core.Models.Query.SortColumn.ItemFileName => SortParameter.ItemFileName,
+                Modules.Core.Models.Query.SortColumn.ItemModificationDate => SortParameter.ItemModificationDate,
+                Modules.Core.Models.Query.SortColumn.ItemLastPublishedDate => SortParameter.ItemLastPublishedDate,
+                Modules.Core.Models.Query.SortColumn.ItemTrustee => SortParameter.ItemTrustee,
+                Modules.Core.Models.Query.SortColumn.ItemCreationDate => SortParameter.ItemCreationDate,
+                Modules.Core.Models.Query.SortColumn.ItemTitle => SortParameter.ItemTitle,
+                Modules.Core.Models.Query.SortColumn.ItemItemType => SortParameter.ItemItemType,
+                Modules.Core.Models.Query.SortColumn.ItemOwningPublicationId => SortParameter.ItemOwningPublicationId,
+                Modules.Core.Models.Query.SortColumn.ItemMinorVersion => SortParameter.ItemMinorVersion,
+                Modules.Core.Models.Query.SortColumn.ItemMajorVersion => SortParameter.ItemMajorVersion,
+                Modules.Core.Models.Query.SortColumn.ItemPublicationId => SortParameter.ItemPublicationId,
+                Modules.Core.Models.Query.SortColumn.ItemInitialPublicationDate => SortParameter.ItemInitialPublicationDate,
+                _ => SortParameter.ItemTitle
+            };
             SortDirection sortDirection;
             switch (sortParameter.SortDirection)
             {
@@ -339,83 +267,6 @@ namespace Dyndle.Providers
             query.AddSorting(new SortParameter(sortColumn, sortDirection));
         }
 
-        /// <summary>
-        /// Gets the keyword names for a given category.
-        /// </summary>
-        /// <param name="categoryXmlName">Name of the category XML.</param>
-        /// <returns>IEnumerable&lt;System.String&gt;.</returns>
-        public IEnumerable<string> GetKeywordNames(string categoryXmlName)
-        {
-            string cacheKey = String.Format(_cacheKeyFormat, "KeywordNames=" + categoryXmlName);
-
-            var keywords = (List<string>)_cacheAgent.Load(cacheKey);
-
-            if (keywords != null)
-                return keywords;
-
-            TaxonomyFactory taxonomyFactory = new TaxonomyFactory();
-
-            var categoryUri = FindCategoryIdByXmlName(categoryXmlName);
-            var taxonomy = taxonomyFactory.GetTaxonomyKeywords(categoryUri);
-
-            keywords = taxonomy.KeywordChildren.OfType<Keyword>().Select(k => k.KeywordName).ToList();
-
-            _cacheAgent.Store(cacheKey, _cacheRegion, (object)keywords);
-
-            return keywords;
-        }
-
-        /// <summary>
-        /// Gets the keyword name key dictionary.
-        /// </summary>
-        /// <param name="categoryXmlName">Name of the category XML.</param>
-        /// <returns></returns>
-        public Dictionary<string, string> GetKeywordNameKeyDictionary(string categoryXmlName)
-        {
-            string cacheKey = String.Format(_cacheKeyFormat, "KeywordDictionary=" + categoryXmlName);
-
-            var keywords = (Dictionary<string, string>)_cacheAgent.Load(cacheKey);
-
-            if (keywords != null)
-                return keywords;
-
-            TaxonomyFactory taxonomyFactory = new TaxonomyFactory();
-
-            var categoryUri = FindCategoryIdByXmlName(categoryXmlName);
-            var taxonomy = taxonomyFactory.GetTaxonomyKeywords(categoryUri);
-
-            keywords = taxonomy.KeywordChildren.OfType<Keyword>().ToDictionary(k => k.KeywordName, k => k.KeywordKey);
-
-            _cacheAgent.Store(cacheKey, _cacheRegion, (object)keywords);
-
-            return keywords;
-        }
-
-        /// <summary>
-        /// Gets the keyword name key dictionary.
-        /// </summary>
-        /// <param name="categoryXmlName">Name of the category XML.</param>
-        /// <returns></returns>
-        public Dictionary<string, string> GetKeywordKeyNameDictionary(string categoryXmlName)
-        {
-            string cacheKey = String.Format(_cacheKeyFormat, "KeywordDictionary=" + categoryXmlName);
-
-            var keywords = (Dictionary<string, string>)_cacheAgent.Load(cacheKey);
-
-            if (keywords != null)
-                return keywords;
-
-            TaxonomyFactory taxonomyFactory = new TaxonomyFactory();
-
-            var categoryUri = FindCategoryIdByXmlName(categoryXmlName);
-            var taxonomy = taxonomyFactory.GetTaxonomyKeywords(categoryUri);
-
-            keywords = taxonomy.KeywordChildren.OfType<Keyword>().ToDictionary(k => k.KeywordKey, k => k.KeywordName);
-
-            _cacheAgent.Store(cacheKey, _cacheRegion, (object)keywords);
-
-            return keywords;
-        }
 
     }
 
