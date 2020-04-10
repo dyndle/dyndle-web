@@ -83,7 +83,7 @@ namespace Dyndle.Modules.Core.Html
         /// <param name="htmlHelper">The HTML helper.</param>
         /// <param name="entity">The entity.</param>
         /// <returns>MvcHtmlString.</returns>
-        /// <exception cref="Exception">When there is no route data available on the model</exception>
+        /// <exception cref="ArgumentNullException">When there is no route data available on the model</exception>
         public static MvcHtmlString RenderEntity(this HtmlHelper htmlHelper, IEntityModel entity)
         {
             if (entity == null)
@@ -94,7 +94,7 @@ namespace Dyndle.Modules.Core.Html
             var mvcData = entity.MvcData;
             if (mvcData == null)
             {
-                throw new Exception(string.Format("Unable to render Entity Model [{0}], because it has no MVC data.", entity));
+                throw new ArgumentNullException(string.Format("Unable to render Entity Model [{0}], because it has no MVC data.", entity));
             }
             RouteValueDictionary parameters = new RouteValueDictionary();
 

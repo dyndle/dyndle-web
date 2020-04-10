@@ -9,6 +9,7 @@ namespace Dyndle.Modules.Core.Exceptions
     /// Implements the <see cref="System.Exception" />
     /// </summary>
     /// <seealso cref="System.Exception" />
+    [Serializable]
     public class ViewModelBuildException : Exception
     {
 

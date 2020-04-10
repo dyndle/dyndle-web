@@ -9,9 +9,6 @@ namespace Dyndle.Modules.Navigation.Html
     /// <summary>
     /// Adds HtmlHelper methods to handle Navigation
     /// </summary>
-    /// <summary>
-    /// Class NavigationHelper.
-    /// </summary>
     public static class NavigationHelper
     {
         private static readonly INavigationService NavigationService = DependencyResolver.Current.GetService<INavigationService>();
@@ -24,7 +21,6 @@ namespace Dyndle.Modules.Navigation.Html
         /// <param name="viewName">The view to render</param>
         /// <param name="navLevels">The number of levels of the navigation to fetch</param>
         /// <param name="navSubtype">Subtype of the navigation that is being requested (default is "none")</param>
-        /// <summary>
         public static void RenderNavigation(this HtmlHelper htmlHelper, string viewName, int navLevels = 0, string navSubtype = "none")
         {
             htmlHelper.RenderPartial(viewName, htmlHelper.Navigation(navLevels, navSubtype));

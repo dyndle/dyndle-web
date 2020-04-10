@@ -13,8 +13,6 @@ namespace Dyndle.Modules.Management.Html
     /// <remarks>The functionality contained in this class extends the functionality in DD4T.MVC</remarks>
     public static class DebugHelperExtensions
     {
-        private static readonly string DEBUG_INFO_RESOURCE_FILE_NAME_JS = "debuginfo.js";
-
         /// <summary>
         /// Return HTML to show a debug button at the top right of the screen, to reload the page with debug=true
         /// </summary>
