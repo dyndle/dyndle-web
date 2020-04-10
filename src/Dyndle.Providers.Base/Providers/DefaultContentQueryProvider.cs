@@ -267,61 +267,26 @@ namespace Dyndle.Providers
 
         private void AddSorting(Modules.Core.Models.Query.SortParameter sortParameter, Query query)
         {
-            SortColumn sortColumn;
-            switch (sortParameter.SortColumn)
+            SortColumn sortColumn = sortParameter.SortColumn switch
             {
-                case Modules.Core.Models.Query.SortColumn.ItemCreationDate:
-                    sortColumn = SortParameter.ItemCreationDate;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemFileName:
-                    sortColumn = SortParameter.ItemFileName;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemInitialPublicationDate:
-                    sortColumn = SortParameter.ItemInitialPublicationDate;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemItemType:
-                    sortColumn = SortParameter.ItemItemType;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemLastPublishedDate:
-                    sortColumn = SortParameter.ItemLastPublishedDate;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemMajorVersion:
-                    sortColumn = SortParameter.ItemMajorVersion;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemMinorVersion:
-                    sortColumn = SortParameter.ItemMinorVersion;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemModificationDate:
-                    sortColumn = SortParameter.ItemModificationDate;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemOwningPublicationId:
-                    sortColumn = SortParameter.ItemOwningPublicationId;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemPageTemplateId:
-                    sortColumn = SortParameter.ItemPageTemplateId;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemPublicationId:
-                    sortColumn = SortParameter.ItemPublicationId;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemReferenceId:
-                    sortColumn = SortParameter.ItemReferenceId;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemSchemaId:
-                    sortColumn = SortParameter.ItemSchemaId;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemTitle:
-                    sortColumn = SortParameter.ItemTitle;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemTrustee:
-                    sortColumn = SortParameter.ItemTrustee;
-                    break;
-                case Modules.Core.Models.Query.SortColumn.ItemUrl:
-                    sortColumn = SortParameter.ItemUrl;
-                    break;
-                default:
-                    sortColumn = SortParameter.ItemTitle;
-                    break;
-            }
+                Modules.Core.Models.Query.SortColumn.ItemReferenceId => SortParameter.ItemReferenceId,
+                Modules.Core.Models.Query.SortColumn.ItemUrl => SortParameter.ItemUrl,
+                Modules.Core.Models.Query.SortColumn.ItemPageTemplateId => SortParameter.ItemPageTemplateId,
+                Modules.Core.Models.Query.SortColumn.ItemSchemaId => SortParameter.ItemSchemaId,
+                Modules.Core.Models.Query.SortColumn.ItemFileName => SortParameter.ItemFileName,
+                Modules.Core.Models.Query.SortColumn.ItemModificationDate => SortParameter.ItemModificationDate,
+                Modules.Core.Models.Query.SortColumn.ItemLastPublishedDate => SortParameter.ItemLastPublishedDate,
+                Modules.Core.Models.Query.SortColumn.ItemTrustee => SortParameter.ItemTrustee,
+                Modules.Core.Models.Query.SortColumn.ItemCreationDate => SortParameter.ItemCreationDate,
+                Modules.Core.Models.Query.SortColumn.ItemTitle => SortParameter.ItemTitle,
+                Modules.Core.Models.Query.SortColumn.ItemItemType => SortParameter.ItemItemType,
+                Modules.Core.Models.Query.SortColumn.ItemOwningPublicationId => SortParameter.ItemOwningPublicationId,
+                Modules.Core.Models.Query.SortColumn.ItemMinorVersion => SortParameter.ItemMinorVersion,
+                Modules.Core.Models.Query.SortColumn.ItemMajorVersion => SortParameter.ItemMajorVersion,
+                Modules.Core.Models.Query.SortColumn.ItemPublicationId => SortParameter.ItemPublicationId,
+                Modules.Core.Models.Query.SortColumn.ItemInitialPublicationDate => SortParameter.ItemInitialPublicationDate,
+                _ => SortParameter.ItemTitle
+            };
             SortDirection sortDirection;
             switch (sortParameter.SortDirection)
             {
