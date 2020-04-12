@@ -3,13 +3,14 @@ using System.Web.Routing;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Autofac.Integration.Mvc;
+using DD4T.Core.Contracts.ViewModels;
 using DD4T.DI.Autofac;
 using Bootstrap = Dyndle.Modules.Core.Bootstrap;
 
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof($rootnamespace$.StartDyndle), "PreStart")]
-[assembly: WebActivatorEx.PostApplicationStartMethod(typeof($rootnamespace$.StartDyndle), "PostStart")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(TheBestCompany.Website.StartDyndle), "PreStart")]
+[assembly: WebActivatorEx.PostApplicationStartMethod(typeof(TheBestCompany.Website.StartDyndle), "PostStart")]
 
-namespace $rootnamespace$
+namespace TheBestCompany.Website
 {
     public static class StartDyndle
     {
