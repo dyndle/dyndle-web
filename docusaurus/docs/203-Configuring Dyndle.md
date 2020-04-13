@@ -38,6 +38,8 @@ The following table describes the configuration values in the appsettings sectio
 
 | Config key                       | Example Value     | Description                                                  |
 | -------------------------------- | ----------------- | ------------------------------------------------------------ |
-| ImageEnhancement.Localpath       | "/EnhancedImages" | Where the enhanced versions of the images will be stored.    |
+| ImageEnhancement.Localpath       | "/EnhancedImages" | Where the enhanced versions of the images will be stored (defaults to /EnhancedImages)   |
 | ImageEnhancement.Backgroundcolor | "#fff"            | The color that is used when you crop an image and provide a width and height that's higher than the cropped area. |
-| ImageEnhancement.Cacheseconds    | "20"              | How long the enhanced image will be retrieved from the cache before creating a new enhanced version. |
+| ImageEnhancement.Cacheseconds    | "300"              | How long the enhanced image will be retrieved from the cache before creating a new enhanced version. (defaults to 300) |
+
+Note that the caching of enhanced images is independent from the normal DD4T / Dyndle caching. It is NOT possible to automatically delete enhanced images when the parent image is unpublished or republished (decaching). It is generally advisable to keep the value low. 
