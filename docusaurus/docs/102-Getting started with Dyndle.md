@@ -21,6 +21,8 @@ Installing and configuring Dyndle happens in simple steps:
   - SDL Tridion Sites 9.1
 - DD4T Templates
 
+To learn how to create DD4T templates, please check https://github.com/dd4t/DD4T.Core/wiki/Installing-the-DD4T-templates. Note: contrarily to what that manual says, you do not need to create a metadata schema for your templates. This is created by the Dyndle installer (as explained further down on this page).
+
 If you already have an ASP.NET MVC application based on DD4T, check out _Converting your existing DD4T application to Dyndle_.
 
 ## 2. Content Manager installation
@@ -28,7 +30,7 @@ If you already have an ASP.NET MVC application based on DD4T, check out _Convert
 ### Preparing the environment
 
 1. Download the Dyndle CLI from https://www.dyndle.com/downloads/latest/dyndle-tools.zip
-2. Unzip in a folder of your choice and add this folder to the PATH environment variable of your Windows machine
+2. Unzip in a folder of your choice and store the file dyndle.exe in a convenient location (ideally in a folder that is part of the PATH environment variable of your Windows machine)
 3. Next, you need to tell Dyndle about your Tridion Content Manager. You do this by running the following command:
 
 ```shell=
@@ -80,7 +82,7 @@ In this manual we will be using the Quickstart. If you want to use Dyndle withou
 
 > One thing which is important to know: when you add a reference to the DD4T.Quickstart.Web project to your web application, a class called StartDyndle is created in the App_Start folder. This is the starting point for Dyndle. You can choose to modify this class, but you don't have to.
 
-> The quickstart uses Autofac as its dependency injection framework. DD4T supports many other DI-frameworks too (like Ninject and SimpleInjector) but by using the Quickstart, you are picking Autofac for this job.
+> The quickstart uses Autofac as its dependency injection framework. DD4T and Dyndle support many other DI-frameworks too (like Ninject and SimpleInjector) but by using the Quickstart, you are picking Autofac for this job.
 
 ### Setting up a web application with Dyndle Quickstart
 

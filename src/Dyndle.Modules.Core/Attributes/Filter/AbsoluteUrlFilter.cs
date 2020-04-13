@@ -14,6 +14,9 @@ namespace Dyndle.Modules.Core.Attributes.Filter
         private readonly StreamWriter _shrink;
         private readonly Regex _linkRegex;
         private readonly Regex _scriptRegex;
+        private readonly Regex _baseHrefRegex;
+        private readonly Regex _headRegex;
+        private readonly Regex _htmlRegex;
         private readonly Uri _baseUri;
         private const string HrefUrlPattern = "(?<=href=[\"|'])(.*?)(?=[\"|'])";
         private const string SrcUrlPattern = "(?<=src=[\"|'])(.*?)(?=[\"|'])";
@@ -21,13 +24,16 @@ namespace Dyndle.Modules.Core.Attributes.Filter
         /// <summary>
         /// create a instance of AbsoluteUrlFilter
         /// </summary>
-        /// <param name="shrink">The shrink.</param>
+        /// <param name="stream">The response stream.</param>
         /// <param name="baseUri">The base URI.</param>
-        public AbsoluteUrlFilter(Stream shrink, Uri baseUri)
+        public AbsoluteUrlFilter(Stream stream, Uri baseUri)
         {
-            _shrink = new StreamWriter(shrink);
+            _shrink = new StreamWriter(stream);
             _linkRegex = new Regex("<link\\s[^>]*href=(?!\"http)(.*).css[^>]*>", RegexOptions.Compiled);
             _scriptRegex = new Regex("<script\\s[^>]*src=(?!\"http)(.*).js[^>]*>", RegexOptions.Compiled);
+            _baseHrefRegex = new Regex("<base[^>]+\\bhref\\b[^>]*>", RegexOptions.Compiled);
+            _headRegex = new Regex("<head\\b[^>]*>", RegexOptions.Compiled);
+            _htmlRegex = new Regex("<html\\b[^>]*>", RegexOptions.Compiled);
             _baseUri = baseUri;
         }
         /// <summary>
@@ -37,9 +43,25 @@ namespace Dyndle.Modules.Core.Attributes.Filter
         {
             byte[] allBytes = this.ToArray();
             string payload = Encoding.UTF8.GetString(allBytes);
+            if (_baseHrefRegex.IsMatch(payload))
+            {
+                payload = _baseHrefRegex.Replace(payload, $"<base href=\"{_baseUri}\" />");
+            }
+            else if (_headRegex.IsMatch(payload))
+            {
+                payload = _headRegex.Replace(payload, $"$&\r\n<base href=\"{_baseUri}\" />");
+            }
+            else if (_htmlRegex.IsMatch(payload))
+            {
+                payload = _htmlRegex.Replace(payload, $"$&\r\n<base href=\"{_baseUri}\" />");
+            }
+            else
+            {
+                payload += $"<base href=\"{_baseUri}\" />\r\n";
+            }
 
-            payload = ServeAbsoluteUrls(payload, _linkRegex.Matches(payload), HrefUrlPattern);
-            payload = ServeAbsoluteUrls(payload, _scriptRegex.Matches(payload), SrcUrlPattern);
+            //payload = ServeAbsoluteUrls(payload, _linkRegex.Matches(payload), HrefUrlPattern);
+            //payload = ServeAbsoluteUrls(payload, _scriptRegex.Matches(payload), SrcUrlPattern);
 
             _shrink.Write(payload);
             _shrink.Flush();

@@ -26,11 +26,9 @@ namespace Dyndle.Modules.Core.Attributes.Filter
         /// create an instance of AbsoluteUrlAttribute
         /// </summary>
         /// <param name="publicationResolver">The publication resolver.</param>
-        public AbsoluteUrlAttribute(IExtendedPublicationResolver publicationResolver)
+        public AbsoluteUrlAttribute()
         {
-            publicationResolver.ThrowIfNull(nameof(publicationResolver));
-
-            _publicationResolver = publicationResolver;
+            _publicationResolver = DependencyResolver.Current.GetService<IExtendedPublicationResolver>();
         }
 
 
