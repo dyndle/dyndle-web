@@ -14,36 +14,35 @@ From an architecture point of view, Dyndle preserves one of the big benefits of 
 
 The Dyndle framework consists of multiple modules that provide different functionality. During implementation process, you can choose which modules to use, based on the requirements.
 
-## Getting Started
-
-The easiest way to try out Dyndle is to set up a fresh solution and using a Dyndle.Quickstart.Web NuGet package.
 
 ### All you need to get your first Dyndle application running
 
+- [Download the Dyndle CLI](/download)
 - Create an empty .Net Framework MVC5 project
 - Install [Dyndle.Quickstart.Web](https://www.nuget.org/packages/Dyndle.Quikstart.Web) NuGet package
 - Add a few [configuration values](configuration)
-- Use [Dyndle CLI](cli) to install everything you need in Tridion
-- Use [Dyndle CLI](cli) to generate models and views for you
+- Use the CLI to install everything you need in Tridion
+- Use the CLI to generate models and views for you
 - Run!
 
 You can find a more detailed walkthrough in [Getting started with Dyndle](getting-started)
 
-In [Installation and setup](installation) you can find more information, such [Adding Dyndle to an existing implementation](existing-implementation) and [Full list of configuration values](configuration).
+In [Installation and setup](installation) you can find more information, such [Converting an existing implementation to Dyndle](converting-dd4t) and the [Configuration reference](configuration).
 
 ## Dyndle Modules
+Dyndle is organized in modules. The core module is mandatory - without it you cannot run Dyndle. It comes with a lot of functionality, which is described in the Implementing Dyndle section.
 
-- Core
-  - Provides foundation for other Dyndle modules
-  - Adds MVC capabilities: controllers, model binders, areas, etc.
-  - Adds Web capabilities: HTML helpers, object and output caching, etc.
-- Management
+You can add additional features by adding a NuGet reference to the various modules:
+
+- [Management](management)
   - Adds a cache browser
   - Adds a debugging mode
-- Image Enhancement
+- [Image Enhancement](image-enhancement)
   - Adds a controller that lets you transform images on the fly
-- Navigation
+- [Navigation](navigation)
   - Adds a service that allows you generate any navigation based on the sitemap
-- Search
+- [Search](search)
   - Adds an interface to talk to Solr
-- ... more to come!
+
+
+More modules will be released shortly.
