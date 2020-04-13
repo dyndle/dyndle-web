@@ -61,10 +61,6 @@ namespace Dyndle.Modules.Core.Configuration
         /// </summary>
         public static string DefaultRegionView => CoreConstants.Configuration.DefaultRegionView.GetConfigurationValue();
         /// <summary>
-        /// Returns configuration appSetting 'ContentManagerUrl' as string
-        /// </summary>
-        public static string ContentManagerUrl => CoreConstants.Configuration.ContentManagerUrl.GetConfigurationValue();
-        /// <summary>
         /// Returns configuration appSetting 'DefaultEntityTypeName' as string
         /// </summary>
         public static string DefaultEntityTypeName => CoreConstants.Configuration.DefaultEntityTypeName.GetConfigurationValue();
