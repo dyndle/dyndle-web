@@ -1,6 +1,6 @@
 {
   "docs": {
-    "Essentials": ["introduction", "getting-started", "functionality-overview"],
+    "Essentials": ["index", "getting-started", "functionality-overview"],
     "Installation": ["installation-cm", "installation", "configuration"],
     "Implementing Dyndle": [
       "model-binders-and-controlers",
@@ -9,7 +9,9 @@
       "modelling-regions",
       "caching",
       "labels",
-      "dynamic-content"
+      "dynamic-content",
+      "xpm",
+      "preview"
     ],
     "Dyndle Modules": [
       "management",
