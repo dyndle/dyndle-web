@@ -34,11 +34,11 @@ namespace TheBestCompany.Website
                 builder.RegisterControllers(controllerAssembly);
             }
 
-            builder.RegisterFilterProvider();
-            builder.Populate(Bootstrap.ServiceCollection);
-
             // if you want to override any of the types from DD4T or Dyndle, do it below:
             //builder.RegisterType<MyViewModelFactory>().As<IViewModelFactory>().SingleInstance();
+
+            builder.RegisterFilterProvider();
+            builder.Populate(Bootstrap.ServiceCollection);
 
             builder.UseDD4T();
             var container = builder.Build();
