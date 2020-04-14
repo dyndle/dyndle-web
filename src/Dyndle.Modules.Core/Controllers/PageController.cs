@@ -11,6 +11,7 @@ using Dyndle.Modules.Core.Attributes.Passive;
 using Dyndle.Modules.Core.Configuration;
 using Dyndle.Modules.Core.Contracts;
 using Dyndle.Modules.Core.Controllers.Base;
+using Dyndle.Modules.Core.Exceptions;
 using Dyndle.Modules.Core.Extensions;
 using Dyndle.Modules.Core.Models;
 using Dyndle.Modules.Core.Models.System;
@@ -117,8 +118,15 @@ namespace Dyndle.Modules.Core.Controllers
         [AbsoluteUrl]
         public ActionResult Preview(string data)
         {
-            var model = _previewContentService.GetPage(data);
-            return View(model.GetView(), model);
+            try
+            {
+                var model = _previewContentService.GetPage(data);
+                return View(model.GetView(), model);
+            }
+            catch (CacheAgentMismatchException e)
+            {
+                return new ContentResult() { Content = e.Message, ContentEncoding = Encoding.UTF8, ContentType = "text/html" };
+            }
         }
 
 
@@ -208,6 +216,6 @@ namespace Dyndle.Modules.Core.Controllers
             {
                 return DyndleConfig.DefaultIncludesView ?? DEFAULT_INCLUDES_VIEW;
             }
-        }     
+        }
     }
 }

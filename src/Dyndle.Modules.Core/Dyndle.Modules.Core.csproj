@@ -191,6 +191,7 @@
     <Compile Include="CoreApplicationBase.cs" />
     <Compile Include="DebugInfo\DebugInfoProviderFactory.cs" />
     <Compile Include="DebugInfo\IDebugInfoProvider.cs" />
+    <Compile Include="Exceptions\CacheAgentMismatchException.cs" />
     <Compile Include="Exceptions\ItemTypeMismatchException.cs" />
     <Compile Include="Exceptions\PageNotFoundException.cs" />
     <Compile Include="Exceptions\ViewModelBuildException.cs" />
