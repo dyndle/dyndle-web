@@ -4,7 +4,7 @@ title: Querying dynamic content
 sidebar_label: Querying dynamic content
 ---
 
-To set up a Dyndle web application, the project must be set up with a Dyndle Provider NuGet package, that is specific to the Tridion version that is used. This package provides ContentQueryProvider and TaxonomyProvider that can be used to fetch desired content dynamically from Tridion.
+To set up a Dyndle web application, the project must be set up with a Dyndle Provider NuGet package, that is specific to the Tridion version that is used. This package provides ContentQueryService and TaxonomyService that can be used to fetch desired content dynamically from Tridion.
 
 ## Benefits
 
@@ -17,20 +17,20 @@ Here are some of the benefits of using Dyndle providers as opposed to DD4T or Tr
 
 ## Usage
 
-To get started, simply inject IContentQueryProvider in a class where you want to query dynamic content. You may supply to Criteria and simply get all Dynamic Component Presentations from which the target view model can be built:
+To get started, simply inject IContentQueryService in a class where you want to query dynamic content. You may supply to Criteria and simply get all Dynamic Component Presentations from which the target view model can be built:
 
 ```c#
 public class NewsController : Controller
 {
-    private readonly IContentQueryProvider _contentQueryProvider;
+    private readonly IContentQueryService _contentQueryService;
 
-    public NewsController(IContentQueryProvider contentQueryProvider)
+    public NewsController(IContentQueryService contentQueryService)
     {
-        _contentQueryProvider = contentQueryProvider;
+        _contentQueryService = contentQueryService;
     }
     public ActionResult All(int pageNumber = 0, int pageSize = 10)
     {
-        var allNewsItems = _contentQueryProvider.Query<NewsItem>(pageNumber * pageSize, pageSize);
+        var allNewsItems = _contentQueryService.Query<NewsItem>(pageNumber * pageSize, pageSize);
 
         return View("AllNews", allNewsItems);
     }
@@ -58,7 +58,7 @@ private static readonly QueryCriteria _premiumArticleCriteria = new QueryCriteri
 
 public ActionResult Premium(int pageNumber = 0, int pageSize = 10)
 {
-    var premiumNewsItems = _contentQueryProvider.Query<NewsItem>(pageNumber * pageSize, pageSize, _premiumArticleCriteria);
+    var premiumNewsItems = _contentQueryService.Query<NewsItem>(pageNumber * pageSize, pageSize, _premiumArticleCriteria);
 
     return View("PremiumNews", premiumNewsItems);
 }
