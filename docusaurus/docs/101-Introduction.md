@@ -1,5 +1,5 @@
 ---
-id: introduction
+id: index
 title: Introduction
 sidebar_label: Introduction
 ---
@@ -13,7 +13,6 @@ Dyndle (short from Dynamic Delivery) is the new .Net development kit for website
 From an architecture point of view, Dyndle preserves one of the big benefits of DD4T: the fact that you own and control your web application. Dyndle adds many useful features to DD4T, but still leaves you in full control of your own web application.
 
 The Dyndle framework consists of multiple modules that provide different functionality. During implementation process, you can choose which modules to use, based on the requirements.
-
 
 ### All you need to get your first Dyndle application running
 
@@ -30,6 +29,7 @@ You can find a more detailed walkthrough in [Getting started with Dyndle](gettin
 In [Installation and setup](installation) you can find more information, such [Converting an existing implementation to Dyndle](converting-dd4t) and the [Configuration reference](configuration).
 
 ## Dyndle Modules
+
 Dyndle is organized in modules. The core module is mandatory - without it you cannot run Dyndle. It comes with a lot of functionality, which is described in the Implementing Dyndle section.
 
 You can add additional features by adding a NuGet reference to the various modules:
@@ -43,6 +43,5 @@ You can add additional features by adding a NuGet reference to the various modul
   - Adds a service that allows you generate any navigation based on the sitemap
 - [Search](search)
   - Adds an interface to talk to Solr
-
 
 More modules will be released shortly.
