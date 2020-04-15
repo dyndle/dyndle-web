@@ -39,10 +39,16 @@ If you already have a DI setup in place or you would like to use a framework tha
    // - you can add multiple namespaces, comma-separated
    // - you only need to include a part of the namespace, e.g. if your controllers are in Acme.Web.Controllers, you can also configure them as 'Acme.Web'
    // - don't forget to add your own controllers to this appSetting too
-   foreach (var controllerAssembly in Bootstrap.GetControllerAssemblies())
+   foreach (var controllerAssembly in Dyndle.Modules.Core.Bootstrap.GetControllerAssemblies())
    {
        builder.RegisterControllers(controllerAssembly);
    }
+   ```
+
+1. Register all services from Dyndle Bootstrap. These contain class definitions from all Dyndle modules. Syntax depends on the DI framework of choice. For reference, below is Autofac:
+
+   ```c#
+   builder.Populate(Dyndle.Modules.Core.Bootstrap.ServiceCollection);
    ```
 
 1. Register routes (post-application start):
