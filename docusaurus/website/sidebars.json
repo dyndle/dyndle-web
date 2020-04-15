@@ -3,7 +3,7 @@
     "Essentials": ["index", "getting-started", "functionality-overview"],
     "Installation": ["installation-cm", "installation", "configuration"],
     "Implementing Dyndle": [
-      "model-binders-and-controlers",
+      "model-binders-and-controllers",
       "dependencies",
       "adding-routes",
       "modelling-regions",
