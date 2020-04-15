@@ -77,6 +77,17 @@ Also, you may need to add the following using statement to the top of your view:
 @using DD4T.Mvc.ViewModels.XPM
 ```
 
+When you inspect the HTML source of the page after making these changes, you will see it contains an HTML comment, as well as a \<script> element:
+
+```html
+<!-- Page Settings: {"PageID":"tcm:13-376-64","PageModified":"2020-03-18T15:10:29","PageTemplateID":"tcm:13-375-128","PageTemplateModified":"2020-04-13T20:12:04"} -->
+<script type="text/javascript" language="javascript" defer="defer" src="http://live.machine/WebUI/Editors/SiteEdit/Views/Bootstrap/Bootstrap.aspx?mode=js" id="tridion.siteedit"></script>
+```
+
+The JavaScript is what starts the XPM functionality. It makes sure that the little 'pencil' icon is shown at the top right of your window, and it loads the full XPM user interface when you click on that pencil.
+The comments are needed by XPM to determine which item in the content manager is being edited. The other XPM-commands, which we will discuss after, all generate similar-looking comments.
+
+
 ### Clean up the session preview cookie
 If you use session preview, the preview token cookie is set by Tridion. It will stay active until the browser is restarted. Dyndle makes sure that caching of pages and component presentations is disabled while this cookie is present.
 This means that the caching will not work anymore, even if you leave XPM and go back to the regular staging site.
@@ -98,7 +109,7 @@ Your entity views must be changed for two reasons:
 ### Component presentations
 For each component presentation, add the following code to your views:
 
-```
+```html
 <div>
     @Model.StartXpmEditingZone()
     ... The rest of the view
@@ -112,13 +123,24 @@ The element doesn't have to be a div by the way, it can be anything you like (sp
 ### Fields
 For each field you are writing out, add something like this:
 
-```
+```html
 <span>
   @Model.XpmEditableField(m => m.Company)
 </span>
 ```
 
 Fields (like component presentations) must be in their own HTML element, which can be anything (not just a span).
+
+The XpmEditableField method will write out the necessary HTML comment, followed by the (text) value of the field. If the field is not a text field, use XpmMarkupFor instead. For example:
+
+```html
+<span>
+    @Model.XpmMarkupFor(m => m.Image)
+    <img src="@Model.Image.Multimedia.Url" alt="">
+</span>
+```
+
+Remember: XpmMarkupFor only generates the HTML comment, not the value of the field, while XpmEditableField generates the HTML comment plus the value of the field.
 
 
 
