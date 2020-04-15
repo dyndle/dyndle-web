@@ -39,4 +39,4 @@ builder.Populate(Bootstrap.ServiceCollection);
 // etc...
 ```
 
-
+_**Please note**: you can also register types in a service collection per MVC area, as described in the [following chapter](adding-routes#register-types)_
