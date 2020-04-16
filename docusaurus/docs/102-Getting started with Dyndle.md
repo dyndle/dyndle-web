@@ -77,11 +77,11 @@ In this manual we will be using the Quickstart. If you want to use Dyndle withou
 > ### What does the Quickstart do?
 >
 > The Dyndle Quickstart makes it easy for you to create a new web application. It does so with as little interference with your own project as possible.
-
+>
 > The quickstart is mainly responsible for the instantiation of Dyndle and DD4T classes through dependency injection, the registration of controllers, loading ViewModels and setting up routing.
-
+>
 > One thing which is important to know: when you add a reference to the DD4T.Quickstart.Web project to your web application, a class called StartDyndle is created in the App_Start folder. This is the starting point for Dyndle. You can choose to modify this class, but you don't have to.
-
+>
 > The quickstart uses Autofac as its dependency injection framework. DD4T and Dyndle support many other DI-frameworks too (like Ninject and SimpleInjector) but by using the Quickstart, you are picking Autofac for this job.
 
 ### Setting up a web application with Dyndle Quickstart
