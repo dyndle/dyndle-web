@@ -1,7 +1,7 @@
 ---
 id: cli
-title: Dyndle CLI
-sidebar_label: Dyndle CLI
+title: Running Dyndle CLI
+sidebar_label: Running Dyndle CLI
 ---
 
 The Dyndle command-line interface (CLI) is a simple executable which runs on any Windows machine. It can be downloaded from https://www.dyndle.com/downloads/latest/dyndle-tools.zip.
