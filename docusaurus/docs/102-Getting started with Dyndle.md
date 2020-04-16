@@ -114,7 +114,7 @@ You can always come back on your decision: as soon as you remove the DD4T.Public
 ### Run your application
 
 You are now ready to run the application. Press the Run button in Visual Studio and request a page which you have published in step 1. You will see something like this:
-![](https://i.imgur.com/NYle0pP.png)
+![Server Error. View 'home' was not found.](assets/view-not-found.png)
 
 This is nothing to worry about. It is actually good news: it means you are ready for the next step - adding models and views to your application.
 
@@ -150,7 +150,7 @@ dyndle views -p tcm:0-X-1 --namespace MyCompany.Web.Models --output-folder D:\Nu
 
 If all went well, you now have a working site which looks like this:
 
-![](https://i.imgur.com/qJ7wxnp.png)
+![Your generated website](assets/website.png)
 
 Try any URL in your site to see a description of the pages and the content they contain.
 
