@@ -4,6 +4,10 @@ title: Functionality Overview
 sidebar_label: Functionality Overview
 ---
 
+Dyndle consists of a core and a number of modules, which enhance the core functionality. You always need the Dyndle Core, the modules are optional.
+
+
+
 Before we describe each module in greater detail, we should first introduce new concepts that are used in Dyndle, as compared to DD4T.
 In DD4T components are treated as ViewModels or Content Models. Component templates are used to determine a view or a controller action that is responsible for rendering the model. In Dyndle, concept of Entities is used instead. An entity combines the component and component template and adds additional possibilities for rendering the entity: area and region.
 Dyndle is built to support regions even before there were introduced in Tridion 9. Component presentations can be grouped based on:
@@ -20,26 +24,40 @@ Next to the ability to group entities into regions and render those regions, Dyn
 The Core module is a mandatory module as it enables the core features of Dyndle. This module contains enhancements to the existing functionality of DD4T and provides new functionality for the web application. It offers the following features (and more):
 
 - Controllers
-  All controllers needed to run your site come out of the box. This includes a binary controller that caches files on the local file system, and a region controller with full support of regions in Tridion 9.
+
+  All controllers needed to run your site come out of the box. This includes a binary controller that caches files on the local file system, and a region controller with full support of regions in Tridion 9. Of course, you can still create your own controllers for specific fucntionality.
+
 - Extensionless URLs
+
+  If you run Dyndle, you don't have to use file extensions in your URLs. For example, a Tridion page called 'news.html' in the Root structure group, is accessible through the URL 'http://my.company/news'. Links to pages are automatically rendered without the extension. This behavior can be disabled in the [configuration](). 
+
 - Smart output caching, which caches the entire output of your page but drops it as soon as the page is republished or unpublished
+
 - A so-called ‘preview-aware’ cache agent, which is especially designed for use with Experience Management, SDL’s ‘in context editing’ feature.
 
-These are only some of the features of the Core module.
+- Labels, redirects, and much more. See under Implementing Dyndle in the left menu of this documentation for more details.
+
 
 ## Dyndle Management
 
-Management is an optional module that improves development and management of the web application. Key features of this module include cache management capabilities and development model for the web application.
-Object cache, that is used by DD4T, Dyndle and web application, can now be viewed and managed through web interface live while the application is running. This enables developers and administrators to troubleshoot and monitor the website by investigating what is stored in the cache and what are the dependencies for cache invalidation. Interface also allows to manually remove individual items from the cache or clear it completely.
-The other great quality of life feature that this module provides is development mode for the web application. This mode introduces visual highlighting for entities and regions that are rendered on the page. This is helpful for debugging and analyzing current implementation, as well as adding new functionality to the website.
+The Management module improves development and management of the web application. Key features of this module include cache management capabilities and debug information for the web application.
+
+See [Dyndle Management](management)
+
 
 ## Dyndle Navigation
 
-Dyndle also introduces a module for building navigation based on the sitemap. Currently provides full pipeline for navigation generation: from C# template code that generates the component via controllers and model binding up until razor views that render sitemap or other navigation views, e.g. left or top navigation.
+The navigation module makes it easier than ever to generate navigation based on the structure groups in Tridion. When you add this module to your application, you can write out different types of navigation from your views, like top navigation, left navigation, breadcrumbs and complete sitemaps.
+
+See [Dyndle Navigation](navigation)
+
 
 ## Dyndle Search
 
 Search
+
+See [Dyndle Search](search)
+
 
 ## Dyndle Templates
 
