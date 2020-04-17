@@ -30,4 +30,4 @@ Create a page with a DD4T page template and place a number of components on it. 
   - Schema root element name (or schema title) is used to construct an entity model in Dyndle (a content model in DD4T)
   - Component template metadata is used to determine a controller and its action to render the entity
 
-This is the general rounddown of what DD4T or Dyndle request looks like and why you need all those prerequisites. DD4T and Dyndle come with more features that require CM setup, but those are described separately in corresponding pages related to the features.
+This is the general summary of what DD4T or Dyndle request looks like and why you need all those prerequisites. DD4T and Dyndle come with more features that require CM setup, but those are described separately in corresponding pages related to the features.
