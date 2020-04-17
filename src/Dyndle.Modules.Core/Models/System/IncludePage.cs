@@ -24,7 +24,7 @@ namespace Dyndle.Modules.Core.Models.System
         /// Gets or sets the regions.
         /// </summary>
         /// <value>The regions.</value>
-        [ComponentPresentationRegions]
+        [Regions]
         public List<IRegionModel> Regions { get; set; }
     }
 }
