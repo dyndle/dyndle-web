@@ -50,9 +50,15 @@ will result in three region models:
 | Side   | Side banner                        |
 | Main   | Related articles, Related products |
 
-### Rendering
+## Rendering
 
 Rendering of a region normally means sequential rendering of all entities in it, but this can also be further customized by using more advanced logic and/or layout. For instance, to render the whole footer region with proper HTML markup and some business logic.
 
 Rendering of the regions can be done using HTML helpers `Html.RenderRegion(region)` and `Html.RenderRegions(regions)`.
-There is a setting 'Dyndle.DefaultRegionView' in [configuration](configuration) that getermines which view is used to render region by default.
+There is a setting 'Dyndle.DefaultRegionView' in [configuration](configuration) that getermines which view is used to render region by default. `Html.RenderRegion` also has an overload that allows you to specify a viewname to be used to render the region.
+
+## Special usages
+
+Regions are also used to manage includes. You can configure a url to be used as an includes page. Then you can include the full page content via `Html.RenderIncludes` or render a specific region of the include page using `RenderIncludesRegion`. This allows you to controll site-wide regions, such as cookie opt-in, header and footer, in a centralized place. Include pages are also cached once, so they bring performance benefits.
+
+There is also possibility to group component presentations in regions yourself. This can be done by adding properties to a page model, where component presentations are grouped. You can create and use RegionModel for this purpose, if you would like to reuse region rendering functionality.
