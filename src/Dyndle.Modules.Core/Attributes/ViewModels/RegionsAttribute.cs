@@ -38,8 +38,6 @@ namespace Dyndle.Modules.Core.Attributes.ViewModels
 
             var entities = cps.Select(cp => BuildViewModel(viewModelFactory, cp)).OfType<IEntityModel>();
 
-            entities = GroupByColumnMarker(entities);
-
             var result = new List<RegionModel>();
             foreach (var entity in entities)
             {
@@ -71,48 +69,6 @@ namespace Dyndle.Modules.Core.Attributes.ViewModels
             else model = factory.BuildViewModel((cp));
 
             return model;
-        }
-
-        /// <summary>
-        /// Groups the by column marker.
-        /// </summary>
-        /// <param name="entities">The entities.</param>
-        /// <returns>IEnumerable&lt;IEntityModel&gt;.</returns>
-        private static IEnumerable<IEntityModel> GroupByColumnMarker(IEnumerable<IEntityModel> entities)
-        {
-            var resetMarker = false;
-            IColumnMarker marker = null;
-
-            foreach (var entity in entities)
-            {
-                if (resetMarker)
-                {
-                    marker = null;
-                    resetMarker = false;
-                }
-
-                if (entity is IColumnMarker columnMarker)
-                {
-                    if (marker != null && marker.Entities.Any())
-                    {
-                        resetMarker = true;
-                        yield return marker;
-                    }
-
-                    marker = columnMarker;
-                }
-                else
-                {
-                    if (marker != null)
-                    {
-                        marker.Entities.Add(entity);
-                    }
-                    else
-                    {
-                        yield return entity;
-                    }
-                }
-            }
         }
 
         /// <summary>
