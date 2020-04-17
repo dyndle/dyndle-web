@@ -48,7 +48,7 @@ namespace Dyndle.Modules.Core.Models
             ViewName = Configuration.DyndleConfig.DefaultRegionView;
             GridSize = 12;
 
-            Constraint = String.Empty;
+            Constraint = Name;
             RouteValues = new Dictionary<string, string>();
 
         }

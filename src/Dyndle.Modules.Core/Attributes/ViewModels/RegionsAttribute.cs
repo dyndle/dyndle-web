@@ -76,11 +76,6 @@ namespace Dyndle.Modules.Core.Attributes.ViewModels
         /// </summary>
         /// <param name="mvcData">The MVC data.</param>
         /// <returns>System.String.</returns>
-        private string GetRegionConstraints(IMvcData mvcData)
-        {
-            var routeValues = mvcData.RegionRouteValues ?? new Dictionary<string, string>();
-
-            return string.Join("|", mvcData.Region, mvcData.RegionViewName, string.Join("|", routeValues.Select(k => String.Join(":", k.Key, k.Value))));
-        }
+        private string GetRegionConstraints(IMvcData mvcData) => $"{mvcData.Region}";
     }
 }
