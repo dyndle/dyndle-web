@@ -58,10 +58,10 @@ namespace Dyndle.Modules.Core.Html
         /// </summary>
         /// <param name="htmlHelper">The HTML helper.</param>
         /// <param name="region">The region.</param>
+        /// <param name="regionView">The view name.</param>
         /// <returns>MvcHtmlString.</returns>
-        public static MvcHtmlString RenderRegion(this HtmlHelper htmlHelper, IRegionModel region)
+        public static MvcHtmlString RenderRegion(this HtmlHelper htmlHelper, IRegionModel region, string regionView = "")
         {
-
             if (region == null)
             {
                 return MvcHtmlString.Empty;
@@ -74,7 +74,7 @@ namespace Dyndle.Modules.Core.Html
                     viewData[key] = region.RouteValues[key];
                 }
             }
-            return htmlHelper.Action("Region", "Region", new { Region = region });
+            return htmlHelper.Action("Region", "Region", new { Region = region, RegionView = regionView });
         }
 
         /// <summary>

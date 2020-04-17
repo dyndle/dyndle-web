@@ -161,7 +161,8 @@
     <Compile Include="Attributes\ViewModels\ContentModelBySchemaTitleAttribute.cs" />
     <Compile Include="Attributes\ViewModels\CustomRenderDataAttribute.cs" />
     <Compile Include="Attributes\ViewModels\PageTcmUriAttribute.cs" />
-    <Compile Include="Attributes\ViewModels\ComponentPresentationRegions.cs" />
+    <Compile Include="Attributes\ViewModels\RegionsAttribute.cs" />
+    <Compile Include="Attributes\ViewModels\RegionsBaseAttribute.cs" />
     <Compile Include="Attributes\ViewModels\FiltersAttribute.cs" />
     <Compile Include="Binders\DefaultModelBinder.cs" />
     <Compile Include="Binders\DateAndTimeModelBinder.cs" />
