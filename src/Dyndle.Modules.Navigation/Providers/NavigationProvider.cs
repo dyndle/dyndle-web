@@ -246,7 +246,7 @@ namespace Dyndle.Modules.Navigation.Providers
                 return null;
             }
 
-            var result = _viewModelFactory.BuildViewModel(page.ComponentPresentations.FirstOrDefault());
+            var result = _viewModelFactory.BuildViewModel<SitemapItem>(page.ComponentPresentations.FirstOrDefault());
             if (result == null || result is ExceptionEntity || result is DefaultEntity)
             {
                 result = _viewModelFactory.BuildViewModel<SitemapItem>(page.ComponentPresentations.FirstOrDefault());

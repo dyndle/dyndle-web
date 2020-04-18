@@ -20,15 +20,17 @@
             /// </summary>
             public readonly static string NavigationPath = "Navigation.SourceUrl";
 
-            /// <summary>
-            /// Setting that determines the navigation base url with which the URLs of the pages are prefixed in the sitemap.xml
-            /// </summary>
-            public readonly static string NavigationBaseUrl = "Navigation.BaseUrl";
 
             /// <summary>
             /// If true, the subnavigation is read from the root for pages whose level falls below the start level
             /// </summary>
             public readonly static string SubNavDefaultsToMainNav = "Navigation.SubNavDefaultsToMainNav";
+
+            /// <summary>
+            /// If true, sitemap.xml is automatically served
+            /// </summary>
+            public readonly static string SitemapEnabled = "Navigation.SitemapEnabled";
+            
         }
 
         /// <summary>
