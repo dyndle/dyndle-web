@@ -69,7 +69,6 @@ The following table describes the configuration values in the appsettings sectio
 
 ## Navigation
 
-...
 The following table describes the configuration values in the appsettings section of the web config that are used in the Dyndle Image Enhancement module.
 
 | Config key                          | Default Value             | Description                                                                                                                         |

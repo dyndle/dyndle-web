@@ -18,16 +18,6 @@ sidebar_label: Dyndle Image Enhancement
 
    `<modules runAllManagedModulesForAllRequests="true" />`
 
-## Configuration
-You can configure the image enhancement feature with the following appSettings in the Web.config.
-
-| Config key                       | Example Value     | Description                                                  |
-| -------------------------------- | ----------------- | ------------------------------------------------------------ |
-| ImageEnhancement.Localpath       | "/EnhancedImages" | Where the enhanced versions of the images will be stored (defaults to /EnhancedImages)   |
-| ImageEnhancement.Backgroundcolor | "#fff"            | The color that is used when you crop an image and provide a width and height that's higher than the cropped area. |
-| ImageEnhancement.Cacheseconds    | "300"              | How long the enhanced image will be retrieved from the cache before creating a new enhanced version. (defaults to 300) |
-
-Note that the caching of enhanced images is independent from the normal DD4T / Dyndle caching. It is NOT possible to automatically delete enhanced images when the parent image is unpublished or republished (decaching). It is generally advisable to keep the value low. 
 
 ## Using Image Enhancement
 
@@ -41,3 +31,15 @@ The following table describes the functionalities of the image enhancement modul
 | SetCropCenter           | Crop around the specified center. Center is specified in pixels (x and y).Must always be combined with SetWidthAndHeight.                                                                                                                                                                     | `<img src="@Model.Multimedia.Url.SetWidthAndHeight(200, 200).SetCropCenter(110,100)" />`                                                 |
 | SetCropCenterPercentage | Crop around the specified center. Center is specified in percentage (x and y).Must always be combined with SetWidthAndHeight.                                                                                                                                                                 | `<img src="@Model.Multimedia.Url.SetWidthAndHeight(200, 200).SetCropCenterPercentage(75,50)" />`                                         |
 | SetCropStyle            | There are two crop styles: Greedy (default): take the largest possible area around the center point and scale that to the specified size (image may be scaled down)NonGreedy: take exactly the specified size around the center point (image maintains the same scale)                        | `<img src="@Model.Image.Multimedia.Url.SetWidthAndHeight(300, 200).SetCropCenterPercentage(75,50).SetCropStyle(CropStyle.NonGreedy)" />` |
+
+
+## Configuration
+You can configure the image enhancement feature with the following appSettings in the Web.config.
+
+| Config key                       | Example Value     | Description                                                  |
+| -------------------------------- | ----------------- | ------------------------------------------------------------ |
+| ImageEnhancement.Localpath       | "/EnhancedImages" | Where the enhanced versions of the images will be stored (defaults to /EnhancedImages)   |
+| ImageEnhancement.Backgroundcolor | "#fff"            | The color that is used when you crop an image and provide a width and height that's higher than the cropped area. |
+| ImageEnhancement.Cacheseconds    | "300"              | How long the enhanced image will be retrieved from the cache before creating a new enhanced version. (defaults to 300) |
+
+Note that the caching of enhanced images is independent from the normal DD4T / Dyndle caching. It is NOT possible to automatically delete enhanced images when the parent image is unpublished or republished (decaching). It is generally advisable to keep the value low. 
