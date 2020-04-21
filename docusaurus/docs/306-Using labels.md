@@ -14,9 +14,9 @@ To be able to use labels in your web application, they need to be configured in 
 
 To create a label, simply create a component based on the "Label" schema. Provide a Title, which will be used as a key to retrieve the label with the HTML helper, and a Label Text, the text the label will display. These components are typically stored in a "system" folder. Localize the component in a child publication to provide a translated value for the label for that publication's website.
 
-The created label components need to be published to be able to access them in the web application. This is done behind the scenes through the "Dyndle Site Configuration" page template. A page using this page template will also have been created with the Dyndle quickinstall. It is also named "Dyndle Site Configuration" and can be found in the "system" structure group. When you publish this page, the components using the label schema will automatically be published with it.
+The created label components need to be published to be able to access them in the web application. This is done behind the scenes through the "Dyndle Site Configuration" page template. A page using this page template has been created by the Dyndle CLI when you installed Dyndle in the content manager. It is also named "Dyndle Site Configuration" and can be found in the "system" structure group. When you publish this page, the components using the label schema will automatically be published with it.
 
-## Implementing labels
+## Using labels
 
 The labels can now be used in your views in the following fashion:
 
