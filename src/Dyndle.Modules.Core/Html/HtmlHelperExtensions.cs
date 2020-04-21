@@ -113,7 +113,7 @@ namespace Dyndle.Modules.Core.Html
             return result;
         }
         /// <summary>
-        /// Renders the includes using the <see cref="PageController"/>. The URL of the includes page is configured in the IncludesUrl appSetting.
+        /// Renders the includes using the <see cref="PageController"/>. The URL of the includes page is configured in the Dyndle.IncludesUrl appSetting.
         /// </summary>
         /// <param name="htmlHelper">The HTML helper.</param>
         /// <param name="view">The view.</param>
@@ -122,6 +122,10 @@ namespace Dyndle.Modules.Core.Html
         public static MvcHtmlString RenderIncludes(this HtmlHelper htmlHelper, string view = null)
         {
             string includesUrl = DyndleConfig.IncludesUrl;
+            if (string.IsNullOrEmpty(includesUrl))
+            {
+                return new MvcHtmlString("<!-- missing Dyndle.IncludesUrl in the appSettings -->");
+            }
             MvcHtmlString result = htmlHelper.Action("Includes", "Page", new { Page = includesUrl, View = view });
             return result;
         }
