@@ -7,7 +7,7 @@
       "dependencies",
       "adding-routes",
       "modelling-regions",
-      "modelling-includes",
+      "include-pages",
       "caching",
       "labels",
       "dynamic-content",
