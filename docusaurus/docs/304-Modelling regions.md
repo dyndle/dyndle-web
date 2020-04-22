@@ -59,6 +59,6 @@ There is a setting 'Dyndle.DefaultRegionView' in [configuration](configuration) 
 
 ## Special usages
 
-Regions can also be used to manage includes, which are reusable pages that can be inserted in any view in your web application. To read more about includes refer to <a href="modelling-includes">Modelling Includes</a>.
+Regions can also be used to manage includes, which are reusable pages that can be inserted in any view in your web application. To read more about includes refer to <a href="include-pages">Including content from other pages</a>.
 
 There is also possibility to group component presentations in regions yourself. This can be done by adding properties to a page model, where component presentations are grouped. You can create and use RegionModel for this purpose, if you would like to reuse region rendering functionality.
