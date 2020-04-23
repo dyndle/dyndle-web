@@ -1,25 +1,32 @@
 {
-  "docs": {
-    "Essentials": ["index", "getting-started", "functionality-overview"],
-    "Installation": ["installation-cm", "installation", "configuration"],
-    "Implementing Dyndle": [
-      "model-binders-and-controllers",
-      "dependencies",
-      "adding-routes",
-      "modelling-regions",
-      "include-pages",
-      "caching",
-      "labels",
-      "dynamic-content",
-      "xpm",
-      "preview"
-    ],
-    "Dyndle Modules": [
-      "management",
-      "image-enhancement",
-      "navigation",
-      "search"
-    ],
-    "Dyndle CLI": ["cli", "customizing-models"]
-  }
+    "docs": {
+        "Essentials": ["index", "getting-started", "functionality-overview"],
+        "Installation": [
+            "installation-cm", 
+			"installation", 
+			"configuration"
+		],
+        "Implementing Dyndle": [
+            "model-binders-and-controllers",
+            "dependencies",
+            "adding-routes",
+            "modeling-regions",
+            "include-pages",
+            "caching",
+            "labels",
+            "dynamic-content",
+            "xpm",
+            "preview"
+        ],
+        "Dyndle Modules": [
+            "management",
+            "image-enhancement",
+            "navigation",
+            "search"
+        ],
+        "Dyndle CLI": [
+			"cli", 
+			"customizing-models"
+		]
+    }
 }

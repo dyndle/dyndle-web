@@ -1,6 +1,6 @@
 ---
 id: converting-dd4t
-title:Converting an existing DD4T application to Dyndle
+title: Converting an existing DD4T application to Dyndle
 sidebar_label: Converting an existing DD4T app
 ---
 
