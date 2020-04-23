@@ -77,14 +77,11 @@ namespace Dyndle.Modules.Search.Utils
             var customAttribute = prop.GetCustomAttributes(typeof(QueryParameterAttribute), false);
             var parameters = new QueryParameterAttribute() { PropertyName = prop.Name, ProcessProperty = false };
 
-            if (customAttribute.Length > 0)
+            if (customAttribute.Length > 0 && customAttribute.FirstOrDefault() is QueryParameterAttribute attr)
             {
-                if (customAttribute.FirstOrDefault() is QueryParameterAttribute attr)
-                {
-                    parameters.HasPropertyName = !string.IsNullOrWhiteSpace(attr.PropertyName);
-                    parameters.PropertyName = !string.IsNullOrWhiteSpace(attr.PropertyName) ? attr.PropertyName : prop.Name;
-                    parameters.ProcessProperty = true;
-                }
+                parameters.HasPropertyName = !string.IsNullOrWhiteSpace(attr.PropertyName);
+                parameters.PropertyName = !string.IsNullOrWhiteSpace(attr.PropertyName) ? attr.PropertyName : prop.Name;
+                parameters.ProcessProperty = true;
             }
 
             return parameters;

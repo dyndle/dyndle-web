@@ -5,6 +5,9 @@ using Dyndle.Modules.Core.Models.Query;
 
 namespace Dyndle.Modules.Core.Contracts
 {
+    /// <summary>
+    /// Queries the broker for dynamic components or pages.
+    /// </summary>
     public interface IContentQueryService
     {
         /// <summary>
