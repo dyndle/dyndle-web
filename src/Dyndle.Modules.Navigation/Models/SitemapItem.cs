@@ -234,7 +234,7 @@ namespace Dyndle.Modules.Navigation.Models
         /// <param name="baseUrl"></param>
         /// <param name="isHomepage"></param>
         /// <returns></returns>
-        private XElement CreateSitemapNodeElement(SitemapItem sitemapNode, string baseUrl, bool isHomepage = false)
+        private XElement CreateSitemapNodeElement(SitemapItem sitemapNode, string baseUrl)
         {
             return new XElement(
                 xmlns + "url",

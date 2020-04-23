@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using DD4T.ContentModel.Contracts.Logging;
 using Dyndle.Modules.Core.Contracts;
+using Dyndle.Modules.Core.Exceptions;
 using Dyndle.Modules.Core.Extensions;
 
 namespace Dyndle.Modules.Core.Resolvers
@@ -22,10 +23,10 @@ namespace Dyndle.Modules.Core.Resolvers
         private readonly ConcurrentDictionary<string, PublicationMapping> _publicationMappings;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PublicationResolver" /> class.
+        /// Initializes a new instance of the <see cref="PublicationResolverBase" /> class.
         /// </summary>
         /// <param name="logger">The logger.</param>
-        public PublicationResolverBase(ILogger logger)
+        protected PublicationResolverBase(ILogger logger)
         {
             logger.ThrowIfNull(nameof(logger));
 
@@ -80,14 +81,14 @@ namespace Dyndle.Modules.Core.Resolvers
             return result;
         }
 
-      
+
 
         /// <summary>
         /// Resolves the publication using specified URI from Tridion.
         /// </summary>
         /// <param name="uri">The URI.</param>
         /// <returns>IPublicationMapping.</returns>
-        /// <exception cref="Exception">
+        /// <exception cref="LocalizationNotFoundException">
         /// No matching Localization found for URL
         /// </exception>
         private PublicationMapping Resolve(Uri uri)
@@ -100,7 +101,7 @@ namespace Dyndle.Modules.Core.Resolvers
 
                 if (mapping == null || (!mapping.Port.IsNullOrEmpty() && mapping.Port != uri.Port.ToString()))
                 {
-                    throw new Exception(string.Format("No matching Localization found for URL '{0}'", url));
+                    throw new LocalizationNotFoundException(string.Format("No matching Localization found for URL '{0}'", url));
                 }
                 return mapping;
             }
@@ -109,7 +110,7 @@ namespace Dyndle.Modules.Core.Resolvers
                 // CIL throws Sdl.Web.Delivery.Service.InvalidResourceException if the mapping cannot be resolved.
                 // We don't have a direct reference to Sdl.Web.Delivery.Service, so we just check the type name
                 _logger.Debug("Exception occurred in DynamicMappingsRetriever.GetPublicationMapping('{0}'):\n{1}", url, ex.ToString());
-                throw new Exception(string.Format("No matching Localization found for URL '{0}'", url), ex);
+                throw new LocalizationNotFoundException(string.Format("No matching Localization found for URL '{0}'", url), ex);
             }
         }
 

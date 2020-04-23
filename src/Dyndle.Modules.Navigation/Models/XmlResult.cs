@@ -1,7 +1,4 @@
 ﻿using Dyndle.Modules.Core.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Xml;
@@ -15,7 +12,7 @@ namespace Dyndle.Modules.Navigation.Models
     /// <seealso cref="System.Web.Mvc.FileResult" />
     public class XmlResult : FileResult
     {
-        private XmlDocument _document;
+        private readonly XmlDocument _document;
 
         /// <summary>
         /// calls base ctor and set content type

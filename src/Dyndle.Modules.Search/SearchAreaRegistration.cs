@@ -13,11 +13,6 @@ namespace Dyndle.Modules.Search
     {
         public override string AreaName => "Search";
 
-        public override void RegisterArea(AreaRegistrationContext context)
-        {
-            base.RegisterArea(context);
-        }
-
 	    public override void RegisterTypes(IServiceCollection serviceCollection)
 	    {
 		    serviceCollection.AddSingleton(typeof(ISearchProvider), typeof(SearchProvider));
