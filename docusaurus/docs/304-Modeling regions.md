@@ -1,10 +1,13 @@
 ---
-id: modelling-regions
-title: Modelling regions
-sidebar_label: Modelling regions
+id: modeling-regions
+title: Modeling regions
+sidebar_label: Modeling regions
 ---
 
-Dyndle supports regions out-of-the-box and also allows you to make customizations. Following DD4T metadata approach, regions can be used even if they are not supported in Tridion. In the case of Tridion 9 and later, regions can be specified both in the page schema and on the metadata of the component templates. However, if a page template has region schema and any component presentations are placed in it, then metadata values will be ignored.
+A region, in Tridion terms, is a group of component presentations, which should be shown in a particular area on the page. 
+Regions were introduced in Tridion 9.0. Dyndle allows you to add regions to your page model and render them with a RegionController and a region view.
+
+But even if you are not yet on Tridion 9, you can already make use of this functionality. Dyndle will group the component presentations on the page for you, based on the **region** metadata field in the component templates. However, if a page has a region schema and any component presentations are placed in it, then the component template metadata will be ignored.
 
 In Dyndle there are multiple ways to get and render regions. These different approaches can be used depending on the use case. Let us take a closer look:
 
@@ -55,7 +58,7 @@ will result in three region models:
 Rendering of a region normally means sequential rendering of all entities in it, but this can also be further customized by using more advanced logic and/or layout. For instance, to render the whole footer region with proper HTML markup and some business logic.
 
 Rendering of the regions can be done using HTML helpers `Html.RenderRegion(region)` and `Html.RenderRegions(regions)`.
-There is a setting 'Dyndle.DefaultRegionView' in [configuration](configuration) that getermines which view is used to render region by default. `Html.RenderRegion` also has an overload that allows you to specify a viewname to be used to render the region.
+There is a setting 'Dyndle.DefaultRegionView' in [configuration](configuration) that determines which view is used to render a region by default. `Html.RenderRegion` also has an overload that allows you to specify a view name to be used to render the region.
 
 ## Special usages
 
