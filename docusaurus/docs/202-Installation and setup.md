@@ -1,7 +1,7 @@
 ---
 id: installation
 title: Installing Dyndle without the QuickStart
-sidebar_label: Setting up web application
+sidebar_label: Setting up the web application
 ---
 
 In order to use Dyndle, following steps must be carried out:
@@ -79,4 +79,4 @@ public class CoreAreaRegistration : BaseModuleAreaRegistration
 
 For this reason, views to be used by these controllers should be placed in `Areas\Core\`. For instance, if the viewname for a page template is set to `EventsPage`. The page controller that is registered in `Core` area will look for the view in `Areas\Core\Page\EventsPage.cshtml`.
 
-_**Please note**: above mentions default values that in our experience suffice for a lot of scenarios. However, each component and page template can have all these values set on its metadata for: area, controller, action, view name._
+_**Please note**: by default, all views, controllers and actions will be located in the Core area. This means that views are expected to be located in Areas\Core\Views\Page (for page views) and Areas\Core\Views\Entity (for entity views). You can also create your own areas. In that case, you need to add a metadata field to the templates, called 'area', and give it the appropriate value.
