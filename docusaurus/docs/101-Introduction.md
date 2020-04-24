@@ -6,10 +6,10 @@ sidebar_label: What is Dyndle?
 
 Dyndle (shorthand for Dynamic Delivery) is the new way to develop a web site in .NET, powered by SDL Tridion Sites. Dyndle is built on top of the popular [DD4T](https://dd4t.org/) framework. It is open source software and offered free-of-charge. [Trivident](https://trivident.com) is the company that manages pull request and releases, but anyone can contribute. [Trivident](https://trivident.com) can also arrange support for Dyndle as part of its professional services offering.
 
-From an architecture point of view, Dyndle preserves one of the big benefits of DD4T: the fact that you own and control your web application. Dyndle adds many useful features to DD4T, but still leaves you in full control of your own web application.
+From an architecture point of view, Dyndle preserves one of the big benefits of DD4T: the fact that you own and control your web application. At the same time, Dyndle saves you a lot of time, because it adds many useful features to DD4T, while leaving you in full control of your own web application.
 
 
-### Dyndle is super easy!
+## How to use Dyndle
 
 - [Download the Dyndle CLI](/download)
 - Create an empty .Net Framework MVC5 project

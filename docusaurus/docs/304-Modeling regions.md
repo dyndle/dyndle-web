@@ -60,8 +60,39 @@ Rendering of a region normally means sequential rendering of all entities in it,
 Rendering of the regions can be done using HTML helpers `Html.RenderRegion(region)` and `Html.RenderRegions(regions)`.
 There is a setting 'Dyndle.DefaultRegionView' in [configuration](configuration) that determines which view is used to render a region by default. `Html.RenderRegion` also has an overload that allows you to specify a view name to be used to render the region.
 
-## Special usages
+## Regions and includes
 
 Regions can also be used to manage includes, which are reusable pages that can be inserted in any view in your web application. To read more about includes refer to <a href="include-pages">Including content from other pages</a>.
 
-There is also possibility to group component presentations in regions yourself. This can be done by adding properties to a page model, where component presentations are grouped. You can create and use RegionModel for this purpose, if you would like to reuse region rendering functionality.
+## Grouping component presentations without using regions
+If you don't want to use regions at all, you can group component presentations in different ways. One approach is to use the annotations that are available in DD4T:
+
+```c#
+[PresentationsByView(ViewPrefix = "CTA")]
+public List<IEntityModel> CallsToAction { get; set; }
+``` 
+
+This will put all the component presentations with a view name that starts with 'CTA' in a property called CallsToAction. You could use this to write out all calls to action in one block on the page.
+
+But you can also take full control of the matter easily. Just add a property 'AllEntities' to your page model, and create various subsets yourself, using Linq and so-called 'Expression-bodied properties'. For example:
+
+```c#
+[ComponentPresentations]
+public virtual List<IEntityModel> AllEntities { get; set; }
+
+// The Banner
+public Banner Banner => AllEntities.FirstOrDefault(e => e is Banner) as Banner;
+
+
+public IEnumerable<IEntityModel> Articles => AllEntities.Where(e => e is Article);
+```
+
+In this example, the first entity on the page which is of the type Banner, will be available in a separate property called *Banner*. All entities of the type Article are available through the property *Articles*. Since the type of an entity is determined by the schema of the component, you are effectively grouping component presentations by schema.
+
+But you can also group them by view, like this:
+
+```c#
+public IEnumerable<IEntityModel> Summaries => Entities.Where(e => e.MvcData.View == "summary");
+```
+
+

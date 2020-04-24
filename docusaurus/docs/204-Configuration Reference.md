@@ -63,9 +63,7 @@ The following table describes the configuration values in the appsettings sectio
 | Dyndle.DirectorySegmentsUsedForPublicationMapping | 3             | The number of segments used to detect the publication we are in, based on the topology manager mapping. Defaults to `1` |
 | Dyndle.PublicationBasePath                        |               | The base path of the publication (used only in combination with the DD4T.PublicationId appSetting)                      |
 
-## Management
 
-...
 
 ## Navigation
 
