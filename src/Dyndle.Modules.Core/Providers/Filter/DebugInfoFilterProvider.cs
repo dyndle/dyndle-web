@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Dyndle.Modules.Core.Attributes.Filter;
+using Dyndle.Modules.Core.Controllers;
 
 namespace Dyndle.Modules.Core.Providers.Filter
 {
@@ -40,7 +41,13 @@ namespace Dyndle.Modules.Core.Providers.Filter
         /// <returns><c>true</c> if request is local and contains debug=true, <c>false</c> otherwise.</returns>
         private static bool ShouldFilter(ControllerContext context)
         {
-            // only set the cookie if we are dealing with the front controller (not with a child action)
+            // only set the cookie if we are dealing with the page controller or the entity controller 
+            if (!(typeof(PageController).IsAssignableFrom(context.Controller.GetType()) || typeof(EntityController).IsAssignableFrom(context.Controller.GetType())))
+            {
+                return false;
+            }
+
+            // check if the user has typed 'debug=true / this is not needed if they clicked on one of the buttons, in that case the cookie is set by javascript
             if ((!context.IsChildAction) && context.HttpContext.Request.QueryString["debug"] != null) // RouteData.Values["model"] == null 
             {
                 try
@@ -66,10 +73,10 @@ namespace Dyndle.Modules.Core.Providers.Filter
         }
 
         /// <summary>
-        /// 
+        /// Determines whether [is debug mode] [the specified context].
         /// </summary>
-        /// <param name="context"></param>
-        /// <returns></returns>
+        /// <param name="context">The context.</param>
+        /// <returns><c>true</c> if [is debug mode] [the specified context]; otherwise, <c>false</c>.</returns>
         public static bool IsDebugMode(HttpContextBase context)
         {
             return GetCookieByName("debuginfo").Length > 0 &&

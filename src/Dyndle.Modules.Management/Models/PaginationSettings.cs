@@ -33,7 +33,7 @@ namespace Dyndle.Modules.Management.Models
         public int AlwaysShowOnRightSide { get; set; } = 0;
         public bool ShowEllipsisButtons { get; set; } = false;
 
-        public SpecialButtonOption SpecialButtons { get; set; } = PaginationSettings.SpecialButtonOption.Previous | PaginationSettings.SpecialButtonOption.Next;
+        public SpecialButtonOptions SpecialButtons { get; set; } = PaginationSettings.SpecialButtonOptions.Previous | PaginationSettings.SpecialButtonOptions.Next;
 
         public int CurrentPageSize { get; private set; }
         public int NrOfPages { get; private set; }
@@ -46,7 +46,7 @@ namespace Dyndle.Modules.Management.Models
         {
             if (Total > CurrentPageNr * MaxPageSize)
             {
-                return list.Skip((CurrentPageNr) * MaxPageSize).Take(CurrentPageSize).Cast<T>();
+                return list.Skip((CurrentPageNr) * MaxPageSize).Take(CurrentPageSize);
             }
             else
             {
@@ -71,11 +71,11 @@ namespace Dyndle.Modules.Management.Models
 
             var list = new List<PageButton>();
 
-            if (SpecialButtons.HasFlag(SpecialButtonOption.First) && PaginationRequired)
+            if (SpecialButtons.HasFlag(SpecialButtonOptions.First) && PaginationRequired)
             {
                 list.Add(new PageButton(PageButtonType.First));
             }
-            if (SpecialButtons.HasFlag(SpecialButtonOption.Previous) && HasPrevious)
+            if (SpecialButtons.HasFlag(SpecialButtonOptions.Previous) && HasPrevious)
             {
                 list.Add(new PageButton(PageButtonType.Previous));
             }
@@ -89,23 +89,18 @@ namespace Dyndle.Modules.Management.Models
                 }
                 else
                 {
-                    if (SpecialButtons.HasFlag(SpecialButtonOption.Ellipsis) && i > 0 && listOfNumbers.Contains(i - 1) && !previousWasEllipse)
-                    {
-                        list.Add(new PageButton(PageButtonType.Ellipsis));
-                        previousWasEllipse = true;
-                    }
-                    else if (SpecialButtons.HasFlag(SpecialButtonOption.Ellipsis) && i < HighestPageNumber && listOfNumbers.Contains(i + 1) && !previousWasEllipse)
+                    if (SpecialButtons.HasFlag(SpecialButtonOptions.Ellipsis) && (i > 0 || i < HighestPageNumber) && listOfNumbers.Contains(i - 1) && !previousWasEllipse)
                     {
                         list.Add(new PageButton(PageButtonType.Ellipsis));
                         previousWasEllipse = true;
                     }
                 }
             }
-            if (SpecialButtons.HasFlag(SpecialButtonOption.Next) && HasNext)
+            if (SpecialButtons.HasFlag(SpecialButtonOptions.Next) && HasNext)
             {
                 list.Add(new PageButton(PageButtonType.Next));
             }
-            if (SpecialButtons.HasFlag(SpecialButtonOption.Last) && PaginationRequired)
+            if (SpecialButtons.HasFlag(SpecialButtonOptions.Last) && PaginationRequired)
             {
                 list.Add(new PageButton(PageButtonType.Last));
             }
@@ -123,7 +118,7 @@ namespace Dyndle.Modules.Management.Models
         }
 
         [Flags]
-        public enum SpecialButtonOption
+        public enum SpecialButtonOptions
         {
             None = 0,
             First = 1,

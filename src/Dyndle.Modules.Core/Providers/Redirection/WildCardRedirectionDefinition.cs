@@ -10,7 +10,7 @@ namespace Dyndle.Modules.Core.Providers.Redirection
     public class WildCardRedirectionDefinition : RegExRedirectionDefinition
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="WildCardRedirectionDefinition"/> class.
+        /// Initializes a new instance of the <see cref="WildCardRedirectionDefinition" /> class.
         /// </summary>
         /// <param name="wildCard">The wild card.</param>
         /// <param name="to">To.</param>

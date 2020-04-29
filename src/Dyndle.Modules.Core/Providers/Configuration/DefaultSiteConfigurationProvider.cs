@@ -5,6 +5,7 @@ using DD4T.ContentModel.Contracts.Caching;
 using DD4T.ContentModel.Contracts.Logging;
 using DD4T.ContentModel.Contracts.Resolvers;
 using Dyndle.Modules.Core.Configuration;
+using Dyndle.Modules.Core.Exceptions;
 using Dyndle.Modules.Core.Extensions;
 using Dyndle.Modules.Core.Models.System;
 using Dyndle.Modules.Core.Providers.Content;
@@ -27,7 +28,7 @@ namespace Dyndle.Modules.Core.Providers.Configuration
         /// <summary>
         /// The URL
         /// </summary>
-        private string URL = DyndleConfig.SiteConfigUrl;
+        private readonly string URL = DyndleConfig.SiteConfigUrl;
         private readonly ICacheAgent _cacheAgent;
 
         /// <summary>
@@ -86,7 +87,7 @@ namespace Dyndle.Modules.Core.Providers.Configuration
             if (page == null)
             {
                 _logger.Error("configuration page is not published. Url : {0}".FormatString(URL));
-                throw new Exception("configuration page not found. Url: {0}; Is the page published?".FormatString(URL));
+                throw new PageNotFoundException("configuration page not found. Url: {0}; Is the page published?".FormatString(URL));
             }
 
             List<Dictionary<string, string>> listOfdictionaries = new List<Dictionary<string, string>>();
@@ -100,8 +101,7 @@ namespace Dyndle.Modules.Core.Providers.Configuration
                 listOfdictionaries.Add(model.KeyValuePairs?.ToDictionary(a => a.Key, a => a.Value));
             }
 
-            var mergedValues = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
-            mergedValues = listOfdictionaries.SelectMany(dict => dict)
+            var mergedValues = listOfdictionaries.SelectMany(dict => dict)
                        .ToLookup(pair => pair.Key, pair => pair.Value)
                        .ToDictionary(group => group.Key, group => group.First());
 

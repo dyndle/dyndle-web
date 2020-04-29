@@ -20,8 +20,9 @@ namespace Dyndle.Modules.Core.Contracts.Entities
         string LinkText { get; }
 
         /// <summary>
-        /// 
+        /// Gets or sets the media.
         /// </summary>
+        /// <value>The media.</value>
         IMediaAltText Media { get; set; }
     }
 }

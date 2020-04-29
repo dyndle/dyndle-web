@@ -14,10 +14,8 @@ namespace Dyndle.Modules.Core.Attributes.ViewModels
         //TODO: De-couple this from the Schema name specifically? What would make sense?
         //TOOD: Possibly change this to use purely ViewModelKey and make that an object, leave it to the key provider to assign objects with logical equals overrides
 
-        private string schemaRootElementName;
-        private bool inlineEditable = false;
-        private bool isDefault = false;
-        private string[] viewModelKeys;
+        private readonly string schemaRootElementName;
+        private readonly bool isDefault = false;
 
         /// <summary>
         /// View Model
@@ -49,26 +47,12 @@ namespace Dyndle.Modules.Core.Attributes.ViewModels
         /// <summary>
         /// Identifiers for further specifying which View Model to use for different presentations.
         /// </summary>
-        public string[] ViewModelKeys
-        {
-            get { return viewModelKeys; }
-            set { viewModelKeys = value; }
-        }
+        public string[] ViewModelKeys { get; set; }
 
         /// <summary>
         /// Is inline editable. Only for semantic use.
         /// </summary>
-        public bool InlineEditable
-        {
-            get
-            {
-                return inlineEditable;
-            }
-            set
-            {
-                inlineEditable = value;
-            }
-        }
+        public bool InlineEditable { get; set; }
 
         /// <summary>
         /// Is the default View Model for the schema. If set to true, this will be the View Model to use for a given schema if no View Model ID is specified.
@@ -95,9 +79,8 @@ namespace Dyndle.Modules.Core.Attributes.ViewModels
         /// </returns>
         public override bool Equals(object obj)
         {
-            if (obj != null && obj is ContentModelAttribute)
+            if (obj is ContentModelAttribute key)
             {
-                ContentModelAttribute key = (ContentModelAttribute)obj;
                 if (this.ViewModelKeys != null && key.ViewModelKeys != null)
                 {
                     //if both have a ViewModelKey set, use both ViewModelKey and schema
@@ -108,7 +91,7 @@ namespace Dyndle.Modules.Core.Attributes.ViewModels
                                 select i;
                     //Schema names match and there is a matching view model ID
                     if (this.SchemaRootElementName.Equals(key.SchemaRootElementName, StringComparison.OrdinalIgnoreCase)
-                        && match.Count() > 0)
+                        && match.Any())
                         return true;
                 }
                 //Note: if the parent of a linked component is using a View Model Key, the View Model
@@ -140,21 +123,18 @@ namespace Dyndle.Modules.Core.Attributes.ViewModels
             if (data != null)
             {
                 //Ideally we'd have a common interface for these 2 that have a Schema property
-                if (data is IComponentPresentation)
+                if (data is IComponentPresentation definedData2)
                 {
-                    var definedData = data as IComponentPresentation;
                     //schemaRootElementName = definedData.Component.Multimedia == null ? definedData.Component.Schema.RootElementName : definedData.Component.Schema.Title;
-                    schemaTitle = definedData.Component.Schema.Title;
+                    schemaTitle = definedData2.Component.Schema.Title;
                 }
-                else if (data is IComponent)
+                else if (data is IComponent definedData1)
                 {
-                    var definedData = data as IComponent;
                     //schemaRootElementName = definedData.Multimedia == null ? definedData.Schema.RootElementName : definedData.Schema.Title;
-                    schemaTitle = definedData.Schema.Title;
+                    schemaTitle = definedData1.Schema.Title;
                 }
-                else if (data is IEmbeddedFields)
+                else if (data is IEmbeddedFields definedData)
                 {
-                    var definedData = data as IEmbeddedFields;
                     schemaTitle = definedData.EmbeddedSchema.Title;
                     //schemaRootElementName = definedData.EmbeddedSchema.RootElementName;
                 }

@@ -19,19 +19,19 @@ namespace Dyndle.Modules.Core.Resolver
         /// <summary>
         /// ctor RichTextFieldResolver
         /// </summary>
-        /// <param name="linkResolver"></param>
-        /// <param name="logger"></param>
-        /// <param name="configuration"></param>
+        /// <param name="linkResolver">The link resolver.</param>
+        /// <param name="logger">The logger.</param>
+        /// <param name="configuration">The configuration.</param>
         public RichTextFieldResolver(ILinkResolver linkResolver, ILogger logger, IDD4TConfiguration configuration) : base(linkResolver, logger, configuration)
         {
         }
 
         /// <summary>
-        ///
+        /// Resolves the specified input.
         /// </summary>
-        /// <param name="input"></param>
-        /// <param name="pageUri"></param>
-        /// <returns></returns>
+        /// <param name="input">The input.</param>
+        /// <param name="pageUri">The page URI.</param>
+        /// <returns>System.Object.</returns>
         public override object Resolve(string input, string pageUri = null)
         {
             var output = (string)base.Resolve(input, pageUri);

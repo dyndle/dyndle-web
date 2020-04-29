@@ -58,10 +58,10 @@ namespace Dyndle.Modules.Core.Html
         /// </summary>
         /// <param name="htmlHelper">The HTML helper.</param>
         /// <param name="region">The region.</param>
+        /// <param name="regionView">The view name.</param>
         /// <returns>MvcHtmlString.</returns>
-        public static MvcHtmlString RenderRegion(this HtmlHelper htmlHelper, IRegionModel region)
+        public static MvcHtmlString RenderRegion(this HtmlHelper htmlHelper, IRegionModel region, string regionView = "")
         {
-
             if (region == null)
             {
                 return MvcHtmlString.Empty;
@@ -74,7 +74,7 @@ namespace Dyndle.Modules.Core.Html
                     viewData[key] = region.RouteValues[key];
                 }
             }
-            return htmlHelper.Action("Region", "Region", new { Region = region });
+            return htmlHelper.Action("Region", "Region", new { Region = region, RegionView = regionView });
         }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace Dyndle.Modules.Core.Html
         /// <param name="htmlHelper">The HTML helper.</param>
         /// <param name="entity">The entity.</param>
         /// <returns>MvcHtmlString.</returns>
-        /// <exception cref="Exception">When there is no route data available on the model</exception>
+        /// <exception cref="ArgumentNullException">When there is no route data available on the model</exception>
         public static MvcHtmlString RenderEntity(this HtmlHelper htmlHelper, IEntityModel entity)
         {
             if (entity == null)
@@ -94,7 +94,7 @@ namespace Dyndle.Modules.Core.Html
             var mvcData = entity.MvcData;
             if (mvcData == null)
             {
-                throw new Exception(string.Format("Unable to render Entity Model [{0}], because it has no MVC data.", entity));
+                throw new ArgumentNullException(string.Format("Unable to render Entity Model [{0}], because it has no MVC data.", entity));
             }
             RouteValueDictionary parameters = new RouteValueDictionary();
 
@@ -113,7 +113,7 @@ namespace Dyndle.Modules.Core.Html
             return result;
         }
         /// <summary>
-        /// Renders the includes using the <see cref="PageController"/>. The URL of the includes page is configured in the IncludesUrl appSetting.
+        /// Renders the includes using the <see cref="PageController"/>. The URL of the includes page is configured in the Dyndle.IncludesUrl appSetting.
         /// </summary>
         /// <param name="htmlHelper">The HTML helper.</param>
         /// <param name="view">The view.</param>
@@ -122,6 +122,10 @@ namespace Dyndle.Modules.Core.Html
         public static MvcHtmlString RenderIncludes(this HtmlHelper htmlHelper, string view = null)
         {
             string includesUrl = DyndleConfig.IncludesUrl;
+            if (string.IsNullOrEmpty(includesUrl))
+            {
+                return new MvcHtmlString("<!-- missing Dyndle.IncludesUrl in the appSettings -->");
+            }
             MvcHtmlString result = htmlHelper.Action("Includes", "Page", new { Page = includesUrl, View = view });
             return result;
         }
@@ -170,6 +174,14 @@ namespace Dyndle.Modules.Core.Html
             return RenderIncludesByUrl(htmlHelper, includesUrl, region, view);
         }
 
+        /// <summary>
+        /// Renders the includes by URL.
+        /// </summary>
+        /// <param name="htmlHelper">The HTML helper.</param>
+        /// <param name="includesUrl">The includes URL.</param>
+        /// <param name="region">The region.</param>
+        /// <param name="view">The view.</param>
+        /// <returns>MvcHtmlString.</returns>
         public static MvcHtmlString RenderIncludesByUrl(this HtmlHelper htmlHelper, string includesUrl, string region, string view)
         {
             MvcHtmlString result = htmlHelper.Action("Includes", "Region", new { Page = includesUrl, Region = region, View = view });

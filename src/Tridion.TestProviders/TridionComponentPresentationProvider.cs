@@ -196,7 +196,7 @@ namespace Tridion.TestProviders
             return new List<string>() { testCP1, testCP2 };
         }
 
-        public IList<string> FindComponents(IQuery query)
+        public IList<string> FindComponents(IQuery queryParameters)
         {
             throw new NotImplementedException();
         }

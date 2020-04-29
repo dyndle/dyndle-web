@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using DD4T.ContentModel;
 using Dyndle.Modules.Core.Models.System;
 
 namespace Dyndle.Modules.Core.Models
@@ -37,10 +39,26 @@ namespace Dyndle.Modules.Core.Models
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="RegionModel"/> class based on a DD4T representation of Tridion region.
+        /// </summary>
+        /// <param name="region">The region</param>
+        public RegionModel(IRegion region)
+        {
+            Name = region.Name;
+            ViewName = Configuration.DyndleConfig.DefaultRegionView;
+            GridSize = 12;
+
+            Constraint = Name;
+            RouteValues = new Dictionary<string, string>();
+
+        }
+
+        /// <summary>
         /// Gets or sets the name.
         /// </summary>
         /// <value>The name.</value>
         public string Name { get; set; }
+
         /// <summary>
         /// Gets or sets the size of the grid.
         /// </summary>
@@ -52,11 +70,13 @@ namespace Dyndle.Modules.Core.Models
         /// </summary>
         /// <value>The entities.</value>
         public List<IEntityModel> Entities { get; set; }
+
         /// <summary>
         /// Gets the route values.
         /// </summary>
         /// <value>The route values.</value>
         public Dictionary<string, string> RouteValues { get; set; }
+
         /// <summary>
         /// Gets the name of the view.
         /// </summary>

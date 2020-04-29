@@ -18,11 +18,11 @@ namespace Dyndle.Modules.Core.Extensions
     public static class StringExtensions
     {
         /// <summary>
-        /// return configuration value
+        /// Gets the configuration value.
         /// </summary>
-        /// <param name="key"></param>
-        /// <param name="defaultValue"></param>
-        /// <returns></returns>
+        /// <param name="key">The key.</param>
+        /// <param name="defaultValue">The default value.</param>
+        /// <returns>System.String.</returns>
         public static string GetConfigurationValue(this string key, string defaultValue)
         {
             string setting = ConfigurationManager.AppSettings[key];
@@ -43,20 +43,20 @@ namespace Dyndle.Modules.Core.Extensions
         }
 
         /// <summary>
-        /// return configuration value
+        /// Gets the configuration value.
         /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
+        /// <param name="key">The key.</param>
+        /// <returns>System.String.</returns>
         public static string GetConfigurationValue(this string key)
         {
             return GetConfigurationValue(key, null);
         }
 
         /// <summary>
-        /// return configuration value as bool
+        /// Gets the configuration value as boolean.
         /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
+        /// <param name="key">The key.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         public static bool GetConfigurationValueAsBoolean(this string key)
         {
             var val = key.GetConfigurationValue();
@@ -66,21 +66,21 @@ namespace Dyndle.Modules.Core.Extensions
 
 
         /// <summary>
-        ///
+        /// Determines whether the specified value is null or empty.
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <param name="value">The value.</param>
+        /// <returns><c>true</c> if [the specified value] [is null or empty]; otherwise, <c>false</c>.</returns>
         public static bool IsNullOrEmpty(this string value)
         {
             return string.IsNullOrEmpty(value);
         }
 
         /// <summary>
-        /// format string
+        /// Formats the string.
         /// </summary>
-        /// <param name="input"></param>
-        /// <param name="values"></param>
-        /// <returns></returns>
+        /// <param name="input">The input.</param>
+        /// <param name="values">The values.</param>
+        /// <returns>System.String.</returns>
         public static string FormatString(this string input, params object[] values)
         {
             if (values.IsNull() || !values.Any())
@@ -97,7 +97,7 @@ namespace Dyndle.Modules.Core.Extensions
         /// Base64 encodes the string.
         /// </summary>
         /// <param name="plainText">The plain text.</param>
-        /// <returns></returns>
+        /// <returns>System.String.</returns>
         public static string Base64Encode(this string plainText)
         {
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
@@ -108,7 +108,7 @@ namespace Dyndle.Modules.Core.Extensions
         /// Base64 decodes the string.
         /// </summary>
         /// <param name="base64EncodedData">The base64 encoded data.</param>
-        /// <returns></returns>
+        /// <returns>System.String.</returns>
         public static string Base64Decode(this string base64EncodedData)
         {
             var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
@@ -119,10 +119,10 @@ namespace Dyndle.Modules.Core.Extensions
         /// Converts a request URL into a CMS URL (for example adding default page name, and file extension)
         /// </summary>
         /// <param name="url">The request URL</param>
-        /// <param name="contextPath"></param>
-        /// <param name="locateIndex"></param>
-        /// <param name="defaultFileName"></param>
-        /// <returns>A CMS URL</returns>
+        /// <param name="contextPath">The context path.</param>
+        /// <param name="locateIndex">if set to <c>true</c> [locate index].</param>
+        /// <param name="defaultFileName">Default name of the file.</param>
+        /// <returns>System.String.</returns>
         public static string ParseUrl(this string url, string contextPath = null, bool locateIndex = false, string defaultFileName = "index.html")
         {
             if (!IncludeFileExtensions)
@@ -207,8 +207,11 @@ namespace Dyndle.Modules.Core.Extensions
         /// Converts a CMS URL into a Request URL (for example removing default page name, and file extension)
         /// </summary>
         /// <param name="url">The CMS URL</param>
-        /// <param name="defaultFileName"></param>
+        /// <param name="defaultFileName">Default name of the file.</param>
         /// <returns>A Request URL</returns>
+        /// <summary>
+        /// Cleans the URL.
+        /// </summary>
         public static string CleanUrl(this string url, string defaultFileName)
         {
 
@@ -227,7 +230,6 @@ namespace Dyndle.Modules.Core.Extensions
 
             var name = Path.GetFileName(url);
             var nameNoExt = Path.GetFileNameWithoutExtension(name);
-            var ext = Path.GetExtension(name);
 
             url = url.Replace(name, name == defaultFileName ? string.Empty : nameNoExt);
 
@@ -241,9 +243,9 @@ namespace Dyndle.Modules.Core.Extensions
         /// Use this extention to bind directly to objects.
         /// Sample: "The current member is {UserName}".FormatWith(member);
         /// </summary>
-        /// <param name="format"></param>
-        /// <param name="source"></param>
-        /// <returns></returns>
+        /// <param name="format">The format.</param>
+        /// <param name="source">The source.</param>
+        /// <returns>System.String.</returns>
         public static string FormatWith(this string format, object source)
         {
             return FormatWith(format, null, source, false);
@@ -253,10 +255,10 @@ namespace Dyndle.Modules.Core.Extensions
         /// Use this extention to bind directly to objects.
         /// Sample: "The current member is {UserName}".FormatWith(member);
         /// </summary>
-        /// <param name="format"></param>
-        /// <param name="source"></param>
-        /// <param name="ignoreMissingProperties"></param>
-        /// <returns></returns>
+        /// <param name="format">The format.</param>
+        /// <param name="source">The source.</param>
+        /// <param name="ignoreMissingProperties">if set to <c>true</c> [ignore missing properties].</param>
+        /// <returns>System.String.</returns>
         public static string FormatWith(this string format, object source, bool ignoreMissingProperties)
         {
             return FormatWith(format, null, source, ignoreMissingProperties);
@@ -266,10 +268,10 @@ namespace Dyndle.Modules.Core.Extensions
         /// Use this extention to bind directly to objects.
         /// Sample: "The current member is {UserName}".FormatWith(member);
         /// </summary>
-        /// <param name="format"></param>
-        /// <param name="provider"></param>
-        /// <param name="source"></param>
-        /// <returns></returns>
+        /// <param name="format">The format.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="source">The source.</param>
+        /// <returns>System.String.</returns>
         public static string FormatWith(this string format, IFormatProvider provider, object source)
         {
             return FormatWith(format, null, source, false);
@@ -279,11 +281,12 @@ namespace Dyndle.Modules.Core.Extensions
         /// Use this extention to bind directly to objects.
         /// Sample: "The current member is {UserName}".FormatWith(member);
         /// </summary>
-        /// <param name="format"></param>
-        /// <param name="provider"></param>
-        /// <param name="source"></param>
-        /// <param name="ignoreMissingProperties"></param>
-        /// <returns></returns>
+        /// <param name="format">The format.</param>
+        /// <param name="provider">The provider.</param>
+        /// <param name="source">The source.</param>
+        /// <param name="ignoreMissingProperties">if set to <c>true</c> [ignore missing properties].</param>
+        /// <returns>System.String.</returns>
+        /// <exception cref="ArgumentNullException">format</exception>
         public static string FormatWith(this string format, IFormatProvider provider, object source, bool ignoreMissingProperties)
         {
             if (format == null)
@@ -312,10 +315,10 @@ namespace Dyndle.Modules.Core.Extensions
                         value = DataBinder.Eval(source, propertyGroup.Value);
                         values.Add(value);
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         if (!ignoreMissingProperties)
-                            throw ex;
+                            throw;
 
                         return m.Value;
                     }
@@ -327,7 +330,7 @@ namespace Dyndle.Modules.Core.Extensions
 
             return string.Format(provider, rewrittenFormat, values.ToArray());
         }
-        
+
         /// <summary>
         /// Method to get the keyword id
         /// </summary>

@@ -1,7 +1,11 @@
-﻿using DD4T.ContentModel.Factories;
+﻿using DD4T.ContentModel.Contracts.Logging;
+using DD4T.ContentModel.Factories;
+using Dyndle.Modules.Core.Cache;
+using Dyndle.Modules.Core.Exceptions;
 using Dyndle.Modules.Core.Extensions;
 using Dyndle.Modules.Core.Models;
 using Dyndle.Modules.Core.Providers.Content;
+using System.Web;
 
 namespace Dyndle.Modules.Core.Services.Preview
 {
@@ -12,29 +16,46 @@ namespace Dyndle.Modules.Core.Services.Preview
     {
         private readonly IPageFactory _pageFactory;
         private readonly IContentProvider _contentProvider;
+        private readonly ILogger _logger;
         /// <summary>
-        /// creates a new instance of PreviewContentService
+        /// Initializes a new instance of the <see cref="DyndleOutputCacheAttribute"/> class.
         /// </summary>
-        /// <param name="pageFactory"></param>
-        /// <param name="contentProvider"></param>
-        public PreviewContentService(IPageFactory pageFactory, IContentProvider contentProvider)
+        /// <param name="pageFactory">The Page Factory</param>
+        /// <param name="contentProvider">The Content Provider</param>
+        /// <param name="logger">The Logger</param>
+        public PreviewContentService(IPageFactory pageFactory, IContentProvider contentProvider, ILogger logger)
         {
             pageFactory.ThrowIfNull(nameof(pageFactory));
             contentProvider.ThrowIfNull(nameof(contentProvider));
+            logger.ThrowIfNull(nameof(logger));
 
             _pageFactory = pageFactory;
             _contentProvider = contentProvider;
+            _logger = logger;
         }
 
         /// <summary>
-        /// use _pageFactory to descialize data into a IViewModel.
+        /// use _pageFactory to deserialize data into a IViewModel.
         /// </summary>
         /// <param name="data"></param>
-        /// <param name="url"></param>
         /// <returns></returns>
-        public IWebPage GetPage(string data, string url)
+        public IWebPage GetPage(string data)
         {
+            if (! typeof(PreviewAwareCacheAgent).IsAssignableFrom(_pageFactory.CacheAgent.GetType()))
+            {
+                _logger.Warning("It is not allowed to preview without the PreviewAwareCacheAgent (otherwise the previewed content may be cached and show up on the regular site)");
+                throw new CacheAgentMismatchException($"the application is using {nameof(_pageFactory.CacheAgent)} as its cache agent, previewing not allowed");
+            }
+
+            // setting preview-active so that the cache agent knows it should not cache certain items
+            if (HttpContext.Current.Items.Contains("preview-active"))
+            {
+                HttpContext.Current.Items.Remove("preview-active");
+            }
+            HttpContext.Current.Items.Add("preview-active", new bool?(true));
+            _logger.Debug("previewing page based on JSON of length " + data.Length);
             var page = _pageFactory.GetIPageObject(data);
+            _logger.Debug($"found page with URI {page.Id}");
             var model = _contentProvider.BuildViewModel(page) as IWebPage;
             return model;
         }

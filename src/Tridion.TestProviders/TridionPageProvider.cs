@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Xml.Serialization;
 using DD4T.ContentModel.Contracts.Providers;
-using System.IO;
 using System.Collections.Generic;
 using DD4T.ContentModel;
-using System.Text;
 using DD4T.ContentModel.Contracts.Serializing;
 
 namespace Tridion.TestProviders
@@ -93,9 +90,9 @@ namespace Tridion.TestProviders
         /// <summary>
         /// Gets the raw string (xml) from the broker db by URI
         /// </summary>
-        /// <param name="Url">TCM URI of the page</param>
+        /// <param name="uri">TCM URI of the page</param>
         /// <returns>String with page xml or empty string if no page was found</returns>
-        public string GetContentByUri(string TcmUri)
+        public string GetContentByUri(string uri)
         {
             throw new NotImplementedException();
         }

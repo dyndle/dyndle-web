@@ -9,7 +9,7 @@ namespace Dyndle.Modules.Navigation.Services
     public interface INavigationService
     {
         /// <summary>
-        /// 
+        /// Gets the navigation model.
         /// </summary>
         /// <param name="requestUrlPath">The request path to use when fetching the navigation</param>
         /// <param name="navType">Type of navigation that is requested</param>

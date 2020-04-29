@@ -3,7 +3,6 @@ using System.Collections.Concurrent;
 using System.Linq;
 using System.Web;
 using DD4T.ContentModel.Contracts.Logging;
-using Dyndle.Modules.Core;
 using Dyndle.Modules.Core.Contracts;
 using Dyndle.Modules.Core.Extensions;
 
@@ -20,7 +19,7 @@ namespace Dyndle.Modules.Core.Resolvers
         /// <summary>
         /// holds a list of Resolved IPublicationMappings
         /// </summary>
-        private ConcurrentDictionary<string, PublicationMapping> _publicationMappings;
+        private readonly ConcurrentDictionary<string, PublicationMapping> _publicationMappings;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PublicationResolver" /> class.
@@ -114,17 +113,23 @@ namespace Dyndle.Modules.Core.Resolvers
             }
         }
 
+        /// <summary>Retrieves the mapping.</summary>
+        /// <param name="url">The URL.</param>
+        /// <returns>PublicationMapping.</returns>
         protected abstract PublicationMapping RetrieveMapping(string url);
 
         private Uri GetUriToResolve(Uri fullUri)
         {
             var url = fullUri.GetLeftPart(UriPartial.Authority);
+            var segments = RemoveExtensions(fullUri.AbsolutePath.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries));
+            if (segments.FirstOrDefault() == BinaryCacheFolder)
+            {
+                segments = segments.Skip(1).ToArray();
+            }
             if (string.IsNullOrEmpty(fullUri.AbsolutePath) || fullUri.AbsolutePath == "/" || DirectorySegmentsUsedForPublicationMapping < 1)
             {
                 return new Uri(url);
             }
-            var segments = RemoveExtensions(fullUri.AbsolutePath.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries));
-
             return new Uri(MakeTridionSafe(url + "/" + String.Join("/", segments.Take(DirectorySegmentsUsedForPublicationMapping))));
         }
 
@@ -177,15 +182,47 @@ namespace Dyndle.Modules.Core.Resolvers
                 return _directorySegmentsUsedForPublicationMapping;
             }
         }
+        private string BinaryCacheFolder => CoreConstants.Configuration.BinaryCacheFolder.GetConfigurationValue("BinaryData").Replace("/", "").Replace("~", "");
 
+        /// <summary>
+        /// Class PublicationMapping.
+        /// </summary>
         public class PublicationMapping
         {
+            /// <summary>
+            /// Gets or sets the namespace identifier.
+            /// </summary>
+            /// <value>The namespace identifier.</value>
             public int NamespaceId { get; set; }
+            /// <summary>
+            /// Gets or sets the publication identifier.
+            /// </summary>
+            /// <value>The publication identifier.</value>
             public int PublicationId { get; set; }
+            /// <summary>
+            /// Gets or sets the protocol.
+            /// </summary>
+            /// <value>The protocol.</value>
             public string Protocol { get; set; }
+            /// <summary>
+            /// Gets or sets the domain.
+            /// </summary>
+            /// <value>The domain.</value>
             public string Domain { get; set; }
+            /// <summary>
+            /// Gets or sets the port.
+            /// </summary>
+            /// <value>The port.</value>
             public string Port { get; set; }
+            /// <summary>
+            /// Gets or sets the path.
+            /// </summary>
+            /// <value>The path.</value>
             public string Path { get; set; }
+            /// <summary>
+            /// Gets or sets the path scan depth.
+            /// </summary>
+            /// <value>The path scan depth.</value>
             public int PathScanDepth { get; set; }
         }
     }

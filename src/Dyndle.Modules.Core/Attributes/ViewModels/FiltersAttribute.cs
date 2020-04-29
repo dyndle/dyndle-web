@@ -24,16 +24,11 @@ namespace Dyndle.Modules.Core.Attributes.ViewModels
         /// <returns>IEnumerable.</returns>
         public override IEnumerable GetPropertyValues(IModel modelData, IModelProperty property, IViewModelFactory factory)
         {
-            if (modelData is IComponentPresentation)
-            {
-                var cp = (IComponentPresentation)modelData;
-                if (cp.TargetGroupConditions != null)
+            if (modelData is IComponentPresentation cp && cp.TargetGroupConditions != null) { 
+                var filters = GetTargetGroupFilters(cp.TargetGroupConditions);
+                if (filters!=null && filters.Count>0)
                 {
-                    var filters = GetTargetGroupFilters(cp.TargetGroupConditions);
-                    if (filters!=null && filters.Count>0)
-                    {
-                        return filters;
-                    }
+                    return filters;
                 }
             }
             return null;

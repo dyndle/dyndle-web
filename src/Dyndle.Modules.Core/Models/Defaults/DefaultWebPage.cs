@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Dyndle.Modules.Core.Models.Defaults
+﻿namespace Dyndle.Modules.Core.Models.Defaults
 {
+    /// <summary>
+    /// Default WebPage model.
+    /// Implements the <see cref="Dyndle.Modules.Core.Models.WebPage" />
+    /// </summary>
+    /// <seealso cref="Dyndle.Modules.Core.Models.WebPage" />
     public class DefaultWebPage : WebPage
     {
     }

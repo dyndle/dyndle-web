@@ -3,10 +3,8 @@ using System.Linq;
 using DD4T.ContentModel;
 using DD4T.ContentModel.Contracts.Configuration;
 using DD4T.ContentModel.Contracts.Logging;
-using DD4T.ContentModel.Exceptions;
 using DD4T.Core.Contracts.Resolvers;
 using DD4T.Core.Contracts.ViewModels;
-using DD4T.ViewModels.Defaults;
 using Dyndle.Modules.Core.Configuration;
 using Dyndle.Modules.Core.Exceptions;
 using Dyndle.Modules.Core.Extensions;
@@ -75,12 +73,9 @@ namespace Dyndle.Modules.Core.Factories
             IViewModel result = null;
             Type type = null;
 
-            if (modelData is IPage page && page?.PageTemplate?.MetadataFields != null)
+            if (modelData is IPage page && page?.PageTemplate?.MetadataFields != null && page.PageTemplate.MetadataFields.ContainsKey("PreferredModelType"))
             {
-                if (page.PageTemplate.MetadataFields.ContainsKey("PreferredModelType"))
-                {
-                    type = Type.GetType(page.PageTemplate.MetadataFields["PreferredModelType"].Value, false);
-                }
+                type = Type.GetType(page.PageTemplate.MetadataFields["PreferredModelType"].Value, false);
             }
 
             if (type == null)
@@ -131,7 +126,6 @@ namespace Dyndle.Modules.Core.Factories
             var typesList = typesToSearch.Select(a => new {Attribute = _resolver.GetCustomAttribute<T>(a), Type = a})
                 .Where(a => a.Attribute != null);
             _logger.Debug($"using {typesToSearch.Count()} typesToSearch");
-            // _logger.Debug($"searching for one of: {string.Join(",", typesToSearch.Select(t => t.FullName))}");
 
             typesList = typesList.OrderByDescending(t => t.Attribute.ViewModelKeys?.Count() ?? 0);
 
@@ -174,9 +168,9 @@ namespace Dyndle.Modules.Core.Factories
             throw e;
         }
 
-        private static Type _defaultEntityType;
-        private static Type _defaultWebPageType;
-        private static object locker = new object();
+        private Type _defaultEntityType;
+        private Type _defaultWebPageType;
+        private static readonly object locker = new object();
         private Type DefaultEntityType
         {
             get
@@ -196,7 +190,7 @@ namespace Dyndle.Modules.Core.Factories
                             }
                             else
                             {
-                                _defaultEntityType = Bootstrap.ViewModelAssemblies.SelectMany(a => a.DefinedTypes).FirstOrDefault(t => t.Name.Equals(defaultEntityTypeName, StringComparison.InvariantCultureIgnoreCase));
+                                _defaultEntityType = Bootstrap.GetViewModelAssemblies().SelectMany(a => a.DefinedTypes).FirstOrDefault(t => t.Name.Equals(defaultEntityTypeName, StringComparison.InvariantCultureIgnoreCase));
                                 if (_defaultEntityType == null)
                                 {
                                     _logger.Warning($"the configured default entity type {defaultEntityTypeName} cannot be found, using the Dyndle default instead");
@@ -230,7 +224,7 @@ namespace Dyndle.Modules.Core.Factories
                             }
                             else
                             {
-                                _defaultWebPageType = Bootstrap.ViewModelAssemblies.SelectMany(a => a.DefinedTypes).FirstOrDefault(t => t.Name.Equals(defaultWebPageTypeName, StringComparison.InvariantCultureIgnoreCase));
+                                _defaultWebPageType = Bootstrap.GetViewModelAssemblies().SelectMany(a => a.DefinedTypes).FirstOrDefault(t => t.Name.Equals(defaultWebPageTypeName, StringComparison.InvariantCultureIgnoreCase));
                                 if (_defaultWebPageType == null)
                                 {
                                     _logger.Warning($"the configured default webpage type {defaultWebPageTypeName} cannot be found, using the Dyndle default instead");
