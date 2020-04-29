@@ -2,7 +2,6 @@
 using System.Web.Mvc;
 using DD4T.ContentModel.Contracts.Configuration;
 using DD4T.ContentModel.Contracts.Logging;
-using Dyndle.Modules.Core.Controllers.Base;
 using Dyndle.Modules.Core.Extensions;
 using Dyndle.Modules.Management.DebugInfo;
 
@@ -18,16 +17,6 @@ namespace Dyndle.Modules.Management.Controllers
 
         private static readonly string DEBUG_INFO_RESOURCE_FILE_NAME_JS = "debuginfo.js";
 
-        /// <summary>
-        /// The configuration
-        /// </summary>
-        private readonly IDD4TConfiguration _configuration;
-
-        /// <summary>
-        /// The logger
-        /// </summary>
-        private readonly ILogger _logger;
-
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CacheController"/> class.
@@ -38,9 +27,6 @@ namespace Dyndle.Modules.Management.Controllers
         {
             logger.ThrowIfNull(nameof(logger));
             configuration.ThrowIfNull(nameof(configuration));
-
-            _logger = logger;
-            _configuration = configuration;
         }
 
         /// <summary>

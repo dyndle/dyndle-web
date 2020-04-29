@@ -15,7 +15,7 @@ namespace Dyndle.Modules.ImageEnhancement.Models
             {
                 if (_localPath == null)
                 {
-                    _localPath = ConfigurationManager.AppSettings[ImageEnhancementConstants.Settings.LocalPath];
+                    _localPath = ConfigurationManager.AppSettings[ImageEnhancementConstants.Settings.LocalPath] ?? "/EnhancedImages";
                 }
                 return _localPath;
             }
@@ -38,7 +38,8 @@ namespace Dyndle.Modules.ImageEnhancement.Models
             {
                 if (_cacheSeconds == -1)
                 {
-                    _cacheSeconds = Convert.ToInt32(ConfigurationManager.AppSettings[ImageEnhancementConstants.Settings.CacheSeconds]);
+                    var seconds = ConfigurationManager.AppSettings[ImageEnhancementConstants.Settings.CacheSeconds];
+                    _cacheSeconds = Convert.ToInt32(seconds ?? "300");
                 }
                 return _cacheSeconds;
             }

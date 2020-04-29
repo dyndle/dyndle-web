@@ -10,7 +10,7 @@ namespace Dyndle.Modules.Core
     /// Class FilterConfig.
     /// Used to group all filter related configurations 
     /// </summary>
-    public class FilterConfig
+    public static class FilterConfig
     {
         /// <summary>
         /// Registers the global filters.

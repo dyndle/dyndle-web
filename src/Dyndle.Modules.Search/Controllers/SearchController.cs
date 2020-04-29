@@ -12,7 +12,6 @@ using Dyndle.Modules.Search.Contracts;
 using Dyndle.Modules.Search.Extensions;
 using Dyndle.Modules.Search.Models;
 using Dyndle.Modules.Search.Providers;
-using Dyndle.Modules.Search.Resolver;
 using SearchResults = Dyndle.Modules.Search.Models.SearchResults;
 
 namespace Dyndle.Modules.Search.Controllers
@@ -25,7 +24,6 @@ namespace Dyndle.Modules.Search.Controllers
         private readonly ISearchLinkResolver _searchLinkResolver;
         private readonly ISearchProvider _searchProvider;
         private readonly IContentProvider _contentProvider;
-        private readonly ILogger _logger;
 
         /// <summary>
         /// Initialize the controller with appropriate providers
@@ -34,14 +32,13 @@ namespace Dyndle.Modules.Search.Controllers
         /// <param name="logger">The logger implementation</param>
         /// <param name="searchProvider">The search provider</param>
         /// <param name="viewModelFactory"></param>
-        public SearchController(IContentProvider contentProvider, ILogger logger, ISearchProvider searchProvider, IViewModelFactory viewModelFactory, DefaultSearchLinkResolver searchLinkResolver)
+        public SearchController(IContentProvider contentProvider, ILogger logger, ISearchProvider searchProvider, IViewModelFactory viewModelFactory, ISearchLinkResolver searchLinkResolver)
             : base(contentProvider, logger)
         {
             searchProvider.ThrowIfNull(nameof(searchProvider));
             _searchProvider = searchProvider;
             _searchLinkResolver = searchLinkResolver;
             _contentProvider = contentProvider;
-            _logger = logger;
         }
 
         /// <summary>

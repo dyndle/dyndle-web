@@ -17,9 +17,9 @@ namespace Dyndle.Modules.Core.Services.Taxonomy
     public class TaxonomyService : ITaxonomyService
     {
         private readonly ISiteContext _siteContext;
-        private ICacheAgent _cacheAgent;
-        private IExtendedPublicationResolver _extendedPublicationResolver;
-        private ITaxonomyProvider _taxonomyProvider;
+        private readonly ICacheAgent _cacheAgent;
+        private readonly IExtendedPublicationResolver _extendedPublicationResolver;
+        private readonly ITaxonomyProvider _taxonomyProvider;
         private const string CacheKeyFormat = "Keywords_{0}_{1}";
         private const string CacheRegion = "Keywords";
 
@@ -94,6 +94,27 @@ namespace Dyndle.Modules.Core.Services.Taxonomy
                 Text = x.Title,
                 Value = (new TcmUri(x.Id)).ItemId.ToString()
             }).ToList();
+        }
+
+        public List<string> GetKeywordNames(string categoryXmlName)
+        {
+            var keywords = GetKeywords(categoryXmlName);
+
+            return keywords.Select(k => k.Title).ToList();
+        }
+
+        public Dictionary<string, string> GetKeywordNameKeyDictionary(string categoryXmlName)
+        {
+            var keywords = GetKeywords(categoryXmlName);
+
+            return keywords.ToDictionary(k => k.Title, k => k.Key);
+        }
+
+        public Dictionary<string, string> GetKeywordKeyNameDictionary(string categoryXmlName)
+        {
+            var keywords = GetKeywords(categoryXmlName);
+
+            return keywords.ToDictionary(k => k.Key, k => k.Title);
         }
     }
 }

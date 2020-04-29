@@ -25,19 +25,17 @@ namespace Dyndle.Modules.Core.Attributes.Filter
         /// <summary>
         /// create an instance of AbsoluteUrlAttribute
         /// </summary>
-        /// <param name="publicationResolver"></param>
-        public AbsoluteUrlAttribute(IExtendedPublicationResolver publicationResolver)
+        /// <param name="publicationResolver">The publication resolver.</param>
+        public AbsoluteUrlAttribute()
         {
-            publicationResolver.ThrowIfNull(nameof(publicationResolver));
-
-            _publicationResolver = publicationResolver;
+            _publicationResolver = DependencyResolver.Current.GetService<IExtendedPublicationResolver>();
         }
 
 
         /// <summary>
         /// overrides the Result action.
         /// </summary>
-        /// <param name="filterContext"></param>
+        /// <param name="filterContext">The filter context.</param>
         public override void OnResultExecuted(ResultExecutedContext filterContext)
         {
             if (_active && !filterContext.IsChildAction)
@@ -50,7 +48,7 @@ namespace Dyndle.Modules.Core.Attributes.Filter
         /// <summary>
         /// determines based on ActionDescriptor to enable the Actionilter
         /// </summary>
-        /// <param name="filterContext"></param>
+        /// <param name="filterContext">The filter context.</param>
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
             if (filterContext.IsChildAction) return;

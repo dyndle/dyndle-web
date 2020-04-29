@@ -8,6 +8,7 @@ using DD4T.ContentModel.Contracts.Resolvers;
 using DD4T.Core.Contracts.ViewModels;
 using Dyndle.Modules.Core.Cache;
 using Dyndle.Modules.Core.Extensions;
+using Dyndle.Modules.Core.Models.Defaults;
 using Dyndle.Modules.Core.Models.System;
 using Dyndle.Modules.Core.Providers.Content;
 using Dyndle.Modules.Navigation.Models;
@@ -25,7 +26,7 @@ namespace Dyndle.Modules.Navigation.Providers
         private const string _cacheKeyFormat = "NavigationComplete({0})";
         private const string _cacheKeySpecificFormat = "NavigationSpecific({0},{1},{2},{3},{4},{5})";
         private const string _cacheRegion = "Navigation";
-        private const string URL = "navigation.json";
+        private const string URL = "/system/navigation.json";
         private readonly ICacheAgent _cacheAgent;
         private readonly ISerializedCacheAgent _serializedCacheAgent;
         private readonly IDD4TConfiguration _configuration;
@@ -35,14 +36,15 @@ namespace Dyndle.Modules.Navigation.Providers
         private readonly IViewModelFactory _viewModelFactory;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NavigationProvider"/> class.
+        /// Initializes a new instance of the <see cref="NavigationProvider" /> class.
         /// </summary>
         /// <param name="contentProvider">The content provider.</param>
         /// <param name="logger">The logger.</param>
         /// <param name="configuration">The configuration.</param>
-        /// <param name="viewModelFactory"></param>
-        /// <param name="cacheAgent"></param>
-        /// <param name="publicationResolver"></param>
+        /// <param name="viewModelFactory">The view model factory.</param>
+        /// <param name="cacheAgent">The cache agent.</param>
+        /// <param name="serializedCacheAgent">The serialized cache agent.</param>
+        /// <param name="publicationResolver">The publication resolver.</param>
         public NavigationProvider(IContentProvider contentProvider, ILogger logger, IDD4TConfiguration configuration, IViewModelFactory viewModelFactory, ICacheAgent cacheAgent, ISerializedCacheAgent serializedCacheAgent, IPublicationResolver publicationResolver)
         {
             contentProvider.ThrowIfNull(nameof(contentProvider));
@@ -98,9 +100,7 @@ namespace Dyndle.Modules.Navigation.Providers
         /// </summary>
         /// <param name="levels">The number of levels to return.</param>
         /// <param name="navSubtype">Subtype of the navigation.</param>
-        /// <returns>
-        /// The Navigation Model (Sitemap root Item).
-        /// </returns>
+        /// <returns>The Navigation Model (Sitemap root Item).</returns>
         public virtual ISitemapItem GetAll(int levels = 0, string navSubtype = null)
         {
             string key = _cacheKeySpecificFormat.FormatString(
@@ -137,9 +137,7 @@ namespace Dyndle.Modules.Navigation.Providers
         /// <param name="startLevel">The start level. If startLevel -1 is provided the current page level is used
         /// Otherwise starting from an ancestor of the current page at specified level.</param>
         /// <param name="navSubtype">The nav subtype.</param>
-        /// <returns>
-        /// ISitemapItem.
-        /// </returns>
+        /// <returns>ISitemapItem.</returns>
         public ISitemapItem GetChildren(string requestUrlPath, int levels = 0, int startLevel = -1, string navSubtype = null)
         {
             string key = _cacheKeySpecificFormat.FormatString(_publicationResolver.ResolvePublicationId(), "children", levels, navSubtype, requestUrlPath, startLevel);
@@ -248,8 +246,8 @@ namespace Dyndle.Modules.Navigation.Providers
                 return null;
             }
 
-            var result = _viewModelFactory.BuildViewModel(page.ComponentPresentations.FirstOrDefault());
-            if (result == null || result is ExceptionEntity)
+            var result = _viewModelFactory.BuildViewModel<SitemapItem>(page.ComponentPresentations.FirstOrDefault());
+            if (result == null || result is ExceptionEntity || result is DefaultEntity)
             {
                 result = _viewModelFactory.BuildViewModel<SitemapItem>(page.ComponentPresentations.FirstOrDefault());
             }

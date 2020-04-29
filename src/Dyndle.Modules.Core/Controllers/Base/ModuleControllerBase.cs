@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using DD4T.ContentModel.Contracts.Logging;
 using Dyndle.Modules.Core.Configuration;
+using Dyndle.Modules.Core.Exceptions;
 using Dyndle.Modules.Core.Extensions;
 using Dyndle.Modules.Core.Json;
 using Dyndle.Modules.Core.Models;
@@ -283,7 +284,6 @@ namespace Dyndle.Modules.Core.Controllers.Base
                         if (System.IO.File.Exists(context.HttpContext.Server.MapPath(errorPageUrl)))
                         {
                             // redirect to error page
-                            string errorQuerystring = "?i=1&aspxerrorpath=" + context.HttpContext.Request.Url.ToString().Split('?')[0];
                             context.HttpContext.Server.ClearError();
                             string baseUrl = $"{context.HttpContext.Request.Url.Scheme}://{context.HttpContext.Request.Url.Host}";
                             if (!context.HttpContext.Request.Url.IsDefaultPort)
@@ -300,7 +300,7 @@ namespace Dyndle.Modules.Core.Controllers.Base
 
                         if (page == null)
                         {
-                            throw new Exception(string.Format("Could not find page for error '{0}'", errorPageUrl));
+                            throw new PageNotFoundException(string.Format("Could not find page for error '{0}'", errorPageUrl));
                         }
 
                         context.RouteData.DataTokens.Clear();

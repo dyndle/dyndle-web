@@ -11,8 +11,7 @@ namespace Dyndle.Modules.Core.Services.Preview
         /// 
         /// </summary>
         /// <param name="data"></param>
-        /// <param name="url"></param>
         /// <returns></returns>
-        IWebPage GetPage(string data, string url);
+        IWebPage GetPage(string data);
     }
 }

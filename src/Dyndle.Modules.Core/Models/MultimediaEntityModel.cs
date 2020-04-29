@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web.Mvc;
-using DD4T.ContentModel;
-using DD4T.Core.Contracts.Resolvers;
+﻿using DD4T.ContentModel;
 using DD4T.ViewModels.Attributes;
-using DD4T.ViewModels.Base;
-using Dyndle.Modules.Core.Attributes.ViewModels;
-using Dyndle.Modules.Core.Models.System;
-using Newtonsoft.Json;
 
 namespace Dyndle.Modules.Core.Models
 {
@@ -19,6 +11,10 @@ namespace Dyndle.Modules.Core.Models
     /// <seealso cref="IEntityModel" />
     public abstract class MultimediaEntityModel : EntityModel
     {
+        /// <summary>
+        /// Gets or sets the multimedia.
+        /// </summary>
+        /// <value>The multimedia.</value>
         [Multimedia]
         public IMultimedia Multimedia { get; set; }
 

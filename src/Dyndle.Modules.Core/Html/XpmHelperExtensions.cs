@@ -17,7 +17,7 @@ namespace Dyndle.Modules.Core.Html
         /// and takes place after the entire page (including images etc) has been loaded.
         /// </summary>
         /// <param name="helper">The HtmlHelper</param>
-        /// <returns></returns>
+        /// <returns>MvcHtmlString.</returns>
         public static MvcHtmlString CleanupPreviewCookie(this HtmlHelper helper)
         {
             return new MvcHtmlString(RemovePreviewCookieScript);

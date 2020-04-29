@@ -36,6 +36,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Dyndle.Modules.Core.xml</DocumentationFile>
+    <LangVersion>8</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -44,10 +45,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Package|AnyCPU'">
     <DebugType>full</DebugType>
     <OutputPath>bin\</OutputPath>
+    <LangVersion>8</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Apache.NMS, Version=1.7.1.3894, Culture=neutral, PublicKeyToken=82756feee3957618, processorArchitecture=MSIL">
@@ -100,9 +103,6 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="RazorGenerator.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Trivident.RazorGenerator.Mvc.2.4.9\lib\net40\RazorGenerator.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -161,7 +161,8 @@
     <Compile Include="Attributes\ViewModels\ContentModelBySchemaTitleAttribute.cs" />
     <Compile Include="Attributes\ViewModels\CustomRenderDataAttribute.cs" />
     <Compile Include="Attributes\ViewModels\PageTcmUriAttribute.cs" />
-    <Compile Include="Attributes\ViewModels\ComponentPresentationRegions.cs" />
+    <Compile Include="Attributes\ViewModels\RegionsAttribute.cs" />
+    <Compile Include="Attributes\ViewModels\RegionsBaseAttribute.cs" />
     <Compile Include="Attributes\ViewModels\FiltersAttribute.cs" />
     <Compile Include="Binders\DefaultModelBinder.cs" />
     <Compile Include="Binders\DateAndTimeModelBinder.cs" />
@@ -191,6 +192,9 @@
     <Compile Include="CoreApplicationBase.cs" />
     <Compile Include="DebugInfo\DebugInfoProviderFactory.cs" />
     <Compile Include="DebugInfo\IDebugInfoProvider.cs" />
+    <Compile Include="Exceptions\CacheAgentMismatchException.cs" />
+    <Compile Include="Exceptions\ItemTypeMismatchException.cs" />
+    <Compile Include="Exceptions\PageNotFoundException.cs" />
     <Compile Include="Exceptions\ViewModelBuildException.cs" />
     <Compile Include="Exceptions\ViewModelNotFoundException.cs" />
     <Compile Include="Extensions\CacheExtensions.cs" />
@@ -207,8 +211,11 @@
     <Compile Include="Models\Defaults\DefaultEntity.cs" />
     <Compile Include="Models\Defaults\DefaultWebPage.cs" />
     <Compile Include="Models\MultimediaEntityModel.cs" />
-    <Compile Include="Models\QueryCriteria.cs" />
+    <Compile Include="Models\Query\QueryCriteria.cs" />
+    <Compile Include="Models\Query\SortColumn.cs" />
+    <Compile Include="Models\Query\SortDirection.cs" />
     <Compile Include="Models\SegmentFilter.cs" />
+    <Compile Include="Models\Query\SortParameter.cs" />
     <Compile Include="Modules\ActionFilterModule.cs" />
     <Compile Include="Modules\CacheModule.cs" />
     <Compile Include="Modules\DefaultsModule.cs" />
@@ -231,18 +238,7 @@
     <Compile Include="Html\UrlHelperExtensions.cs" />
     <Compile Include="Html\ViewContextHelpers.cs" />
     <Compile Include="Json\CustomJsonResult.cs" />
-    <Compile Include="Models\Entities\ColumnMarker.cs" />
     <Compile Include="Contracts\Entities\IColumnMarker.cs" />
-    <Compile Include="Models\Entities\EclMedia.cs" />
-    <Compile Include="Models\Entities\Image.cs" />
-    <Compile Include="Models\Entities\Paragraph.cs" />
-    <Compile Include="Models\Entities\Link.cs" />
-    <Compile Include="Models\Entities\LinkImage.cs" />
-    <Compile Include="Models\Entities\LinkImageTitle.cs" />
-    <Compile Include="Models\Entities\LinkTitle.cs" />
-    <Compile Include="Models\Entities\ListOfLinks.cs" />
-    <Compile Include="Models\Entities\MediaAltText.cs" />
-    <Compile Include="Models\Entities\Video.cs" />
     <Compile Include="Models\EntityModel.cs" />
     <Compile Include="Models\IEntityModel.cs" />
     <Compile Include="Models\IFilter.cs" />
@@ -259,7 +255,6 @@
     <Compile Include="Models\System\MvcData.cs" />
     <Compile Include="Models\System\Redirects.cs" />
     <Compile Include="Models\System\SystemSettings.cs" />
-    <Compile Include="Models\TypeDescription.cs" />
     <Compile Include="Models\WebPage.cs" />
     <Compile Include="CoreConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -280,7 +275,8 @@
     <Compile Include="Resolver\LinkResolver.cs" />
     <Compile Include="Resolver\PublicationResolverBase.cs" />
     <Compile Include="Resolver\RichTextFieldResolver.cs" />
-    <Compile Include="Results\XmlResult.cs" />
+    <Compile Include="Services\ContentQueryService.cs" />
+    <Compile Include="Contracts\IContentQueryService.cs" />
     <Compile Include="Services\Preview\IPreviewContentService.cs" />
     <Compile Include="Services\Preview\PreviewContentService.cs" />
     <Compile Include="Services\Redirection\IRedirectionService.cs" />
@@ -299,6 +295,7 @@
       <DependentUpon>web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
