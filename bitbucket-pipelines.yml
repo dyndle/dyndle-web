@@ -53,19 +53,19 @@ definitions:
         size: 2x
         script:
            - apt-get update #placeholder-step since the others are commented out
-          #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Core*.nupkg $PUBLIC_NUGET_APIKEY
-          #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.ComplexTables*.nupkg $PUBLIC_NUGET_APIKEY
-          #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Email*.nupkg $PUBLIC_NUGET_APIKEY
-          #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Feedback*.nupkg $PUBLIC_NUGET_APIKEY
-          #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.ImageEnhancement*.nupkg $PUBLIC_NUGET_APIKEY
-          #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Management*.nupkg $PUBLIC_NUGET_APIKEY
-          #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Navigation*.nupkg $PUBLIC_NUGET_APIKEY
-          #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Personalization*.nupkg $PUBLIC_NUGET_APIKEY
-          #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Search*.nupkg $PUBLIC_NUGET_APIKEY
-          #- nuget push $BITBUCKET_CLONE_DIR/build/packages_special/Dyndle.Providers.SDLWeb8*.nupkg $PUBLIC_NUGET_APIKEY
-          #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Providers.SDLWeb85*.nupkg $PUBLIC_NUGET_APIKEY
-          #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Providers.Tridion9*.nupkg $PUBLIC_NUGET_APIKEY
-          #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Quickstart.Web*.nupkg $PUBLIC_NUGET_APIKEY
+          #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Core*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY
+          #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.ComplexTables*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY
+          #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Email*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY
+          #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Feedback*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY
+          #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.ImageEnhancement*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY
+          #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Management*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY
+          #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Navigation*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY
+          #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Personalization*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY
+          #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Search*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY
+          #- nuget push $BITBUCKET_CLONE_DIR/build/packages_special/Dyndle.Providers.SDLWeb8*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY
+          #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Providers.SDLWeb85*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY
+          #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Providers.Tridion9*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY
+          #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Quickstart.Web*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY
 pipelines:
   branches:
     release:
