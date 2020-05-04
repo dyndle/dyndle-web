@@ -194,7 +194,7 @@ namespace Dyndle.Modules.Navigation.Models
         {
             XElement root = new XElement(xmlns + "urlset");
             var baseUrl = $"{baseUri.Scheme}://{baseUri.Host}";
-            var rootNode = this.CreateSitemapNodeElement(this, baseUrl, true);
+            var rootNode = this.CreateSitemapNodeElement(this, baseUrl);
             root.Add(rootNode);
             this.GenerateSitemapNodes(root, this, baseUrl);
 
@@ -232,7 +232,6 @@ namespace Dyndle.Modules.Navigation.Models
         /// </summary>
         /// <param name="sitemapNode"></param>
         /// <param name="baseUrl"></param>
-        /// <param name="isHomepage"></param>
         /// <returns></returns>
         private XElement CreateSitemapNodeElement(SitemapItem sitemapNode, string baseUrl)
         {
