@@ -2,6 +2,9 @@
 
 namespace Dyndle.Modules.Core.Exceptions
 {
+    /// <summary>
+    /// The exception that is thrown when during querying the found template does not match the item type. 
+    /// </summary>
     [Serializable]
     public class ItemTypeMismatchException : Exception
     {

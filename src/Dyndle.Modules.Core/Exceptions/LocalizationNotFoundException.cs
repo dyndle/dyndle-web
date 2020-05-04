@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace Dyndle.Modules.Core.Exceptions
 {
+    /// <summary>
+    /// The exception that is thrown during publication resolving where no matching localization was found for the url. 
+    /// </summary>
     [Serializable]
     public class LocalizationNotFoundException : Exception
     {
@@ -34,7 +38,7 @@ namespace Dyndle.Modules.Core.Exceptions
         /// </summary>
         /// <param name="serializationInfo">The serializationInfo.</param>
         /// <param name="streamingContext">The streamingContext.</param>
-        protected LocalizationNotFoundException(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext)
+        protected LocalizationNotFoundException(SerializationInfo serializationInfo, StreamingContext streamingContext)
         {
         }
     }
