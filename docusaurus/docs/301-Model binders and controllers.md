@@ -4,7 +4,7 @@ title: Model binders and controllers
 sidebar_label: Model binders and controllers
 ---
 
-Dyndle comes with a set of controllers to handle the retrieval and display of content from Tridion. Dyndle has a PageController for pages, a RegionController for regions (groups of component presentations), an EntityController for component presentations, and a BinaryController for binaries.
+Dyndle comes with a set of controllers to handle the retrieval and display of content from Tridion. There is a PageController for pages, a RegionController for regions (groups of component presentations), an EntityController for component presentations (called 'entities' in Dyndle), and a BinaryController for binaries.
 
 If you look at the source code of these controllers, you will see they are very small. This is possible because the 'hard work' is done behind the scenes, in so-called Model Binders. See https://www.c-sharpcorner.com/article/introduction-to-asp-net-mvc-model-binding/ if you don't know what these are.
 

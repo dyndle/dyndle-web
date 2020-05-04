@@ -1,20 +1,15 @@
 ---
 id: index
-title: Introduction
-sidebar_label: Introduction
+title: What is Dyndle?
+sidebar_label: What is Dyndle?
 ---
 
-Here is quick walkthrough of what Dyndle is and how to get started with it.
+Dyndle (shorthand for Dynamic Delivery) is the new way to develop a web site in .NET, powered by SDL Tridion Sites. Dyndle is built on top of the popular [DD4T](https://dd4t.org/) framework. It is open source software and offered free-of-charge. [Trivident](https://trivident.com) is the company that manages pull request and releases, but anyone can contribute. [Trivident](https://trivident.com) can also arrange support for Dyndle as part of its professional services offering.
 
-## What is Dyndle?
+From an architecture point of view, Dyndle preserves one of the big benefits of DD4T: the fact that you own and control your web application. At the same time, Dyndle saves you a lot of time, because it adds many useful features to DD4T, while leaving you in full control of your own web application.
 
-Dyndle (short from Dynamic Delivery) is the new .Net development kit for websites powered by SDL Tridion Sites, built on top of the renowned [DD4T](https://dd4t.org/) framework. Dyndle is a product that is offered free-of-charge and developed open-source. [Trivident](https://trivident.com) is the company that manages pull request and releases, but anyone can contribute. [Trivident](https://trivident.com) can also arrange support for Dyndle as part of the professional services.
 
-From an architecture point of view, Dyndle preserves one of the big benefits of DD4T: the fact that you own and control your web application. Dyndle adds many useful features to DD4T, but still leaves you in full control of your own web application.
-
-The Dyndle framework consists of multiple modules that provide different functionality. During implementation process, you can choose which modules to use, based on the requirements.
-
-### All you need to get your first Dyndle application running
+## How to use Dyndle
 
 - [Download the Dyndle CLI](/download)
 - Create an empty .Net Framework MVC5 project
@@ -26,7 +21,9 @@ The Dyndle framework consists of multiple modules that provide different functio
 
 You can find a more detailed walkthrough in [Getting started with Dyndle](getting-started)
 
-In [Installation and setup](installation) you can find more information, such [Converting an existing implementation to Dyndle](converting-dd4t) and the [Configuration reference](configuration).
+In the Installation section, you can find more information on how to install Dyndle, plus the full [Configuration reference](configuration).
+
+The core features of Dyndle are described in the Implementing Dyndle section.
 
 ## Dyndle Modules
 

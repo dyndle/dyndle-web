@@ -54,7 +54,7 @@ See [Dyndle Navigation](navigation)
 
 ## Dyndle Search
 
-Search
+The search module provides search functionality to your web application through the Solr search platform. It makes use of  SI4T to easily define which pages to index in Tridion and provides many customization options to tailor search results.  
 
 See [Dyndle Search](search)
 

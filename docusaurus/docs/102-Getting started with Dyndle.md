@@ -4,13 +4,13 @@ title: Getting started with Dyndle
 sidebar_label: Getting started with Dyndle
 ---
 
-With Dyndle, it is much easier to create and maintain web sites powered by Tridion.
-
 Installing and configuring Dyndle happens in simple steps:
 
 1. The installation of the Content Manager items
 2. The creation of an ASP.NET MVC web application
 3. Generating models and views (or manually creating them)
+
+The steps are explained in this document.
 
 ## 1. Prerequisites
 
@@ -29,7 +29,7 @@ If you already have an ASP.NET MVC application based on DD4T, check out _Convert
 
 ### Preparing the environment
 
-1. Download the Dyndle CLI from https://www.dyndle.com/downloads/latest/dyndle-tools.zip
+1. Download the Dyndle CLI from https://www.dyndle.com/downloads
 2. Unzip in a folder of your choice and store the file dyndle.exe in a convenient location (ideally in a folder that is part of the PATH environment variable of your Windows machine)
 3. Next, you need to tell Dyndle about your Tridion Content Manager. You do this by running the following command:
 
