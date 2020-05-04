@@ -5,6 +5,7 @@ using DD4T.ContentModel.Contracts.Logging;
 using DD4T.ContentModel.Contracts.Resolvers;
 using DD4T.Core.Contracts.ViewModels;
 using Dyndle.Modules.Core.Environment;
+using Dyndle.Modules.Core.Exceptions;
 using Dyndle.Modules.Core.Extensions;
 using Dyndle.Modules.Core.Models.Query;
 using Dyndle.Modules.Core.Providers.Content;
@@ -122,7 +123,7 @@ namespace Dyndle.Providers
                     }
                     break;
             }
-            throw new Exception($"The template ID {templateId} found for viewname {viewName} does not match the itemtype {itemType} criterium.");
+            throw new ItemTypeMismatchException($"The template ID {templateId} found for viewname {viewName} does not match the itemtype {itemType} criterium.");
         }
 
         /// <summary>
