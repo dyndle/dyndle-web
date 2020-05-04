@@ -141,6 +141,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RazorGeneratorMvcStart.cs" />
+    <Compile Include="Areas\Management\Views\Cache\RemoveItems.generated.cs">
+      <DependentUpon>RemoveItems.cshtml</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Areas\Management\Views\Cache\_ViewStart.generated.cs">
       <DependentUpon>_ViewStart.cshtml</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -236,6 +241,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <Content Include="Areas\Management\Views\Cache\RemoveItems.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>RemoveItems.generated.cs</LastGenOutput>
+    </Content>
     <None Include="Areas\Management\Views\Cache\_ViewStart.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>_ViewStart.generated.cs</LastGenOutput>

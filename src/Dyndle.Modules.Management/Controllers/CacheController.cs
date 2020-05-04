@@ -116,5 +116,26 @@ namespace Dyndle.Modules.Management.Controllers
             _cacheProvider.ClearCache();
             return View();
         }
+
+        /// <summary>
+        /// Remove items matching the search criteria from the cache
+        /// </summary>
+        /// <returns>ActionResult.</returns>
+        public virtual ActionResult RemoveItems(string search="")
+        {
+            var itemsRemoved = new List<string>();
+            if (!string.IsNullOrEmpty(search))
+            {
+                foreach(var item in _cacheProvider.GetList().Where(i => i.Key.ToLowerInvariant().Contains(search.ToLowerInvariant())))
+                {
+                    _cacheProvider.RemoveItem(item.Key);
+                    itemsRemoved.Add(item.Key);
+                }
+            }
+
+            ViewData["items"] = itemsRemoved;
+
+            return View();
+        }
     }
 }

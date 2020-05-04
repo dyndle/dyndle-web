@@ -89,6 +89,17 @@ Note that the *duration* attribute in the outputCacheProfile and the *value* of 
 
 DD4T can be configured to automatically decache items when they are republished or unpublished. This is described [here](https://github.com/dd4t/DD4T.Caching.ApacheMQ).
 
+If you are using SDL Web 8.1 or lower, you need to do one more thing in order for cache invalidation to work. You must add the following to the appSettings section of your Web.config:
+
+```xml
+  <add key="DD4T.UDPEnabled" value="false" />
+```
+
+Explanation: DD4T consumes messages that are produced by the Tridion deployer. With the introduction of SDL Web 8.5, the format of these messages has changed. This has to do with the so-called 'Unified Delivery Platform' - the revised delivery / deployer architecture created by SDL. A UDP deployer can deliver content coming from SDL Tridion Sites as well as SDL Tridion Docs. As a result, the messages sent to invalidate items has an extra string attached to it to identify the 'namespace' - "1:" for Sites and "2:" for Docs.
+
+With the UDPEnabled key, you let DD4T know which version of the messages it can expect.
+
+
 ## Cache browser
 
 If you add a NuGet reference to Dyndle.Modules.Management, a cache browser is automatically added to your application. Just start the site and browse to /admin/cache. You will be able to view all the items in the cache, search for items, remove items or clear the entire cache.

@@ -26,18 +26,3 @@ public override void RegisterRoutes(AreaRegistrationContext context)
 }
 ```
 
-## Register Types
-
-The `RegisterTypes` method allows you to register types that symantically belong to a certain area. However, the service collection where the types are registered is global. Therefore, you must not register types twice for two different areas.
-
-This method is used for making sure Dyndle Modules that are contained within a single area can have their types registered without you having to modify the DI set up. However, you may also use this approach for your own areas within the web application, if you prefer this approach of managing type registation. Below is an example from Dyndle Image Enhancement module:
-
-```c#
-public override void RegisterTypes(IServiceCollection serviceCollection)
-{
-	serviceCollection.AddSingleton(typeof(IImageEnhancementController), typeof(ImageEnhancementController));
-	serviceCollection.AddSingleton(typeof(IImageEnhancementService), typeof(DefaultImageEnhancementService));
-	serviceCollection.AddSingleton(typeof(IModelBinderProvider), typeof(EnhancementSettingsModelBinder));
-	serviceCollection.AddSingleton(typeof(IConfiguration), typeof(WebConfiguration));
-}
-```

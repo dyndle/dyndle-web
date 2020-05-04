@@ -12,13 +12,14 @@ The following table describes the configuration values in the appsettings sectio
 
 ### General
 
-| Config key                    | Example Value             | Description                                                                                                                                                                              |
-| ----------------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Dyndle.ViewModelNamespaces    | Dyndle.Modules, Acme.Core | Namespaces which contain viewmodel classes (multiple namespaces can be comma-separated)                                                                                                  |
-| Dyndle.ControllerNamespaces   | Dyndle.Modules, Acme.Web  | Namespaces which contain controller classes (multiple namespaces can be comma-separated)                                                                                                 |
-| Dyndle.DefaultRegionView      | AcmeRegion                | The name of the default view to use when Html.RenderRegion or Html.RenderRegions is called. Defaults to `Region`.                                                                        |
+| Config key                    | Example Value             | Description                                                  |
+| ----------------------------- | ------------------------- | ------------------------------------------------------------ |
+| Dyndle.ViewModelNamespaces    | Dyndle.Modules, Acme.Core | Namespaces which contain viewmodel classes (multiple namespaces can be comma-separated) |
+| Dyndle.ControllerNamespaces   | Dyndle.Modules, Acme.Web  | Namespaces which contain controller classes (multiple namespaces can be comma-separated) |
+| Dyndle.DefaultRegionView      | AcmeRegion                | The name of the default view to use when Html.RenderRegion or Html.RenderRegions is called. Defaults to `Region`. |
 | Dyndle.DefaultEntityTypeName  | AcmeEntity                | Full type name (including the namespace) of the default entity (which is returned if no matching entity model is found). Defaults to `Dyndle.Modules.Core.Models.Defaults.DefaultEntity` |
 | Dyndle.DefaultWebPageTypeName | AcmePage                  | Full type name (including the namespace) of the default webpage (which is returned if no matching page model is found). Defaults to `Dyndle.Modules.Core.Models.Defaults.DefaultWebPage` |
+| DD4T.IncludeFileExtensions    | true/false                | Defines whether urls should use file extensions.             |
 
 ### System pages
 
@@ -63,13 +64,11 @@ The following table describes the configuration values in the appsettings sectio
 | Dyndle.DirectorySegmentsUsedForPublicationMapping | 3             | The number of segments used to detect the publication we are in, based on the topology manager mapping. Defaults to `1` |
 | Dyndle.PublicationBasePath                        |               | The base path of the publication (used only in combination with the DD4T.PublicationId appSetting)                      |
 
-## Management
 
-...
 
 ## Navigation
 
-The following table describes the configuration values in the appsettings section of the web config that are used in the Dyndle Image Enhancement module.
+The following table describes the configuration values in the appsettings section of the web config that are used in the Dyndle Navigation module.
 
 | Config key                          | Default Value             | Description                                                                                                                         |
 | :---------------------------------- | :------------------------ | :---------------------------------------------------------------------------------------------------------------------------------- |
@@ -80,16 +79,25 @@ The following table describes the configuration values in the appsettings sectio
 
 ## Search
 
-...
+The following table describes the configuration values in the  appsettings section of the web config that are used in the Dyndle Image  Enhancement module.
+
+| Config key                 | Example Value                              | Description                                                  |
+| :------------------------- | :----------------------------------------- | :----------------------------------------------------------- |
+| Search.BaseUrl             | `http://serverhostname:8984/solr/staging/` | Setting that specifies the url of the Solr endpoint.         |
+| Search.BaseField           | `title,body`                               | The field or fields to be used in the search query. Multiple fields need to be comma separated. Defaults to `title` and `body` when not set. |
+| Search.TimeoutMilliseconds | `5000`                                     | The timout in milliseconds for the http request to the Solr client. Defaults to 5000 if not set. |
+| Search.ResponseItemModel   | `MyCustomResultItemModel`                  | Optional override for the model to be used for the result of the search query. Defaults to the generic `SearchResultItem` model included in the search module if not set. |
+| Search.PageSize            | `10`                                       | The number of results to display per page. Defaults to 10 per page if not set. |
+| Search.GroupingPageSize    | `5`                                        | The number of results to display per group when the search query contained a group by statement. |
 
 ## Image Enhancement
 
 The following table describes the configuration values in the appsettings section of the web config that are used in the Dyndle Image Enhancement module.
 
-| Config key                       | Example Value     | Description                                                                                                            |
-| -------------------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| ImageEnhancement.Localpath       | "/EnhancedImages" | Where the enhanced versions of the images will be stored (defaults to /EnhancedImages)                                 |
-| ImageEnhancement.Backgroundcolor | "#fff"            | The color that is used when you crop an image and provide a width and height that's higher than the cropped area.      |
-| ImageEnhancement.Cacheseconds    | "300"             | How long the enhanced image will be retrieved from the cache before creating a new enhanced version. (defaults to 300) |
+| Config key                       | Example Value     | Description                                                  |
+| -------------------------------- | ----------------- | ------------------------------------------------------------ |
+| ImageEnhancement.Localpath       | `/EnhancedImages` | Where the enhanced versions of the images will be stored (defaults to /EnhancedImages) |
+| ImageEnhancement.Backgroundcolor | `#fff`            | The color that is used when you crop an image and provide a width and height that's higher than the cropped area. |
+| ImageEnhancement.Cacheseconds    | `300`             | How long the enhanced image will be retrieved from the cache before creating a new enhanced version. (defaults to 300) |
 
 Note that the caching of enhanced images is independent from the normal DD4T / Dyndle caching. It is NOT possible to automatically delete enhanced images when the parent image is unpublished or republished (decaching). It is generally advisable to keep the value low.

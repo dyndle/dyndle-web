@@ -1,0 +1,15 @@
+﻿@{
+    var items = ViewData["items"] as List<string> ?? new List<string>();
+}
+<h1>Cache removal</h1>
+Items with the following keys were removed. Click <a href="/admin/cache">here</a> to return to the cache listing.
+
+@if (items.Count > 0)
+{
+    <ul>
+        @foreach (var item in items)
+        {
+            <li>item</li>
+        }
+    </ul>
+}
