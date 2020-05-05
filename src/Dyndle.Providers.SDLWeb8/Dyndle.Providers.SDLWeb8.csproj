@@ -306,6 +306,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Dyndle.Providers.Base\Resolvers\NullPublicationMapping.cs">
+      <Link>Resolvers\NullPublicationMapping.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

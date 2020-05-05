@@ -31,7 +31,7 @@ namespace Dyndle.Providers.Resolvers
         {
             if (result == null)
             {
-                return null;
+                result = new NullPublicationMapping();
             }
             return new PublicationMapping()
             {
@@ -43,5 +43,6 @@ namespace Dyndle.Providers.Resolvers
                 PathScanDepth = result.PathScanDepth
             };
         }
+
     }
 }

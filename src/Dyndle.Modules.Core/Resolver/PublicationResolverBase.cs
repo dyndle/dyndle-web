@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using DD4T.ContentModel.Contracts.Logging;
+using Dyndle.Modules.Core.Configuration;
 using Dyndle.Modules.Core.Contracts;
 using Dyndle.Modules.Core.Extensions;
 
@@ -48,12 +50,15 @@ namespace Dyndle.Modules.Core.Resolvers
         /// <returns>Uri.</returns>
         public Uri GetBaseUri()
         {
-            var _mapping = this.FindMapping();
-            UriBuilder uriBuilder = new UriBuilder();
-            uriBuilder.Scheme = _mapping.Protocol;
-            uriBuilder.Host = _mapping.Domain;
-            uriBuilder.Path = _mapping.Path;
-            uriBuilder.Port = int.Parse(_mapping.Port);
+            var mapping = this.FindMapping();
+
+            UriBuilder uriBuilder = new UriBuilder
+            {
+                Scheme = !mapping.Protocol.IsNullOrEmpty() ? mapping.Protocol : HttpContext.Current.Request.Url.Scheme,
+                Host = !mapping.Domain.IsNullOrEmpty() ? mapping.Domain : HttpContext.Current.Request.Url.Host,
+                Path = !mapping.Path.IsNullOrEmpty() ? mapping.Path : DyndleConfig.PublicationBasePath,
+                Port = !mapping.Port.IsNullOrEmpty() ? int.Parse(mapping.Port) : HttpContext.Current.Request.Url.Port
+            };
             return uriBuilder.Uri;
         }
 
@@ -156,10 +161,18 @@ namespace Dyndle.Modules.Core.Resolvers
         /// <returns></returns>
         private string[] RemoveExtensions(string[] segments)
         {
-            if (segments.Last().Contains("."))
-                return segments.Take(segments.Count() - 1).ToArray();
+            if (segments.Any() && segments.Last().Contains("."))
+            {
+                if (segments.Count() > 1)
+                {
+                    return segments.Take(segments.Count() - 1).ToArray();
+                }
+                return new string[0];
+            }
             else
+            {
                 return segments;
+            }
         }
 
         private int _directorySegmentsUsedForPublicationMapping = -1;
