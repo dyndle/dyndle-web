@@ -26,7 +26,10 @@ namespace Dyndle.Modules.Core.Services.Taxonomy
         /// <summary>
         /// Taxonomy service constructor
         /// </summary>
-        /// <param name="siteContext">Sitecontext</param>
+        /// <param name="siteContext">The sitecontext.</param>
+        /// <param name="cacheAgent">The cache agent.</param>
+        /// <param name="extendedPublicationResolver">The extended publication resolver.</param>
+        /// <param name="taxonomyProvider">The taxonomyprovider.</param>
         public TaxonomyService(ISiteContext siteContext, ICacheAgent cacheAgent, IExtendedPublicationResolver extendedPublicationResolver, ITaxonomyProvider taxonomyProvider)
         {
             _siteContext = siteContext;
@@ -96,6 +99,11 @@ namespace Dyndle.Modules.Core.Services.Taxonomy
             }).ToList();
         }
 
+        /// <summary>
+        /// Method to get keyword names
+        /// </summary>
+        /// <param name="categoryXmlName">Category XML name</param>
+        /// <returns>Returns string list with keyword name</returns>
         public List<string> GetKeywordNames(string categoryXmlName)
         {
             var keywords = GetKeywords(categoryXmlName);
@@ -103,6 +111,11 @@ namespace Dyndle.Modules.Core.Services.Taxonomy
             return keywords.Select(k => k.Title).ToList();
         }
 
+        /// <summary>
+        /// Method to get keyword name-key dictionary
+        /// </summary>
+        /// <param name="categoryXmlName">Category XML name</param>
+        /// <returns>Returns dictionary with keyword name and keyword id</returns>
         public Dictionary<string, string> GetKeywordNameKeyDictionary(string categoryXmlName)
         {
             var keywords = GetKeywords(categoryXmlName);
@@ -110,6 +123,11 @@ namespace Dyndle.Modules.Core.Services.Taxonomy
             return keywords.ToDictionary(k => k.Title, k => k.Key);
         }
 
+        /// <summary>
+        /// Method to get keyword key-name dictionary
+        /// </summary>
+        /// <param name="categoryXmlName">Category XML name</param>
+        /// <returns>Returns selected items list with keyword id and keyword name</returns>
         public Dictionary<string, string> GetKeywordKeyNameDictionary(string categoryXmlName)
         {
             var keywords = GetKeywords(categoryXmlName);

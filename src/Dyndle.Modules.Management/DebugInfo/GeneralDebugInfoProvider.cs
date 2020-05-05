@@ -30,11 +30,11 @@ namespace Dyndle.Modules.Management.DebugInfo
             foreach (var parameter in filterContext.ActionParameters)
             {
                 var v = parameter.Value;
-                if (v != null && typeof(ViewModelBase).IsAssignableFrom(v.GetType()))
+                if (v != null && v is ViewModelBase)
                 {
                     var vm = v as IViewModel;
 
-                    if (vm != null && typeof(IPage).IsAssignableFrom(vm.ModelData.GetType()))
+                    if (vm != null && vm is IPage)
                     {
                         page = vm.ModelData as IPage;
                         if (page.LastPublishedDate == default(DateTime))

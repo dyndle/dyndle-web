@@ -42,7 +42,7 @@ namespace Dyndle.Modules.Core.Providers.Filter
         private static bool ShouldFilter(ControllerContext context)
         {
             // only set the cookie if we are dealing with the page controller or the entity controller 
-            if (!(typeof(PageController).IsAssignableFrom(context.Controller.GetType()) || typeof(EntityController).IsAssignableFrom(context.Controller.GetType())))
+            if (!(context.Controller is PageController || context.Controller is EntityController)) 
             {
                 return false;
             }
