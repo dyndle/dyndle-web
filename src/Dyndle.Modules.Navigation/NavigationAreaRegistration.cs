@@ -25,6 +25,10 @@ namespace Dyndle.Modules.Navigation
             serviceCollection.AddSingleton(typeof(INavigationService), typeof(NavigationService));
         }
 
+        /// <summary>
+        /// Registers the routes.
+        /// </summary>
+        /// <param name="context">The Arearegistration context</param>
         public override void RegisterRoutes(AreaRegistrationContext context)
         {
             context.MapRoute(

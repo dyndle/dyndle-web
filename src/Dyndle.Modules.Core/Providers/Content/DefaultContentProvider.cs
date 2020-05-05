@@ -89,6 +89,17 @@ namespace Dyndle.Modules.Core.Providers.Content
         /// <summary>
         /// Gets the page.
         /// </summary>
+        /// <param name="pageId">The page identifier.</param>
+        /// <returns>IPage.</returns>
+        public IPage GetPage(TcmUri pageId)
+        {
+            var page = _pageFactory.GetPage(pageId.ToString());
+            return page;
+        }
+
+        /// <summary>
+        /// Gets the page.
+        /// </summary>
         /// <param name="url">The URL.</param>
         /// <returns>IPage.</returns>
         public IPage GetPage(string url)
@@ -102,12 +113,9 @@ namespace Dyndle.Modules.Core.Providers.Content
             }
 
             var alternativeUrl = url.ParseUrl(_publicationResolver.GetBaseUri().AbsolutePath, true, _configuration.WelcomeFile);
-            if (currentUrl != alternativeUrl)
+            if (currentUrl != alternativeUrl && _pageFactory.TryFindPage(Uri.EscapeUriString(alternativeUrl), out page))
             {
-                if (_pageFactory.TryFindPage(Uri.EscapeUriString(alternativeUrl), out page))
-                {
-                    return page;
-                }
+                return page;
             }
             return null;
         }
@@ -140,16 +148,6 @@ namespace Dyndle.Modules.Core.Providers.Content
         }
         private static readonly object locker = new object();
 
-        /// <summary>
-        /// Gets the page.
-        /// </summary>
-        /// <param name="pageId">The page identifier.</param>
-        /// <returns>IPage.</returns>
-        public IPage GetPage(TcmUri pageId)
-        {
-            var page = _pageFactory.GetPage(pageId.ToString());
-            return page;
-        }
 
         /// <summary>
         /// Gets the content of the page.
@@ -167,12 +165,9 @@ namespace Dyndle.Modules.Core.Providers.Content
                 return pageContent;
             }
             var alternativeUrl = url.ParseUrl(_publicationResolver.GetBaseUri().AbsolutePath, true, _configuration.WelcomeFile);
-            if (alternativeUrl != currentUrl)
+            if (alternativeUrl != currentUrl && _pageFactory.TryFindPageContent(currentUrl, out pageContent))
             {
-                if (_pageFactory.TryFindPageContent(currentUrl, out pageContent))
-                {
-                    return pageContent;
-                }
+                return pageContent;
             }
             return null;
         }

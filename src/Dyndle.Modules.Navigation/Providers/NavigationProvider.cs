@@ -251,7 +251,7 @@ namespace Dyndle.Modules.Navigation.Providers
             {
                 result = _viewModelFactory.BuildViewModel<SitemapItem>(page.ComponentPresentations.FirstOrDefault());
             }
-            ((SitemapItem)result).CleanAllUrls(_configuration.WelcomeFile);
+            (result).CleanAllUrls(_configuration.WelcomeFile);
 
             _serializedCacheAgent.Store(key, _cacheRegion, result);
             return (ISitemapItem)result;

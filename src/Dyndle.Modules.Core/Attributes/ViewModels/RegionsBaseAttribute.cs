@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
 using DD4T.ContentModel;
 using DD4T.Core.Contracts.ViewModels;
 using DD4T.ViewModels.Attributes;
-using Dyndle.Modules.Core.Contracts.Entities;
 using Dyndle.Modules.Core.Models;
-using Dyndle.Modules.Core.Models.System;
 
 namespace Dyndle.Modules.Core.Attributes.ViewModels
 {
@@ -17,6 +13,13 @@ namespace Dyndle.Modules.Core.Attributes.ViewModels
     /// </summary>
     public abstract class RegionsBaseAttribute : ModelPropertyAttributeBase
     {
+        /// <summary>
+        /// Returns a list of regions based on the provided modeldata and property. Will try to use Tridion 9 regions before getting the regions from component presentations.
+        /// </summary>
+        /// <param name="modelData">The model data.</param>
+        /// <param name="property">The property.</param>
+        /// <param name="factory">The view model factory.</param>
+        /// <returns>IEnumerable.</returns>
         public override IEnumerable GetPropertyValues(IModel modelData, IModelProperty property, IViewModelFactory factory)
         {
             IEnumerable result = null;
