@@ -16,10 +16,6 @@ namespace Dyndle.Modules.Management.DebugInfo
         /// The action execution time
         /// </summary>
         private long actionExecutionTime;
-        /// <summary>
-        /// The result execution time
-        /// </summary>
-        private long resultExecutionTime;
 
         /// <summary>
         /// The stop watch
@@ -39,7 +35,7 @@ namespace Dyndle.Modules.Management.DebugInfo
             foreach (var parameter in filterContext.ActionParameters)
             {
                 var v = parameter.Value;
-                if (v != null && typeof(ViewModelBase).IsAssignableFrom(v.GetType()))
+                if (v != null && v is ViewModelBase)
                 {
                     model = v;
                 }
@@ -109,7 +105,7 @@ namespace Dyndle.Modules.Management.DebugInfo
         public override void OnResultExecuted(ResultExecutedContext filterContext)
         {
             stopWatch.Stop();
-            resultExecutionTime = stopWatch.ElapsedMilliseconds;
+            var resultExecutionTime = stopWatch.ElapsedMilliseconds;
             filterContext.HttpContext.Response.Write(string.Format("<legend title=\"area:controller:action:model:view, action execution time + view render time = total execution time\"><small>{0}({1} + {2} = {3})</small></legend></fieldset>", GetDescription(filterContext, filterContext.Result), actionExecutionTime, resultExecutionTime, actionExecutionTime + resultExecutionTime));
         }
     }

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using DD4T.ContentModel;
 using DD4T.Core.Contracts.ViewModels;
-using Dyndle.Modules.Core.Contracts.Entities;
 using Dyndle.Modules.Core.Models;
 using Dyndle.Modules.Core.Models.System;
 

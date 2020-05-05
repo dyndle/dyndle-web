@@ -18,7 +18,7 @@ namespace Dyndle.Modules.Core.Services.Preview
         private readonly IContentProvider _contentProvider;
         private readonly ILogger _logger;
         /// <summary>
-        /// Initializes a new instance of the <see cref="DyndleOutputCacheAttribute"/> class.
+        /// Initializes a new instance of the <see cref="PreviewContentService"/> class.
         /// </summary>
         /// <param name="pageFactory">The Page Factory</param>
         /// <param name="contentProvider">The Content Provider</param>
@@ -41,7 +41,7 @@ namespace Dyndle.Modules.Core.Services.Preview
         /// <returns></returns>
         public IWebPage GetPage(string data)
         {
-            if (! typeof(PreviewAwareCacheAgent).IsAssignableFrom(_pageFactory.CacheAgent.GetType()))
+            if (!(_pageFactory.CacheAgent is PreviewAwareCacheAgent))
             {
                 _logger.Warning("It is not allowed to preview without the PreviewAwareCacheAgent (otherwise the previewed content may be cached and show up on the regular site)");
                 throw new CacheAgentMismatchException($"the application is using {nameof(_pageFactory.CacheAgent)} as its cache agent, previewing not allowed");

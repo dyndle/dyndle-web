@@ -25,7 +25,7 @@ namespace Dyndle.Modules.Search.Binders
             var resultsPerPage = (entityModel as IHasPageSize).ResultsPerPage.ToString(CultureInfo.InvariantCulture);
             var groupingRowSize = ConfigurationManager.AppSettings[SearchConstants.Settings.SearchGroupingPageSize];
 
-            if (typeof(IFilterFields).IsInstanceOfType(entityModel))
+            if (entityModel is IFilterFields)
             {
                 IFilterFields filterFields = entityModel as IFilterFields;
 
@@ -45,7 +45,7 @@ namespace Dyndle.Modules.Search.Binders
             bool isGroupBySearch = false;
             var groupByField = string.Empty;
 
-            if (typeof(ISearchGroupBy).IsInstanceOfType(entityModel))
+            if (entityModel is ISearchGroupBy)
             {
                 ISearchGroupBy groupByFields = entityModel as ISearchGroupBy;
                 if (groupByFields != null && !string.IsNullOrWhiteSpace(groupByFields.GroupByField))
@@ -56,7 +56,7 @@ namespace Dyndle.Modules.Search.Binders
                 }
             }
 
-            if (typeof(IHasSortOrder).IsInstanceOfType(entityModel))
+            if (entityModel is IHasSortOrder)
             {
                 routeValues.Add("sort", (entityModel as IHasSortOrder).SortOrder);
             }
@@ -64,7 +64,7 @@ namespace Dyndle.Modules.Search.Binders
             routeValues.Add("hits", isGroupBySearch ? groupingRowSize : resultsPerPage);
 
             var searchQueryBuilder = new SearchQueryBuilder(controllerContext, bindingContext, routeValues);
-            var isDynamicList = typeof(IDynamicList).IsInstanceOfType(entityModel);
+            var isDynamicList = entityModel is IDynamicList;
             if (string.IsNullOrWhiteSpace(searchQueryBuilder.SearchQueryString) && !isDynamicList) return null;
 
             var query = searchQueryBuilder.SearchQuery;

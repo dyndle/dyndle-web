@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using DD4T.ContentModel;
 using Dyndle.Modules.Core.Models.System;
 
