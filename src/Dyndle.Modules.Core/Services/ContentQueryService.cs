@@ -5,12 +5,14 @@ using DD4T.ContentModel.Contracts.Resolvers;
 using DD4T.Core.Contracts.ViewModels;
 using Dyndle.Modules.Core.Contracts;
 using Dyndle.Modules.Core.Extensions;
-using Dyndle.Modules.Core.Interfaces;
 using Dyndle.Modules.Core.Models.Query;
 using Dyndle.Modules.Core.Providers.Content;
 
 namespace Dyndle.Modules.Core.Services
 {
+    /// <summary>
+    /// Querying service for the Tridion broker database.
+    /// </summary>
     public class ContentQueryService : IContentQueryService
     {
         // cache keys
@@ -23,11 +25,12 @@ namespace Dyndle.Modules.Core.Services
         private readonly IContentQueryProvider _contentQueryProvider;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DefaultContentQueryProvider" /> class.
+        /// Initializes a new instance of the <see cref="ContentQueryService" /> class.
         /// </summary>
         /// <param name="contentProvider">The content provider.</param>
         /// <param name="publicationResolver">The publication resolver.</param>
         /// <param name="cacheAgent">The cache agent.</param>
+        /// <param name="contentQueryProvider">The content query provider.</param>
         public ContentQueryService(IContentProvider contentProvider, IPublicationResolver publicationResolver, ICacheAgent cacheAgent, IContentQueryProvider contentQueryProvider)
         {
             cacheAgent.ThrowIfNull(nameof(cacheAgent));

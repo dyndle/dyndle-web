@@ -2,7 +2,6 @@
 using System.Web.Mvc;
 using Dyndle.Modules.Core.Attributes.Passive;
 using Dyndle.Modules.Core.Contracts;
-using Dyndle.Modules.Core.Extensions;
 
 namespace Dyndle.Modules.Core.Attributes.Filter
 {
@@ -25,7 +24,6 @@ namespace Dyndle.Modules.Core.Attributes.Filter
         /// <summary>
         /// create an instance of AbsoluteUrlAttribute
         /// </summary>
-        /// <param name="publicationResolver">The publication resolver.</param>
         public AbsoluteUrlAttribute()
         {
             _publicationResolver = DependencyResolver.Current.GetService<IExtendedPublicationResolver>();
