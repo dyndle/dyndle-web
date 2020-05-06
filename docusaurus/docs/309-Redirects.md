@@ -13,7 +13,7 @@ To use redirects in your webapplication you need to create a page that contains 
 
 When the page is published, the url needs to be set in the web config of your web application so the core module knows where to find it. Note that you can only set one url in this setting, so make sure you put all of your redirects on the same page. The setting should look like this:
 
-`<add key="Dyndle.RedirectsUrl" value="your-redirect-page.html" />`
+`<add key="Dyndle.RedirectsUrl" value="/your-redirect-page.html" />`
 
 If the page is contained in a stucture group add this to the path as well, like so:
 
