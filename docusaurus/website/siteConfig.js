@@ -85,8 +85,8 @@ const siteConfig = {
   // No .html extensions for paths.
   cleanUrl: true,
 
-  enableUpdateBy: true,
-  enableUpdateTime: true
+  enableUpdateBy: false,
+  enableUpdateTime: false
 
   // Open Graph and Twitter card images.
   // ogImage: 'img/undraw_online.svg',

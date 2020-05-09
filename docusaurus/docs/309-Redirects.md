@@ -2,7 +2,6 @@
 id: redirects
 title: Managing redirects
 sidebar_label: Managing redirects
-
 ---
 
 The Dyndle core module provides a way to manage redirects in your webapplication through Tridion. You can define a source url and a target url in a component and can choose which type of redirect it should use. The schema for the component is included in the installation of the Dyndle templates. 
