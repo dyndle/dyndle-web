@@ -29,7 +29,7 @@ The Core module is a mandatory module as it enables the core features of Dyndle.
 
 - Extensionless URLs
 
-  If you run Dyndle, you don't have to use file extensions in your URLs. For example, a Tridion page called 'news.html' in the Root structure group, is accessible through the URL 'http://my.company/news'. Links to pages are automatically rendered without the extension. This behavior can be disabled in the [configuration](). 
+  If you run Dyndle, you don't have to use file extensions in your URLs. For example, a Tridion page called 'news.html' in the Root structure group, is accessible through the URL 'http://my.company/news'. Links to pages are automatically rendered without the extension. This behavior can be disabled in the [configuration](configuration.html). 
 
 - Smart output caching, which caches the entire output of your page but drops it as soon as the page is republished or unpublished
 
@@ -42,21 +42,21 @@ The Core module is a mandatory module as it enables the core features of Dyndle.
 
 The Management module improves development and management of the web application. Key features of this module include cache management capabilities and debug information for the web application.
 
-See [Dyndle Management](management)
+See [Dyndle Management](management.html)
 
 
 ## Dyndle Navigation
 
 The navigation module makes it easier than ever to generate navigation based on the structure groups in Tridion. When you add this module to your application, you can write out different types of navigation from your views, like top navigation, left navigation, breadcrumbs and complete sitemaps.
 
-See [Dyndle Navigation](navigation)
+See [Dyndle Navigation](navigation.html)
 
 
 ## Dyndle Search
 
 The search module provides search functionality to your web application through the Solr search platform. It makes use of  SI4T to easily define which pages to index in Tridion and provides many customization options to tailor search results.  
 
-See [Dyndle Search](search)
+See [Dyndle Search](search.html)
 
 
 ## Dyndle Templates

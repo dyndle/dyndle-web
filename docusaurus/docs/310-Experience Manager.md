@@ -11,7 +11,7 @@ You need to take the following steps:
 - Enable the AmbientData framework
 - Configure Experience Manager
 - Change your page views
-- Change your entity (component) views
+- Change your entity (= component) views
 
 
 ## Before you start

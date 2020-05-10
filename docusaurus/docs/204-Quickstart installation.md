@@ -1,78 +1,15 @@
 ---
-id: getting-started
-title: Getting started with Dyndle
-sidebar_label: Getting started with Dyndle
+id: quickstart-installation
+title: Quickstart web app installation
+sidebar_label: Web application - quickstart installation
 ---
 
-Installing and configuring Dyndle happens in simple steps:
-
-1. The installation of the Content Manager items
-2. The creation of an ASP.NET MVC web application
-3. Generating models and views (or manually creating them)
-
-The steps are explained in this document.
-
-## 1. Prerequisites
-
-- Content Manager
-  - SDL Web 8
-  - SDL Web 8.5
-  - SDL Tridion Sites 9.0
-  - SDL Tridion Sites 9.1
-- DD4T Templates
-
-To learn how to create DD4T templates, please check https://github.com/dd4t/DD4T.Core/wiki/Installing-the-DD4T-templates. Note: contrarily to what that manual says, you do not need to create a metadata schema for your templates. This is created by the Dyndle installer (as explained further down on this page).
-
-If you already have an ASP.NET MVC application based on DD4T, check out _Converting your existing DD4T application to Dyndle_.
-
-## 2. Content Manager installation
-
-### Preparing the environment
-
-1. Download the Dyndle CLI from https://www.dyndle.com/downloads
-2. Unzip in a folder of your choice and store the file dyndle.exe in a convenient location (ideally in a folder that is part of the PATH environment variable of your Windows machine)
-3. Next, you need to tell Dyndle about your Tridion Content Manager. You do this by running the following command:
-
-```shell=
-dyndle add-environment --name AnyName --url Url --username UserName --domain UserDomain --password Password
-```
-
-**Explanation of the arguments:**
-&dash;&dash;name : this can be any name, it is just for you to recognize it later
-&dash;&dash;url : the address of the Tridion Content Manager (just like you would type it in the browser)
-&dash;&dash;username : the name of a user with Administrator rights within Tridion
-&dash;&dash;domain: the user domain (if any, for a local user you can leave this out)
-&dash;&dash;password : the password
-
-### Installing the Dyndle Content Manager items
-
-Install the Content Manager items of Dyndle with the following command:
-
-```shell=
-dyndle install --dyndle-folder tcm:x-y-z --dyndle-sg tcm:x-y-z --environment EnvironmentName
-```
-
-**Explanation of the arguments:**
-
-&dash;&dash;dyndle-folder : the TCM URI of the folder where you want to install Dyndle's building blocks. We recommend that you pick a folder somewhere high up in the BluePrint hierarchy, like your 'System Parent', 'Template Master', or something similar. This should be an empty folder.
-
-&dash;&dash;dyndle-sg : the TCM URI of the structure group where you want to put the Dyndle system pages. We would recommend to create a System structure group (directory name 'system') within the root structure group of your website master. You can also choose an structure group with pages in it.
-
-&dash;&dash;environment : this is the name of the environment you created before.
-
-### Multiple environments
-
-The Dyndle CLI lets you install Dyndle in multiple Content Manager environments, by simply adding new environments and running the 'dyndle install' command for each of them.
-Of course, you can also choose to use the Content Porter to copy the Dyndle items from one Content Manager to the next.
-
-## 3. Setting up a web application
 
 There are two ways to set up a web application with Dyndle:
 
-1. Set up a web application quickly with Dyndle Quickstart. We will make a couple of choices for you, to make it even easier. The most important choice we made is to use Autofac as the dependency injection framework.
-2. Set up a web application without Dyndle Quickstart. Choose this option if you want to be in full control or if you want to use another one of the supported dependency injection frameworks (Unity, Ninject or Simple Injector).
 
-In this manual we will be using the Quickstart. If you want to use Dyndle without the Quickstart, see _Installing Dyndle without the Quickstart_. Note that in both cases you will need to install the Content Management components first.
+
+In this manual we will be using the Quickstart. If you want to use Dyndle without the Quickstart, see [Manual Installation](manual-installation.html). Note that in both cases you will need to [install the Content Management components](installation-cm.html) first.
 
 > ### What does the Quickstart do?
 >
@@ -99,7 +36,7 @@ In this manual we will be using the Quickstart. If you want to use Dyndle withou
    - Remove the appSettings with key name starting with "JMS". You can add it back later, see [Enabling caching with Dyndle](https://)
    - The 'WelcomeFile' indicates the filename + extension to be added after the URL of a structure group (a 'directory' in Tridion). If you want to use something other than _index.html_, you can change the value.
 
-You don't need to change the other Dyndle and DD4T settings unless you want to. The settings are explained in detail in [How to configure Dyndle](configuration).
+You don't need to change the other Dyndle and DD4T settings unless you want to. The settings are explained in detail in [How to configure Dyndle](configuration.html).
 
 ### Publication resolving
 
@@ -122,7 +59,7 @@ This is nothing to worry about. It is actually good news: it means you are ready
 
 Of course you can create your models and views yourself. But you can also let Dyndle generate them for you.
 
-Model generation is a very useful feature of Dyndle. Dyndle will create a model class for each schema in Tridion. This will save you a lot of time and is less error-prone than creating them manually. And even though the models are generated, you can still extend and tailor them, as is described in [Customizing generated models](customizing-models). But of course, you can still create all models manually if you want.
+Model generation is a very useful feature of Dyndle. Dyndle will create a model class for each schema in Tridion. This will save you a lot of time and is less error-prone than creating them manually. And even though the models are generated, you can still extend and tailor them, as is described in [Customizing generated models](customizing-models.html). But of course, you can still create all models manually if you want.
 
 View generation is a different matter. For almost all implementations, you will be creating views manually, because the views are where you generate the look and feel that you (or your customer) wants to see. However, Dyndle allows you to generate views from the content manager. The generated views provide a good example and serve as a starting point.
 

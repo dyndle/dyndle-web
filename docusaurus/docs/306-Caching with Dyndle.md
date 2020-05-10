@@ -104,11 +104,11 @@ With the UDPEnabled key, you let DD4T know which version of the messages it can 
 
 If you add a NuGet reference to Dyndle.Modules.Management, a cache browser is automatically added to your application. Just start the site and browse to /admin/cache. You will be able to view all the items in the cache, search for items, remove items or clear the entire cache.
 
-If you have put the @Html.ShowDebugInfo() in your layout view (as described in the documentation of the  [Management module](management)), you will see a button top right that opens the cache browser in a separate tab.
+If you have put the @Html.ShowDebugInfo() in your layout view (as described in the documentation of the [Management module](management.html)), you will see a button top right that opens the cache browser in a separate tab.
 
 ## Preview-aware cache agent
 
-If you plan to use [Experience Manager](xpm) in combination with Dyndle, it is good to know that Dyndle has a PreviewAwareCacheAgent, which is automatically loaded for staging environments, to replace DD4T's DefaultCacheAgent. The PreviewAwareCacheAgent detects when you are executing a session preview in Experience Manager, and automatically disables caching for pages and component presentations if you are. 
+If you plan to use [Experience Manager](xpm.html) in combination with Dyndle, it is good to know that Dyndle has a PreviewAwareCacheAgent, which is automatically loaded for staging environments, to replace DD4T's DefaultCacheAgent. The PreviewAwareCacheAgent detects when you are executing a session preview in Experience Manager, and automatically disables caching for pages and component presentations if you are. 
 
 To enable this cache agent, all you need to do is add this appSetting to the Web.config:
 

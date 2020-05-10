@@ -1,9 +1,12 @@
 {
     "docs": {
-        "Essentials": ["index", "getting-started", "functionality-overview"],
+        "Essentials": ["index", "functionality-overview"],
         "Installation": [
+            "prerequisites", 
+            "preparing-cm", 
             "installation-cm", 
-			"installation", 
+			"quickstart-installation", 
+			"manual-installation", 
 			"configuration"
 		],
         "Implementing Dyndle": [

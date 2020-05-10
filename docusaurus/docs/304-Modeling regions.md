@@ -58,7 +58,7 @@ will result in three region models:
 Rendering of a region normally means sequential rendering of all entities in it, but this can also be further customized by using more advanced logic and/or layout. For instance, to render the whole footer region with proper HTML markup and some business logic.
 
 Rendering of the regions can be done using HTML helpers `Html.RenderRegion(region)` and `Html.RenderRegions(regions)`.
-There is a setting 'Dyndle.DefaultRegionView' in [configuration](configuration) that determines which view is used to render a region by default. `Html.RenderRegion` also has an overload that allows you to specify a view name to be used to render the region.
+There is a setting 'Dyndle.DefaultRegionView' in [configuration](configuration.html) that determines which view is used to render a region by default. `Html.RenderRegion` also has an overload that allows you to specify a view name to be used to render the region.
 
 ## Regions and includes
 
