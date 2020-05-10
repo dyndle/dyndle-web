@@ -20,7 +20,7 @@ The Search Integration 4 Tridion project is used to index Tridion pages in the S
 
 ## Install
 
-Add a reference to the NuGet package: Dyndle.Modules.Search. Then provide the module with the endpoint of the Solr client. This can be done using the `BaseUrl` config setting in the web config. Refer to the [Configuring Dyndle](configuration) chapter for an example value and all the other settings that can be used for customization of the functionality of the search module.
+Add a reference to the NuGet package: Dyndle.Modules.Search. Then provide the module with the endpoint of the Solr client. This can be done using the `BaseUrl` config setting in the web config. Refer to the [Configuring Dyndle](configuration.html) chapter for an example value and all the other settings that can be used for customization of the functionality of the search module.
 
 ## Using the SI4T TBBs
 

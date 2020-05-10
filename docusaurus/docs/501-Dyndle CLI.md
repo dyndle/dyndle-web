@@ -4,7 +4,7 @@ title: Running Dyndle CLI
 sidebar_label: Running Dyndle CLI
 ---
 
-The Dyndle command-line interface (CLI) is a simple executable which runs on any Windows machine. It can be downloaded from https://www.dyndle.com/downloads/latest/dyndle-tools.zip.
+The Dyndle command-line interface (CLI) is a simple executable which runs on any Windows machine. It can be downloaded from https://www.dyndle.com/download.html.
 
 Unzip in a folder of your choice and store the file dyndle.exe in a convenient location (ideally in a folder that is part of the PATH environment variable of your Windows machine).
 

@@ -1,10 +1,9 @@
 ---
 id: configuration
-title: Configuring Dyndle
-sidebar_label: Configuring Dyndle
+title: Configuration Reference
+sidebar_label: Configuration Reference
 ---
 
-Below you can find an overview of all configuration values that are used by each Dyndle module:
 
 ## Core
 

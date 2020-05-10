@@ -1,15 +1,23 @@
 ---
-id: installation
-title: Installing Dyndle without the QuickStart
-sidebar_label: Setting up the web application
+id: manual-installation
+title: Manual web app installation
+sidebar_label: Web application - manual installation
 ---
 
-In order to use Dyndle, following steps must be carried out:
+We do recommend that you first give our [Quickstart](quickstart-installation.html) a go. This is the easiest way to get your application up and running.
 
+The page you are reading now explains how to install Dyndle if you don't want to use the Quickstart!
+
+And of course, you must make sure the [CM-side installation](installation-cm.html) is done before you can start on the web application.
+
+## Overview of steps
+
+In order to build a web application using Dyndle, following steps must be carried out:
+
+- Create an ASP.NET MVC 5 web application
 - Install NuGet package(s)
 - Make sure Dyndle features are loaded in the application
-- Add configuration (see [next chapter](configuration))
-- Make sure there all neccessary items are present in Tridion (see [Dyndle CLI](cli)).
+- Add configuration (see [Configuration Reference](configuration.html))
 
 ## Install
 
@@ -17,11 +25,7 @@ NuGet package: `Dyndle.Modules.Core`
 
 NuGet package: `Dyndle.Providers.XXX` - depending on the Tridion version you are using
 
-## Load
-
-We do recommend that you first give our [quickstart](getting-started) a go. Using Quickstart NuGet package will add classes and dependencies neccessary to load Dyndle.
-
-### Do It Yourself
+## Wire up the application
 
 If you already have a DI setup in place or you would like to use a framework that is not supported by quickstart, you will make sure that Dyndle is properly initialized before and after DI container is built. If you already have existing functionality in place, make sure that it is modified like you find in the examples below.
 

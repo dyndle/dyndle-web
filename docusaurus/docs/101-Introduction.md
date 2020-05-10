@@ -9,21 +9,18 @@ Dyndle (shorthand for Dynamic Delivery) is the new way to develop a web site in 
 From an architecture point of view, Dyndle preserves one of the big benefits of DD4T: the fact that you own and control your web application. At the same time, Dyndle saves you a lot of time, because it adds many useful features to DD4T, while leaving you in full control of your own web application.
 
 
-## How to use Dyndle
+## Where to start
 
-- [Download the Dyndle CLI](/download)
-- Create an empty .Net Framework MVC5 project
-- Install [Dyndle.Quickstart.Web](https://www.nuget.org/packages/Dyndle.Quikstart.Web) NuGet package
-- Add a few [configuration values](configuration)
-- Use the CLI to install everything you need in Tridion
-- Use the CLI to generate models and views for you
-- Run!
+To use Dyndle, you need to install it first. The installation consists of the following steps:
 
-You can find a more detailed walkthrough in [Getting started with Dyndle](getting-started)
+1. Check the [prerequisites](prerequisites.html)
+2. [Prepare the Tridion content manager](preparing-cm.html)
+3. Install Dyndle [in the content manager](installation-cm.html)
+4. Install the web application, using either the [Quickstart process](quickstart-installation.html) or by [installing it manually](manual-installation.html)
 
-In the Installation section, you can find more information on how to install Dyndle, plus the full [Configuration reference](configuration).
 
-The core features of Dyndle are described in the Implementing Dyndle section.
+In the Installation section, you can find all the information you need on how to install Dyndle, plus the full [Configuration reference](configuration.html).
+
 
 ## Dyndle Modules
 
@@ -31,14 +28,14 @@ Dyndle is organized in modules. The core module is mandatory - without it you ca
 
 You can add additional features by adding a NuGet reference to the various modules:
 
-- [Management](management)
+- [Management](management.html)
   - Adds a cache browser
   - Adds a debugging mode
-- [Image Enhancement](image-enhancement)
+- [Image Enhancement](image-enhancement.html)
   - Adds a controller that lets you transform images on the fly
-- [Navigation](navigation)
+- [Navigation](navigation.html)
   - Adds a service that allows you generate any navigation based on the sitemap
-- [Search](search)
+- [Search](search.html)
   - Adds an interface to talk to Solr
 
 More modules will be released shortly.

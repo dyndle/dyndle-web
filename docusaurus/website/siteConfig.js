@@ -24,7 +24,7 @@ const siteConfig = {
   title: "Docs", // Title for your website.
   tagline: "Dyndle documentation",
   url: "https://www.dyndle.com/", // Your website URL
-  baseUrl: "/new-dyndle/", // Base URL for your project */
+  baseUrl: "/", // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
@@ -83,7 +83,7 @@ const siteConfig = {
   // On page navigation for the current documentation page.
   onPageNav: "separate",
   // No .html extensions for paths.
-  cleanUrl: true,
+  cleanUrl: false,
 
   enableUpdateBy: false,
   enableUpdateTime: false
