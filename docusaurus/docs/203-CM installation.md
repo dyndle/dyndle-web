@@ -16,11 +16,16 @@ dyndle add-environment --name AnyName --url Url --username UserName --domain Use
 ```
 
 **Explanation of the arguments:**
-&dash;&dash;name : this can be any name, it is just for you to recognize it later
-&dash;&dash;url : the address of the Tridion Content Manager (just like you would type it in the browser)
-&dash;&dash;username : the name of a user with Administrator rights within Tridion
+
+&dash;&dash;name: this can be any name, it is just for you to recognize it later
+
+&dash;&dash;url: the address of the Tridion Content Manager (just like you would type it in the browser)
+
+&dash;&dash;username: the name of a user with Administrator rights within Tridion
+
 &dash;&dash;domain: the user domain (if any, for a local user you can leave this out)
-&dash;&dash;password : the password
+
+&dash;&dash;password: the password
 
 ## Installing the Dyndle Content Manager items
 
@@ -32,11 +37,11 @@ dyndle install --dyndle-folder tcm:x-y-z --dyndle-sg tcm:x-y-z --environment Env
 
 **Explanation of the arguments:**
 
-&dash;&dash;dyndle-folder : the TCM URI of the folder where you want to install Dyndle's building blocks. We recommend that you pick a folder somewhere high up in the BluePrint hierarchy, like your 'System Parent', 'Template Master', or something similar. This should be an empty folder.
+&dash;&dash;dyndle-folder: the TCM URI of the folder where you want to install Dyndle's building blocks. We recommend that you pick a folder somewhere high up in the BluePrint hierarchy, like your 'System Parent', 'Template Master', or something similar. This should be an empty folder.
 
-&dash;&dash;dyndle-sg : the TCM URI of the structure group where you want to put the Dyndle system pages. We would recommend to create a System structure group (directory name 'system') within the root structure group of your website master. You can also choose an structure group with pages in it.
+&dash;&dash;dyndle-sg: the TCM URI of the structure group where you want to put the Dyndle system pages. We would recommend to create a System structure group (directory name 'system') within the root structure group of your website master. You can also choose an structure group with pages in it.
 
-&dash;&dash;environment : this is the name of the environment you created before.
+&dash;&dash;environment: this is the name of the environment you created before.
 
 ## Multiple environments
 
