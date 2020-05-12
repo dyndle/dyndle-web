@@ -70,7 +70,7 @@ pipelines:
   branches:
     release:
         - step: *build-packages
-        - step: *push-public
+        - step: *push-private
     prerelease:
         - step: *build-packages
         - step: *push-private
