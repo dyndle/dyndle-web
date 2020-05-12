@@ -24,7 +24,7 @@ const siteConfig = {
   title: "Docs", // Title for your website.
   tagline: "Dyndle documentation",
   url: "https://www.dyndle.com/", // Your website URL
-  baseUrl: "/", // Base URL for your project */
+  baseUrl: "/new-dyndle/", // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
