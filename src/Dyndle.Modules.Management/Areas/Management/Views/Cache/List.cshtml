@@ -1,0 +1,71 @@
+﻿@model Dyndle.Modules.Management.Models.CacheListInfo
+@using Dyndle.Modules.Core.Extensions
+@using Dyndle.Modules.Management.Extensions
+
+<h1>Cache</h1>
+<span>The cache contains @Model.Total</span> items.
+<form class="pure-form" action="">
+    <fieldset>
+        <legend>Cache operations</legend>
+        <input type="text" name="search" id="search" value="@Model.SearchQuery" placeholder="Search">
+        <button type="submit" class="pure-button">Search in the cache</button>
+        <button onClick="window.location='/admin/cache/removeitems?search=@Model.SearchQuery'" class="pure-button pure-button-primary">Clear filtered items from cache</button>
+        <button onClick="window.location='/admin/cache/removeall'; return false" class="pure-button pure-button-primary">Clear all cached items</button>
+    </fieldset>
+</form>
+
+@if (Model.PaginationEnabled)
+{
+    <form class="pure-form" action="">
+        <fieldset>
+            <legend>Pagination</legend>
+            @foreach (var pageToShow in Model.PagesToShow)
+            {
+                var nrToShow = pageToShow + 1;
+                if (pageToShow == -1) // -1 = show ellipsis
+                {
+                    <button class="pure-button pure-button-disabled">...</button>
+                    continue;
+                }
+                var searchQueryToAdd = Model.SearchQuery == null ? "" : Model.SearchQuery.UrlEncode();
+                if (pageToShow == Model.CurrentPageNr)
+                {
+                    <button class="pure-button pure-button-disabled">@nrToShow</button>
+                }
+                else
+                {
+                    <button onClick="window.location='/admin/cache?pageNr=@pageToShow&amp;search=@searchQueryToAdd'; return false" class="pure-button">@nrToShow</button>
+                }
+            }
+        </fieldset>
+    </form>
+}
+<table class="pure-table pure-table-horizontal">
+    <caption>Cache items list</caption>
+    <tr>
+        <th scope="col">Key</th>
+        <th scope="col">Value</th>
+        <th scope="col">Actions</th>
+    </tr>
+    @{
+        var i = 0;
+    }
+    @foreach (var item in Model.Items)
+    {
+        var cssClass = (++i % 2 == 1) ? @"class=""pure-table-odd""" : "";
+
+
+        <tr @cssClass>
+            <td>
+                @item.Key
+            </td>
+            <td>
+                @item.Value.ToString().Summarize()
+            </td>
+            <td>
+                <a href="/admin/cache/remove/@item.Key.Base64Encode()">Remove</a> |
+                <a href="/admin/cache/item/@item.Key.Base64Encode()">View</a>
+            </td>
+        </tr>
+    }
+</table>

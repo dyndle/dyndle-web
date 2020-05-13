@@ -1,0 +1,28 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Dyndle.Modules.Navigation</id>
+    <!-- Version is set by Build.proj -->
+    <version>0.1.0.0-alpha-20200325163729</version>
+    <!-- NOTE: Visual Studio's NuGet UI only shows 'id' and 'description' -->
+    <title>Dyndle.Modules.Navigation</title>
+    <authors>Trivident</authors>
+    <iconUrl>http://www.trivident.com/dd4t-modules-logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Dyndle.Modules.Navigation</description>
+    <copyright>Copyright 2020 Trivident</copyright>
+    <tags>Dyndle DD4T SDL Web Tridion Sites Trivident</tags>
+    <references>
+      <reference file="Dyndle.Modules.Navigation.dll" />
+    </references>
+    <dependencies>
+      <dependency id="Dyndle.Modules.Core" version="1.0"/>
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- NOTE: we're excluding CIL assemblies to prevent licensing issues (CIL has a custom license; not Apache 2.0) -->
+    <file src="..\..\Dyndle.Modules.Navigation\bin\Dyndle.Modules.Navigation.dll" target="lib\net462" />
+    <file src="..\..\Dyndle.Modules.Navigation\bin\Dyndle.Modules.Navigation.pdb" target="lib\net462" />
+    <file src="web.config.install.xdt" target="content" />
+  </files>
+</package>
