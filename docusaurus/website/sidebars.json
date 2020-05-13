@@ -1,0 +1,36 @@
+{
+    "docs": {
+        "Essentials": ["index", "functionality-overview"],
+        "Installation": [
+            "prerequisites", 
+            "preparing-cm", 
+            "installation-cm", 
+			"quickstart-installation", 
+			"manual-installation", 
+			"configuration"
+		],
+        "Implementing Dyndle": [
+            "model-binders-and-controllers",
+            "dependencies",
+            "adding-routes",
+            "modeling-regions",
+            "include-pages",
+            "caching",
+            "labels",
+            "dynamic-content",
+            "redirects",
+            "xpm",
+            "preview"
+        ],
+        "Dyndle Modules": [
+            "management",
+            "image-enhancement",
+            "navigation",
+            "search"
+        ],
+        "Dyndle CLI": [
+			"cli", 
+			"customizing-models"
+		]
+    }
+}

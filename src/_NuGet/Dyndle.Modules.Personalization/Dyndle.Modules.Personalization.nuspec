@@ -1,0 +1,26 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Dyndle.Modules.Personalization</id>
+    <!-- Version is set by Build.proj -->
+    <version>0.1.0.0-alpha-20200325163729</version>
+    <title>Dyndle.Modules.Personalization</title>
+    <authors>Trivident</authors>
+    <iconUrl>http://www.trivident.com/dd4t-modules-logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Dyndle.Modules.Personalization</description>
+    <copyright>Copyright 2018 Trivident</copyright>
+    <tags>SDL DD4T Web8 Trivident</tags>
+    <references>
+      <reference file="Dyndle.Modules.Personalization.dll" />
+    </references>
+    <dependencies>
+      <dependency id="Dyndle.Modules.Core" version="0.0.9"/>
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- NOTE: we're excluding CIL assemblies to prevent licensing issues (CIL has a custom license; not Apache 2.0) -->
+    <file src="..\..\Dyndle.Modules.Personalization\bin\Dyndle.Modules.Personalization.dll" target="lib\net462" />
+    <file src="..\..\Dyndle.Modules.Personalization\bin\Dyndle.Modules.Personalization.pdb" target="lib\net462" />
+  </files>
+</package>

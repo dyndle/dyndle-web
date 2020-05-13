@@ -1,0 +1,33 @@
+﻿@model DD4T.ContentModel.Page
+
+<tr>
+    <td>ID</td>
+    <td>@Model.Id</td>
+</tr>
+<tr>
+    <td>Title</td>
+    <td>@Model.Title</td>
+</tr>
+<tr>
+    <td># of component presentations</td>
+    <td>@{ 
+        if (Model.ComponentPresentations != null)
+        {
+            @Model.ComponentPresentations.Count()
+        }
+        else
+        {
+            <span>0</span>
+        }
+    }
+    </td>
+</tr>
+@if (Model.Schema != null)
+{
+    <tr>
+        <td>Metadata schema</td>
+        <td>@Model.Schema.Title</td>
+    </tr>
+
+}
+
