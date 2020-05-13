@@ -11,7 +11,7 @@ pipelines:
   branches:
 # uncomment next line to build releases as well as prereleases
 #    '{release,prerelease}':
-    blabla:
+    master:
         - step: 
            size: 2x
            script:
