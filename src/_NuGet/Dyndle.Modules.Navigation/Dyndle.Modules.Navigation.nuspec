@@ -11,12 +11,12 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Dyndle.Modules.Navigation</description>
     <copyright>Copyright 2020 Trivident</copyright>
-    <tags>SDL DD4T Web8 Trivident Dyndle</tags>
+    <tags>Dyndle DD4T SDL Web Tridion Sites Trivident</tags>
     <references>
       <reference file="Dyndle.Modules.Navigation.dll" />
     </references>
     <dependencies>
-      <dependency id="Dyndle.Modules.Core" version="0.0.9"/>
+      <dependency id="Dyndle.Modules.Core" version="1.0"/>
     </dependencies>
   </metadata>
   <files>
