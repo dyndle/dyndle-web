@@ -47,13 +47,13 @@ pipelines:
            #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Email*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
            #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Feedback*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
            #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Personalization*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
-           - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Core*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
-           - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.ImageEnhancement*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
-           - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Management*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
-           - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Navigation*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
-           - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Search*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
+           #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Core*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
+           #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.ImageEnhancement*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
+           #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Management*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
+           #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Navigation*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
+           #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Search*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
            - nuget push $BITBUCKET_CLONE_DIR/build/packages_no_conflict/Dyndle.Providers.SDLWeb8*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
-           - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Providers.SDLWeb85*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
+           #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Providers.SDLWeb85*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
            - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Providers.Tridion9*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
            - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Quickstart.Web*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
            #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.ComplexTables*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY
