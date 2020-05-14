@@ -63,7 +63,7 @@ There is a setting 'Dyndle.DefaultRegionView' in [configuration](configuration.h
 
 ## Regions and includes
 
-Regions can also be used to manage includes, which are reusable pages that can be inserted in any view in your web application. To read more about includes refer to <a href="include-pages">Including content from other pages</a>.
+Regions can also be used to manage includes, which are reusable pages that can be inserted in any view in your web application. To read more about includes refer to <a href="include-pages.html">Including content from other pages</a>.
 
 ## Grouping component presentations without using regions
 If you don't want to use regions at all, you can group component presentations in different ways. One approach is to use the annotations that are available in DD4T:
