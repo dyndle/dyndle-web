@@ -1,6 +1,7 @@
 ---
 id: search
 title: Dyndle Search
+description: Documentation for Dyndle
 sidebar_label: Dyndle Search
 ---
 

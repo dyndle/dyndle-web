@@ -1,6 +1,7 @@
 ---
 id: include-pages
 title: Including content from other pages
+description: Documentation for Dyndle
 sidebar_label: Including content from other pages
 ---
 

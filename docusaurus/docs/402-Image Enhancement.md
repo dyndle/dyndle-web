@@ -1,6 +1,7 @@
 ---
 id: image-enhancement
 title: Dyndle Image Enhancement
+description: Documentation for Dyndle
 sidebar_label: Dyndle Image Enhancement
 ---
 

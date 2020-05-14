@@ -1,6 +1,7 @@
 ---
 id: model-binders-and-controllers
 title: Model binders and controllers
+description: Documentation for Dyndle
 sidebar_label: Model binders and controllers
 ---
 

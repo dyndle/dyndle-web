@@ -1,6 +1,7 @@
 ---
 id: xpm
 title: Working with Experience Manager
+description: Documentation for Dyndle
 sidebar_label: Experience Manager
 ---
 
@@ -45,7 +46,7 @@ To work around this, you can create a config folder somewhere else (e.g. in a fo
 
 ```shell
 xcopy "$(SolutionDir)..\config" "$(TargetDir)config" /Y /E /I
-``` 
+```
 
 
 ## Configuring Experience Manager

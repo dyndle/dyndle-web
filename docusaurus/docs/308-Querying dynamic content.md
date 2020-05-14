@@ -1,6 +1,7 @@
 ---
 id: dynamic-content
 title: Querying dynamic content
+description: Documentation for Dyndle
 sidebar_label: Querying dynamic content
 ---
 

@@ -1,6 +1,7 @@
 ---
 id: customizing-models
 title: Customizing generated models
+description: Documentation for Dyndle
 sidebar_label: Customizing generated models
 ---
 
