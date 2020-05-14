@@ -1,6 +1,7 @@
 ---
 id: management
 title: Dyndle Management
+description: Documentation for Dyndle
 sidebar_label: Dyndle Management
 ---
 

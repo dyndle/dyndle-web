@@ -1,6 +1,7 @@
 ---
 id: index
 title: What is Dyndle?
+description: Documentation for Dyndle
 sidebar_label: What is Dyndle?
 ---
 

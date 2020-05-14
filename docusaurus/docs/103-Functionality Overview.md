@@ -1,6 +1,7 @@
 ---
 id: functionality-overview
 title: Functionality Overview
+description: Documentation for Dyndle
 sidebar_label: Functionality Overview
 ---
 

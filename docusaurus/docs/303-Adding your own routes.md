@@ -1,6 +1,7 @@
 ---
 id: adding-routes
 title: Adding your own routes
+description: Documentation for Dyndle
 sidebar_label: Adding your own routes
 ---
 

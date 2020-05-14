@@ -1,6 +1,7 @@
 ---
 id: redirects
 title: Managing redirects
+description: Documentation for Dyndle
 sidebar_label: Managing redirects
 ---
 

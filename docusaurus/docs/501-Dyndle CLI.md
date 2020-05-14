@@ -1,6 +1,7 @@
 ---
 id: cli
 title: Running Dyndle CLI
+description: Documentation for Dyndle
 sidebar_label: Running Dyndle CLI
 ---
 
@@ -66,7 +67,7 @@ For example:
 
 ```shell
 dyndle install --dyndle-folder tcm:2-123-2 --dyndle-sg tcm:8-456-4
-``` 
+```
 
 Note that the folder and the structure group can be in different publications. However, the publication containing the folder must be a parent of the publication containing the structure group.
 

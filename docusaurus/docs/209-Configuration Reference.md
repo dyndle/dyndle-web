@@ -1,6 +1,7 @@
 ---
 id: configuration
 title: Configuration Reference
+description: Documentation for Dyndle
 sidebar_label: Configuration Reference
 ---
 

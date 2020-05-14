@@ -1,6 +1,7 @@
 ---
 id: preview
 title: Previewing pages
+description: Documentation for Dyndle
 sidebar_label: Previewing pages
 ---
 

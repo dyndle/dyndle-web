@@ -22,7 +22,7 @@
 
 const siteConfig = {
   title: "Docs", // Title for your website.
-  tagline: "Dyndle documentation",
+  tagline: "Dyndle Documentation",
   url: "https://www.dyndle.com/", // Your website URL
   baseUrl: "/new-dyndle/", // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
@@ -86,11 +86,13 @@ const siteConfig = {
   cleanUrl: false,
 
   enableUpdateBy: false,
-  enableUpdateTime: false
+  enableUpdateTime: false,
 
   // Open Graph and Twitter card images.
-  // ogImage: 'img/undraw_online.svg',
-  // twitterImage: 'img/undraw_tweetstorm.svg',
+  ogImage: 'img/cover.jpg',
+  twitterImage: 'img/cover.jpg',
+
+  gaTrackingId: 'UA-166637962-2'
 
   // For sites with a sizable amount of content, set collapsible to true.
   // Expand/collapse the links and subcategories under categories.

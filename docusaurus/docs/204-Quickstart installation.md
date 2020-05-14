@@ -1,6 +1,7 @@
 ---
 id: quickstart-installation
 title: Quickstart web app installation
+description: Documentation for Dyndle
 sidebar_label: Web application - quickstart installation
 ---
 
