@@ -1,6 +1,7 @@
 ---
 id: modeling-regions
 title: Modeling regions
+description: Documentation for Dyndle
 sidebar_label: Modeling regions
 ---
 
@@ -70,7 +71,7 @@ If you don't want to use regions at all, you can group component presentations i
 ```c#
 [PresentationsByView(ViewPrefix = "CTA")]
 public List<IEntityModel> CallsToAction { get; set; }
-``` 
+```
 
 This will put all the component presentations with a view name that starts with 'CTA' in a property called CallsToAction. You could use this to write out all calls to action in one block on the page.
 

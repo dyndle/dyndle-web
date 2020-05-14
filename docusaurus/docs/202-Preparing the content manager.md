@@ -1,6 +1,7 @@
 ---
 id: preparing-cm
 title: Getting your content manager ready for DD4T and Dyndle
+description: Documentation for Dyndle
 sidebar_label: Preparing the content manager
 ---
 

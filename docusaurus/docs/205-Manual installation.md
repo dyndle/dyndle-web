@@ -1,6 +1,7 @@
 ---
 id: manual-installation
 title: Manual web app installation
+description: Documentation for Dyndle
 sidebar_label: Web application - manual installation
 ---
 

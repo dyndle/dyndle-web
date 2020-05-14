@@ -1,6 +1,7 @@
 ---
 id: prerequisites
 title: Prerequisites
+description: Documentation for Dyndle
 sidebar_label: Prerequisites
 ---
 

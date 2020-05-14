@@ -1,6 +1,7 @@
 ---
 id: caching
 title: Caching with Dyndle
+description: Documentation for Dyndle
 sidebar_label: Caching with Dyndle
 ---
 
