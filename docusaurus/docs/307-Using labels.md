@@ -1,6 +1,7 @@
 ---
 id: labels
 title: Using labels
+description: Documentation for Dyndle
 sidebar_label: Using labels
 ---
 

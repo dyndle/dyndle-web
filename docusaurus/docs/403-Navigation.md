@@ -1,6 +1,7 @@
 ---
 id: navigation
 title: Dyndle Navigation
+description: Documentation for Dyndle
 sidebar_label: Dyndle Navigation
 ---
 
@@ -76,7 +77,7 @@ The following table describes the functionalities of the navigation module and c
 | NavigationBreadcrumbs       | This method is used for Rendering breadcrumbs for the current page.                       | `@Html.NavigationBreadcrumbs();`                    |
 | NavigationSitemap           | This is used to generate a sitemap for the entire site.                                   | `@Html.NavigationSitemap();`                        |
 | RenderNavigation     | Renders the top navigation using the specified view                          | `@Html.RenderNavigation("TopNavigation");`         |
-| RenderNavigationSideNav     | Renders the result of NavigationSideNav using the specified view                          | `@Html.RenderNavigationSideNav("Sidebar");`         | 
+| RenderNavigationSideNav     | Renders the result of NavigationSideNav using the specified view                          | `@Html.RenderNavigationSideNav("Sidebar");`         |
 | RenderNavigationBreadcrumbs | Renders the result of NavigationBreadcrumbs using the specified view                      | `@Html.RenderNavigationBreadcrumbs("Breadcrumbs");` |
 | RenderNavigationSitemap     | Renders the result of NavigationSitemap using the specified view                          | `@Html.RenderNavigationSitemap("Sitemap");`         |
 

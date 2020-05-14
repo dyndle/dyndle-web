@@ -1,10 +1,11 @@
 ---
 id: adding-routes
 title: Adding your own routes
+description: Documentation for Dyndle
 sidebar_label: Adding your own routes
 ---
 
-If you use Dyndle, you still own the web application and it is up to you to set up the routes in any way you would like. However, if you want to use Dyndle MVC features such as controllers and model binders, you need to set up an area as explained [here](installation#register-area).
+If you use Dyndle, you still own the web application and it is up to you to set up the routes in any way you would like. However, if you want to use Dyndle MVC features such as controllers and model binders, you need to set up an area as explained [here](manual-installation#register-area).
 
 Next to the AreaName that must be overriden, `BaseModuleAreaRegistration` also defines two virtual methods that may be overriden: `RegisterRoutes` and `RegisterTypes`. Both of these methods are called from [`RegisterArea`](https://docs.microsoft.com/en-us/dotnet/api/system.web.mvc.arearegistration.registerarea?view=aspnet-mvc-5.2).
 

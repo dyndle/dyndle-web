@@ -1,6 +1,7 @@
 ---
 id: installation-cm
 title: Installing Dyndle in the content manager
+description: Documentation for Dyndle
 sidebar_label: Content Manager installation
 ---
 

@@ -1,6 +1,7 @@
 ---
 id: dependencies
 title: Overriding / adding dependencies
+description: Documentation for Dyndle
 sidebar_label: Overriding / adding dependencies
 ---
 
@@ -10,7 +11,7 @@ Dyndle uses DD4T for its Dependency Injection handling. DD4T supports the follow
  - Ninject
  - Unity
  - SimpleInjector
- 
+
 You are free to use the DI of your choice. But be careful: if you choose the Quickstart installation, Autofac will be used!
 
 Regardless of your choice of DI framework, you need to tell it to register the types you will be using. This is normally done either in the Global.asax.cs or, if you are using the Dyndle Quickstart, in the StartDyndle.cs file in the App_Start folder of your web application.
