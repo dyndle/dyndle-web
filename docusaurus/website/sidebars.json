@@ -12,6 +12,7 @@
         "Implementing Dyndle": [
             "model-binders-and-controllers",
             "dependencies",
+            "dependency-framework-examples",
             "adding-routes",
             "modeling-regions",
             "include-pages",
