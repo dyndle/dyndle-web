@@ -5,6 +5,8 @@ description: Documentation for Dyndle
 sidebar_label: DI frameworks implementation examples
 ---
 
+The following paragraphs contain example implementations of dependency injection frameworks, other than the default Autofac DI, supported by Dyndle and DD4T. Currently it consists of Ninject and Simple Injector, Unity is not yet supported by Dyndle but coming soon. 
+
 ### Ninject
 
 #### Installation
