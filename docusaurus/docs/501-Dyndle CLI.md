@@ -52,6 +52,20 @@ If you want to see which environments you have already configured, you type:
 dyndle list-environments
 ```
 
+providing a -v switch to the list-environments command show the environment information in verbose mode.
+Example:
+```shell
+> dyndle list-environments -v
+
+Name:        Develop
+URL:         http://cm-dev.mycompany.com
+User name:   dyndleUser 
+User domain:
+Password:    ***
+Default:     True
+
+```
+
 ### Update an environment
 If you want to update an existing environment that you have already configured, you type:
 
