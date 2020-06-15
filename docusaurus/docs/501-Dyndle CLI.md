@@ -70,7 +70,7 @@ Default:     True
 If you want to update an existing environment that you have already configured, you type:
 
 ```shell
-dyndle update-environment --name Develop
+dyndle update-environment --name Develop --url http://cm-dev.mycompany.com --username dyndleUser --domain MYDOMAIN --password mypassword
 ```
 
 ### Delete an environment
