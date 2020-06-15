@@ -14,6 +14,8 @@ The CLI supports the following commands:
 - **install** - install the necessary items in the Tridion Content Manager
 - **add-environment** - add configuration for a new Tridion environment
 - **list-environments** - list the configured Tridion environments
+- **update-environment** - update an existing Tridion environment configuration
+- **delete-environment** - delete an existing Tridion environment configuration
 - **models** - generate C# ViewModel classes from the schemas in Tridion
 - **views** - generate Razor views from the templates in Tridion
 
@@ -29,23 +31,39 @@ The first thing you need to do is configure one or more Tridion environments. Th
 
 Dyndle lets you configure any number of Tridion environments. When you run any of the other commands (like *install* or *models*) you need to specify one of the configured environments. This is why you have to name the environments you configure.
 
-Example:
-
-```shell
-dyndle add-environment --name Develop --url http://cm-dev.mycompany.com --username dyndleUser --domain MYDOMAIN --password mypassword
-```
-
 All this information is stored in a file called environments.json which is stored in the folder where you ran the command. You can share this file with other people, store it in a source code repository, etc.
 
 ### Default environment
 
 One of your environments is the *default environment*. If you run any of the other commands and you do not specify an environment with &dash;&dash;environment, the default environment is used. You can make an environment the default by adding &dash;d (or &dash;&dash;default) when you add it. 
 
-### List your environments
+### Add a new environment
+
+You can add a new environment in the following way
+
+```shell
+dyndle add-environment --name Develop --url http://cm-dev.mycompany.com --username dyndleUser --domain MYDOMAIN --password mypassword
+```
+
+### List all environments
 If you want to see which environments you have already configured, you type:
 
 ```shell
 dyndle list-environments
+```
+
+### Update an environment
+If you want to update an existing environment that you have already configured, you type:
+
+```shell
+dyndle update-environment --name Develop
+```
+
+### Delete an environment
+If you want to delete an existing environment that you have already configured, you type:
+
+```shell
+dyndle delete-environment --name Develop
 ```
 
 ## Install
