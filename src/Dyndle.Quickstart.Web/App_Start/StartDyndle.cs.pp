@@ -7,10 +7,10 @@ using DD4T.Core.Contracts.ViewModels;
 using DD4T.DI.Autofac;
 using Bootstrap = Dyndle.Modules.Core.Bootstrap;
 
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(TheBestCompany.Website.StartDyndle), "PreStart")]
-[assembly: WebActivatorEx.PostApplicationStartMethod(typeof(TheBestCompany.Website.StartDyndle), "PostStart")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof($rootnamespace$.StartDyndle), "PreStart")]
+[assembly: WebActivatorEx.PostApplicationStartMethod(typeof($rootnamespace$.StartDyndle), "PostStart")]
 
-namespace TheBestCompany.Website
+namespace $rootnamespace$
 {
     public static class StartDyndle
     {
