@@ -69,7 +69,8 @@
     <Message Text="AssemblyCopyright: $(AssemblyCopyright)" Importance="high"/>
     <MSBuild.ExtensionPack.Framework.AssemblyInfo AssemblyInfoFiles="@(AssemblyInfoFiles)"
     AssemblyCopyright="$(AssemblyCopyright)"
-    AssemblyVersion="$(Version)" />
+    AssemblyVersion="$(Version)"
+	AssemblyFileVersion="$(Version)" />
   </Target>
 
   <Target Name="UpdateNuspec" Condition="'$(IsLocal)' == 'false' Or '$(Configuration)' == 'Package'">
@@ -77,9 +78,9 @@
     <Message Text="RootNamespace: $(RootNamespace)" Importance="high" />
     <Message Text="DyndlePackageDirectory: $(DyndlePackageDirectory)" Importance="high" />
 
-    <FileUpdate Files="$(DyndlePackageDirectory)\\$(RootNamespace).nuspec"
-            Regex="&lt;version&gt;[^&lt;]+"
-            ReplacementText="&lt;version&gt;$(PackageVersion)" />
+	<FileUpdate Files="$(DyndlePackageDirectory)\\$(RootNamespace).nuspec"
+            Regex="{PackageVersion}"
+            ReplacementText="$(PackageVersion)" />
   </Target>
 
   <Target Name="AfterBuild">

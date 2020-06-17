@@ -95,12 +95,6 @@
     <Reference Include="DD4T.Web, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DD4T.MVC5.2.5.0\lib\net45\DD4T.Web.dll</HintPath>
     </Reference>
-    <Reference Include="Dyndle.Modules.Core, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Dyndle.Modules.Core.1.0.0\lib\net462\Dyndle.Modules.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Dyndle.Modules.Management, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Dyndle.Modules.Management.1.0.0\lib\net462\Dyndle.Modules.Management.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -167,7 +161,16 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Dyndle.Modules.Core\Dyndle.Modules.Core.csproj">
+      <Project>{fedd3081-1ba3-45b6-9ad3-9f19f90eea15}</Project>
+      <Name>Dyndle.Modules.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dyndle.Modules.Management\Dyndle.Modules.Management.csproj">
+      <Project>{307263fd-8fe0-438f-89fe-8b3d5a5e64a9}</Project>
+      <Name>Dyndle.Modules.Management</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildProjectDirectory)\..\_NuGet\Nuget.proj" />
 </Project>
