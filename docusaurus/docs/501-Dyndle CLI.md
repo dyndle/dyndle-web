@@ -60,7 +60,7 @@ Example:
 Name:        Develop
 URL:         http://cm-dev.mycompany.com
 User name:   dyndleUser 
-User domain:
+User domain: MYDOMAIN
 Password:    ***
 Default:     True
 
