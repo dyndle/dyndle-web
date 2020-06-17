@@ -14,6 +14,8 @@ Dyndle uses DD4T for its Dependency Injection handling. DD4T supports the follow
 
 You are free to use the DI of your choice. But be careful: if you choose the Quickstart installation, Autofac will be used!
 
+Implementation examples of the other DD4T supported frameworks can be found [here.](dependency-framework-examples.html) 
+
 Regardless of your choice of DI framework, you need to tell it to register the types you will be using. This is normally done either in the Global.asax.cs or, if you are using the Dyndle Quickstart, in the StartDyndle.cs file in the App_Start folder of your web application.
 
 
