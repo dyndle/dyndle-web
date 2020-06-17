@@ -27,7 +27,7 @@ pipelines:
            - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Providers.SDLWeb8/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages_no_conflict
            - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Providers.SDLWeb85/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
            - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Providers.Tridion9/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
-           - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Quickstart.Web/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+           #- nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Quickstart.Web/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
            #- nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.ComplexTables/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
            #- nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Email/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
            #- nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Feedback/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
@@ -41,7 +41,7 @@ pipelines:
            - nuget push $BITBUCKET_CLONE_DIR/build/packages_no_conflict/Dyndle.Providers.SDLWeb8*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
            - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Providers.SDLWeb85*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
            - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Providers.Tridion9*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
-           - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Quickstart.Web*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
+           #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Quickstart.Web*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
            #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.ComplexTables*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY
            #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Email*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY
            #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Feedback*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY
