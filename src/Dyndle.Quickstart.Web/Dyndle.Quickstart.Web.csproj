@@ -95,11 +95,11 @@
     <Reference Include="DD4T.Web, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DD4T.MVC5.2.5.0\lib\net45\DD4T.Web.dll</HintPath>
     </Reference>
-    <Reference Include="Dyndle.Modules.Core, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Dyndle.Modules.Core.0.1.0-alpha-20200401165544\lib\net462\Dyndle.Modules.Core.dll</HintPath>
+    <Reference Include="Dyndle.Modules.Core, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dyndle.Modules.Core.1.0.0\lib\net462\Dyndle.Modules.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Dyndle.Modules.Management, Version=1.4.8.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Dyndle.Modules.Management.0.1.0-alpha-20200317111137\lib\net462\Dyndle.Modules.Management.dll</HintPath>
+    <Reference Include="Dyndle.Modules.Management, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dyndle.Modules.Management.1.0.0\lib\net462\Dyndle.Modules.Management.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -115,6 +115,9 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorGenerator.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Trivident.RazorGenerator.Mvc.2.4.9\lib\net40\RazorGenerator.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
