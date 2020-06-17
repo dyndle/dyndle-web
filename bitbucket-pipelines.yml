@@ -7,42 +7,73 @@ definitions:
       memory: 4096
   caches:
     nuget: src/packages
+  steps:
+    - step: &build-packages
+       name: Build all packages
+       size: 2x
+       script:
+       - export PROJECT_NAME=Dyndle.Modules.Core
+       - apt-get update 
+       - nuget restore $BITBUCKET_CLONE_DIR/src/Dyndle.Modules.sln
+       - msbuild /p:Configuration="Release" /p:Branch="$BITBUCKET_BRANCH" $BITBUCKET_CLONE_DIR/src/Dyndle.Modules.sln 
+       - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Core/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+       - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.ImageEnhancement/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+       - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Management/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+       - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Navigation/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+       - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Search/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+       - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Providers.SDLWeb8/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages_no_conflict
+       - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Providers.SDLWeb85/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+       - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Providers.Tridion9/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+       - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Quickstart.Web/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+       #- nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.ComplexTables/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+       #- nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Email/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+       #- nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Feedback/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+       #- nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Personalization/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+       artifacts:
+        - build/packages/**
+        - build/packages_no_conflict/**
+    - step: &push-private
+       name: Push all packages to private repository
+       size: 2x
+       script:
+        - nuget sources add -Name privaterepo2 -Source $PRIVATE_REPO_REAL_URL -UserName $PRIVATE_REPO_REAL_USERNAME -Password $PRIVATE_REPO_REAL_PASSWORD
+        - nuget push build/packages/Dyndle.Modules.Core*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+        - nuget push build/packages/Dyndle.Modules.ImageEnhancement*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+        - nuget push build/packages/Dyndle.Modules.Management*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+        - nuget push build/packages/Dyndle.Modules.Navigation*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+        - nuget push build/packages/Dyndle.Modules.Search*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+        - nuget push build/packages_no_conflict/Dyndle.Providers.SDLWeb8*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+        - nuget push build/packages/Dyndle.Providers.SDLWeb85*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+        - nuget push build/packages/Dyndle.Providers.Tridion9*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+        - nuget push build/packages/Dyndle.Quickstart.Web*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+        #- nuget push build/packages/Dyndle.Modules.ComplexTables*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+        #- nuget push build/packages/Dyndle.Modules.Email*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+        #- nuget push build/packages/Dyndle.Modules.Feedback*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+        #- nuget push build/packages/Dyndle.Modules.Personalization*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+    - step: &push-public
+       name: Push all packages to public repository
+       size: 2x
+       script:
+        - nuget push build/packages/Dyndle.Modules.Core*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
+        - nuget push build/packages/Dyndle.Modules.ImageEnhancement*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
+        - nuget push build/packages/Dyndle.Modules.Management*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
+        - nuget push build/packages/Dyndle.Modules.Navigation*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
+        - nuget push build/packages/Dyndle.Modules.Search*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
+        - nuget push build/packages_no_conflict/Dyndle.Providers.SDLWeb8*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
+        - nuget push build/packages/Dyndle.Providers.SDLWeb85*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
+        - nuget push build/packages/Dyndle.Providers.Tridion9*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
+        - nuget push build/packages/Dyndle.Quickstart.Web*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
+        #- nuget push build/packages/Dyndle.Modules.ComplexTables*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
+        #- nuget push build/packages/Dyndle.Modules.Email*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
+        #- nuget push build/packages/Dyndle.Modules.Feedback*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
+        #- nuget push build/packages/Dyndle.Modules.Personalization*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
+
 pipelines:
   branches:
-# uncomment next line to build releases as well as prereleases
-#    '{release,prerelease}':
     master:
-        - step: 
-           size: 2x
-           script:
-           - export PROJECT_NAME=Dyndle.Modules.Core
-           - apt-get update 
-           - nuget restore $BITBUCKET_CLONE_DIR/src/Dyndle.Modules.sln
-           - msbuild /p:Configuration="Release" /p:Branch="$BITBUCKET_BRANCH" $BITBUCKET_CLONE_DIR/src/Dyndle.Modules.sln 
-           - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Core/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
-           - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.ImageEnhancement/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
-           - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Management/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
-           - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Navigation/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
-           - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Search/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
-           - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Providers.SDLWeb8/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages_no_conflict
-           - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Providers.SDLWeb85/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
-           - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Providers.Tridion9/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
-           #- nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Quickstart.Web/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
-           #- nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.ComplexTables/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
-           #- nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Email/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
-           #- nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Feedback/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
-           #- nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Personalization/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
-           - nuget sources add -Name privaterepo2 -Source $PRIVATE_NUGET_URL -UserName $PRIVATE_NUGET_USERNAME -Password $PRIVATE_NUGET_PASSWORD
-           - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Core*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
-           - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.ImageEnhancement*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
-           - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Management*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
-           - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Navigation*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
-           - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Search*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
-           - nuget push $BITBUCKET_CLONE_DIR/build/packages_no_conflict/Dyndle.Providers.SDLWeb8*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
-           - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Providers.SDLWeb85*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
-           - nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Providers.Tridion9*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
-           #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Quickstart.Web*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
-           #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.ComplexTables*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY
-           #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Email*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY
-           #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Feedback*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY
-           #- nuget push $BITBUCKET_CLONE_DIR/build/packages/Dyndle.Modules.Personalization*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY
+        - step: *build-packages
+        - step: *push-public
+    develop:
+        - step: *build-packages
+        - step: *push-private
+            
