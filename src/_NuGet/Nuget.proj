@@ -26,7 +26,8 @@
     <VersionMinor>$(Version.Split('.')[1])</VersionMinor>
     <VersionPatch>$(Version.Split('.')[2])</VersionPatch>
     <VersionBuild>$(Version.Split('.')[3])</VersionBuild>
-    <PreReleaseLabel Condition="'$(IsPreRelease)' == 'true'">-alpha-$([System.DateTime]::Now.ToString("yyyyMMddHHmmss"))</PreReleaseLabel>
+    <PreReleaseLabel Condition="'$(IsPreRelease)' == 'true' AND '$(IsLocal)' == 'true'">-alpha-$([System.DateTime]::Now.ToString("yyyyMMdd000000"))</PreReleaseLabel>
+    <PreReleaseLabel Condition="'$(IsPreRelease)' == 'true' AND '$(IsLocal)' == 'false'">-alpha-$(AlphaLabel)</PreReleaseLabel>
     <PackageVersion Condition="'$(IsPreRelease)' == 'true'">$(VersionMajor).$(VersionMinor).$(VersionPatch).$(VersionBuild)$(PreReleaseLabel)</PackageVersion>
     <PackageVersion Condition="'$(IsPreRelease)' == 'false'">$(Version)</PackageVersion>
 

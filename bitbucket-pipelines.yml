@@ -13,9 +13,10 @@ definitions:
        size: 2x
        script:
        - export PROJECT_NAME=Dyndle.Modules.Core
+       - export AlphaLabel=`date +"%Y%m%d%H%M%S"`
        - apt-get update 
        - nuget restore $BITBUCKET_CLONE_DIR/src/Dyndle.Modules.sln
-       - msbuild /p:Configuration="Release" /p:Branch="$BITBUCKET_BRANCH" $BITBUCKET_CLONE_DIR/src/Dyndle.Modules.sln 
+       - msbuild /p:Configuration="Release" /p:Branch="$BITBUCKET_BRANCH" /p:AlphaLabel="$AlphaLabel" $BITBUCKET_CLONE_DIR/src/Dyndle.Modules.sln 
        - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Core/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
        - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.ImageEnhancement/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
        - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Management/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
