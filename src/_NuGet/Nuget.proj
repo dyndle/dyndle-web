@@ -26,7 +26,8 @@
     <VersionMinor>$(Version.Split('.')[1])</VersionMinor>
     <VersionPatch>$(Version.Split('.')[2])</VersionPatch>
     <VersionBuild>$(Version.Split('.')[3])</VersionBuild>
-    <PreReleaseLabel Condition="'$(IsPreRelease)' == 'true'">-alpha-$([System.DateTime]::Now.ToString("yyyyMMddHHmmss"))</PreReleaseLabel>
+    <PreReleaseLabel Condition="'$(IsPreRelease)' == 'true' AND '$(IsLocal)' == 'true'">-alpha-$([System.DateTime]::Now.ToString("yyyyMMdd000000"))</PreReleaseLabel>
+    <PreReleaseLabel Condition="'$(IsPreRelease)' == 'true' AND '$(IsLocal)' == 'false'">-alpha-$(AlphaLabel)</PreReleaseLabel>
     <PackageVersion Condition="'$(IsPreRelease)' == 'true'">$(VersionMajor).$(VersionMinor).$(VersionPatch).$(VersionBuild)$(PreReleaseLabel)</PackageVersion>
     <PackageVersion Condition="'$(IsPreRelease)' == 'false'">$(Version)</PackageVersion>
 
@@ -69,7 +70,8 @@
     <Message Text="AssemblyCopyright: $(AssemblyCopyright)" Importance="high"/>
     <MSBuild.ExtensionPack.Framework.AssemblyInfo AssemblyInfoFiles="@(AssemblyInfoFiles)"
     AssemblyCopyright="$(AssemblyCopyright)"
-    AssemblyVersion="$(Version)" />
+    AssemblyVersion="$(Version)"
+	AssemblyFileVersion="$(Version)" />
   </Target>
 
   <Target Name="UpdateNuspec" Condition="'$(IsLocal)' == 'false' Or '$(Configuration)' == 'Package'">
@@ -77,9 +79,9 @@
     <Message Text="RootNamespace: $(RootNamespace)" Importance="high" />
     <Message Text="DyndlePackageDirectory: $(DyndlePackageDirectory)" Importance="high" />
 
-    <FileUpdate Files="$(DyndlePackageDirectory)\\$(RootNamespace).nuspec"
-            Regex="&lt;version&gt;[^&lt;]+"
-            ReplacementText="&lt;version&gt;$(PackageVersion)" />
+	<FileUpdate Files="$(DyndlePackageDirectory)\\$(RootNamespace).nuspec"
+            Regex="{PackageVersion}"
+            ReplacementText="$(PackageVersion)" />
   </Target>
 
   <Target Name="AfterBuild">
