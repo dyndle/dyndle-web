@@ -116,11 +116,12 @@ namespace Dyndle.Modules.Navigation.Models
         /// Cleans all urls.
         /// </summary>
         /// <param name="defaultFileName">Default name of the file.</param>
-        public void CleanAllUrls(string defaultFileName)
+        /// <param name="overrideIncludeFileExtensions">Override the IncludeFileExtensions config setting.</param>
+        public void CleanAllUrls(string defaultFileName, bool overrideIncludeFileExtensions = false)
         {
-            this.Url = this.Url.CleanUrl(defaultFileName);
+            this.Url = this.Url.CleanUrl(defaultFileName, overrideIncludeFileExtensions);
 
-            Items?.ForEach(i => i.CleanAllUrls(defaultFileName));
+            Items?.ForEach(i => i.CleanAllUrls(defaultFileName, overrideIncludeFileExtensions));
         }
 
         /// <summary>
@@ -207,9 +208,11 @@ namespace Dyndle.Modules.Navigation.Models
         /// </summary>
         /// <param name="requestUrl">The request URL.</param>
         /// <param name="parentUrl">The parent URL.</param>
-        public void PrepareBreadcrumb(string requestUrl, string parentUrl = null)
+        public void PrepareBreadcrumb(string requestUrl, string parentUrl = null, string welcomeFile = null)
         {
-            var item = Items?.FirstOrDefault(a => requestUrl.StartsWith(a.Url, StringComparison.InvariantCultureIgnoreCase)
+            var cleanRequestUrl = requestUrl.CleanUrl(welcomeFile, true);
+            this.CleanAllUrls(welcomeFile, true);
+            var item = Items?.Where(i => i.Visible).FirstOrDefault(a => cleanRequestUrl.StartsWith(a.Url, StringComparison.InvariantCultureIgnoreCase)
                                                   && a.Url != parentUrl);
 
             if (item == null && Items != null && Items.Any())
@@ -224,7 +227,7 @@ namespace Dyndle.Modules.Navigation.Models
             }
 
             Items.RemoveAll(a => a != item);
-            item.PrepareBreadcrumb(requestUrl, item.Url);
+            item.PrepareBreadcrumb(requestUrl, item.Url, welcomeFile);
         }
 
         /// <summary>

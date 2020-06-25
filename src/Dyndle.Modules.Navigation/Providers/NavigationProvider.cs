@@ -215,7 +215,7 @@ namespace Dyndle.Modules.Navigation.Providers
             }
 
             var result = Load();
-            result.PrepareBreadcrumb(requestUrlPath);
+            result.PrepareBreadcrumb(requestUrlPath, null, _configuration.WelcomeFile);
 
             _cacheAgent.Store(key, _cacheRegion, result);
             return result;

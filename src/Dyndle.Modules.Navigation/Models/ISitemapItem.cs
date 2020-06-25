@@ -96,7 +96,7 @@ namespace Dyndle.Modules.Navigation.Models
         /// </summary>
         /// <param name="requestUrl">The request URL.</param>
         /// <param name="parentUrl">The parent URL.</param>
-        void PrepareBreadcrumb(string requestUrl, string parentUrl = null);
+        void PrepareBreadcrumb(string requestUrl, string parentUrl = null, string welcomeFile = null);
 
         /// <summary>
         /// Return a XMLDocument wiht sitemap nodes
