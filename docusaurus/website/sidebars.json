@@ -32,6 +32,11 @@
         "Dyndle CLI": [
 			"cli", 
 			"customizing-models"
-		]
+        ],
+        "Dyndle Templates": [
+            "replace-special-characters",
+            "add-components-in-folder",
+            "dynamic-metadata"
+        ]
     }
 }
