@@ -3,8 +3,6 @@ id: add-components-in-folder
 title: Add components in folder
 description: Documentation for Dyndle
 sidebar_label: Add components in folder
-
-
 ---
 
 The `Add components in folder` template building block can be used to automatically add components that are contained in the same folder to a page based on a single component from that folder. By using this building block, publishing a group of components is made much easier and doesn't require CM users to individually add every component to a page by hand. The building block can be configured to only add components that use a specified schema and also which component template the components should use. 

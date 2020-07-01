@@ -3,7 +3,6 @@ id: replace-special-characters
 title: Replace special characters
 description: Documentation for Dyndle
 sidebar_label: Replace special characters
-
 ---
 
 With the `Replace special characters` template building block you'll be able to automatically replace characters or even individual words on a DD4T component when it is published. This building block requires a list of characters to replace in a specific format which can be configured in its parameters. 
