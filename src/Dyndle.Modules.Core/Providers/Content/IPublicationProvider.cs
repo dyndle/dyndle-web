@@ -1,8 +1,5 @@
-﻿using System;
+﻿using Dyndle.Modules.Core.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dyndle.Modules.Core.Providers.Content
 {
@@ -16,6 +13,6 @@ namespace Dyndle.Modules.Core.Providers.Content
         /// Loads all metadata from all publications
         /// </summary>
         /// <returns>IEnumerable<string>.</returns>
-        IEnumerable<string> GetAllPublicationMetadata();
+        IEnumerable<IPublicationMeta> GetAllPublicationMetadata(bool excludeCurrent);
     }
 }

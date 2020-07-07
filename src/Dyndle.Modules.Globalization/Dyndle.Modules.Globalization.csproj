@@ -110,8 +110,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GlobalizationAreaRegistration.cs" />
-    <Compile Include="PublicationMetadataController.cs" />
+    <Compile Include="GlobalizationHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

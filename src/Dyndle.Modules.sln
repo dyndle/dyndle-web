@@ -52,6 +52,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.Test", "Dynd
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Quickstart.Web", "Dyndle.Quickstart.Web\Dyndle.Quickstart.Web.csproj", "{1BB95D95-DC20-4129-95C4-6DF6B2D327AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.Globalization", "Dyndle.Modules.Globalization\Dyndle.Modules.Globalization.csproj", "{59E55B18-C99A-4809-9344-B62B85A7BBFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
