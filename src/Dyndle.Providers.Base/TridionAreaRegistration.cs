@@ -26,6 +26,7 @@ namespace Dyndle.Providers
 	    {
             serviceCollection.AddSingleton(typeof(ITaxonomyProvider), typeof(DefaultTaxonomyProvider));
             serviceCollection.AddSingleton(typeof(IContentQueryProvider), typeof(DefaultContentQueryProvider));
+            serviceCollection.AddSingleton(typeof(IPublicationProvider), typeof(DefaultPublicationProvider));
             if (_isDevMode)
             {
                 serviceCollection.AddSingleton(typeof(IPublicationResolver), typeof(DefaultPublicationResolver));

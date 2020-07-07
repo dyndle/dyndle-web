@@ -321,6 +321,9 @@
     <Compile Include="..\Dyndle.Providers.Base\Providers\DefaultTaxonomyProvider.cs">
       <Link>Providers\DefaultTaxonomyProvider.cs</Link>
     </Compile>
+    <Compile Include="..\Dyndle.Providers.Base\Providers\DefaultPublicationProvider.cs">
+      <Link>Providers\DefaultPublicationProvider.cs</Link>
+    </Compile>
     <Compile Include="..\Dyndle.Providers.Base\TridionAreaRegistration.cs">
       <Link>TridionAreaRegistration.cs</Link>
     </Compile>
