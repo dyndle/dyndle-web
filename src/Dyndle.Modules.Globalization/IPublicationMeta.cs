@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dyndle.Modules.Core.Models
+namespace Dyndle.Modules.Globalization
 {
     public interface IPublicationMeta
     {
@@ -15,6 +15,5 @@ namespace Dyndle.Modules.Core.Models
         string PublicationUrl { get; set; }
         string MultimediaPath { get; set; }
         string MultimediaUrl { get; set; }
-        Dictionary<string, string> CustomMeta {get; set;}
     }
 }
