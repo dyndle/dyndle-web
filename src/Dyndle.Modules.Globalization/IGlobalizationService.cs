@@ -8,6 +8,6 @@ namespace Dyndle.Modules.Globalization
 {
     public interface IGlobalizationService
     {
-        Dictionary<string,string> GetCustomPublicationMetadata();
+        Dictionary<string,string> GetCustomPublicationMetadata(int pubId);
     }
 }
