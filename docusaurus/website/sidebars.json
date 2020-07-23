@@ -27,7 +27,8 @@
             "management",
             "image-enhancement",
             "navigation",
-            "search"
+            "search",
+            "globalization"
         ],
         "Dyndle CLI": [
 			"cli", 

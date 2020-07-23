@@ -2,7 +2,7 @@
 id: globalization
 title: Globalization
 description: Documentation for Dyndle
-sidebar_label: Globalization
+sidebar_label: Dyndle Globalization
 ---
 
 The Globalization module is an extension to Dyndle that can be used to retrieve useful information about all the publications in your Tridion environment through easy to use helper methods in a Dyndle web application. The information that is available through this module is for example the url of a publication. This can for instance be used to easily create a language selector dropdown for your Dyndle website that will redirect users to the url for the selected language`s website.
