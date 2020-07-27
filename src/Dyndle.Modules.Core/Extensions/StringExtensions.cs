@@ -208,15 +208,14 @@ namespace Dyndle.Modules.Core.Extensions
         /// </summary>
         /// <param name="url">The CMS URL</param>
         /// <param name="defaultFileName">Default name of the file.</param>
-        /// <param name="overrideIncludeFileExtensions">Override the IncludeFileExtensions config setting.</param>
         /// <returns>A Request URL</returns>
         /// <summary>
         /// Cleans the URL.
         /// </summary>
-        public static string CleanUrl(this string url, string defaultFileName, bool overrideIncludeFileExtensions = false)
+        public static string CleanUrl(this string url, string defaultFileName)
         {
 
-            if (IncludeFileExtensions && !overrideIncludeFileExtensions)
+            if (IncludeFileExtensions)
             {
                 if (url.StartsWith("/")|| url.StartsWith("http"))
                 {
