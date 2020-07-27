@@ -5,9 +5,9 @@ description: Documentation for Dyndle
 sidebar_label: Dyndle Globalization
 ---
 
-The Globalization module is an extension to Dyndle that can be used to retrieve useful information about all the publications in your Tridion environment through easy to use helper methods in a Dyndle web application. The information that is available through this module is for example the url of a publication. This can for instance be used to easily create a language selector dropdown for your Dyndle website that will redirect users to the url for the selected language`s website.
+The Globalization module can be used to retrieve useful information about all the publications in your Tridion environment through easy to use helper methods in a Dyndle web application. An example of the information available through this module is the url of a publication, with which you could easily create a language selector dropdown for your Dyndle website that will redirect users to the url for the selected language`s website.
 
-To install this module simply install the `Dyndle.Modules.Globalization` nuget package available through the nuget.org package library.
+To install this module simply install the `Dyndle.Modules.Globalization` NuGet package available through the nuget.org package library.
 
 ## Using the helper methods
 
