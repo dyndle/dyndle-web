@@ -35,7 +35,7 @@ The helper methods for the globalization module can be used by adding a `@using 
 </table>
 ```
 
-The `Html.Publications()` statement can optionally be provider with a boolean value that indicates whether the publication currently being used in the web application should be excluded from the results. This value is set to true by default and can be switched off by calling the function like so `Html.Publications(false)`.
+The `Html.Publications()` statement can optionally be providedwith a boolean value that indicates whether the publication currently being used in the web application should be excluded from the results. This value is set to true by default and can be switched off by calling the function like so `Html.Publications(false)`.
 
 ## Publication Custom Metadata
 
