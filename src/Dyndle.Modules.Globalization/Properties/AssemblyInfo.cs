@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Dyndle.Modules.Globalization")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Trivident")]
 [assembly: AssemblyProduct("Dyndle.Modules.Globalization")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyCopyright("Copyright © 2020 Trivident B.V.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

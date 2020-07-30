@@ -15,6 +15,8 @@ namespace Dyndle.Modules.Globalization
         private readonly ILogger _logger;
         private readonly ISerializedCacheAgent _cacheAgent;
         private const string PublicationMetaPath = "Globalization.SourceUrl";
+        public const string PublicationMetaCacheKey = "AllPublicationMetaData";
+        public const string PublicationMetaCacheRegion = "Globalization";
 
         public GlobalizationService(IContentProvider contentProvider, ILogger logger, ISerializedCacheAgent cacheAgent)
         {
@@ -26,7 +28,7 @@ namespace Dyndle.Modules.Globalization
         public Dictionary<string, string> GetCustomPublicationMetadata(int pubId)
         {
             Dictionary<string, IField> AllPublicationMetadata = null;
-            AllPublicationMetadata = _cacheAgent.Load("AllPublicationMetaData") as Dictionary<string, IField>;
+            AllPublicationMetadata = _cacheAgent.Load(PublicationMetaCacheKey) as Dictionary<string, IField>;
 
             if (AllPublicationMetadata == null)
             {
@@ -52,7 +54,7 @@ namespace Dyndle.Modules.Globalization
                     AllPublicationMetadata.Add(field.Key, field.Value);
                 }
 
-                _cacheAgent.Store("AllPublicationMetaData", "Globalization", AllPublicationMetadata);
+                _cacheAgent.Store(PublicationMetaCacheKey, PublicationMetaCacheRegion, AllPublicationMetadata);
             }
 
             var result = new Dictionary<string, string>();

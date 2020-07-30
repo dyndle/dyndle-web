@@ -11,7 +11,7 @@ To install this module simply install the `Dyndle.Modules.Globalization` NuGet p
 
 ## Using the helper methods
 
-The helper methods for the globalization module can be used by adding a `@using Dyndle.Modules.Globalization` statement at the top of your views, or by adding `Dyndle.Modules.Globalization` as a namespace in your views web config. Information from your publications can then be retrieved with the `Html.Publications()` statement as demonstrated below.
+The helper methods for the globalization module can be used by adding a `@using Dyndle.Modules.Globalization` and `@using Dyndle.Modules.Core`statement at the top of your views, or by adding the `Dyndle.Modules.Globalization` and `Dyndle.Modules.Core` namespaces in your views web config. Information from your publications can then be retrieved with the `Html.Publications()` statement as demonstrated below.
 
 ```html
 <table>
@@ -35,11 +35,11 @@ The helper methods for the globalization module can be used by adding a `@using 
 </table>
 ```
 
-
+The `Html.Publications()` statement can optionally be provider with a boolean value that indicates whether the publication currently being used in the web application should be excluded from the results. This value is set to true by default and can be switched off by calling the function like so `Html.Publications(false)`.
 
 ## Publication Custom Metadata
 
-The globalization module can also be used to retrieve custom user defined metadata from Tridion. The Dyndle installer will have added a template building block named `PublicationCustomMeta` which is added to a page template named `PublicationMeta`. This page template can be used to generate a page which contains the custom metadata for all the publications in your Tridion environment.  Custom metadata can be added to a publication by accessing the publication properties and selecting a metadata schema. You can create your own schema and select it here, the only requirement is that it must be an embeddable schema. Now, when the page template is used on a page the values entered in the custom metadata will be available to the globalization module when it is published.
+The globalization module can also be used to retrieve custom user defined metadata from Tridion. The Dyndle installer will have added a template building block named `PublicationCustomMeta` which is added to a page template named `PublicationMeta`. This page template can be used to generate a page which contains the custom metadata for all the publications in your Tridion environment.  Custom metadata can be added to a publication by accessing the publication properties and selecting a metadata schema. You can create your own schema and select it here, the only requirements being that it must be a metadata schema and it must only use text, number, date or rich text fields. Now, when the page template is used on a page the values entered in the custom metadata will be available to the globalization module when it is published.
 
 The Globalization module needs to be configured to know which page is used for the custom metadata. Simply provide the url of the page in the following app setting and the custom metadata will be made available as part of the same html helper method as the regular publication metadata. 
 
