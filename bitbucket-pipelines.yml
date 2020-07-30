@@ -18,7 +18,6 @@ definitions:
        - nuget restore $BITBUCKET_CLONE_DIR/src/Dyndle.Modules.sln
        - msbuild /p:Configuration="Release" /p:Branch="$BITBUCKET_BRANCH" /p:AlphaLabel="$AlphaLabel" $BITBUCKET_CLONE_DIR/src/Dyndle.Modules.sln 
        - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Core/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
-       - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Globalization/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
        - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.ImageEnhancement/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
        - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Management/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
        - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Navigation/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
@@ -40,7 +39,6 @@ definitions:
        script:
         - nuget sources add -Name privaterepo2 -Source $PRIVATE_REPO_REAL_URL -UserName $PRIVATE_REPO_REAL_USERNAME -Password $PRIVATE_REPO_REAL_PASSWORD
         - nuget push build/packages/Dyndle.Modules.Core*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
-        - nuget push build/packages/Dyndle.Modules.Globalization*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
         - nuget push build/packages/Dyndle.Modules.ImageEnhancement*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
         - nuget push build/packages/Dyndle.Modules.Management*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
         - nuget push build/packages/Dyndle.Modules.Navigation*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
