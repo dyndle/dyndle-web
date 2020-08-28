@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget Packages", "Nuget Pac
 		_NuGet\Dyndle.Modules.Core\Dyndle.Modules.Core.nuspec = _NuGet\Dyndle.Modules.Core\Dyndle.Modules.Core.nuspec
 		_NuGet\Dyndle.Modules.Email\Dyndle.Modules.Email.nuspec = _NuGet\Dyndle.Modules.Email\Dyndle.Modules.Email.nuspec
 		_NuGet\Dyndle.Modules.Feedback\Dyndle.Modules.Feedback.nuspec = _NuGet\Dyndle.Modules.Feedback\Dyndle.Modules.Feedback.nuspec
+		_NuGet\Dyndle.Modules.Globalization\Dyndle.Modules.Globalization.nuspec = _NuGet\Dyndle.Modules.Globalization\Dyndle.Modules.Globalization.nuspec
 		_NuGet\Dyndle.Modules.ImageEnhancement\Dyndle.Modules.ImageEnhancement.nuspec = _NuGet\Dyndle.Modules.ImageEnhancement\Dyndle.Modules.ImageEnhancement.nuspec
 		_NuGet\Dyndle.Modules.Management\Dyndle.Modules.Management.nuspec = _NuGet\Dyndle.Modules.Management\Dyndle.Modules.Management.nuspec
 		_NuGet\Dyndle.Modules.Navigation\Dyndle.Modules.Navigation.nuspec = _NuGet\Dyndle.Modules.Navigation\Dyndle.Modules.Navigation.nuspec
@@ -151,6 +152,12 @@ Global
 		{1BB95D95-DC20-4129-95C4-6DF6B2D327AF}.Package|Any CPU.Build.0 = Package|Any CPU
 		{1BB95D95-DC20-4129-95C4-6DF6B2D327AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BB95D95-DC20-4129-95C4-6DF6B2D327AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59E55B18-C99A-4809-9344-B62B85A7BBFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59E55B18-C99A-4809-9344-B62B85A7BBFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59E55B18-C99A-4809-9344-B62B85A7BBFD}.Package|Any CPU.ActiveCfg = Release|Any CPU
+		{59E55B18-C99A-4809-9344-B62B85A7BBFD}.Package|Any CPU.Build.0 = Release|Any CPU
+		{59E55B18-C99A-4809-9344-B62B85A7BBFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59E55B18-C99A-4809-9344-B62B85A7BBFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
