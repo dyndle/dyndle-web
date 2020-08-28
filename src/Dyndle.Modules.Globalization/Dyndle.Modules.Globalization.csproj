@@ -30,6 +30,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Package|AnyCPU'">
+    <DebugType>full</DebugType>
+    <OutputPath>bin\</OutputPath>
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DD4T.ContentModel, Version=2.5.0.0, Culture=neutral, PublicKeyToken=4450e3c7f68bf872, processorArchitecture=MSIL">
       <HintPath>..\packages\DD4T.Model.2.5.0\lib\net45\DD4T.ContentModel.dll</HintPath>
@@ -130,4 +135,5 @@
     <Compile Include="IGlobalizationService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildProjectDirectory)\..\_NuGet\Nuget.proj" />
 </Project>
