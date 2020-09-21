@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Dyndle.Providers.Tridion9.5</RootNamespace>
-    <AssemblyName>Dyndle.Providers.Tridion9</AssemblyName>
+    <AssemblyName>Dyndle.Providers.Tridion9.5</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -53,8 +53,8 @@
     <Reference Include="DD4T.Factories, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DD4T.Core.2.5.0\lib\net45\DD4T.Factories.dll</HintPath>
     </Reference>
-    <Reference Include="DD4T.Providers.Tridion9.CIL, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DD4T.Providers.Tridion9.CIL.2.5.0\lib\net45\DD4T.Providers.Tridion9.CIL.dll</HintPath>
+    <Reference Include="DD4T.Providers.Tridion9.5.CIL, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DD4T.Providers.Tridion9.5.CIL.2.5.0\lib\net45\DD4T.Providers.Tridion9.5.CIL.dll</HintPath>
     </Reference>
     <Reference Include="DD4T.Serialization, Version=2.5.0.0, Culture=neutral, PublicKeyToken=4450e3c7f68bf872, processorArchitecture=MSIL">
       <HintPath>..\packages\DD4T.Model.2.5.0\lib\net45\DD4T.Serialization.dll</HintPath>
