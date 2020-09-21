@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{99B6571E-65DD-4C76-B4C9-86B34E76FBD8}</ProjectGuid>
+    <ProjectGuid>{F6C48D79-422A-4366-8625-D6D31B7237B9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Dyndle.Providers.Tridion9.5</RootNamespace>
