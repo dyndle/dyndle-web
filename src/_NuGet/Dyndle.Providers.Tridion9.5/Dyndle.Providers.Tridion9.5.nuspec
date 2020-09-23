@@ -1,0 +1,31 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Dyndle.Providers.Tridion9.5</id>
+    <!-- Version is set by Build.proj -->
+    <version>1.0.1.0-alpha-20200923000000</version>
+    <!-- NOTE: Visual Studio's NuGet UI only shows 'id' and 'description' -->
+    <title>Dyndle.Providers.Tridion9.5</title>
+    <authors>Trivident</authors>
+    <iconUrl>http://www.trivident.com/dd4t-modules-logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Dyndle.Providers.Tridion9.5</description>
+    <copyright>Copyright 2020 Trivident</copyright>
+    <tags>Dyndle DD4T SDL Web Tridion Sites Trivident Tridion9 Tridion9.5 Tridion 95</tags>
+    <references>
+      <reference file="Dyndle.Providers.Tridion9.5.dll" />
+    </references>
+    <dependencies>
+      <dependency id="Dyndle.Modules.Core" version="1.0.1.0-alpha-20200923000000"/>
+      <dependency id="DD4T.Providers.Tridion9.5.CIL" version="2.5.0"/>
+      <dependency id="Microsoft.Extensions.DependencyInjection" version="2.2.0"/>
+      <dependency id="Newtonsoft.Json" version="11.0.2" />
+      <dependency id="WebActivatorEx" version="2.0.3" />
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- NOTE: we're excluding CIL assemblies to prevent licensing issues (CIL has a custom license; not Apache 2.0) -->
+    <file src="..\..\Dyndle.Providers.Tridion9.5\bin\Dyndle.Providers.Tridion9.5.dll" target="lib\net48" />
+    <file src="..\..\Dyndle.Providers.Tridion9.5\bin\Dyndle.Providers.Tridion9.5.pdb" target="lib\net48" />
+  </files>
+</package>

@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.Core", "Dynd
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.Management", "Dyndle.Modules.Management\Dyndle.Modules.Management.csproj", "{307263FD-8FE0-438F-89FE-8B3D5A5E64A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Providers.Tridion9.5", "Dyndle.Providers.Tridion9.5\Dyndle.Providers.Tridion9.5.csproj", "{F6C48D79-422A-4366-8625-D6D31B7237B9}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Providers.Tridion9", "Dyndle.Providers.Tridion9\Dyndle.Providers.Tridion9.csproj", "{99B6571E-65DD-4C76-B4C9-86B34E76FBD8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Providers.SDLWeb85", "Dyndle.Providers.SDLWeb85\Dyndle.Providers.SDLWeb85.csproj", "{5372DBE2-D735-4936-8AF2-0E38AE889ADF}"
@@ -41,8 +43,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.Test", "Dyndle.Modules.Core.Test\Dyndle.Modules.Test.csproj", "{003C6126-7BD3-436D-9C72-3D6325D97019}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Quickstart.Web", "Dyndle.Quickstart.Web\Dyndle.Quickstart.Web.csproj", "{1BB95D95-DC20-4129-95C4-6DF6B2D327AF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Providers.Tridion9.5", "Dyndle.Providers.Tridion9.5\Dyndle.Providers.Tridion9.5.csproj", "{F6C48D79-422A-4366-8625-D6D31B7237B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
