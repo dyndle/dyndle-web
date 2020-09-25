@@ -7,8 +7,8 @@
     <ProjectGuid>{F6C48D79-422A-4366-8625-D6D31B7237B9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Dyndle.Providers.Tridion9.5</RootNamespace>
-    <AssemblyName>Dyndle.Providers.Tridion9.5</AssemblyName>
+    <RootNamespace>Dyndle.Providers.Tridion95</RootNamespace>
+    <AssemblyName>Dyndle.Providers.Tridion95</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
