@@ -18,6 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget Packages", "Nuget Pac
 		_NuGet\Dyndle.Providers.SDLWeb8\Dyndle.Providers.SDLWeb8.nuspec = _NuGet\Dyndle.Providers.SDLWeb8\Dyndle.Providers.SDLWeb8.nuspec
 		_NuGet\Dyndle.Providers.SDLWeb85\Dyndle.Providers.SDLWeb85.nuspec = _NuGet\Dyndle.Providers.SDLWeb85\Dyndle.Providers.SDLWeb85.nuspec
 		_NuGet\Dyndle.Providers.Tridion9\Dyndle.Providers.Tridion9.nuspec = _NuGet\Dyndle.Providers.Tridion9\Dyndle.Providers.Tridion9.nuspec
+		_NuGet\Dyndle.Providers.Tridion95\Dyndle.Providers.Tridion95.nuspec = _NuGet\Dyndle.Providers.Tridion95\Dyndle.Providers.Tridion95.nuspec
 		_NuGet\Dyndle.Quickstart.Web\Dyndle.Quickstart.Web.nuspec = _NuGet\Dyndle.Quickstart.Web\Dyndle.Quickstart.Web.nuspec
 		_NuGet\Nuget.Proj = _NuGet\Nuget.Proj
 		_tools\NuGet.targets = _tools\NuGet.targets
@@ -54,6 +55,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Quickstart.Web", "Dyndle.Quickstart.Web\Dyndle.Quickstart.Web.csproj", "{1BB95D95-DC20-4129-95C4-6DF6B2D327AF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.Globalization", "Dyndle.Modules.Globalization\Dyndle.Modules.Globalization.csproj", "{59E55B18-C99A-4809-9344-B62B85A7BBFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Providers.Tridion95", "Dyndle.Providers.Tridion95\Dyndle.Providers.Tridion95.csproj", "{F6C48D79-422A-4366-8625-D6D31B7237B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -154,16 +157,22 @@ Global
 		{1BB95D95-DC20-4129-95C4-6DF6B2D327AF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{59E55B18-C99A-4809-9344-B62B85A7BBFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{59E55B18-C99A-4809-9344-B62B85A7BBFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{59E55B18-C99A-4809-9344-B62B85A7BBFD}.Package|Any CPU.ActiveCfg = Release|Any CPU
-		{59E55B18-C99A-4809-9344-B62B85A7BBFD}.Package|Any CPU.Build.0 = Release|Any CPU
+		{59E55B18-C99A-4809-9344-B62B85A7BBFD}.Package|Any CPU.ActiveCfg = Package|Any CPU
+		{59E55B18-C99A-4809-9344-B62B85A7BBFD}.Package|Any CPU.Build.0 = Package|Any CPU
 		{59E55B18-C99A-4809-9344-B62B85A7BBFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59E55B18-C99A-4809-9344-B62B85A7BBFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6C48D79-422A-4366-8625-D6D31B7237B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6C48D79-422A-4366-8625-D6D31B7237B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6C48D79-422A-4366-8625-D6D31B7237B9}.Package|Any CPU.ActiveCfg = Package|Any CPU
+		{F6C48D79-422A-4366-8625-D6D31B7237B9}.Package|Any CPU.Build.0 = Package|Any CPU
+		{F6C48D79-422A-4366-8625-D6D31B7237B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6C48D79-422A-4366-8625-D6D31B7237B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {4843DD94-3470-460A-8585-A67F64110EE5}
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.ExceptionHandling.6.0.1304.0\lib\NET45
+		SolutionGuid = {4843DD94-3470-460A-8585-A67F64110EE5}
 	EndGlobalSection
 EndGlobal

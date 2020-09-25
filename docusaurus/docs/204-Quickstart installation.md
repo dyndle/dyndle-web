@@ -29,7 +29,7 @@ In this manual we will be using the Quickstart. If you want to use Dyndle withou
 3. On the next screen (Configure your new project), enter a project name and select the desired .NET Framework version (should be at least 4.6.2)
 4. On the next screen (Create a new ASP.NET Web Application), choose **Empty** version and add references to MVC with the checkbox on the right
 5. Install the Dyndle.Core NuGet package
-6. Install one of the Dyndle.Providers packages (SDLWeb81, SDLWeb85 or Tridion9 - which also supports Tridion 9.1!)
+6. Install one of the Dyndle.Providers packages (SDLWeb81, SDLWeb85, Tridion9 or Tridion 95. Note that Tridion9 also supports Tridion 9.1!
 7. Install Dyndle.Quickstart.Web
 8. Open the Web.config in the root of your site and change the following:
    - Find _discovery-service-uri_ and enter the URL of the Tridion discovery service in your environment.

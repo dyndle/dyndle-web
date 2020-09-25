@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Dyndle.Modules.ImageEnhancement")]
+[assembly: AssemblyTitle("Dyndle.Providers.Tridion95")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Trivident")]
-[assembly: AssemblyProduct("Dyndle.Modules.ImageEnhancement")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Dyndle.Providers.Tridion95")]
 [assembly: AssemblyCopyright("Copyright © 2020 Trivident B.V.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("2c44c228-0205-497a-83ca-b76b152a2018")]
+[assembly: Guid("99b6571e-65dd-4c76-b4c9-86b34e76fbd8")]
 
 // Version information for an assembly consists of the following four values:
 //
