@@ -20,7 +20,7 @@ See https://www.dyndle.com for more information and documentation.
 | Dyndle.Providers.SDLWeb8 | [![https://www.nuget.org/packages/Dyndle.Providers.SDLWeb8](https://img.shields.io/nuget/v/Dyndle.Providers.SDLWeb8?style=for-the-badge)](https://www.nuget.org/packages/Dyndle.Providers.SDLWeb8) |
 | Dyndle.Providers.SDLWeb85 | [![https://www.nuget.org/packages/Dyndle.Providers.SDLWeb85](https://img.shields.io/nuget/v/Dyndle.Providers.SDLWeb85?style=for-the-badge)](https://www.nuget.org/packages/Dyndle.Providers.SDLWeb85) |
 | Dyndle.Providers.Tridion9 | [![https://www.nuget.org/packages/Dyndle.Providers.Tridion9](https://img.shields.io/nuget/v/Dyndle.Providers.Tridion9?style=for-the-badge)](https://www.nuget.org/packages/Dyndle.Providers.Tridion9) |
-| Dyndle.Providers.Tridion9.5 | [![https://www.nuget.org/packages/Dyndle.Providers.Tridion95](https://img.shields.io/nuget/v/Dyndle.Providers.Tridion95?style=for-the-badge)](https://www.nuget.org/packages/Dyndle.Providers.Tridion95) |
+| Dyndle.Providers.Tridion95 | [![https://www.nuget.org/packages/Dyndle.Providers.Tridion95](https://img.shields.io/nuget/v/Dyndle.Providers.Tridion95?style=for-the-badge)](https://www.nuget.org/packages/Dyndle.Providers.Tridion95) |
 
 ## Quickstart
 |   |   |
