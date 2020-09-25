@@ -60,6 +60,7 @@ definitions:
        size: 2x
        script:
         - nuget push build/packages/Dyndle.Modules.Core*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
+        - nuget push build/packages/Dyndle.Modules.Globalization*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
         - nuget push build/packages/Dyndle.Modules.ImageEnhancement*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
         - nuget push build/packages/Dyndle.Modules.Management*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
         - nuget push build/packages/Dyndle.Modules.Navigation*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
