@@ -3,7 +3,6 @@ id: integrating-ECL
 title: Integrating External Content Libraries
 description: Documentation for Dyndle
 sidebar_label: Integrating ECL
-
 ---
 
 Using external content libraries in a Dyndle webapplication is supported out of the box with the Dyndle Core module. It's default model for multimedia components can handle regular images uploaded through Tridion as well as images provided from an external application through an ECL. It also provides the external metadata from the ECL provider. Below is an example implementation of an image from Bynder, a digital asset management system, provided to Tridion with an ECL and used in a asp.net web application with Dyndle.

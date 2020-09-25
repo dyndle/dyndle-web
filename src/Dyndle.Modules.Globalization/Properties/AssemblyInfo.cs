@@ -1,14 +1,15 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Dyndle.Modules.ImageEnhancement")]
+[assembly: AssemblyTitle("Dyndle.Modules.Globalization")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Trivident")]
-[assembly: AssemblyProduct("Dyndle.Modules.ImageEnhancement")]
+[assembly: AssemblyProduct("Dyndle.Modules.Globalization")]
 [assembly: AssemblyCopyright("Copyright © 2020 Trivident B.V.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("2c44c228-0205-497a-83ca-b76b152a2018")]
+[assembly: Guid("59e55b18-c99a-4809-9344-b62b85a7bbfd")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -31,4 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.1.0")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

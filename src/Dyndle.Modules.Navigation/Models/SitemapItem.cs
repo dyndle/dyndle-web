@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Web;
 using System.Xml.Linq;
 using DD4T.ViewModels.Attributes;
 using Dyndle.Modules.Core.Extensions;
@@ -209,8 +211,18 @@ namespace Dyndle.Modules.Navigation.Models
         /// <param name="parentUrl">The parent URL.</param>
         public void PrepareBreadcrumb(string requestUrl, string parentUrl = null)
         {
-            var item = Items?.FirstOrDefault(a => requestUrl.StartsWith(a.Url, StringComparison.InvariantCultureIgnoreCase)
-                                                  && a.Url != parentUrl);
+            var includeFileExtensions = false;
+            Boolean.TryParse(ConfigurationManager.AppSettings["DD4T.IncludeFileExtensions"], out includeFileExtensions);
+
+            SitemapItem item;
+            if (includeFileExtensions)
+            {
+                item = Items?.Where(i => i.Visible).FirstOrDefault(a => requestUrl.Substring(0, requestUrl.LastIndexOf('/')).StartsWith(a.Url, StringComparison.InvariantCultureIgnoreCase) && a.Url != parentUrl);
+            }
+            else
+            {
+                item = Items?.Where(i => i.Visible).FirstOrDefault(a => requestUrl.StartsWith(a.Url, StringComparison.InvariantCultureIgnoreCase) && a.Url != parentUrl);
+            }
 
             if (item == null && Items != null && Items.Any())
             {

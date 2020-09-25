@@ -8,7 +8,7 @@
   <PropertyGroup>
     
     <!-- CHANGE THE NUGET PACKAGE VERSION HERE! -->
-    <Version>1.0.1.0</Version>
+    <Version>1.0.2.0</Version>
 
     <AssemblyCopyright>Copyright &#169; 2020 Trivident B.V.</AssemblyCopyright>
 
@@ -62,7 +62,7 @@
 
   <Target Name="UpdateAssemblyInfo">
     <ItemGroup>
-      <AssemblyInfoFiles Include="$(MSBuildProjectDirectory)\**\*assemblyinfo.cs" />
+      <AssemblyInfoFiles Include="$(MSBuildProjectDirectory)/**/AssemblyInfo.cs" />
     </ItemGroup>
     <Message Text="Updating AssemblyInfo to Version $(Version)" Importance="high"/>
     <Message Text="Writing to AssemblyInfo files in $(MSBuildProjectDirectory)" Importance="high"/>

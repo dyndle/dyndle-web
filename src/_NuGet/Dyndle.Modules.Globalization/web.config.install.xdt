@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+	<appSettings xdt:Transform="InsertIfMissing">
+		<!-- Globalization settings -->
+		<add key="Globalization.SourceUrl" value="/system/publication-meta.html" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+	</appSettings>
+</configuration>

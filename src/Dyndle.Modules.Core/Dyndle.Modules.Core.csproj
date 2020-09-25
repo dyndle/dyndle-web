@@ -202,7 +202,9 @@
     <Compile Include="Interfaces\IServiceCollectionModule.cs" />
     <Compile Include="Models\Defaults\DefaultEntity.cs" />
     <Compile Include="Models\Defaults\DefaultWebPage.cs" />
+    <Compile Include="Models\IPublicationMeta.cs" />
     <Compile Include="Models\MultimediaEntityModel.cs" />
+    <Compile Include="Models\PublicationMeta.cs" />
     <Compile Include="Models\Query\QueryCriteria.cs" />
     <Compile Include="Models\Query\SortColumn.cs" />
     <Compile Include="Models\Query\SortDirection.cs" />
@@ -255,6 +257,7 @@
     <Compile Include="Providers\Content\DefaultContentProvider.cs" />
     <Compile Include="Providers\Content\IContentProvider.cs" />
     <Compile Include="Providers\Content\IContentQueryProvider.cs" />
+    <Compile Include="Providers\Content\IPublicationProvider.cs" />
     <Compile Include="Providers\Content\ITaxonomyProvider.cs" />
     <Compile Include="Providers\Filter\DebugInfoFilterProvider.cs" />
     <Compile Include="Providers\Redirection\DefaultRedirectionDefinitionProvider.cs" />

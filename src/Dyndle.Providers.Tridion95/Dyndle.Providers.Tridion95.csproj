@@ -4,14 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5372DBE2-D735-4936-8AF2-0E38AE889ADF}</ProjectGuid>
+    <ProjectGuid>{F6C48D79-422A-4366-8625-D6D31B7237B9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Dyndle.Providers.SDLWeb85</RootNamespace>
-    <AssemblyName>Dyndle.Providers.SDLWeb85</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <RootNamespace>Dyndle.Providers.Tridion95</RootNamespace>
+    <AssemblyName>Dyndle.Providers.Tridion95</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,7 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.8.11\lib\net46\CommonServiceLocator.dll</HintPath>
+      <HintPath>..\packages\Unity.5.8.11\lib\net47\CommonServiceLocator.dll</HintPath>
     </Reference>
     <Reference Include="DD4T.ContentModel, Version=2.5.0.0, Culture=neutral, PublicKeyToken=4450e3c7f68bf872, processorArchitecture=MSIL">
       <HintPath>..\packages\DD4T.Model.2.5.0\lib\net45\DD4T.ContentModel.dll</HintPath>
@@ -56,8 +57,8 @@
     <Reference Include="DD4T.Factories, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DD4T.Core.2.5.0\lib\net45\DD4T.Factories.dll</HintPath>
     </Reference>
-    <Reference Include="DD4T.Providers.SDLWeb8.5.CIL, Version=2.2.2.11, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DD4T.Providers.SDLWeb8.5.CIL.2.2.2\lib\net45\DD4T.Providers.SDLWeb8.5.CIL.dll</HintPath>
+    <Reference Include="DD4T.Providers.Tridion9.5.CIL, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DD4T.Providers.Tridion9.5.CIL.2.5.0-build20200923075816\lib\net45\DD4T.Providers.Tridion9.5.CIL.dll</HintPath>
     </Reference>
     <Reference Include="DD4T.Serialization, Version=2.5.0.0, Culture=neutral, PublicKeyToken=4450e3c7f68bf872, processorArchitecture=MSIL">
       <HintPath>..\packages\DD4T.Model.2.5.0\lib\net45\DD4T.Serialization.dll</HintPath>
@@ -68,14 +69,14 @@
     <Reference Include="DD4T.ViewModels, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DD4T.Core.2.5.0\lib\net45\DD4T.ViewModels.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Data.Edm, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Data.Edm.5.6.4\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    <Reference Include="Microsoft.Data.Edm, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.8.4\lib\net40\Microsoft.Data.Edm.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Data.OData, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Data.OData.5.6.4\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    <Reference Include="Microsoft.Data.OData, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.8.4\lib\net40\Microsoft.Data.OData.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Data.Services.Client.5.6.4\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.8.4\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=1.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.1.1.0\lib\netstandard1.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
@@ -98,17 +99,17 @@
     <Reference Include="Microsoft.Extensions.Primitives, Version=1.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Primitives.1.1.0\lib\netstandard1.0\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.OData.Client, Version=6.15.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.OData.Client.6.15.0\lib\net40\Microsoft.OData.Client.dll</HintPath>
+    <Reference Include="Microsoft.OData.Client, Version=7.6.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.OData.Client.7.6.3\lib\net45\Microsoft.OData.Client.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.OData.Core, Version=6.15.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.OData.Core.6.15.0\lib\portable-net45+win+wpa81\Microsoft.OData.Core.dll</HintPath>
+    <Reference Include="Microsoft.OData.Core, Version=7.6.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.OData.Core.7.6.3\lib\portable-net45+win8+wpa81\Microsoft.OData.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.OData.Edm, Version=6.15.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.OData.Edm.6.15.0\lib\portable-net45+win+wpa81\Microsoft.OData.Edm.dll</HintPath>
+    <Reference Include="Microsoft.OData.Edm, Version=7.6.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.OData.Edm.7.6.3\lib\portable-net45+win8+wpa81\Microsoft.OData.Edm.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Spatial, Version=6.15.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Spatial.6.15.0\lib\portable-net45+win+wpa81\Microsoft.Spatial.dll</HintPath>
+    <Reference Include="Microsoft.Spatial, Version=7.6.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Spatial.7.6.3\lib\portable-net45+win8+wpa81\Microsoft.Spatial.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -118,15 +119,15 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="StackExchange.Redis.StrongName, Version=1.1.605.0, Culture=neutral, PublicKeyToken=c219ff1ca8c2ce46, processorArchitecture=MSIL">
       <HintPath>..\packages\StackExchange.Redis.StrongName.1.1.605\lib\net46\StackExchange.Redis.StrongName.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.AppContext, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\DD4T.Providers.SDLWeb8.5.CIL.2.2.2\lib\net45\System.AppContext.dll</HintPath>
+    <Reference Include="System.AppContext, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.AppContext.4.3.0\lib\net463\System.AppContext.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
@@ -180,6 +181,16 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Linq, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.4.3.0\lib\net463\System.Linq.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq.Expressions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Expressions.4.3.0\lib\net463\System.Linq.Expressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Net.Http, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Net.Http.4.3.0\lib\net46\System.Net.Http.dll</HintPath>
       <Private>True</Private>
@@ -209,8 +220,8 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Runtime.InteropServices, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.InteropServices.4.3.0\lib\net462\System.Runtime.InteropServices.dll</HintPath>
+    <Reference Include="System.Runtime.InteropServices, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.4.3.0\lib\net463\System.Runtime.InteropServices.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
@@ -219,8 +230,8 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
@@ -239,8 +250,13 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Spatial.5.6.4\lib\net40\System.Spatial.dll</HintPath>
+    <Reference Include="System.Spatial, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.8.4\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.RegularExpressions.4.3.0\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -271,45 +287,44 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Tridion.ContentDelivery, Version=8.5.0.1014, Culture=neutral, PublicKeyToken=ddfc895746e5ee6b, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sdl.Web.Delivery.8.5.1041\lib\net452\Tridion.ContentDelivery.dll</HintPath>
+    <Reference Include="Tridion.ContentDelivery, Version=11.5.0.0, Culture=neutral, PublicKeyToken=ddfc895746e5ee6b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sdl.Web.Delivery.11.5.1045\lib\net48\Tridion.ContentDelivery.dll</HintPath>
     </Reference>
-    <Reference Include="Tridion.ContentDelivery.AmbientData, Version=8.5.0.1014, Culture=neutral, PublicKeyToken=ddfc895746e5ee6b, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sdl.Web.Delivery.8.5.1041\lib\net452\Tridion.ContentDelivery.AmbientData.dll</HintPath>
+    <Reference Include="Tridion.ContentDelivery.AmbientData, Version=11.5.0.0, Culture=neutral, PublicKeyToken=ddfc895746e5ee6b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sdl.Web.Delivery.11.5.1045\lib\net48\Tridion.ContentDelivery.AmbientData.dll</HintPath>
     </Reference>
-    <Reference Include="Tridion.ContentDelivery.Preview, Version=8.5.0.1014, Culture=neutral, PublicKeyToken=ddfc895746e5ee6b, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sdl.Web.Delivery.8.5.1041\lib\net452\Tridion.ContentDelivery.Preview.dll</HintPath>
+    <Reference Include="Tridion.ContentDelivery.Preview, Version=11.5.0.0, Culture=neutral, PublicKeyToken=ddfc895746e5ee6b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sdl.Web.Delivery.11.5.1045\lib\net48\Tridion.ContentDelivery.Preview.dll</HintPath>
     </Reference>
-    <Reference Include="Tridion.ContentDelivery.UGC, Version=8.5.0.1014, Culture=neutral, PublicKeyToken=ddfc895746e5ee6b, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sdl.Web.Delivery.8.5.1041\lib\net452\Tridion.ContentDelivery.UGC.dll</HintPath>
+    <Reference Include="Tridion.ContentDelivery.UGC, Version=11.5.0.0, Culture=neutral, PublicKeyToken=ddfc895746e5ee6b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sdl.Web.Delivery.11.5.1045\lib\net48\Tridion.ContentDelivery.UGC.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Abstractions, Version=3.3.1.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.8.11\lib\net46\Unity.Abstractions.dll</HintPath>
+      <HintPath>..\packages\Unity.5.8.11\lib\net47\Unity.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Configuration, Version=5.2.5.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.8.11\lib\net46\Unity.Configuration.dll</HintPath>
+      <HintPath>..\packages\Unity.5.8.11\lib\net47\Unity.Configuration.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Container, Version=5.8.11.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.8.11\lib\net46\Unity.Container.dll</HintPath>
+      <HintPath>..\packages\Unity.5.8.11\lib\net47\Unity.Container.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Interception, Version=5.5.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.8.11\lib\net46\Unity.Interception.dll</HintPath>
+      <HintPath>..\packages\Unity.5.8.11\lib\net47\Unity.Interception.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Interception.Configuration, Version=5.1.7.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.8.11\lib\net46\Unity.Interception.Configuration.dll</HintPath>
+      <HintPath>..\packages\Unity.5.8.11\lib\net47\Unity.Interception.Configuration.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RegistrationByConvention, Version=2.1.9.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.8.11\lib\net46\Unity.RegistrationByConvention.dll</HintPath>
+      <HintPath>..\packages\Unity.5.8.11\lib\net47\Unity.RegistrationByConvention.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ServiceLocation, Version=2.1.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.8.11\lib\net46\Unity.ServiceLocation.dll</HintPath>
+      <HintPath>..\packages\Unity.5.8.11\lib\net47\Unity.ServiceLocation.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Dyndle.Providers.Base\Resolvers\NullPublicationMapping.cs">
-      <Link>Resolvers\NullPublicationMapping.cs</Link>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resolvers\NullPublicationMapping.cs" />
+    <Compile Include="Resolvers\PublicationResolver.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\Dyndle.Providers.Base\Extensions\TaxonomyExtensions.cs">
@@ -329,9 +344,6 @@
     </Compile>
     <Compile Include="..\Dyndle.Providers.Base\Resolvers\DevPublicationResolver.cs">
       <Link>Resolvers\DevPublicationResolver.cs</Link>
-    </Compile>
-    <Compile Include="..\Dyndle.Providers.Base\Resolvers\PublicationResolver.cs">
-      <Link>Resolvers\PublicationResolver.cs</Link>
     </Compile>
   </ItemGroup>
   <ItemGroup>

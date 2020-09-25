@@ -11,6 +11,7 @@ See https://www.dyndle.com for more information and documentation.
 | Dyndle.Modules.Management | [![https://www.nuget.org/packages/Dyndle.Modules.Management](https://img.shields.io/nuget/v/Dyndle.Modules.Management?style=for-the-badge)](https://www.nuget.org/packages/Dyndle.Modules.Management) |
 | Dyndle.Modules.Search | [![https://www.nuget.org/packages/Dyndle.Modules.Search](https://img.shields.io/nuget/v/Dyndle.Modules.Search?style=for-the-badge)](https://www.nuget.org/packages/Dyndle.Modules.Search) |
 | Dyndle.Modules.Navigation | [![https://www.nuget.org/packages/Dyndle.Modules.Navigation](https://img.shields.io/nuget/v/Dyndle.Modules.Navigation?style=for-the-badge)](https://www.nuget.org/packages/Dyndle.Modules.Navigation) |
+| Dyndle.Modules.Globalization | [![https://www.nuget.org/packages/Dyndle.Modules.Globalization](https://img.shields.io/nuget/v/Dyndle.Modules.Globalization?style=for-the-badge)](https://www.nuget.org/packages/Dyndle.Modules.Globalization) |
 
 
 ## Providers
@@ -19,6 +20,7 @@ See https://www.dyndle.com for more information and documentation.
 | Dyndle.Providers.SDLWeb8 | [![https://www.nuget.org/packages/Dyndle.Providers.SDLWeb8](https://img.shields.io/nuget/v/Dyndle.Providers.SDLWeb8?style=for-the-badge)](https://www.nuget.org/packages/Dyndle.Providers.SDLWeb8) |
 | Dyndle.Providers.SDLWeb85 | [![https://www.nuget.org/packages/Dyndle.Providers.SDLWeb85](https://img.shields.io/nuget/v/Dyndle.Providers.SDLWeb85?style=for-the-badge)](https://www.nuget.org/packages/Dyndle.Providers.SDLWeb85) |
 | Dyndle.Providers.Tridion9 | [![https://www.nuget.org/packages/Dyndle.Providers.Tridion9](https://img.shields.io/nuget/v/Dyndle.Providers.Tridion9?style=for-the-badge)](https://www.nuget.org/packages/Dyndle.Providers.Tridion9) |
+| Dyndle.Providers.Tridion95 | [![https://www.nuget.org/packages/Dyndle.Providers.Tridion95](https://img.shields.io/nuget/v/Dyndle.Providers.Tridion95?style=for-the-badge)](https://www.nuget.org/packages/Dyndle.Providers.Tridion95) |
 
 ## Quickstart
 |   |   |
