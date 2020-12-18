@@ -194,10 +194,18 @@ namespace Dyndle.Modules.Core.Extensions
             {
                 url = url + defaultFileName;
             }
-            if (!Path.HasExtension(url))
+            try
             {
-                var extension = Path.GetExtension(defaultFileName);
-                url = string.Format("{0}{1}", url, extension);
+                if (!Path.HasExtension(url))
+                {
+                    var extension = Path.GetExtension(defaultFileName);
+                    url = string.Format("{0}{1}", url, extension);
+                }
+            }
+            catch(ArgumentException e)
+            {
+                DependencyResolver.Current.GetService<ILogger>().Warning("Caught an argument exception when getting extensionless url", e);
+                url = Configuration.DyndleConfig.GetErrorPageUrl(404);
             }
 
             return Uri.EscapeUriString(url);
