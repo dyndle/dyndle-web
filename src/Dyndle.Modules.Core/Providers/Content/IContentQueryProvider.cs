@@ -24,8 +24,9 @@ namespace Dyndle.Modules.Core.Providers.Content
         /// <param name="skip">The skip.</param>
         /// <param name="take">The take.</param>
         /// <param name="criteria">The criteria.</param>
+        /// <param name="singlePublication">Flag to query in current publication.</param>
         /// <returns>IEnumerable&lt;T&gt;.</returns>
-        string[] Query<T>(int skip, int take, QueryCriteria criteria) where T : IViewModel;
+        string[] Query<T>(int skip, int take, QueryCriteria criteria, bool singlePublication = true) where T : IViewModel;
 
     }
 }
