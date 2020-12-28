@@ -148,13 +148,16 @@ namespace Dyndle.Providers
         /// <returns>IEnumerable&lt;T&gt;.</returns>
         /// <exception cref="Exception">ViewName {0} not found.".FormatString(criteria.ViewTitle)</exception>
         /// <exception cref="InvalidCastException"></exception>
-        public string[] Query<T>(int skip, int take, QueryCriteria criteria) where T : IViewModel
+        public string[] Query<T>(int skip, int take, QueryCriteria criteria, bool singlePublication = true) where T : IViewModel
         {
             var publicationId = _publicationResolver.ResolvePublicationId();
 
             var listCriteria = new List<Criteria>();
 
-            listCriteria.Add(new PublicationCriteria(publicationId));
+            if (singlePublication)
+            {
+                listCriteria.Add(new PublicationCriteria(publicationId));
+            }
             listCriteria.Add(new ItemTypeCriteria((int)criteria.Type));
 
             if (!criteria.ViewTitle.IsNullOrEmpty())

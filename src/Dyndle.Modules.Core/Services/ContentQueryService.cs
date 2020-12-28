@@ -67,6 +67,41 @@ namespace Dyndle.Modules.Core.Services
         /// <exception cref="InvalidCastException"></exception>
         public IEnumerable<T> Query<T>(int skip, int take, QueryCriteria criteria) where T : IViewModel
         {
+            return Query<T>(skip, take, criteria, singlePublication: true);
+        }
+        
+        /// <summary>
+        /// Queries the broker for dynamic components or pages from all publications.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="skip">The skip.</param>
+        /// <param name="take">The take.</param>
+        /// <returns>IEnumerable&lt;T&gt;.</returns>
+        /// <exception cref="Exception">ViewName {0} not found.".FormatString(criteria.ViewTitle)</exception>
+        /// <exception cref="InvalidCastException"></exception>
+        public IEnumerable<T> QueryAllPublications<T>(int skip, int take) where T : IViewModel
+        {
+            return QueryAllPublications<T>(skip, take, new QueryCriteria());
+        }
+
+        /// <summary>
+        /// Queries the broker for dynamic components or pages from all publications.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="skip">The skip.</param>
+        /// <param name="take">The take.</param>
+        /// <param name="criteria">The criteria.</param>
+        /// <returns>IEnumerable&lt;T&gt;.</returns>
+        /// <exception cref="Exception">ViewName {0} not found.".FormatString(criteria.ViewTitle)</exception>
+        /// <exception cref="InvalidCastException"></exception>
+        public IEnumerable<T> QueryAllPublications<T>(int skip, int take, QueryCriteria criteria) where T : IViewModel
+        {
+            return Query<T>(skip, take, criteria, singlePublication: false);
+        }
+
+        private IEnumerable<T> Query<T>(int skip, int take, QueryCriteria criteria,
+            bool singlePublication) where T : IViewModel
+        {
             var publicationId = _publicationResolver.ResolvePublicationId();
 
             string cacheKey = string.Format(CacheKeyFormat, string.Join("|", typeof(T).FullName, skip, take, publicationId, criteria.GetUniqueKey()));
@@ -78,7 +113,7 @@ namespace Dyndle.Modules.Core.Services
                 return result;
             }
 
-            var allComponentUris = _contentQueryProvider.Query<T>(skip, take, criteria);
+            var allComponentUris = _contentQueryProvider.Query<T>(skip, take, criteria, singlePublication); 
 
             result = new List<T>();
 
@@ -98,6 +133,6 @@ namespace Dyndle.Modules.Core.Services
 
             return result;
         }
-
+        
     }
 }
