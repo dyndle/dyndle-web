@@ -1,4 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Web.Mvc;
+using DD4T.ContentModel.Contracts.Resolvers;
+using DD4T.Utils;
+using Dyndle.Modules.Core.Models.Query;
+using Dyndle.Modules.Core.Providers.Content;
 using Dyndle.Modules.Search.Contracts;
 using Dyndle.Modules.Search.Extensions;
 using Newtonsoft.Json;
@@ -61,5 +66,38 @@ namespace Dyndle.Modules.Search.Models
                 return result;
             }
         }
+
+        public ISearchSummary GetSearchSummaryEntity()
+        {
+            var contentProvider = DependencyResolver.Current.GetService<IContentProvider>();
+            if (ItemType == (int) QueryCriteria.ItemType.Component)
+            {
+                var viewModel = contentProvider.BuildViewModel(Id);
+                return viewModel as ISearchSummary;
+            }
+
+            if (ItemType == (int) QueryCriteria.ItemType.Page)
+            {
+                var page = contentProvider.GetPage(new TcmUri(Id));
+                var pubId = DependencyResolver.Current.GetService<IPublicationResolver>().ResolvePublicationId();
+                if (page?.ComponentPresentations != null)
+                {
+                    foreach (var componentPresentation in page.ComponentPresentations)
+                    {
+                        var viewModel = contentProvider.BuildViewModel(componentPresentation);
+                        if(viewModel is ISearchSummary searchSummary)
+                        {
+                            return searchSummary;
+                        }
+                    }
+                    Logger.Warning($"Could not find ISearchSummary component presentation for page {Id}");
+                }
+                else
+                {
+                    Logger.Warning($"Could not find page with id {Id}");
+                }
+            }
+            return null;
+        } 
     }
 }
