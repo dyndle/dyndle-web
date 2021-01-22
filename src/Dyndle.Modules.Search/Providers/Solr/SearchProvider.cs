@@ -49,7 +49,7 @@ namespace Dyndle.Modules.Search.Providers.Solr
             try
             {
                 var searchUrl = SearchConstants.Settings.BaseUrl.GetConfigurationValue();
-                query.Start = query.Start - 1;
+                query.Start = query.Start > 0? query.Start - 1 : 0;
 
                 //Type type = typeof(TestResultItem);
                 //ISolrSearchResultItem resultItem = (ISolrSearchResultItem) Activator.CreateInstance(typeof(TestResultItem));
