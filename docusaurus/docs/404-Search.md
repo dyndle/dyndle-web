@@ -39,9 +39,28 @@ This function takes a query and returns a `SearchResults` object. You can then r
 
 This functions also takes a `viewname`, which can be uses to directly render the result of the query in the specified view. This way you can reuse the view in other places in your webapp.
 
+### Example query
+
+Below is an example query that will return a total of all indexed documents and will return 10 documents as objects.
+
+
+```c#
+@using Dyndle.Modules.Search.Models
+
+var searchQuery = new SearchQuery()
+{
+    Query = "*:*",
+    PageSize = 10
+};
+```
+
 ## Custom search result model
 
-You can also use a custom model for this by configuring the model class name in `Search.ResponseItemModel` and the name of the assembly it is located in `Search.Assembly` settings in the web config. The search result will then try to bind the returned items to your own model. The custom model should implement `ISearchResultItem` and we recommend to inherit from `SearchResultItem` class.
+The Search method returns an object of the type `Dyndle.Modules.Search.Models.SearchResults`. This class contains a property called Items, which is a list of the type `Dyndle.Modules.Search.Contracts.ISearchResultItem`. This interface captures all the fields in the SOLR document. Out of the box, Dyndle will populate the Items property with instances of `Dyndle.Modules.Search.Models.SearchResultItem`, so you have access to the entire SOLR document.
+
+However, it is possible (and quite common) to enhance the SOLR document with extra fields. In that case, you can create your own class and configure Dyndle to use that. Your class must extend `Dyndle.Modules.Search.Models.SearchResultItem` and add the missing fields.
+
+You can use a custom model for this by configuring the model class name in `Search.ResponseItemModel` and the name of the assembly it is located in `Search.Assembly` settings in the web config. The search result will then try to bind the returned items to your own model. The custom model should implement `ISearchResultItem` and we recommend to inherit from `SearchResultItem` class.
 
 ## Adding a search results page
 
