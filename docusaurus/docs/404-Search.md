@@ -29,7 +29,7 @@ After having installed the TBBs from SI4T you can use them on the page templates
 
 ## Html helper
 
-The Dyndle search module provides a Html helper class that can be used to retrieve search results in dynamic locations in your website. This way you don't have to create a page with a search component in Tridion. There are two helper functions you can use:
+The Dyndle search module provides an Html helper class that can be used to retrieve search results in dynamic locations in your website. This way you don't have to create a page with a search component in Tridion. There are two helper functions you can use:
 
 `@Html.Search(query)`
 
@@ -37,7 +37,7 @@ This function takes a query and returns a `SearchResults` object. You can then r
 
 `@Html.RenderSearchResults(viewName, query)`
 
-This functions also takes a `viewname`, which can be uses to directly render the result of the query in the specified view. This way you can reuse the view in other places in your webapp.
+This function also takes a `viewname`, which can be used to directly render the result of the query in the specified view. This way you can reuse the view in other places in your webapp.
 
 ### Example query
 
