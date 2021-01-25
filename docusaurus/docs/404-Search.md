@@ -58,9 +58,12 @@ var searchQuery = new SearchQuery()
 
 The Search method returns an object of the type `Dyndle.Modules.Search.Models.SearchResults`. This class contains a property called Items, which is a list of the type `Dyndle.Modules.Search.Contracts.ISearchResultItem`. This interface captures all the fields in the SOLR document. Out of the box, Dyndle will populate the Items property with instances of `Dyndle.Modules.Search.Models.SearchResultItem`, so you have access to the entire SOLR document.
 
-However, it is possible (and quite common) to enhance the SOLR document with extra fields. In that case, you can create your own class and configure Dyndle to use that. Your class must extend `Dyndle.Modules.Search.Models.SearchResultItem` and add the missing fields.
+However, a common scenario is to enhance the SOLR document with extra fields. You can do this by configuring the SI4T template building blocks or by writing custom ones, as explained in the [SI4T documentation](https://github.com/SI4T/SI4T/wiki/Configuring-Templates-:-What-Gets-Indexed%3F). 
+If you do this, you need to map the extra fields to the SearchResultItem.
+You can do this by creating your own class and configure Dyndle to use that. Your class must implement `Dyndle.Modules.Search.Contracts.ISearchResultItem` (preferably by extending `Dyndle.Modules.Search.Models.SearchResultItem`). You can add the extra fields to this class.
 
-You can use a custom model for this by configuring the model class name in `Search.ResponseItemModel` and the name of the assembly it is located in `Search.Assembly` settings in the web config. The search result will then try to bind the returned items to your own model. The custom model should implement `ISearchResultItem` and we recommend to inherit from `SearchResultItem` class.
+Next, you need to tell Dyndle to use this custom model instead of the default. You can do this in the Web.config, by configuring the model class name with the`Search.ResponseItemModel` appSetting, and the name of the assembly it is located in using the `Search.Assembly` appSetting. The search result will then try to bind the returned items to your own model. 
+
 
 ## Adding a search results page
 
