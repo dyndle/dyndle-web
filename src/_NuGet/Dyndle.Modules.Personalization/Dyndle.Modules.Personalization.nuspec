@@ -9,7 +9,7 @@
     <iconUrl>http://www.trivident.com/dd4t-modules-logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Dyndle.Modules.Personalization</description>
-    <copyright>Copyright 2018 Trivident</copyright>
+    <copyright>Copyright 2021 Trivident</copyright>
     <tags>SDL DD4T Web8 Trivident</tags>
     <references>
       <reference file="Dyndle.Modules.Personalization.dll" />

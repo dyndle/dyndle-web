@@ -10,8 +10,8 @@
     <iconUrl>http://www.trivident.com/dd4t-modules-logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Dyndle.Modules.Core</description>
-    <copyright>Copyright 2020 Trivident</copyright>
-    <tags>SDL Web8 DD4T Trivident Dyndle Core Module</tags>
+    <copyright>Copyright 2021 Trivident</copyright>
+    <tags>SDL Tridion Sites DD4T Trivident Dyndle Core Module</tags>
     <references>
       <reference file="Dyndle.Modules.Core.dll" />
     </references>
