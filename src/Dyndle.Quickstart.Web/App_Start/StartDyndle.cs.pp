@@ -45,7 +45,7 @@ namespace $rootnamespace$
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 
             // set the default routes for Dyndle (e.g. the PageController, BinaryController, etc)
-            Dyndle.Modules.Core.RouteConfig.RegisterRoutes(RouteTable.Routes);
+            global::Dyndle.Modules.Core.RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             // Register View Models
             var viewModelFactory = DependencyResolver.Current.GetService<IViewModelFactory>();
