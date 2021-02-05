@@ -27,13 +27,51 @@ Add a reference to the NuGet package: Dyndle.Modules.Search. Then provide the mo
 
 After having installed the TBBs from SI4T you can use them on the page templates of pages that you would want to be searchable. This will provide Solr with the indexing data of a page when you publish it using that page template. You can add a new TBB to a page template using the Tridion Sites Template Builder. For a detailed guide on using the template builder refer to the [template builder documentation](https://docs.sdl.com/LiveContent/content/en-US/SDL%20Web-v5/GUID-FD25A36E-4B1C-4346-BB7E-919B293B8748). You will also need to modify the Tridion deployer to handle the TBBs.  Instructions on how to do this can be found [here](https://github.com/SI4T/Solr/wiki/SI4T-Solr-Configuration-101).
 
-##  Adding a search results page
+## Html helper
+
+The Dyndle search module provides an Html helper class that can be used to retrieve search results in dynamic locations in your website. This way you don't have to create a page with a search component in Tridion. There are two helper functions you can use:
+
+`@Html.Search(query)`
+
+This function takes a query and returns a `SearchResults` object. You can then render the results manually.
+
+`@Html.RenderSearchResults(viewName, query)`
+
+This function also takes a `viewname`, which can be used to directly render the result of the query in the specified view. This way you can reuse the view in other places in your webapp.
+
+### Example query
+
+Below is an example query that will return a total of all indexed documents and will return 10 documents as objects.
+
+
+```c#
+@using Dyndle.Modules.Search.Models
+
+var searchQuery = new SearchQuery()
+{
+    Query = "*:*",
+    PageSize = 10
+};
+```
+
+## Custom search result model
+
+The Search method returns an object of the type `Dyndle.Modules.Search.Models.SearchResults`. This class contains a property called Items, which is a list of the type `Dyndle.Modules.Search.Contracts.ISearchResultItem`. This interface captures all the fields in the SOLR document. Out of the box, Dyndle will populate the Items property with instances of `Dyndle.Modules.Search.Models.SearchResultItem`, so you have access to the entire SOLR document.
+
+However, a common scenario is to enhance the SOLR document with extra fields. You can do this by configuring the SI4T template building blocks or by writing custom ones, as explained in the [SI4T documentation](https://github.com/SI4T/SI4T/wiki/Configuring-Templates-:-What-Gets-Indexed%3F). 
+If you do this, you need to map the extra fields to the SearchResultItem.
+You can do this by creating your own class and configure Dyndle to use that. Your class must implement `Dyndle.Modules.Search.Contracts.ISearchResultItem` (preferably by extending `Dyndle.Modules.Search.Models.SearchResultItem`). You can add the extra fields to this class.
+
+Next, you need to tell Dyndle to use this custom model instead of the default. You can do this in the Web.config, by configuring the model class name with the`Search.ResponseItemModel` appSetting, and the name of the assembly it is located in using the `Search.Assembly` appSetting. The search result will then try to bind the returned items to your own model. 
+
+
+## Adding a search results page
 
 To view the results of a search query on your website, you will need to create a page that points to a controller that retrieves the data from Solr. There are two ways to achieve this, using the built in controller from the search module or using your own custom controller.
 
 ### Search module controller
 
-The Dyndle search module provides a controller out of the box to retrieve data from Solr. All you need to do is create a page in Tridion with a component on it which specifies the routing to that controller. You can use the `Modules Metadata Template` for the page template and the `Search Result List` for the component schema, which were installed with the Dyndle templates. Provide the following values for the page template:
+The Dyndle search module provides a controller out of the box to retrieve data from Solr. All you need to do is create a page in Tridion with a component on it which specifies the routing to that controller. Provide the following values for the page template:
 
 | Field      | Value  |
 | ---------- | ------ |
@@ -42,32 +80,6 @@ The Dyndle search module provides a controller out of the box to retrieve data f
 | action     | List   |
 
 You also need to provide a value for the `view` field. Create a view that uses `Dyndle.Modules.Search.Models.SearchResults` as a model and set the name of the view in this field. You can then render the results of the query in this view.
-
-You can also use a custom model for this by configuring the `Search.ResponseItemModel` setting in the web config. The search result will then try to bind the returned items to your own model. Below is an example model to use as a starting point.
-
-```c#
-[ContentModel("searchResultList", true)]
-    public class DyndleSearchResults : Dyndle.Modules.Search.Models.SearchResults, IHasPageSize
-    {
-        [TextField]
-        public string Heading { get; set; }
-
-        // This is really not the results per page but a limit for search results.
-        [NumberField(FieldName = "maximumItems")]
-        public double ResultsPerPage { get; set; }
-
-        [NumberField(FieldName = "itemsPerPage")]
-        public double ItemsPerPage { get; set; }
-
-        public int ValidCurentPage { get; set; }
-
-        [TextField]
-        public string FacetField { get; set; }
-
-    }
-```
-
-
 
 ### Custom controller
 
@@ -91,15 +103,3 @@ public class MySearchController : ModuleControllerBase
         }
     }
 ```
-
-## Html helper
-
-The Dyndle search module also provides a Html helper class that can be used to retrieve search results in dynamic locations in your website. This way you don't have to create a page with a search component in Tridion. There are two helper functions you can use:
-
-`@Html.Search(query)`
-
-This function takes a query and returns a `SearchResults` object. You can then render the results manually.
-
-`@Html.RenderSearchResults(viewName, query)`
-
-This functions also takes a `viewname`, which can be uses to directly render the result of the query in the specified view. This way you can reuse the view in other places in your webapp.

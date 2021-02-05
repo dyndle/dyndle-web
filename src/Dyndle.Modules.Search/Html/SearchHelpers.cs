@@ -23,7 +23,7 @@ namespace Dyndle.Modules.Search.Html
         public static SearchResults Search(this HtmlHelper htmlHelper, SearchQuery query)
         {
             var result = SearchProvider.ExecuteQuery<SearchResults>(query);
-            if (result != null && result.Items.Count > 0)
+            if (result?.Items != null && result.Items.Count > 0)
             {
                 result.Items.ForEach(i => SearchLinkResolver.Resolve(i));
             }
