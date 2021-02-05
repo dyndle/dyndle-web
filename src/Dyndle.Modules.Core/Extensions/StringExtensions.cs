@@ -222,7 +222,10 @@ namespace Dyndle.Modules.Core.Extensions
         /// </summary>
         public static string CleanUrl(this string url, string defaultFileName)
         {
-
+            if (string.IsNullOrEmpty(url))
+            {
+                return url;
+            }
             if (IncludeFileExtensions)
             {
                 if (url.StartsWith("/")|| url.StartsWith("http"))
