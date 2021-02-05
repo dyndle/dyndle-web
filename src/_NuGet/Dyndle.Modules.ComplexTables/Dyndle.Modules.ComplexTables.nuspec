@@ -10,8 +10,8 @@
     <iconUrl>http://www.trivident.com/dd4t-modules-logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Dyndle.Modules.ComplexTables</description>
-    <copyright>Copyright 2018 Trivident</copyright>
-    <tags>SDL Web8 Trivident Module Complex Tables</tags>
+    <copyright>Copyright 2021 Trivident</copyright>
+    <tags>SDL Tridion Sites  Trivident Module Complex Tables</tags>
     <references>
       <reference file="Dyndle.Modules.ComplexTables.dll" />
     </references>

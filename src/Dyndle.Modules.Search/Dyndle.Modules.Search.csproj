@@ -165,6 +165,7 @@
     <Compile Include="Contracts\ISearchFacet.cs" />
     <Compile Include="Contracts\ISearchGroupBy.cs" />
     <Compile Include="Contracts\ISearchLinkResolver.cs" />
+    <Compile Include="Contracts\ISearchSummary.cs" />
     <Compile Include="Html\SearchHelpers.cs" />
     <Compile Include="Models\SearchAdditionalFilter.cs" />
     <Compile Include="Models\SearchFacet.cs" />

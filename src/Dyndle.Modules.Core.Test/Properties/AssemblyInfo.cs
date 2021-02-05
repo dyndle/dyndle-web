@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Trivident")]
 [assembly: AssemblyProduct("Dyndle.Modules.Core.Test")]
-[assembly: AssemblyCopyright("Copyright © Trivident 2020")]
+[assembly: AssemblyCopyright("Copyright © Trivident B.V. 2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

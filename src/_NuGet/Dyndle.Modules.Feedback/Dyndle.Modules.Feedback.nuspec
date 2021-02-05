@@ -10,7 +10,7 @@
     <iconUrl>http://www.trivident.com/dd4t-modules-logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Dyndle.Modules.Feedback</description>
-    <copyright>Copyright 2018 Trivident</copyright>
+    <copyright>Copyright 2021 Trivident</copyright>
     <tags>Feedback</tags>
     <references>
       <reference file="Dyndle.Modules.Feedback.dll" />

@@ -10,7 +10,7 @@
     <iconUrl>http://www.trivident.com/dd4t-modules-logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Dyndle.Providers.Tridion95</description>
-    <copyright>Copyright 2020 Trivident</copyright>
+    <copyright>Copyright 2021 Trivident</copyright>
     <tags>Dyndle DD4T SDL Web Tridion Sites Trivident Tridion9 Tridion9.5 Tridion 95</tags>
     <references>
       <reference file="Dyndle.Providers.Tridion95.dll" />
