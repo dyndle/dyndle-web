@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DD4T.ContentModel;
 using DD4T.Core.Contracts.ViewModels;
 using DD4T.ViewModels.Attributes;
@@ -36,8 +37,9 @@ namespace Dyndle.Modules.Core.Attributes.ViewModels
 
         private static bool PageUsesTridionRegions(IPage page)
         {
-            return page.Regions != null || (page.Regions.Count == 0 && page.ComponentPresentations.Count > 0);
+            return page.Regions?.Any() ?? false;
         }
+
         /// <summary>
         /// Gets region models based on regions defined in Tridion.
         /// </summary>
