@@ -246,15 +246,15 @@ namespace Dyndle.Modules.Navigation.Providers
                 return null;
             }
 
-            var result = _viewModelFactory.BuildViewModel<SitemapItem>(page.ComponentPresentations.FirstOrDefault());
+            var result = _viewModelFactory.BuildViewModel(page.ComponentPresentations.FirstOrDefault()) as ISitemapItem;
             if (result == null || result is ExceptionEntity || result is DefaultEntity)
             {
                 result = _viewModelFactory.BuildViewModel<SitemapItem>(page.ComponentPresentations.FirstOrDefault());
             }
-            (result).CleanAllUrls(_configuration.WelcomeFile);
+            result.CleanAllUrls(_configuration.WelcomeFile);
 
             _serializedCacheAgent.Store(key, _cacheRegion, result);
-            return (ISitemapItem)result;
+            return result;
         }
         private void RemoveInvisbleStructureGroups(ISitemapItem item)
         {

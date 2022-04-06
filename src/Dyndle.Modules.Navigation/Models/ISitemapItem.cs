@@ -117,5 +117,11 @@ namespace Dyndle.Modules.Navigation.Models
         /// </summary>
         /// <param name="navSubtype">Type of the nav sub.</param>
         void FilterBySubtype(string navSubtype);
+
+        /// <summary>
+        /// Cleans all urls.
+        /// </summary>
+        /// <param name="defaultFileName">Default name of the file.</param>
+        void CleanAllUrls(string defaultFileName);
     }
 }
