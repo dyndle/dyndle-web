@@ -16,7 +16,7 @@ namespace Dyndle.Modules.Core.Extensions
         public static bool SkipKeyWhilePreviewing(this string key)
         {
             return key.StartsWith("model_", StringComparison.InvariantCultureIgnoreCase) ||
-                key.StartsWith("output_", StringComparison.InvariantCultureIgnoreCase) ||
+                key.StartsWith("output/", StringComparison.InvariantCultureIgnoreCase) ||
                 key.StartsWith("page_", StringComparison.InvariantCultureIgnoreCase) ||
                 key.StartsWith("componentpresentation_", StringComparison.InvariantCultureIgnoreCase);
         }

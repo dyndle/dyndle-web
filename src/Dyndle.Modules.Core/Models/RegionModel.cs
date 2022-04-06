@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using DD4T.ContentModel;
 using Dyndle.Modules.Core.Models.System;
+using Newtonsoft.Json;
 
 namespace Dyndle.Modules.Core.Models
 {
@@ -51,6 +52,10 @@ namespace Dyndle.Modules.Core.Models
             RouteValues = new Dictionary<string, string>();
 
         }
+
+        // added private default constructor so it can be deserialized by Newtonsoft or something similar
+        [JsonConstructor]
+        private RegionModel() { }
 
         /// <summary>
         /// Gets or sets the name.

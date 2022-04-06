@@ -181,23 +181,6 @@ namespace Dyndle.Modules.Core.Controllers
 
         }
 
-        ///// <summary>
-        ///// Shows a custom error page by invoking the <see cref="PageController"/>.
-        ///// </summary>
-        ///// <param name="exception">The exception.</param>
-        //private void ShowCustomErrorPage(Exception exception)
-        //{
-        //    var routeData = new RouteData();
-
-        //    routeData.Values.Add("controller", "Page");
-        //    routeData.Values.Add("area", "Core");
-        //    routeData.Values.Add("action", "HttpException");
-
-        //    IController controller = DependencyResolver.Current.GetService<PageController>();
-
-        //    controller.Execute(new RequestContext(new HttpContextWrapper(Context), routeData));
-        //}
-
         /// <summary>
         /// Enriches the web page using the providers.
         /// </summary>
