@@ -87,6 +87,12 @@ namespace Dyndle.Modules.Core.Configuration
         public static string DisableOutputCachingForUrls => CoreConstants.Configuration.DisableOutputCachingForUrls.GetConfigurationValue();
 
         /// <summary>
+        /// Returns configuration appSetting 'DD4T.WelcomeFile' as string
+        /// </summary>
+        public static string WelcomeFile => CoreConstants.Configuration.WelcomeFile.GetConfigurationValue();
+
+
+        /// <summary>
         /// Gets or sets a value indicating whether [disable output caching].
         /// </summary>
         /// <value><c>true</c> if [disable output caching]; otherwise, <c>false</c>.</value>

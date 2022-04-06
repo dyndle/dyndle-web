@@ -107,7 +107,12 @@
             /// Configuration key containing the urls (or rather, paths) for which output caching is disabled. Multiple urls can be entered, separated by a comma
             /// Example: /search,/some/other/path
             /// </summary>
-            public const string DisableOutputCachingForUrls = "Dyndle.DisableOutputCachingForUrls";            
+            public const string DisableOutputCachingForUrls = "Dyndle.DisableOutputCachingForUrls";
+            /// <summary>
+            /// Configuration key containing the urls (or rather, paths) for which output caching is disabled. Multiple urls can be entered, separated by a comma
+            /// Example: /search,/some/other/path
+            /// </summary>
+            public const string WelcomeFile = "DD4T.WelcomeFile";
         }
 
 

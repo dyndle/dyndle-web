@@ -189,9 +189,8 @@ namespace Dyndle.Modules.Core
             {
                 return true;
             }
-            var configuration = DependencyResolver.Current.GetService(typeof(IDD4TConfiguration)) as IDD4TConfiguration;
-
-            var pageLink = incomingPageLink.CleanUrl(configuration.WelcomeFile);
+         
+            var pageLink = incomingPageLink.CleanUrl(DyndleConfig.WelcomeFile);
 
             if (pageLink.Equals(incomingPageLink, StringComparison.InvariantCultureIgnoreCase))
             {

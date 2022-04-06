@@ -160,7 +160,7 @@ namespace Dyndle.Modules.Core.Cache
                     return;
                 }
 
-                writer.WriteValue(htmlString);
+                writer.WriteValue(htmlString.ToString());
             }
         }
     }
