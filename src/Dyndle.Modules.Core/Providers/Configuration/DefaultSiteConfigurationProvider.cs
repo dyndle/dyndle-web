@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using DD4T.ContentModel.Contracts.Caching;
 using DD4T.ContentModel.Contracts.Logging;
 using DD4T.ContentModel.Contracts.Resolvers;
@@ -60,6 +61,10 @@ namespace Dyndle.Modules.Core.Providers.Configuration
             var pubId = _publicationResolver.ResolvePublicationId();
             var key = _cacheKeyFormat.FormatString(pubId);
 
+            if (HttpContext.Current.Items.Contains("SITE_CONFIGURATION"))
+            {
+                return (IDictionary<string, string>)HttpContext.Current.Items["SITE_CONFIGURATION"];
+            }
             var configuration = _cacheAgent.Load(key) as IDictionary<string, string>;
 
             if (configuration == null)
@@ -70,7 +75,7 @@ namespace Dyndle.Modules.Core.Providers.Configuration
                     _cacheAgent.Store(key, _cacheRegion, configuration);
                 }
             }
-
+            HttpContext.Current.Items.Add("SITE_CONFIGURATION", configuration);
             return configuration;
         }
 
