@@ -16,7 +16,7 @@
       <reference file="Dyndle.Modules.Feedback.dll" />
     </references>
     <dependencies>
-      <dependency id="Dyndle.Modules.Core" version="{PackageVersion}"/>
+      <dependency id="Dyndle.Modules.Core" version="1.0.6.0-alpha-20220504000000"/>
       <dependency id="MediatR" version="3.0.1"/>
     </dependencies>
   </metadata>

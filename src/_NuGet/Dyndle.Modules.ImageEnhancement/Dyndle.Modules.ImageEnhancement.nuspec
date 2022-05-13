@@ -17,7 +17,7 @@
     </references>
     <dependencies>
       <dependency id="ImageProcessor" version="2.5.6" />
-      <dependency id="Dyndle.Modules.Core" version="{PackageVersion}"/>
+      <dependency id="Dyndle.Modules.Core" version="1.0.6.0-alpha-20220504000000"/>
     </dependencies>
   </metadata>
   <files>

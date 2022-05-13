@@ -16,8 +16,8 @@
       <!-- <reference file="Dyndle.Modules.Management.dll" /> -->
     </references>
     <dependencies>
-      <dependency id="Dyndle.Modules.Core" version="{PackageVersion}"/>
-      <dependency id="Dyndle.Modules.Management" version="{PackageVersion}"/>
+      <dependency id="Dyndle.Modules.Core" version="1.0.6.0-alpha-20220504000000"/>
+      <dependency id="Dyndle.Modules.Management" version="1.0.6.0-alpha-20220504000000"/>
       <dependency id="DD4T.DI.Autofac" version="2.5.0"/>
       <dependency id="DD4T.Caching.ApacheMQ" version="2.5.0"/>
       <dependency id="Autofac" version="5.1.2"/>

@@ -16,7 +16,7 @@
       <reference file="Dyndle.Modules.Globalization.dll" />
     </references>
     <dependencies>
-      <dependency id="Dyndle.Modules.Core" version="{PackageVersion}"/>
+      <dependency id="Dyndle.Modules.Core" version="1.0.6.0-alpha-20220504000000"/>
     </dependencies>
   </metadata>
   <files>

@@ -67,14 +67,22 @@ namespace Dyndle.Modules.Core.Providers.Configuration
             }
             var configuration = _cacheAgent.Load(key) as IDictionary<string, string>;
 
+            if (configuration != null)
+            {
+                _logger.Debug($"Retrieved configuration for publication {pubId} from cache");
+                HttpContext.Current.Items.Add("SITE_CONFIGURATION", configuration);
+                return configuration;
+            }
+            configuration = LoadConfiguration();
             if (configuration == null)
             {
-                configuration = LoadConfiguration();
-                if (configuration != null)
-                {
-                    _cacheAgent.Store(key, _cacheRegion, configuration);
-                }
+                _logger.Warning($"Unable to retrieve configuration for publication {pubId} from Tridion, returning null");
             }
+            else
+            {
+                _cacheAgent.Store(key, _cacheRegion, configuration);
+            }
+            _logger.Debug($"Retrieved configuration for publication {pubId} from Tridion");
             HttpContext.Current.Items.Add("SITE_CONFIGURATION", configuration);
             return configuration;
         }
@@ -85,7 +93,7 @@ namespace Dyndle.Modules.Core.Providers.Configuration
         /// <returns>Dictionary&lt;System.String, System.String&gt;.</returns>
         /// <exception cref="Exception">configuration page not found. Url: {0}; Is the page published?</exception>
         private Dictionary<string, string> LoadConfiguration()
-        {           
+        {
             _logger.Debug("about to load configuration page. Url: {0}".FormatString(URL));
 
             var page = _contentProvider.GetPage(URL);

@@ -63,14 +63,28 @@ namespace Dyndle.Modules.Core.Models
         {
             get
             {
-                if (Id != null)
+                if (_url == null && Id != null)
                 {
-                    return DependencyResolver.Current.GetService<ILinkResolver>().ResolveUrl(Id.ToString());
+                    _url = LinkResolver.ResolveUrl(Id.ToString());
                 }
                 return _url;
             }
         }
-        private readonly string _url = null;
+        private string _url = null;
+
+        private static ILinkResolver _linkResover;
+        private static ILinkResolver LinkResolver
+        {
+            get
+            {
+                if (_linkResover == null)
+                {
+                    _linkResover = DependencyResolver.Current.GetService<ILinkResolver>();
+                }
+                return _linkResover;
+            }
+        }
+
 
         #region Overrides
 
