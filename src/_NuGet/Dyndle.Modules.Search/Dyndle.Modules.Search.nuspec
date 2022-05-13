@@ -16,7 +16,7 @@
       <reference file="Dyndle.Modules.Search.dll" />
     </references>
     <dependencies>
-      <dependency id="Dyndle.Modules.Core" version="1.0.6.0-alpha-20220504000000"/>
+      <dependency id="Dyndle.Modules.Core" version="{PackageVersion}"/>
     </dependencies>
   </metadata>
   <files>
