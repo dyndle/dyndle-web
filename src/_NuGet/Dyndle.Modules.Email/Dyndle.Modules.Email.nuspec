@@ -3,7 +3,7 @@
   <metadata>
     <id>Dyndle.Modules.Email</id>
     <!-- Version is set by Build.proj -->
-    <version>{PackageVersion}</version>
+    <version>{PackageVersion}</version> 
     <!-- NOTE: Visual Studio's NuGet UI only shows 'id' and 'description' -->
     <title>Dyndle.Modules.Email</title>
     <authors>Trivident</authors>
