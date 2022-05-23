@@ -3,7 +3,7 @@
   <metadata>
     <id>Dyndle.Quickstart.Web</id>
     <!-- Version is set by Build.proj -->
-    <version>{PackageVersion}</version>
+    <version>1.0.5.0-alpha-20220523000000</version>
     <!-- NOTE: Visual Studio's NuGet UI only shows 'id' and 'description' -->
     <title>Dyndle.Quickstart.Web</title>
     <authors>Trivident</authors>
@@ -16,8 +16,8 @@
       <!-- <reference file="Dyndle.Modules.Management.dll" /> -->
     </references>
     <dependencies>
-      <dependency id="Dyndle.Modules.Core" version="{PackageVersion}"/>
-      <dependency id="Dyndle.Modules.Management" version="{PackageVersion}"/>
+      <dependency id="Dyndle.Modules.Core" version="1.0.5.0-alpha-20220523000000"/>
+      <dependency id="Dyndle.Modules.Management" version="1.0.5.0-alpha-20220523000000"/>
       <dependency id="DD4T.DI.Autofac" version="2.5.0"/>
       <dependency id="DD4T.Caching.ApacheMQ" version="2.5.0"/>
       <dependency id="Autofac" version="5.1.2"/>
