@@ -16,7 +16,7 @@
       <reference file="Dyndle.Providers.Tridion10.dll" />
     </references>
     <dependencies>
-      <dependency id="Dyndle.Modules.Core" version="1.0.6.0-alpha-20230925000000"/>
+      <dependency id="Dyndle.Modules.Core" version="{PackageVersion}"/>
       <dependency id="DD4T.Providers.Tridion10.CIL" version="2.5.0"/>
       <dependency id="Microsoft.Extensions.DependencyInjection" version="2.2.0"/>
       <dependency id="Newtonsoft.Json" version="13.0.2" />
