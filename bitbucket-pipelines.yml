@@ -27,6 +27,7 @@ definitions:
        - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Providers.SDLWeb85/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
        - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Providers.Tridion9/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages_no_conflict
        - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Providers.Tridion95/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
+       - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Providers.Tridion10/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
        - nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Quickstart.Web/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
        #- nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.ComplexTables/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
        #- nuget pack $BITBUCKET_CLONE_DIR/src/_NuGet/Dyndle.Modules.Email/*.nuspec -BasePath $BITBUCKET_CLONE_DIR/src/_NuGet/$PROJECT_NAME -OutputDirectory $BITBUCKET_CLONE_DIR/build/packages
@@ -50,6 +51,7 @@ definitions:
         - nuget push build/packages/Dyndle.Providers.SDLWeb85*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
         - nuget push build/packages_no_conflict/Dyndle.Providers.Tridion9*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
         - nuget push build/packages/Dyndle.Providers.Tridion95*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
+        - nuget push build/packages/Dyndle.Providers.Tridion10*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
         - nuget push build/packages/Dyndle.Quickstart.Web*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
         #- nuget push build/packages/Dyndle.Modules.ComplexTables*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
         #- nuget push build/packages/Dyndle.Modules.Email*.nupkg $PRIVATE_NUGET_APIKEY -Source privaterepo2
@@ -69,6 +71,7 @@ definitions:
         - nuget push build/packages/Dyndle.Providers.SDLWeb85*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
         - nuget push build/packages_no_conflict/Dyndle.Providers.Tridion9*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
         - nuget push build/packages/Dyndle.Providers.Tridion95*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
+        - nuget push build/packages/Dyndle.Providers.Tridion10*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
         - nuget push build/packages/Dyndle.Quickstart.Web*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
         #- nuget push build/packages/Dyndle.Modules.ComplexTables*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json
         #- nuget push build/packages/Dyndle.Modules.Email*.nupkg $DYNDLE_PUBLIC_NUGET_APIKEY -Source https://api.nuget.org/v3/index.json

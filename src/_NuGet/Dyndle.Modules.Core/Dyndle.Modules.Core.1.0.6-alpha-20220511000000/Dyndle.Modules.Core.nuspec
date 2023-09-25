@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Dyndle.Modules.Core</id>
+    <version>1.0.6-alpha-20220511000001</version>
+    <title>Dyndle.Modules.Core</title>
+    <authors>Trivident</authors>
+    <owners>Trivident</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <iconUrl>http://www.trivident.com/dd4t-modules-logo.png</iconUrl>
+    <description>Dyndle.Modules.Core</description>
+    <copyright>Copyright 2021 Trivident</copyright>
+    <tags>SDL Tridion Sites DD4T Trivident Dyndle Core Module</tags>
+    <dependencies>
+      <dependency id="DD4T.Core" version="2.5.0" />
+      <dependency id="DD4T.MVC5" version="2.5.0" />
+      <dependency id="RazorGenerator.Mvc" version="2.4.9" />
+      <dependency id="Microsoft.Extensions.DependencyInjection" version="2.2.0" />
+      <dependency id="Newtonsoft.Json" version="11.0.2" />
+      <dependency id="WebActivatorEx" version="2.0.3" />
+    </dependencies>
+    <references>
+      <reference file="Dyndle.Modules.Core.dll" />
+    </references>
+  </metadata>
+</package>
