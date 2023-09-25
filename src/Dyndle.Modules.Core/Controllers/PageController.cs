@@ -164,7 +164,7 @@ namespace Dyndle.Modules.Core.Controllers
         {
 
             //Log the error!!
-            Logger.Error("caught exception of type " + filterContext.Exception.GetType());
+            Logger.Error($"{filterContext.Exception.GetType()} - message: {filterContext.Exception.Message}\r\n{filterContext.Exception.StackTrace}");
 
             if (!HttpContext.IsCustomErrorEnabled) return;
 
