@@ -6,6 +6,7 @@ using System.Web.Routing;
 using DD4T.ContentModel;
 using DD4T.ContentModel.Contracts.Configuration;
 using DD4T.ContentModel.Contracts.Logging;
+using Dyndle.Modules.Core.Attributes.Caching;
 using Dyndle.Modules.Core.Attributes.Filter;
 using Dyndle.Modules.Core.Attributes.Passive;
 using Dyndle.Modules.Core.Configuration;
@@ -66,7 +67,7 @@ namespace Dyndle.Modules.Core.Controllers
         /// </summary>
         /// <param name="page">The page.</param>
         /// <returns>ActionResult.</returns>
-        [OutputCache(CacheProfile = "Default")]
+        [DyndleOutputCache]
         public virtual ActionResult Page(IWebPage page)
         {
             if (page == null)
