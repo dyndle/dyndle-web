@@ -3,7 +3,7 @@
   <metadata>
     <id>Dyndle.Providers.SDLWeb85</id>
     <!-- Version is set by Build.proj -->
-    <version>1.0.5.0-alpha-20220523000000</version>
+    <version>{PackageVersion}</version>
     <!-- NOTE: Visual Studio's NuGet UI only shows 'id' and 'description' -->
     <title>Dyndle.Providers.SDLWeb85</title>
     <authors>Trivident</authors>
@@ -16,7 +16,7 @@
       <reference file="Dyndle.Providers.SDLWeb85.dll" />
     </references>
     <dependencies>
-      <dependency id="Dyndle.Modules.Core" version="1.0.5.0-alpha-20220523000000"/>
+      <dependency id="Dyndle.Modules.Core" version="{PackageVersion}"/>
       <dependency id="Sdl.Web.Delivery" version="8.5.1041" />
       <dependency id="Microsoft.Extensions.DependencyInjection" version="2.2.0"/>
       <dependency id="Newtonsoft.Json" version="11.0.2" />
