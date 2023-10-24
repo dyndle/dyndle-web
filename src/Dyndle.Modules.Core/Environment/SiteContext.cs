@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web;
 using DD4T.ContentModel.Contracts.Logging;
+using Dyndle.Modules.Core.Attributes.Caching;
 using Dyndle.Modules.Core.Configuration;
 using Dyndle.Modules.Core.Extensions;
 using Dyndle.Modules.Core.Providers.Configuration;
@@ -126,8 +128,12 @@ namespace Dyndle.Modules.Core.Environment
         /// <returns>System.String.</returns>
         public string GetLabel(string key, bool nullIfMissing = false )
         {
-            _logger.Debug("about to get label value for key: {0}".FormatString(key));
+            //_logger.Debug("about to get label value for key: {0}".FormatString(key));
             var localKey = LABELPREFIX.FormatString(key);
+            if (HttpContext.Current.Items.Contains(DyndleOutputCacheAttribute.ENABLE_OUTPUT_CACHE))
+            {
+                return $"[label:{localKey}]";
+            }
             string value;
             if (Configuration.TryGetValue(localKey, out value))
             {
