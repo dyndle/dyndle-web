@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Trivident")]
 [assembly: AssemblyProduct("Dyndle.Modules.Search")]
-[assembly: AssemblyCopyright("Copyright © 2021 Trivident B.V.")]
+[assembly: AssemblyCopyright("Copyright © 2023 Trivident B.V.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -31,4 +31,4 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.5.0")]
+[assembly: AssemblyVersion("1.0.8.0")]

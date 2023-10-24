@@ -36,7 +36,7 @@ namespace Dyndle.Modules.Core.Controllers
         /// <param name="region">The Region.</param>
         /// <param name="regionView">The view.</param>
         /// <returns>ActionResult.</returns>
-        [ChildActionOnly]
+        [ChildActionOnly]       
         public ActionResult Region(IRegionModel region, string regionView = "")
         {
             if (!regionView.IsNullOrEmpty())

@@ -14,9 +14,9 @@ namespace Dyndle.Modules.Core.Cache
     /// It only adds the generic Load method, but does not do any (de)serialization (regardless of the name of the interface)
     /// </summary>
     /// <seealso cref="ISerializedCacheAgent" />
-    public class PreviewAwareCacheAgent : ICacheAgent
+    public class PreviewAwareCacheAgent : ICacheAgent, IObserver<ICacheEvent>
     {
-        private readonly ICacheAgent _wrappedCacheAgent;
+        private readonly DefaultCacheAgent _wrappedCacheAgent;
         private readonly ILogger _logger;
 
         /// <summary>
@@ -81,6 +81,7 @@ namespace Dyndle.Modules.Core.Cache
         /// <param name="key">Key of the cached item</param>
         public void Remove(string key)
         {
+            _logger.Debug($"Calling wrapped cache agent to remove item with key {key}");
             _wrappedCacheAgent.Remove(key);
         }
 
@@ -95,6 +96,7 @@ namespace Dyndle.Modules.Core.Cache
             {
                 return;
             }
+            _logger.Debug($"Calling wrapped cache agent to store item with key {key} without any dependencies (no region specified)");
             _wrappedCacheAgent.Store(key, item);
         }
 
@@ -110,6 +112,7 @@ namespace Dyndle.Modules.Core.Cache
             {
                 return;
             }
+            _logger.Debug($"Calling wrapped cache agent to store item with key {key} with dependencies {string.Join(", ", dependOnTcmUris)} (no region specified)");
             _wrappedCacheAgent.Store(key, item, dependOnTcmUris);
         }
 
@@ -125,6 +128,7 @@ namespace Dyndle.Modules.Core.Cache
             {
                 return;
             }
+            _logger.Debug($"Calling wrapped cache agent to store item with key {key} in region {region} without any dependencies");
             _wrappedCacheAgent.Store(key, region, item);
         }
 
@@ -141,7 +145,23 @@ namespace Dyndle.Modules.Core.Cache
             {
                 return;
             }
+            _logger.Debug($"Calling wrapped cache agent to store item with key {key} in region {region} with dependencies {string.Join(", ", dependOnTcmUris)}");
             _wrappedCacheAgent.Store(key, region, item, dependOnTcmUris);
+        }
+
+        public void OnNext(ICacheEvent value)
+        {
+            _wrappedCacheAgent.OnNext(value);
+        }
+
+        public void OnError(Exception error)
+        {
+            _wrappedCacheAgent.OnError(error);
+        }
+
+        public void OnCompleted()
+        {
+            _wrappedCacheAgent.OnCompleted();
         }
 
         private bool IsPreviewActive
