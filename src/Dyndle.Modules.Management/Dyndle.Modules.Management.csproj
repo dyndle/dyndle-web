@@ -173,7 +173,6 @@
     <Compile Include="Providers\MemoryCacheProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <Content Include="Areas\Management\Views\Cache\RemoveItems.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>RemoveItems.generated.cs</LastGenOutput>
@@ -244,6 +243,16 @@
     <EmbeddedResource Include="DebugInfo\Resources\debuginfo.html" />
     <EmbeddedResource Include="DebugInfo\Resources\debuginfo.js" />
     <None Include="packages.config" />
+    <Content Include="web.config" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Package.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dyndle.Modules.Core\Dyndle.Modules.Core.csproj">

@@ -92,7 +92,6 @@
     <Compile Include="Services\IEmailSendingService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="Areas\Email\Views\Email\EmailCTA-ImageRight.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>EmailCTA-ImageRight.generated.cs</LastGenOutput>
@@ -121,6 +120,16 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <Content Include="web.config" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Package.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dyndle.Modules.Core\Dyndle.Modules.Core.csproj">
