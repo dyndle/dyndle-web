@@ -37,21 +37,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.Core", "Dynd
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.Personalization", "Dyndle.Modules.Personalization\Dyndle.Modules.Personalization.csproj", "{01FA4E6E-158B-4660-B87E-CC374091D0B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.Feedback", "Dyndle.Modules.Feedback\Dyndle.Modules.Feedback.csproj", "{13C067E5-0AFF-48FD-B93D-999712BF4E10}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.ComplexTables", "Dyndle.Modules.ComplexTables\Dyndle.Modules.ComplexTables.csproj", "{C050676D-A2FF-4700-BDFF-F21413C51E5D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.Management", "Dyndle.Modules.Management\Dyndle.Modules.Management.csproj", "{307263FD-8FE0-438F-89FE-8B3D5A5E64A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Providers.Tridion9", "Dyndle.Providers.Tridion9\Dyndle.Providers.Tridion9.csproj", "{99B6571E-65DD-4C76-B4C9-86B34E76FBD8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Providers.SDLWeb85", "Dyndle.Providers.SDLWeb85\Dyndle.Providers.SDLWeb85.csproj", "{5372DBE2-D735-4936-8AF2-0E38AE889ADF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Providers.SDLWeb8", "Dyndle.Providers.SDLWeb8\Dyndle.Providers.SDLWeb8.csproj", "{5111AC44-73A2-4D46-8F05-5A0C0A632CED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Providers.Tridion91", "Dyndle.Providers.Tridion91\Dyndle.Providers.Tridion91.csproj", "{99B6571E-65DD-4C76-B4C9-86B34E76FBD8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tridion.TestProviders", "Tridion.TestProviders\Tridion.TestProviders.csproj", "{899CC432-25D8-4D65-9D98-95D109300127}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Modules.Test", "Dyndle.Modules.Core.Test\Dyndle.Modules.Test.csproj", "{003C6126-7BD3-436D-9C72-3D6325D97019}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyndle.Quickstart.Web", "Dyndle.Quickstart.Web\Dyndle.Quickstart.Web.csproj", "{1BB95D95-DC20-4129-95C4-6DF6B2D327AF}"
 EndProject
@@ -104,12 +96,6 @@ Global
 		{01FA4E6E-158B-4660-B87E-CC374091D0B5}.Package|Any CPU.Build.0 = Package|Any CPU
 		{01FA4E6E-158B-4660-B87E-CC374091D0B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01FA4E6E-158B-4660-B87E-CC374091D0B5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{13C067E5-0AFF-48FD-B93D-999712BF4E10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{13C067E5-0AFF-48FD-B93D-999712BF4E10}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{13C067E5-0AFF-48FD-B93D-999712BF4E10}.Package|Any CPU.ActiveCfg = Package|Any CPU
-		{13C067E5-0AFF-48FD-B93D-999712BF4E10}.Package|Any CPU.Build.0 = Package|Any CPU
-		{13C067E5-0AFF-48FD-B93D-999712BF4E10}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{13C067E5-0AFF-48FD-B93D-999712BF4E10}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C050676D-A2FF-4700-BDFF-F21413C51E5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C050676D-A2FF-4700-BDFF-F21413C51E5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C050676D-A2FF-4700-BDFF-F21413C51E5D}.Package|Any CPU.ActiveCfg = Package|Any CPU
@@ -128,30 +114,12 @@ Global
 		{99B6571E-65DD-4C76-B4C9-86B34E76FBD8}.Package|Any CPU.Build.0 = Package|Any CPU
 		{99B6571E-65DD-4C76-B4C9-86B34E76FBD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99B6571E-65DD-4C76-B4C9-86B34E76FBD8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5372DBE2-D735-4936-8AF2-0E38AE889ADF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5372DBE2-D735-4936-8AF2-0E38AE889ADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5372DBE2-D735-4936-8AF2-0E38AE889ADF}.Package|Any CPU.ActiveCfg = Package|Any CPU
-		{5372DBE2-D735-4936-8AF2-0E38AE889ADF}.Package|Any CPU.Build.0 = Package|Any CPU
-		{5372DBE2-D735-4936-8AF2-0E38AE889ADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5372DBE2-D735-4936-8AF2-0E38AE889ADF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5111AC44-73A2-4D46-8F05-5A0C0A632CED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5111AC44-73A2-4D46-8F05-5A0C0A632CED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5111AC44-73A2-4D46-8F05-5A0C0A632CED}.Package|Any CPU.ActiveCfg = Package|Any CPU
-		{5111AC44-73A2-4D46-8F05-5A0C0A632CED}.Package|Any CPU.Build.0 = Package|Any CPU
-		{5111AC44-73A2-4D46-8F05-5A0C0A632CED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5111AC44-73A2-4D46-8F05-5A0C0A632CED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{899CC432-25D8-4D65-9D98-95D109300127}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{899CC432-25D8-4D65-9D98-95D109300127}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{899CC432-25D8-4D65-9D98-95D109300127}.Package|Any CPU.ActiveCfg = Release|Any CPU
 		{899CC432-25D8-4D65-9D98-95D109300127}.Package|Any CPU.Build.0 = Release|Any CPU
 		{899CC432-25D8-4D65-9D98-95D109300127}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{899CC432-25D8-4D65-9D98-95D109300127}.Release|Any CPU.Build.0 = Release|Any CPU
-		{003C6126-7BD3-436D-9C72-3D6325D97019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{003C6126-7BD3-436D-9C72-3D6325D97019}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{003C6126-7BD3-436D-9C72-3D6325D97019}.Package|Any CPU.ActiveCfg = Release|Any CPU
-		{003C6126-7BD3-436D-9C72-3D6325D97019}.Package|Any CPU.Build.0 = Release|Any CPU
-		{003C6126-7BD3-436D-9C72-3D6325D97019}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{003C6126-7BD3-436D-9C72-3D6325D97019}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1BB95D95-DC20-4129-95C4-6DF6B2D327AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1BB95D95-DC20-4129-95C4-6DF6B2D327AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BB95D95-DC20-4129-95C4-6DF6B2D327AF}.Package|Any CPU.ActiveCfg = Package|Any CPU

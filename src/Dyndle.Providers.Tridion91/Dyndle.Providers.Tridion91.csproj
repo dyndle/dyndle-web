@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0F177BF7-67EA-4B29-BE70-B0DBF18CD988}</ProjectGuid>
+    <ProjectGuid>{99B6571E-65DD-4C76-B4C9-86B34E76FBD8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Dyndle.Providers.Tridion10</RootNamespace>
-    <AssemblyName>Dyndle.Providers.Tridion10</AssemblyName>
+    <RootNamespace>Dyndle.Providers.Tridion9</RootNamespace>
+    <AssemblyName>Dyndle.Providers.Tridion9</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
@@ -42,18 +41,18 @@
     <LangVersion>8</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <PackageId>Dyndle.Providers.Tridion10</PackageId>
+    <PackageId>Dyndle.Providers.Tridion91</PackageId>
     <Version>1.1.0</Version>
     <Authors>Trivident</Authors>
     <Company>Trivident</Company>
-    <Description>Dyndle provider module for Tridion 10.0</Description>
+    <Description>Dyndle provider module for Tridion 9.1</Description>
     <PackageOutputPath>..\..\build\package</PackageOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="DD4T.Model" Version="2.6.1" />
     <PackageReference Include="DD4T.Core" Version="2.6.1" />
     <PackageReference Include="DD4T.MVC5" Version="2.5.1" />
-    <PackageReference Include="DD4T.Providers.Tridion10.CIL" Version="2.5.0" />
+    <PackageReference Include="DD4T.Providers.Tridion9.1.CIL" Version="2.6.0" />
     <PackageReference Include="NuGet.Build.Tasks.Pack">
       <Version>6.13.1</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -98,9 +97,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="images\rws-logo-128.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
