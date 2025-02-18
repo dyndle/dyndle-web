@@ -3,7 +3,7 @@
   <metadata>
     <id>Dyndle.Modules.Search</id>
     <!-- Version is set by Build.proj -->
-    <version>{PackageVersion}</version>
+    <version>1.0.9.0-alpha-20250217150446</version>
     <!-- NOTE: Visual Studio's NuGet UI only shows 'id' and 'description' -->
     <title>Dyndle.Modules.Search</title>
     <authors>Trivident</authors>
@@ -16,7 +16,7 @@
       <reference file="Dyndle.Modules.Search.dll" />
     </references>
     <dependencies>
-      <dependency id="Dyndle.Modules.Core" version="{PackageVersion}"/>
+      <dependency id="Dyndle.Modules.Core" version="1.0.9.0-alpha-20250217150446"/>
     </dependencies>
   </metadata>
   <files>
