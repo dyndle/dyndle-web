@@ -1,4 +1,4 @@
-image: mono
+image: mcr.microsoft.com/dotnet/framework/sdk:4.8
 clone:
   depth: full    # SonarCloud scanner needs the full history to assign issues properly  
 definitions:
