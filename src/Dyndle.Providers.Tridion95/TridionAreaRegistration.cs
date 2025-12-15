@@ -5,11 +5,9 @@ using Dyndle.Modules.Core.Configuration;
 using Dyndle.Modules.Core.Contracts;
 using Dyndle.Modules.Core.Extensions;
 using Dyndle.Modules.Core.Providers.Content;
-using Dyndle.Providers.Tridion9.5.Providers;
-using Dyndle.Providers.Tridion9.5.Resolvers;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Dyndle.Providers.Tridion9.5
+namespace Dyndle.Providers.Tridion95
 {
 	/// <inheritdoc />
 	public class TridionAreaRegistration : BaseModuleAreaRegistration
